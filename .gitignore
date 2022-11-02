@@ -1,2 +1,4 @@
-node_modules
-dist
+shell.nix
+
+**/node_modules/
+dist/
