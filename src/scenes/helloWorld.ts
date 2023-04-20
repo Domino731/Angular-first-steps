@@ -79,7 +79,7 @@ export class HelloWorld extends Container {
         console.log(1);
     }
 
-    update(_: any, delta: number) {
+    update(_: any) {
         if (
             this.sprite.x <= 0 ||
             this.sprite.x >= window.innerWidth - this.sprite.width
