@@ -29,7 +29,7 @@ const main = async () => {
     document.body.appendChild(app.view);
 
     // Set scene
-    var scene = new HelloWorld(app);
+    const scene = new HelloWorld(app);
     app.stage.addChild(scene);
 };
 

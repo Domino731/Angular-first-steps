@@ -1,5 +1,4 @@
 export const RESOLUTIONS = [
-    {x: 640,  y: 480},
     {x: 1280, y:  720},
     {x: 1920, y:  1080},
     {x: 2560, y:  1440},
