@@ -1,13 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { HelloWorld } from './scenes/helloWorld';
-
-const load = (app: PIXI.Application) => {
-    return new Promise<void>((resolve) => {
-        app.loader.add('assets/trees-md.png').load(() => {
-            resolve();
-        });
-    });
-};
+import {loadTextures} from "./engine/textures";
 
 const main = async () => {
     // Main app
@@ -25,7 +18,7 @@ const main = async () => {
     });
 
     // Load assets
-    await load(app);
+    await loadTextures(app);
     document.body.appendChild(app.view);
 
     // Set scene
