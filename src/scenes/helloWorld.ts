@@ -24,7 +24,7 @@ export class HelloWorld extends Container {
 
         // create sprite
         this.sprite = new Sprite(
-            app.loader.resources['assets/hello-world.png'].texture
+            app.loader.resources['assets/trees-md.png'].texture
         );
 
         this.sprite.x = window.innerWidth / 2 - this.sprite.width / 2;
