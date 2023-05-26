@@ -1,29 +1,30 @@
 import * as PIXI from 'pixi.js';
-import { HelloWorld } from './scenes/helloWorld';
+import {HelloWorld} from './scenes/helloWorld';
 import {loadTextures} from "./engine/textures";
 
-const main = async () => {
-    // Main app
-    let app = new PIXI.Application();
+const TEST_1_SCENE = require('./scenes/TEST_1.json');
 
-    // Display application properly
-    document.body.style.margin = '0';
-    app.renderer.view.style.position = 'absolute';
-    app.renderer.view.style.display = 'block';
+// Main app
+let app = new PIXI.Application();
 
-    // View size = windows
+// Display application properly
+document.body.style.margin = '0';
+app.renderer.view.style.position = 'absolute';
+app.renderer.view.style.display = 'block';
+
+// View size = windows
+app.renderer.resize(window.innerWidth, window.innerHeight);
+window.addEventListener('resize', () => {
     app.renderer.resize(window.innerWidth, window.innerHeight);
-    window.addEventListener('resize', (e) => {
-        app.renderer.resize(window.innerWidth, window.innerHeight);
-    });
+});
 
-    // Load assets
-    await loadTextures(app);
+// Load assets
+loadTextures(app, TEST_1_SCENE).then(() => {
     document.body.appendChild(app.view);
 
     // Set scene
     const scene = new HelloWorld(app);
     app.stage.addChild(scene);
-};
+});
 
-main();
+

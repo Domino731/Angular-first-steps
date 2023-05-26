@@ -1,5 +1,6 @@
 import {SPRITE_SRC, SpriteConfig} from "./types";
 
+// TODO deprecated
 export const SpritesConfig: Array<SpriteConfig> = [
     {
         sprite: SPRITE_SRC.BUSHES_DOUBLE_SM_PNG,
