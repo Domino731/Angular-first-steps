@@ -23,7 +23,7 @@ export const loadTextures = (app: PIXI.Application, sceneData: any) => {
         app.loader.add('assets/outdoors_spring.png');
         // load textures from scene
         texturesSrc.forEach((src: string) => app.loader.add(src));
-
+        // for test purposes only
         app.loader.add('assets/trees-md.png');
         app.loader.add('assets/trees-lg.png');
 
