@@ -1,1 +1,1 @@
-export {}
+export const APP_SCALE = 2;
