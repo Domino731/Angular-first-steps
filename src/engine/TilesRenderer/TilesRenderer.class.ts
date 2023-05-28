@@ -10,6 +10,5 @@ export class TilesRenderer {
     public render(): void {
         const tile = new Tile();
         app.stage.addChild(tile)
-
     }
 }

@@ -1,7 +1,7 @@
 import {Application, Container, Sprite, Rectangle, Texture, BaseTexture} from 'pixi.js';
 import {DirectionInitialState} from "../../../scenes/const";
 import {app} from "../../../index";
-import {TILE_SIZE} from "./Tile.types";
+import {DEFAULT_TILE_CORDS, TILE_SIZE} from "./Tile.const";
 
 
 export class Tile extends Container {
@@ -25,7 +25,7 @@ export class Tile extends Container {
 
         // create sprite
         const spritesheet: BaseTexture = app.loader.resources['assets/outdoors_spring.png'].texture as unknown as BaseTexture;
-        const frame = new Texture(spritesheet, new Rectangle(0, 0, TILE_SIZE.WIDTH, TILE_SIZE.HEIGHT));
+        const frame = new Texture(spritesheet, new Rectangle(DEFAULT_TILE_CORDS.X, DEFAULT_TILE_CORDS.Y, TILE_SIZE.WIDTH, TILE_SIZE.HEIGHT));
         this.sprite = new Sprite(
             frame
         );
