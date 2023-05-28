@@ -19,7 +19,7 @@ export const loadTextures = (app: PIXI.Application, sceneData: any) => {
     console.log(texturesSrc);
 
     return new Promise<void>((resolve) => {
-        // basic, for grass tiles
+        // basic, for grass TilesRenderer
         app.loader.add('assets/outdoors_spring.png');
         // load textures from scene
         texturesSrc.forEach((src: string) => app.loader.add(src));
