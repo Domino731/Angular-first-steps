@@ -12,7 +12,15 @@ export class TilesRenderer {
     }
 
     private render(): void {
+        // this.allTiles.forEach(nestedTiles => nestedTiles.forEach(tile => {
+        //     // if (tile.spriteName !== 'Outdoors summer') {
+        //     new Tile(tile);
+        //     // }
+        // }))
         const tile = new Tile(this.allTiles[0][0]);
-        app.stage.addChild(tile)
+        const til2 = new Tile(this.allTiles[0][1]);
+        console.log(this.allTiles[0])
+        app.stage.addChild(tile);
+        app.stage.addChild(til2)
     }
 }
