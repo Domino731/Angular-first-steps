@@ -6,6 +6,8 @@ import {Tile} from "./engine/TilesRenderer/Tile";
 
 const TEST_1_SCENE = require('./scenes/TEST_1.json');
 
+console.log(TEST_1_SCENE)
+
 // Main app
 
 export const app = new PIXI.Application();
