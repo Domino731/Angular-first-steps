@@ -14,11 +14,18 @@ export const createTilesData = (sceneTiles: Array<SceneJsonTile>): Array<Array<S
     }
     for (let i = 0; i < mapHeight; i++) {
         for (let j = 0; j < mapWidth; j++) {
+            // const scene = sceneTiles.find((el) => el.cords.x === j && el.cords.x === i);
+            // if (scene) {
+            //     multiDimArray[i][j] = scene;
+            // } else {
             multiDimArray[i][j] = {
                 spriteCords: {x: DEFAULT_TILE_CORDS.X, y: DEFAULT_TILE_CORDS.Y},
                 cords: {x: j, y: i},
-                spriteName: DEFAULT_TILE_SPRITE_NAME
+                spriteName: DEFAULT_TILE_SPRITE_NAME,
+                x: false
             };
+            // }
+
         }
     }
 
@@ -28,7 +35,8 @@ export const createTilesData = (sceneTiles: Array<SceneJsonTile>): Array<Array<S
         multiDimArray[x][y] = {
             ...sceneTile,
             // TODO editor: fix json
-            spriteCords: {x: sceneTile.spriteCords.x * 16, y: sceneTile.spriteCords.y * 16}
+            spriteCords: {x: sceneTile.spriteCords.x * 16, y: sceneTile.spriteCords.y * 16},
+            x: true
         };
     })
 

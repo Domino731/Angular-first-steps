@@ -26,6 +26,8 @@ export class Tile extends Container {
         this.update = this.update.bind(this);
         const spritesheet: BaseTexture = app.loader.resources[getSpritePathBySpriteName(sceneTile.spriteName) ?? ''].texture as unknown as BaseTexture;
         const frame = new Texture(spritesheet, new Rectangle(sceneTile.spriteCords.x, sceneTile.spriteCords.y, TILE_SIZE.WIDTH, TILE_SIZE.HEIGHT));
+        // const frame = new Texture(spritesheet, new Rectangle(16, 112, TILE_SIZE.WIDTH, TILE_SIZE.HEIGHT));
+
         this.sprite = new Sprite(
             frame
         );
