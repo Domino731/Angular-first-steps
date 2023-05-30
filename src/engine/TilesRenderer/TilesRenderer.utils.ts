@@ -25,7 +25,11 @@ export const createTilesData = (sceneTiles: Array<SceneJsonTile>): Array<Array<S
     // push tiles from scene
     sceneTiles.forEach((sceneTile: SceneJsonTile) => {
         const {cords: {x, y}} = sceneTile;
-        multiDimArray[x][y] = sceneTile;
+        multiDimArray[x][y] = {
+            ...sceneTile,
+            // TODO editor: fix json
+            spriteCords: {x: sceneTile.spriteCords.x * 16, y: sceneTile.spriteCords.y * 16}
+        };
     })
 
     return multiDimArray;

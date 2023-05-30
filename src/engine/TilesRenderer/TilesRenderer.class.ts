@@ -4,13 +4,15 @@ import {SceneJsonTile} from "../../types";
 import {createTilesData} from "./TilesRenderer.utils";
 
 export class TilesRenderer {
+    private allTiles: Array<Array<SceneJsonTile>>;
+
     constructor(sceneTiles: Array<SceneJsonTile>) {
-        createTilesData(sceneTiles)
+        this.allTiles = createTilesData(sceneTiles)
         this.render();
     }
 
-    public render(): void {
-        const tile = new Tile();
+    private render(): void {
+        const tile = new Tile(this.allTiles[0][0]);
         app.stage.addChild(tile)
     }
 }
