@@ -43,32 +43,18 @@ export class TilesRenderer {
         document.addEventListener('keypress', ({key}) => {
             switch (key) {
                 case 'w':
-                    console.log('w');
-                    this.direction = {
-                        ...DirectionInitialState,
-                        top: true
-                    }
-                    this.setTilesDirections();
+                    this.direction.top = true;
                     break;
                 case 'd':
-                    this.direction = {
-                        ...DirectionInitialState,
-                        right: true
-                    }
+                    this.direction.right = true;
                     this.setTilesDirections();
                     break;
                 case 's':
-                    this.direction = {
-                        ...DirectionInitialState,
-                        bottom: true
-                    }
+                    this.direction.bottom = true;
                     this.setTilesDirections();
                     break;
                 case 'a':
-                    this.direction = {
-                        ...DirectionInitialState,
-                        left: true
-                    }
+                    this.direction.left = true;
                     this.setTilesDirections();
                     break;
             }
