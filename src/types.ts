@@ -22,3 +22,9 @@ export interface SpriteDim {
     spriteWidth: number;
     spriteHeight: number;
 }
+
+export interface SceneJsonTile {
+    spriteCords: Vector;
+    cords: Vector;
+    spriteName: string;
+}

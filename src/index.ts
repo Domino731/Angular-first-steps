@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 import {HelloWorld} from './scenes/helloWorld';
 import {loadTextures} from "./engine/textures";
-import {TilesRenderer} from "./engine/TilesRenderer/TilesRenderer.class";
+import {TilesRenderer} from "./engine/TilesRenderer";
 import {Tile} from "./engine/TilesRenderer/Tile";
 
 const TEST_1_SCENE = require('./scenes/TEST_1.json');
@@ -27,9 +27,8 @@ loadTextures(app, TEST_1_SCENE).then(() => {
 
     // Set scene
     // const scene = new HelloWorld(app);
-    new TilesRenderer();
+    // console.log('SCENE DATA: ', TEST_1_SCENE)
+    new TilesRenderer(TEST_1_SCENE.tiles);
     // app.stage.addChild(scene);
 });
 
-// Game logic here:
-new TilesRenderer().render();

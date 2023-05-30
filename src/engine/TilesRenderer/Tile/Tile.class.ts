@@ -1,7 +1,7 @@
 import {Application, Container, Sprite, Rectangle, Texture, BaseTexture} from 'pixi.js';
 import {DirectionInitialState} from "../../../scenes/const";
 import {app} from "../../../index";
-import {DEFAULT_TILE_CORDS, TILE_SIZE} from "./Tile.const";
+import {DEFAULT_TILE_CORDS, TILE_SIZE} from "../TilesRenderer.const";
 
 
 export class Tile extends Container {
@@ -33,17 +33,8 @@ export class Tile extends Container {
         this.sprite.x = 0;
         this.sprite.y = 0;
         this.addChild(this.sprite);
-
-        this.initEvents();
         // Handle update
         app.ticker.add(this.update);
-    }
-
-    changeDirection(): void {
-    }
-
-    initEvents(): void {
-
     }
 
     update(_: any) {

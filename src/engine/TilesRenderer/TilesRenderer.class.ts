@@ -1,9 +1,11 @@
 import {app} from "../../index";
-import {Sprite} from 'pixi.js';
 import {Tile} from "./Tile";
+import {SceneJsonTile} from "../../types";
+import {createTilesData} from "./TilesRenderer.utils";
 
 export class TilesRenderer {
-    constructor() {
+    constructor(sceneTiles: Array<SceneJsonTile>) {
+        createTilesData(sceneTiles)
         this.render();
     }
 
