@@ -55,28 +55,5 @@ export class Tile extends Container {
         if (this.direction.bottom && !this.direction.top) {
             this.sprite.y += APP_SPEED * delta;
         }
-//         let newX = this.sprite.x;
-//         let newY = this.sprite.y;
-//         if (this.direction.top) {
-//             newY = this.sprite.y + APP_SPEED * delta
-//         } else if (this.direction.bottom) {
-//             newY = this.sprite.y - APP_SPEED * delta
-//         }
-//
-//         if (this.direction.left) {
-//             newX = this.sprite.x - APP_SPEED * delta
-//         } else if (this.direction.right) {
-//             newX = this.sprite.x + APP_SPEED * delta
-//         }
-//
-//
-// // Calculate the new position
-// //         const speed = 2; // Adjust the speed as needed
-// //         const newX = this.sprite.x + speed * delta; // Delta is the elapsed time since the last frame
-// //         const newY = this.sprite.y + speed * delta;
-// //
-// //         // Update the position of the sprite
-//         this.sprite.x = newX;
-//         this.sprite.y = newY;
     }
 }

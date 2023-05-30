@@ -44,6 +44,7 @@ export class TilesRenderer {
             switch (key) {
                 case 'w':
                     this.direction.top = true;
+                    this.setTilesDirections();
                     break;
                 case 'd':
                     this.direction.right = true;
@@ -61,9 +62,23 @@ export class TilesRenderer {
         });
 
         document.addEventListener('keyup', ({key}) => {
-            if (key === 'w' || key === 'd' || key === 's' || key === 'a') {
-                this.direction = {...DirectionInitialState};
-                this.setTilesDirections();
+            switch (key) {
+                case 'w':
+                    this.direction.top = false;
+                    this.setTilesDirections();
+                    break;
+                case 'd':
+                    this.direction.right = false;
+                    this.setTilesDirections();
+                    break;
+                case 's':
+                    this.direction.bottom = false;
+                    this.setTilesDirections();
+                    break;
+                case 'a':
+                    this.direction.left = false;
+                    this.setTilesDirections();
+                    break;
             }
         });
     }
