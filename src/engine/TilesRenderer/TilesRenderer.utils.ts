@@ -25,7 +25,7 @@ export const createTilesData = (sceneTiles: Array<SceneJsonTile>): Array<Array<S
     // push tiles from scene
     sceneTiles.forEach((sceneTile: SceneJsonTile) => {
         const {cords: {x, y}} = sceneTile;
-        multiDimArray[x][y] = {
+        multiDimArray[y][x] = {
             ...sceneTile,
             spriteCords: {x: sceneTile.spriteCords.x * 16, y: sceneTile.spriteCords.y * 16},
         };
