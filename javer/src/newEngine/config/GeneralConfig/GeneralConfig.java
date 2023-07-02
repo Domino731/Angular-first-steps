@@ -1,29 +1,29 @@
 package javer.src.newEngine.config.GeneralConfig;
 
 public class GeneralConfig {
-    private float windowHeight;
-    private float windowWidth;
+    private int windowHeight;
+    private int windowWidth;
     private final float scale;
 
-    public GeneralConfig(float windowWidth, float windowHeight){
+    public GeneralConfig(int windowWidth, int windowHeight){
       this.windowHeight = windowHeight;
       this.windowWidth = windowWidth;
       this.scale = 2.0f;
     }
 
     // setters
-    public void setWindowHeight(float windowHeight) {
+    public void setWindowHeight(int windowHeight) {
         this.windowHeight = windowHeight;
     }
-    public void setWindowWidth(float windowWidth) {
+    public void setWindowWidth(int windowWidth) {
         this.windowWidth = windowWidth;
     }
 
     // getters
-    public float getWindowHeight() {
+    public int getWindowHeight() {
         return windowHeight;
     }
-    public float getWindowWidth() {
+    public int getWindowWidth() {
         return windowWidth;
     }
     public float getScale() {
