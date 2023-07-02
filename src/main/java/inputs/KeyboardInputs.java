@@ -1,6 +1,6 @@
 package inputs;
 
-import Engine.GamePanel;
+import Engine2.GamePanel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -8,7 +8,6 @@ import java.awt.event.KeyListener;
 public class KeyboardInputs implements KeyListener {
     private GamePanel gamePanel;
 
-    // constructor
     public KeyboardInputs(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
     }
@@ -22,20 +21,21 @@ public class KeyboardInputs implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()){
             case KeyEvent.VK_W:
-//                gamePanel.getEngine().getPlayer().setUp(true);
-//                gamePanel.getEngine().getPlayerClass().setUp(true);
+                System.out.println('W');
+                this.gamePanel.changeYDelta(-5);
                 break;
             case KeyEvent.VK_S:
-//                gamePanel.getEngine().getPlayer().setDown(true);
-//                gamePanel.getEngine().getPlayerClass().setDown(true);
+                System.out.println('S');
+                this.gamePanel.changeYDelta(-5);
+
                 break;
             case KeyEvent.VK_A:
-//                gamePanel.getEngine().getPlayer().setLeft(true);
-//                gamePanel.getEngine().getPlayerClass().setLeft(true);
+                System.out.println('A');
+                this.gamePanel.changeXDelta(5);
                 break;
             case KeyEvent.VK_D:
-//                gamePanel.getEngine().getPlayer().setRight(true);
-//                gamePanel.getEngine().getPlayerClass().setRight(true);
+                System.out.println('D');
+                this.gamePanel.changeXDelta(5);
                 break;
         }
     }

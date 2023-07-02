@@ -1,9 +1,10 @@
-import Engine.GameWindow;
+
+import Engine2.Engine;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Main {
     public static void main(String[] args) {
-        new GameWindow(1280, 720);
+        new Engine();
         ObjectMapper o = new ObjectMapper();
     }
 }

@@ -1,17 +1,11 @@
-package Engine;
-
-//import javer.src.entities.Player;
-//import javer.src.levels.LevelManager;
-//import javer.src.player.PlayerClass;
-
-import objects.entities.player.Player;
+package Engine2;
 
 import java.awt.*;
 
 // Engine class with game panel & window
 public class Engine implements Runnable {
-//    private GameWindow gameWindow;
-//    private GamePanel gamePanel;
+    private GameWindow gameWindow;
+    private GamePanel gamePanel;
     private Thread gameThread;
     private final int FPS_SET = 120;
     private final int UPS_SET = 200;
@@ -23,22 +17,15 @@ public class Engine implements Runnable {
     public final static int TILES_SIZE = (int) (TILES_DEFAULT_SIZE * SCALE);
     public final static int GAME_WIDTH = TILES_SIZE * TILES_IN_WIDTH;
     public final static int GAME_HEIGHT = TILES_SIZE * TILES_IN_HEIGHT;
-    // Entities
-    private Player player;
-//    private Player player;
-//    private LevelManager levelManager;
-//
-//    // NEW
-//    private PlayerClass playerClass;
+
 
     // on start, create the game panel and game window classes
     public Engine(){
         initClasses();
-//        gamePanel = new GamePanel(this);
-//        gameWindow = new GameWindow(GAME_WIDTH, GAME_HEIGHT, gamePanel);
-//        gamePanel.requestFocus();
+        gamePanel = new GamePanel();
+        gameWindow = new GameWindow(this.gamePanel);
+        gamePanel.requestFocus();
         startGameLoop();
-        player = new Player();
         System.out.println("Engine started");
 //        playerClass = new PlayerClass(10, 10, 100, 100);
     }
@@ -54,13 +41,11 @@ public class Engine implements Runnable {
     }
 
     public void update() {
-
 //        player.update();
 //        levelManager.update();
     }
 
     public void render(Graphics g){
-        player.render(g);
 //        levelManager.draw(g);
 //        player.render(g);
 //        playerClass.render(g);
@@ -95,7 +80,7 @@ public class Engine implements Runnable {
             }
 
             if (deltaF >= 1) {
-//                gamePanel.repaint();
+                gamePanel.repaint();
                 frames++;
                 deltaF--;
             }
