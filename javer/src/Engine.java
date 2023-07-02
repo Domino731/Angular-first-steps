@@ -1,6 +1,5 @@
 package javer.src;
 
-import javer.src.engine.EngineGraphic;
 import javer.src.entities.Player;
 import javer.src.levels.LevelManager;
 import javer.src.player.PlayerClass;
