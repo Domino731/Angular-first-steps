@@ -1,31 +1,20 @@
-package main;
+package engine;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowFocusListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import engine.inputs.KeyboardInputs;
+import engine.inputs.MouseInputs;
 
-import inputs.KeyboardInputs;
-import inputs.MouseInputs;
-
-import static utilz.Constants.PlayerConstants.*;
-import static utilz.Constants.Directions.*;
-
-public class GamePanel extends JPanel {
+public class EnginePanel extends JPanel {
 
 	private MouseInputs mouseInputs;
-	private Game game;
+	private Engine engine;
 
-	public GamePanel(Game game) {
+	public EnginePanel(Engine engine) {
 		mouseInputs = new MouseInputs(this);
-		this.game = game;
+		this.engine = engine;
 
 		setPanelSize();
 		addKeyListener(new KeyboardInputs(this));
@@ -51,12 +40,12 @@ public class GamePanel extends JPanel {
 			for (int j = 0; j < 40; j++)
 				g.fillRect(i * 20, j * 20, 20, 20);
 
-		game.render(g);
+		engine.render(g);
 
 	}
 
-	public Game getGame() {
-		return game;
+	public Engine getGame() {
+		return engine;
 	}
 
 }

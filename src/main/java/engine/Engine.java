@@ -1,25 +1,25 @@
-package main;
+package engine;
 
 import java.awt.Graphics;
 
 import entities.Player;
 
-public class Game implements Runnable {
+public class Engine implements Runnable {
 
-	private GameWindow gameWindow;
-	private GamePanel gamePanel;
+	private EngineWindow engineWindow;
+	private EnginePanel enginePanel;
 	private Thread gameThread;
 	private final int FPS_SET = 120;
 	private final int UPS_SET = 200;
 
 	private Player player;
 
-	public Game() {
+	public Engine() {
 		initClasses();
 
-		gamePanel = new GamePanel(this);
-		gameWindow = new GameWindow(gamePanel);
-		gamePanel.requestFocus();
+		enginePanel = new EnginePanel(this);
+		engineWindow = new EngineWindow(enginePanel);
+		enginePanel.requestFocus();
 
 		startGameLoop();
 	}
@@ -71,7 +71,7 @@ public class Game implements Runnable {
 			}
 
 			if (deltaF >= 1) {
-				gamePanel.repaint();
+				enginePanel.repaint();
 				frames++;
 				deltaF--;
 			}
