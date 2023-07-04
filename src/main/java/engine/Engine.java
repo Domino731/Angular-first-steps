@@ -2,7 +2,7 @@ package engine;
 
 import java.awt.Graphics;
 
-import entities.Player;
+import entities.player.Player;
 
 public class Engine implements Runnable {
 

@@ -1,6 +1,7 @@
-package entities;
+package entities.player;
 
-import static utilz.Constants.PlayerConstants.*;
+import engine.objects.entities.Entity;
+import entities.player.constants.PlayerConstants;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -12,7 +13,7 @@ import javax.imageio.ImageIO;
 public class Player extends Entity {
 	private BufferedImage[][] animations;
 	private int aniTick, aniIndex, aniSpeed = 25;
-	private int playerAction = IDLE;
+	private int playerAction = PlayerConstants.IDLE;
 	private boolean moving = false, attacking = false;
 	private boolean left, up, right, down;
 	private float playerSpeed = 2.0f;
@@ -37,7 +38,7 @@ public class Player extends Entity {
 		if (aniTick >= aniSpeed) {
 			aniTick = 0;
 			aniIndex++;
-			if (aniIndex >= GetSpriteAmount(playerAction)) {
+			if (aniIndex >= PlayerConstants.GetSpriteAmount(playerAction)) {
 				aniIndex = 0;
 				attacking = false;
 			}
@@ -50,12 +51,12 @@ public class Player extends Entity {
 		int startAni = playerAction;
 
 		if (moving)
-			playerAction = RUNNING;
+			playerAction = PlayerConstants.RUNNING;
 		else
-			playerAction = IDLE;
+			playerAction = PlayerConstants.IDLE;
 
 		if (attacking)
-			playerAction = ATTACK_1;
+			playerAction = PlayerConstants.ATTACK_1;
 
 		if (startAni != playerAction)
 			resetAniTick();
