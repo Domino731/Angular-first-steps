@@ -13,6 +13,6 @@ public class JsonTest {
     @org.junit.Test
     public void parse() throws IOException {
         JsonNode node = Json.parse(exampleJson);
-        assertEquals(node.get("title").asText(), "Lord of the rings");
+        assertEquals(node.get("title").asText(), "Lord of the rings+");
     }
 }

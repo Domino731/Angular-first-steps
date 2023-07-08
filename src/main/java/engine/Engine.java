@@ -3,6 +3,7 @@ package engine;
 import java.awt.Graphics;
 
 import entities.player.Player;
+import map.MapManager;
 
 public class Engine implements Runnable {
 
@@ -13,6 +14,7 @@ public class Engine implements Runnable {
 	private final int UPS_SET = 200;
 
 	private Player player;
+    private MapManager mapManager;
 
 	public Engine() {
 		initClasses();
@@ -26,7 +28,7 @@ public class Engine implements Runnable {
 
 	private void initClasses() {
 		player = new Player(200, 200);
-
+        mapManager = new MapManager();
 	}
 
 	private void startGameLoop() {

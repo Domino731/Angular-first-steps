@@ -16,4 +16,8 @@ public class EngineLog {
     public static void alert(String text) {
         System.out.println("Engine log.alert: " + text);
     }
+
+    public static void classSuccess(String text) {
+        System.out.println("Engine log.success: " + text + " class created");
+    }
 }
