@@ -2,6 +2,8 @@ package map.tiles;
 
 import engine.utils.vectors.Vector2s;
 
+import java.awt.*;
+
 public class Tile {
     private Vector2s mapCords;
     private Vector2s spriteCords;
@@ -11,6 +13,11 @@ public class Tile {
         this.mapCords = mapCords;
         this.spriteCords = mapCords;
         this.spriteName = spriteName;
+    }
+
+    public void render(Graphics g) {
+        g.drawRect(20, 20, 20, 20);
+        g.setColor(Color.RED);
     }
 
     public Vector2s getMapCords() {
