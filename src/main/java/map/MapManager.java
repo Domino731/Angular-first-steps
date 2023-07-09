@@ -8,6 +8,8 @@ import utils.json.Json;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapManager {
     private Tiles tiles;
@@ -27,7 +29,7 @@ public class MapManager {
         try {
             JsonNode node = Json.parse(getClass().getResourceAsStream("/maps/test_1.json"));
             JsonNode tiles  = node.get("tiles");
-            System.out.println(tiles);
+            loadSprites(tiles);
             this.tiles.create(tiles);
         }
         catch (IOException e) {
@@ -35,4 +37,20 @@ public class MapManager {
         }
 
     }
+
+    private void loadSprites(JsonNode tiles) {
+        List<String> spriteNames = new ArrayList<>();
+
+        if(tiles.isArray()){
+            for (JsonNode element : tiles){
+                String spriteName = element.get("spriteName").asText();
+                if(spriteNames.contains(spriteName) == false){
+                    spriteNames.add(spriteName);
+                }
+            }
+        }
+
+        System.out.println(spriteNames);
+    }
+
 }

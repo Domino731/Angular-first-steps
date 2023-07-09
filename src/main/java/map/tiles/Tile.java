@@ -12,7 +12,7 @@ public class Tile {
 
     public Tile(Vector2s mapCords, Vector2s spriteCords, String spriteName) {
         this.mapCords = mapCords;
-        this.spriteCords = mapCords;
+        this.spriteCords = spriteCords;
         this.spriteName = spriteName;
     }
 
