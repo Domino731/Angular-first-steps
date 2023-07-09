@@ -27,7 +27,7 @@ public class Tiles {
         BufferedImage defaultTileImg = null;
         try {
             InputStream is = getClass().getResourceAsStream(Utils.getSpriteSource("Outdoors spring"));
-            defaultTileImg = ImageIO.read(is).getSubimage(0, 7 * tileSize, 16, 16);
+            defaultTileImg = ImageIO.read(is).getSubimage(0, 7 * tileSize, tileSize, tileSize);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -57,7 +57,8 @@ public class Tiles {
                         }
                     }
 
-                    tilesList.set(tileListIndex,new Tile(mapCords, spriteCords, spriteName, defaultTileImg));
+                    BufferedImage tileImage = sprites.get(spriteName).getSubimage(spriteCords.x * tileSize, spriteCords.y * tileSize, tileSize, tileSize);
+                    tilesList.set(tileListIndex,new Tile(mapCords, spriteCords, spriteName, tileImage));
                 }
             } else {
                 System.out.println("The provided JSON is not an array.");

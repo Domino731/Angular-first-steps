@@ -25,7 +25,7 @@ public class MapManager {
 
     private void readLevel() {
         try {
-            JsonNode node = Json.parse(getClass().getResourceAsStream("/maps/test_1.json"));
+            JsonNode node = Json.parse(getClass().getResourceAsStream("/maps/test_3.json"));
             JsonNode tiles  = node.get("tiles");
             this.tiles.create(tiles);
         }
