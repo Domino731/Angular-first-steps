@@ -20,4 +20,8 @@ public class EngineLog {
     public static void classSuccess(String text) {
         System.out.println("Engine log.success: " + text + " class created");
     }
+
+    public static void resourceError(String text) {
+        System.out.println("Engine log.resource error: failed to load " + text + " resource");
+    }
 }

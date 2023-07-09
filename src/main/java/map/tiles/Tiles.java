@@ -1,29 +1,47 @@
 package map.tiles;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import engine.spritesLoader.SpritesLoader;
+import engine.spritesLoader.Utils;
 import engine.utils.vectors.Vector2s;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
-import java.sql.Array;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Tiles {
+    private final SpritesLoader spritesLoader = new SpritesLoader();
     private List<Tile> tilesList;
     public Tiles() {
         tilesList = new ArrayList<>();
     }
+    private static final Vector2s defaultTileSpriteCords = new Vector2s((short) 10, (short) 10);
+    public static final byte tileSize = 16;
 
     public void create(JsonNode tiles){
+        BufferedImage defaultTileImg = null;
+        try {
+            InputStream is = getClass().getResourceAsStream(Utils.getSpriteSource("Outdoors spring"));
+            defaultTileImg = ImageIO.read(is).getSubimage(0, 7 * tileSize, 16, 16);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         for (int i = 0; i < 100; i++) {
             for (int j = 0; j < 100; j++) {
-                short test = 12;
-                tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s(test, test), "TEST"));
+                tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) 10, (short) 10), "TEST", defaultTileImg ));
             }
         }
 
             // Check if the parsed JsonNode is an array
-            if (tiles.isArray()) {
+        if (tiles.isArray()) {
+                Map<String, BufferedImage> sprites = loadSprites(tiles);
+
                 // Loop through the array elements
                 for (JsonNode element : tiles) {
                     String spriteName = element.get("spriteName").asText();
@@ -39,15 +57,29 @@ public class Tiles {
                         }
                     }
 
-                    tilesList.set(tileListIndex,new Tile(mapCords, spriteCords, spriteName));
+                    tilesList.set(tileListIndex,new Tile(mapCords, spriteCords, spriteName, defaultTileImg));
                 }
             } else {
                 System.out.println("The provided JSON is not an array.");
-            }
+        }
 
     }
 
 
+    private Map<String, BufferedImage> loadSprites(JsonNode tiles) {
+        List<String> spriteNames = new ArrayList<>();
+
+        if(tiles.isArray()){
+            for (JsonNode element : tiles){
+                String spriteName = element.get("spriteName").asText();
+                if(spriteNames.contains(spriteName) == false){
+                    spriteNames.add(spriteName);
+                }
+            }
+        }
+
+        return spritesLoader.load(spriteNames);
+    }
 
     public void render(Graphics g) {
         for(Tile tile : tilesList){
