@@ -1,5 +1,6 @@
 package map.tiles;
 
+import engine.EngineConstants;
 import engine.utils.vectors.Vector2s;
 
 import java.awt.*;
@@ -16,7 +17,8 @@ public class Tile {
     }
 
     public void render(Graphics g) {
-        g.drawRect(20, 20, 20, 20);
+        byte tileSize = EngineConstants.TILE_SIZE;
+        g.drawRect(mapCords.x * tileSize , mapCords.y * tileSize, tileSize, tileSize);
         g.setColor(Color.RED);
     }
 
