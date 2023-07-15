@@ -3,6 +3,7 @@ package map;
 import com.fasterxml.jackson.databind.JsonNode;
 import engine.utils.EngineLog;
 import environement.trees.TreeNames;
+import map.mapObjects.MapObjects;
 import map.tiles.Tiles;
 import utils.json.Json;
 
@@ -11,12 +12,14 @@ import java.io.IOException;
 
 public class MapManager {
     private Tiles tiles;
+    private MapObjects mapObjects;
+
     public MapManager() {
         tiles = new Tiles();
+        mapObjects = new MapObjects();
         EngineLog.classSuccess("MapManager");
         System.out.println(TreeNames.OAK);
         readLevel();
-        short te = 12300;
     }
 
     public void render(Graphics g) {
@@ -26,8 +29,10 @@ public class MapManager {
     private void readLevel() {
         try {
             JsonNode node = Json.parse(getClass().getResourceAsStream("/maps/test_3.json"));
+            System.out.println(node);
             JsonNode tiles  = node.get("tiles");
             this.tiles.create(tiles);
+            this.mapObjects.create(node);
         }
         catch (IOException e) {
             EngineLog.error("Error");
