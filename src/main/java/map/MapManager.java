@@ -5,6 +5,7 @@ import engine.utils.EngineLog;
 import environement.trees.TreeNames;
 import map.mapObjects.MapObjects;
 import map.tiles.Tiles;
+import objects.tree.TreesConfig;
 import utils.json.Json;
 
 import java.awt.*;
@@ -30,6 +31,7 @@ public class MapManager {
         try {
             JsonNode node = Json.parse(getClass().getResourceAsStream("/maps/test_4.json"));
             JsonNode tiles  = node.get("tiles");
+            System.out.println(TreesConfig.trees);
             this.tiles.create(tiles);
             this.mapObjects.create(node);
         }

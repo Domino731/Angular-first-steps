@@ -3,6 +3,7 @@ package engine.spritesLoader;
 import com.fasterxml.jackson.databind.JsonNode;
 import engine.utils.EngineLog;
 import engine.utils.vectors.DimensionVector;
+import engine.utils.vectors.Vector2s;
 import utils.json.Json;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.util.Map;
 
 public class SpritesConfig {
     public SpritesConfig(){}
-    private static Map<String, Config> sprites = setData();
+    private static HashMap<String, Config> sprites = setData();
 
     private static class Config {
            public String name;
@@ -30,13 +31,13 @@ public class SpritesConfig {
     }
 
     private static  HashMap<String, Config> setData() {
-        HashMap<String, Config> sprites = new HashMap<>(Collections.emptyMap());
+        HashMap<String, Config> sprites = new HashMap<>();
 
         try {
             JsonNode node = Json.parse(SpritesConfig.class.getResourceAsStream("/config/sprites.json"));
             if(node.isArray()){
                 for(JsonNode elem : node) {
-                    String name = String.valueOf(elem.get("sprite"));
+                    String name = elem.get("sprite").asText();
                     JsonNode size = elem.get("size");
                     Config config = new Config(
                             name,
@@ -57,5 +58,13 @@ public class SpritesConfig {
 
     public static Map<String, Config> getSprites(){
         return sprites;
+    }
+
+    public static Vector2s calculateObjectPosition(String spriteSrc, Vector2s position) {
+        Config sprite = sprites.get(spriteSrc);
+        if(sprite == null){
+            return position;
+        }
+        return new Vector2s((short) (sprite.cell.width * position.x), (short) (sprite.cell.height * position.y));
     }
 }

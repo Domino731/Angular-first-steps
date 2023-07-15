@@ -20,7 +20,7 @@ public class MapObjects {
     private void createTrees(JsonNode trees){
         if(trees.isArray()){
             for (JsonNode tree : trees){
-                System.out.println(tree);
+//                System.out.println(tree);
             }
         }
     }
