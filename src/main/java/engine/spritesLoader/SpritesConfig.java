@@ -33,7 +33,7 @@ public class SpritesConfig {
         HashMap<String, Config> sprites = new HashMap<>(Collections.emptyMap());
 
         try {
-            JsonNode node = Json.parse(SpritesConfig.class.getResourceAsStream("/config/sprites_config.json"));
+            JsonNode node = Json.parse(SpritesConfig.class.getResourceAsStream("/config/sprites.json"));
             if(node.isArray()){
                 for(JsonNode elem : node) {
                     String name = String.valueOf(elem.get("sprite"));

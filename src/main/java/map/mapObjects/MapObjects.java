@@ -14,7 +14,14 @@ public class MapObjects {
     }
 
     public void create(JsonNode mapNode){
-        System.out.println(SpritesConfig.getSprites());
-        System.out.println(mapNode.get("objects").get("TREES"));
+        createTrees(mapNode.get("objects").get("TREES"));
+    }
+
+    private void createTrees(JsonNode trees){
+        if(trees.isArray()){
+            for (JsonNode tree : trees){
+                System.out.println(tree);
+            }
+        }
     }
 }
