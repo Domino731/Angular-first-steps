@@ -1,0 +1,30 @@
+{
+  "height": 4,
+  "width": 4,
+  "tilewidth": 32,
+  "tileheight": 32,
+  "layers": [
+//    {
+//      "name": "Ground",
+//      "type": "tilelayer",
+//      "width": 4,
+//      "height": 4,
+//      "data": [
+//        1, 1, 1, 1,
+//        1, 0, 0, 1,
+//        1, 0, 0, 1,
+//        1, 1, 1, 1
+//      ]
+//    }
+  ],
+  "tilesets": [
+    {
+      "name": "terrain",
+      "tilewidth": 32,
+      "tileheight": 32,
+      "tilecount": 2,
+      "columns": 2,
+      "image": "badlogic.png"
+    }
+  ]
+}

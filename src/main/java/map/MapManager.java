@@ -31,7 +31,6 @@ public class MapManager {
         try {
             JsonNode node = Json.parse(getClass().getResourceAsStream("/maps/test_4.json"));
             JsonNode tiles  = node.get("tiles");
-            System.out.println(TreesConfig.trees);
             this.tiles.create(tiles);
             this.mapObjects.create(node);
         }

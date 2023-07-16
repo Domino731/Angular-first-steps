@@ -41,8 +41,8 @@ public class Engine implements Runnable {
 	}
 
 	public void render(Graphics g) {
-		player.render(g);
 		mapManager.render(g);
+		player.render(g);
 	}
 
 	@Override
