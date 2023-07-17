@@ -9,6 +9,7 @@ import java.util.HashMap;
 public class SpritesManager {
     private static HashMap<String, TextureRegion> textureRegionMap = new HashMap<>();
     private static AssetManager assetManager = loadData();
+    public static TextureRegion defaultTileTexture = test();
 
 
     public SpritesManager(){

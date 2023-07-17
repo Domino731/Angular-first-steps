@@ -2,6 +2,7 @@ package levelManager;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.fasterxml.jackson.databind.JsonNode;
 import levelManager.tiles.Tiles;
 import objects.trees.TreesConfig;
@@ -18,8 +19,8 @@ public class LevelManager {
         readLevel();
     }
 
-    public void render() {
-
+    public void render(SpriteBatch batch) {
+        tiles.render(batch);
     }
 
     private void readLevel() {

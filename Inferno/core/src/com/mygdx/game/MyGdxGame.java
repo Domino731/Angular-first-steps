@@ -1,23 +1,17 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.loaders.resolvers.ExternalFileHandleResolver;
-import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
 import levelManager.LevelManager;
-import objects.trees.TreesConfig;
-import sprites.SpritesConfig;
+import screen.PlayScreen;
 import spritesManager.SpritesManager;
 
-public class MyGdxGame extends ApplicationAdapter {
-	SpriteBatch batch;
+public class MyGdxGame extends Game {
+	public SpriteBatch batch;
 	Texture img;
 	TmxMapLoader mapLoader;
     LevelManager levelManager;
@@ -30,14 +24,13 @@ public class MyGdxGame extends ApplicationAdapter {
 		mapLoader = new TmxMapLoader();
 		levelManager  = new LevelManager();
 		customTexture = SpritesManager.test();
+		setScreen(new PlayScreen(this));
+
 	}
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(customTexture, 0, 0);
-		batch.end();
+		super.render();
 	}
 	
 	@Override
