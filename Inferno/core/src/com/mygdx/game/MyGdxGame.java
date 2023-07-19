@@ -5,9 +5,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.utils.ScreenUtils;
 import levelManager.LevelManager;
-import screen.PlayScreen;
+import player.screen.PlayScreen;
 import spritesManager.SpritesManager;
 
 public class MyGdxGame extends Game {

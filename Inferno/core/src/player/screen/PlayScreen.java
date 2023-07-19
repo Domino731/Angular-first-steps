@@ -1,4 +1,4 @@
-package screen;
+package player.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;

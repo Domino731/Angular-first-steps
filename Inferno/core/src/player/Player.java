@@ -19,7 +19,11 @@ public class Player {
     }
 
     private void define() {
-     System.out.println(SpritesManager.loadSprite(PlayerConstants.SPRITE));
+     createAnimations();
+    }
 
+
+    private void createAnimations() {
+        System.out.println(SpritesManager.loadSprite(PlayerConstants.SPRITE));
     }
 }
