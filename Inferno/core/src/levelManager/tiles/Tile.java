@@ -11,6 +11,7 @@ public class Tile extends Actor {
     private Vector2s spriteCords;
     private String spriteName;
 
+
     public Tile(Vector2s mapCords, Vector2s spriteCords, String spriteName) {
         this.mapCords = mapCords;
         this.spriteCords = spriteCords;

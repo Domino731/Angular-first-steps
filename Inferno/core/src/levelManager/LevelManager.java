@@ -5,8 +5,6 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.fasterxml.jackson.databind.JsonNode;
 import levelManager.tiles.Tiles;
-import objects.trees.TreesConfig;
-import utils.EngineLog;
 import utils.Json;
 
 import java.io.IOException;
@@ -33,9 +31,7 @@ public class LevelManager {
                 this.tiles.create(tiles);
             }
             catch (IOException e){
-
             }
-
         }
 
     }
