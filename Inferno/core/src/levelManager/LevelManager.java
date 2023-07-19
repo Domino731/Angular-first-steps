@@ -25,7 +25,6 @@ public class LevelManager {
         FileHandle fileHandle = Gdx.files.internal("maps/test_4.json");
         if(fileHandle.exists()){
             try {
-                System.out.println(fileHandle.readString());
                 JsonNode node = Json.parse(fileHandle.readString());
                 JsonNode tiles  = node.get("tiles");
                 this.tiles.create(tiles);

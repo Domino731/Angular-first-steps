@@ -8,10 +8,12 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.MyGdxGame;
 import levelManager.LevelManager;
+import player.Player;
 
 public class PlayScreen implements Screen {
     private MyGdxGame game;
     private LevelManager levelManager;
+    private Player player;
 
     Sprite sprite;
     OrthographicCamera camera;
@@ -25,6 +27,7 @@ public class PlayScreen implements Screen {
 
         this.game = game;
         levelManager = new LevelManager();
+        player = new Player();
         camera.translate(camera.viewportWidth / 2, camera.viewportHeight / 2);
     }
 

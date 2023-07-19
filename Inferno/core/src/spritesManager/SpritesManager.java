@@ -16,6 +16,14 @@ public class SpritesManager {
 
     }
 
+    public static Texture loadSprite(String spriteSrc) {
+        assetManager.load(spriteSrc, Texture.class);
+        assetManager.finishLoading();
+
+        // set default tile
+        return assetManager.get(spriteSrc, Texture.class);
+    }
+
     private static AssetManager loadData() {
         AssetManager assetManager = new AssetManager();
         assetManager.load("sprites/tileSets/outdoors_summer.png", Texture.class);

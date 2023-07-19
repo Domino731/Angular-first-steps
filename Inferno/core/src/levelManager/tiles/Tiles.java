@@ -56,7 +56,7 @@ public class Tiles {
     }
 
     public void createTileClasses() {
-       System.out.println(tilesList);
+//       System.out.println(tilesList);
     }
 
     public void render(SpriteBatch batch) {
