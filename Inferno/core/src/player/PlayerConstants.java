@@ -1,10 +1,13 @@
 package player;
 
+import utils.vectors.DimensionVector;
+
 import static player.PlayerConstants.Actions.*;
 
 public class PlayerConstants {
       public static final String SPRITE = "sprites/entities/player.png";
       public static final byte SPRITE_= 1;
+      public static final DimensionVector<Short> PLAYER_SIZE = new DimensionVector<>((short) 64, (short) 64);
 
       public static class Actions {
             public static final int IDLE = 0;
