@@ -21,12 +21,12 @@ public class Player {
     private int playerSpeed = 2;
     private Vector<Integer> position = new Vector<>(200, 200);
     private ShapeRenderer shapeRenderer = new ShapeRenderer();
-    private ArrayList<Checkbox> checkboxArray;
+    public ArrayList<Checkbox> checkboxArray;
     private Texture txt;
 
     public Player() {
         checkboxArray = new ArrayList<>();
-        checkboxArray.add(new Checkbox(new Vector<Integer>(10, 10), new DimensionVector<Integer>(30, 30)));
+        checkboxArray.add(new Checkbox(new Vector<Integer>(position.x, position.y), new DimensionVector<Integer>(100, 100)));
 
         txt = SpritesManager.loadSprite(PlayerConstants.SPRITE);
     }
@@ -47,18 +47,29 @@ public class Player {
 
         if (left && !right) {
             position.x -= playerSpeed;
+            for (Checkbox cb : checkboxArray) {
+                cb.position.x -= playerSpeed;
+            }
             moving = true;
         } else if (right && !left) {
             position.x += playerSpeed;
+            for (Checkbox cb : checkboxArray) {
+                cb.position.x += playerSpeed;
+            }
             moving = true;
         }
 
         if (up && !down) {
             position.y -= playerSpeed;
-
+            for (Checkbox cb : checkboxArray) {
+                cb.position.y -= playerSpeed;
+            }
             moving = true;
         } else if (down && !up) {
             position.y += playerSpeed;
+            for (Checkbox cb : checkboxArray) {
+                cb.position.y += playerSpeed;
+            }
             moving = true;
         }
     }
