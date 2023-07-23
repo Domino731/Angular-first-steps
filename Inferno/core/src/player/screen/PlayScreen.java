@@ -53,27 +53,24 @@ public class PlayScreen implements Screen {
     }
 
     private void update(float delta) {
+        player.isCollision = false;
+        player.updatePos();
         // Loop to check collisions
         for (int i = 0; i < checkboxes.size(); i++) {
             Checkbox checkbox1 = checkboxes.get(i);
             for (int j = i + 1; j < checkboxes.size(); j++) {
                 Checkbox checkbox2 = checkboxes.get(j);
-
                 if (checkCollision(checkbox1, checkbox2)) {
-                    // Collision detected between checkbox1 and checkbox2
-                    System.out.println("Collision between checkbox " + i + " and checkbox " + j);
+                    player.isCollision = true;
+                    player.resetPosition();
                 }
             }
         }
-
         player.update();
     }
 
-    public static boolean checkCollision(Checkbox checkbox1, Checkbox checkbox2) {
-        // Check for collision using the separating axis theorem
-        boolean xCollision = Math.abs(checkbox1.position.x - checkbox2.position.x) < (checkbox1.dim.width + checkbox2.dim.width) / 2;
-        boolean yCollision = Math.abs(checkbox1.position.y - checkbox2.position.y) < (checkbox1.dim.height + checkbox2.dim.height) / 2;
 
+    public static boolean checkCollision(Checkbox checkbox1, Checkbox checkbox2) {
         // Calculate the coordinates of the bounding boxes
         int x1 = checkbox1.position.x;
         int y1 = checkbox1.position.y;
@@ -83,16 +80,10 @@ public class PlayScreen implements Screen {
         int y2 = checkbox2.position.y;
         int width2 = checkbox2.dim.width;
         int height2 = checkbox2.dim.height;
-
-        // Check for overlap
         if (x1 < x2 + width2 && x1 + width1 > x2 && y1 < y2 + height2 && y1 + height1 > y2) {
-            // Overlapping
             return true;
         }
-
-        // No overlap
         return false;
-//        return xCollision && yCollision;
     }
 
     @Override

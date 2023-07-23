@@ -18,11 +18,13 @@ public class Player {
     private int playerAction = PlayerConstants.Actions.IDLE;
     private boolean moving = false, attacking = false;
     private boolean left, up, right, down;
-    private int playerSpeed = 2;
-    private Vector<Integer> position = new Vector<>(200, 200);
+    private int playerSpeed = 1;
+    public Vector<Integer> position = new Vector<>(200, 200);
+    private Vector<Integer> finalPosition = new Vector<>(0, 0);
     private ShapeRenderer shapeRenderer = new ShapeRenderer();
     public ArrayList<Checkbox> checkboxArray;
     private Texture txt;
+    public boolean isCollision = false;
 
     public Player() {
         checkboxArray = new ArrayList<>();
@@ -31,8 +33,31 @@ public class Player {
         txt = SpritesManager.loadSprite(PlayerConstants.SPRITE);
     }
 
+    public Vector<Integer> getPosition() {
+        return position;
+    }
+
+    public int getPlayerSpeed() {
+        return playerSpeed;
+    }
+
+    public boolean getRight() {
+        return right;
+    }
+
+    public void resetPosition() {
+        position.x = finalPosition.x;
+        position.y = finalPosition.y;
+        checkboxArray.get(0).position.x = finalPosition.x;
+        checkboxArray.get(0).position.y = finalPosition.y;
+    }
+
     public void update() {
-        updatePos();
+        if (!isCollision) {
+            finalPosition.x = position.x;
+            finalPosition.y = position.y;
+        }
+//        updatePos();
 //        updateAnimationTick();
 //        setAnimation();
     }
@@ -42,9 +67,8 @@ public class Player {
         aniIndex = 0;
     }
 
-    private void updatePos() {
+    public void updatePos() {
         moving = false;
-
         if (left && !right) {
             position.x -= playerSpeed;
             for (Checkbox cb : checkboxArray) {
@@ -118,7 +142,6 @@ public class Player {
     }
 
     public void draw(ShapeRenderer sr, SpriteBatch sb) {
-        sb.draw(txt, position.x, position.y, 100, 100);
-
+        sb.draw(txt, finalPosition.x, finalPosition.y, 100, 100);
     }
 }
