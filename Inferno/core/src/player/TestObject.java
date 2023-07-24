@@ -14,7 +14,7 @@ public class TestObject {
     public ArrayList<Checkbox> checkboxArrayList = new ArrayList<>();
 
     public TestObject() {
-        checkboxArrayList.add(new Checkbox(new Vector<>(400, 400), new DimensionVector<>(400, 400)));
+        checkboxArrayList.add(new Checkbox("test", new Vector<>(400, 400), new DimensionVector<>(400, 400)));
 
         txt = SpritesManager.test();
     }

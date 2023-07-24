@@ -26,23 +26,33 @@ public class Player {
     private Texture txt;
     public boolean isCollision = false;
 
+    private final short width = 64;
+    private final short height = 64;
+
     public Player() {
         checkboxArray = new ArrayList<>();
-        checkboxArray.add(new Checkbox(new Vector<Integer>(position.x, position.y), new DimensionVector<Integer>(100, 100)));
+        checkboxArray.add(new Checkbox("test", new Vector<Integer>(position.x, position.y), new DimensionVector<Integer>(100, 100)));
 
-        txt = SpritesManager.loadSprite(PlayerConstants.SPRITE);
+        txt = SpritesManager.loadSprite("badlogic.jpg");
+        loadAnimations();
+    }
+
+    public void loadAnimations() {
+        Texture texture = SpritesManager.loadSprite(PlayerConstants.SPRITE);
+        byte texturesInColumn = 9;
+        byte texturesInRow = 6;
+        byte textureWidth = 64;
+        byte textureHeight = 40;
+
+        animations = new TextureRegion[texturesInColumn][texturesInRow];
+        for (int j = 0; j < animations.length; j++)
+            for (int i = 0; i < animations[j].length; i++)
+                animations[j][i] = new TextureRegion(texture, i * textureWidth, j * textureHeight, textureWidth, textureHeight);
+
     }
 
     public Vector<Integer> getPosition() {
         return position;
-    }
-
-    public int getPlayerSpeed() {
-        return playerSpeed;
-    }
-
-    public boolean getRight() {
-        return right;
     }
 
     public void resetPosition() {
@@ -142,6 +152,7 @@ public class Player {
     }
 
     public void draw(ShapeRenderer sr, SpriteBatch sb) {
-        sb.draw(txt, finalPosition.x, finalPosition.y, 100, 100);
+        // 100 x 100
+        sb.draw(animations[0][0], finalPosition.x, finalPosition.y, width, height);
     }
 }
