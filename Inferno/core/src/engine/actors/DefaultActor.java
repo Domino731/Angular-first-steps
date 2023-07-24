@@ -1,9 +1,11 @@
 package engine.actors;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.actors.constants.ActorTypes;
 import spritesManager.SpritesManager;
 import utils.Checkbox;
+import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
 import java.util.ArrayList;
@@ -14,21 +16,31 @@ public abstract class DefaultActor {
     protected boolean isCollision = false;
     protected Texture texture;
     protected ActorTypes actorType;
+    protected DimensionVector<Integer> dim;
 
-    public DefaultActor(ActorTypes actorType, Vector<Integer> position, ArrayList<Checkbox> checkboxArray, String texturePath) {
+    public DefaultActor(ActorTypes actorType, Vector<Integer> position, ArrayList<Checkbox> checkboxArray, String texturePath, DimensionVector<Integer> dim) {
         this.actorType = actorType;
         this.position = position;
         this.checkboxArray = checkboxArray;
+        this.dim = dim;
         this.texture = SpritesManager.loadSprite(texturePath);
     }
 
+    // setters
+    protected void setPosition(Vector<Integer> position) {
+        this.position = position;
+    }
+
     // getters
-    public Vector<Integer> getPosition() {
+    protected Vector<Integer> getPosition() {
         return position;
     }
 
     public ArrayList<Checkbox> getCheckboxArray() {
         return checkboxArray;
+    }
+
+    public void draw(SpriteBatch sb) {
     }
 
 }
