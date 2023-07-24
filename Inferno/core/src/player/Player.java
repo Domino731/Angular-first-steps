@@ -67,9 +67,38 @@ public class Player {
             finalPosition.x = position.x;
             finalPosition.y = position.y;
         }
+
 //        updatePos();
-//        updateAnimationTick();
-//        setAnimation();
+        updateAnimationTick();
+        setAnimation();
+    }
+
+    private void setAnimation() {
+        int startAni = playerAction;
+
+        if (moving)
+            playerAction = PlayerConstants.Actions.RUNNING;
+        else
+            playerAction = PlayerConstants.Actions.IDLE;
+
+        if (attacking)
+            playerAction = PlayerConstants.Actions.ATTACK_1;
+
+        if (startAni != playerAction)
+            resetAniTick();
+    }
+
+    private void updateAnimationTick() {
+        aniTick++;
+        if (aniTick >= aniSpeed) {
+            aniTick = 0;
+            aniIndex++;
+            if (aniIndex >= PlayerConstants.GetSpriteAmount(playerAction)) {
+                aniIndex = 0;
+                attacking = false;
+            }
+
+        }
     }
 
     private void resetAniTick() {
@@ -153,6 +182,6 @@ public class Player {
 
     public void draw(ShapeRenderer sr, SpriteBatch sb) {
         // 100 x 100
-        sb.draw(animations[0][0], finalPosition.x, finalPosition.y, width, height);
+        sb.draw(animations[playerAction][aniIndex], finalPosition.x, finalPosition.y, width, height);
     }
 }
