@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.actors.constants.ActorTypes;
 import spritesManager.SpritesManager;
 import utils.Checkbox;
+import utils.strings.StringUtils;
+import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
@@ -17,6 +19,7 @@ public abstract class DefaultActor {
     protected Texture texture;
     protected ActorTypes actorType;
     protected DimensionVector<Integer> dim;
+    private String id = StringUtils.generateRandomId();
 
     public DefaultActor(ActorTypes actorType, Vector<Integer> position, ArrayList<Checkbox> checkboxArray, String texturePath, DimensionVector<Integer> dim) {
         this.actorType = actorType;
@@ -24,6 +27,22 @@ public abstract class DefaultActor {
         this.checkboxArray = checkboxArray;
         this.dim = dim;
         this.texture = SpritesManager.loadSprite(texturePath);
+    }
+
+    public DefaultActor(ActorTypes actorType, Vector<Integer> position, String texturePath, DimensionVector<Integer> dim, ArrayList<DimensionCordVector> arrayList) {
+        this.actorType = actorType;
+        this.position = position;
+        this.checkboxArray = createCheckboxList(arrayList);
+        this.dim = dim;
+        this.texture = SpritesManager.loadSprite(texturePath);
+    }
+
+    private ArrayList<Checkbox> createCheckboxList(ArrayList<DimensionCordVector> arrayList) {
+        ArrayList<Checkbox> payload = new ArrayList<>();
+        for (DimensionCordVector vector : arrayList) {
+            payload.add(new Checkbox(id, new Vector<>(vector.x, vector.y), new DimensionVector<>(vector.width, vector.height)));
+        }
+        return payload;
     }
 
     // setters

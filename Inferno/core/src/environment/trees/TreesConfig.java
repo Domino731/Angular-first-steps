@@ -9,9 +9,11 @@ import sprites.SpritesConfig;
 import spritesManager.SpritesManager;
 import utils.EngineLog;
 import utils.Json;
+import utils.vectors.DimensionCordVector;
 import utils.vectors.Vector2s;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -26,6 +28,8 @@ public class TreesConfig {
         public Short hp;
         public String description;
         public TextureRegion[] textures;
+        // TODO: add info from json file
+        public ArrayList<DimensionCordVector> checkboxesCords = new ArrayList<>();
 
         public TreeConfig(String id, String name, String spriteSrc, Vector2s position, Short hp, String description, Texture texture) {
             this.id = id;
@@ -35,6 +39,7 @@ public class TreesConfig {
             this.hp = hp;
             this.description = description;
             this.textures = TreeConstants.createTreeTextureRegions(texture);
+            checkboxesCords.add(new DimensionCordVector((short) 20, (short) 20, 0, 0));
         }
 
     }
