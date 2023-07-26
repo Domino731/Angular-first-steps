@@ -2,14 +2,17 @@ package inputs;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import game.entities.player.NewPlayer;
 import player.Player;
 
 public class GameInputProcessor implements InputProcessor {
 
     private Player player;
+    private NewPlayer newPlayer;
 
-    public GameInputProcessor(Player player) {
+    public GameInputProcessor(Player player, NewPlayer newPlayer) {
         this.player = player;
+        this.newPlayer = newPlayer;
     }
 
     @Override
@@ -17,15 +20,19 @@ public class GameInputProcessor implements InputProcessor {
         switch (keycode) {
             case Input.Keys.W:
                 player.setUp(true);
+                newPlayer.setTop(true);
                 break;
             case Input.Keys.A:
                 player.setLeft(true);
+                newPlayer.setLeft(true);
                 break;
             case Input.Keys.S:
                 player.setDown(true);
+                newPlayer.setBot(true);
                 break;
             case Input.Keys.D:
                 player.setRight(true);
+                newPlayer.setRight(true);
                 break;
         }
         return true;
@@ -36,15 +43,19 @@ public class GameInputProcessor implements InputProcessor {
         switch (keycode) {
             case Input.Keys.W:
                 player.setUp(false);
+                newPlayer.setTop(false);
                 break;
             case Input.Keys.A:
                 player.setLeft(false);
+                newPlayer.setLeft(false);
                 break;
             case Input.Keys.S:
                 player.setDown(false);
+                newPlayer.setBot(false);
                 break;
             case Input.Keys.D:
                 player.setRight(false);
+                newPlayer.setRight(false);
                 break;
         }
         return true;

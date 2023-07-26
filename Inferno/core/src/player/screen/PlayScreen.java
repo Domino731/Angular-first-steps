@@ -43,11 +43,11 @@ public class PlayScreen implements Screen {
         newPlayer = new NewPlayer();
         sr = new ShapeRenderer();
         camera.translate(camera.viewportWidth / 2, camera.viewportHeight / 2);
-        Gdx.input.setInputProcessor(new GameInputProcessor(player));
+        Gdx.input.setInputProcessor(new GameInputProcessor(player, newPlayer));
         testObject = new TestObject();
 
         checkboxes.addAll(testObject.checkboxArrayList);
-        checkboxes.addAll(player.checkboxArray);
+        checkboxes.addAll(newPlayer.getCheckboxArray());
     }
 
     @Override
@@ -56,20 +56,29 @@ public class PlayScreen implements Screen {
     }
 
     private void update(float delta) {
-        player.isCollision = false;
-        player.updatePos();
+//        player.isCollision = false;
+        newPlayer.setIsCollision(false);
+
+//        player.updatePos();
+        newPlayer.updatePos();
+
         // Loop to check collisions
         for (int i = 0; i < checkboxes.size(); i++) {
             Checkbox checkbox1 = checkboxes.get(i);
             for (int j = i + 1; j < checkboxes.size(); j++) {
                 Checkbox checkbox2 = checkboxes.get(j);
                 if (checkCollision(checkbox1, checkbox2)) {
-                    player.isCollision = true;
+//                    player.isCollision = true;
+                    newPlayer.setIsCollision(true);
+
                     player.resetPosition();
+                    newPlayer.resetPosition();
                 }
             }
         }
+
         player.update();
+        newPlayer.update();
     }
 
 

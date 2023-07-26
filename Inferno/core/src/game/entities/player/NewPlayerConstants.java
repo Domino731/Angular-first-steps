@@ -17,6 +17,12 @@ public class NewPlayerConstants {
     private static ArrayList<Checkbox> getCheckboxArray() {
         ArrayList<Checkbox> payload = new ArrayList<>();
         payload.add(new Checkbox("PLAYER", new Vector<>(position.x, position.y), new DimensionVector<>(100, 100)));
-        return new ArrayList<>();
+        return payload;
+    }
+
+    private static ArrayList<Checkbox> getCheckboxArray(Vector<Integer> position) {
+        ArrayList<Checkbox> payload = new ArrayList<>();
+        payload.add(new Checkbox("PLAYER", new Vector<>(position.x, position.y), new DimensionVector<>(100, 100)));
+        return payload;
     }
 }

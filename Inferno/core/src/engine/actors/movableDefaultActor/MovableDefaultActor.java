@@ -20,13 +20,14 @@ public class MovableDefaultActor extends DefaultActor {
     protected byte speed = 1;
     private TextureRegion[][] textureRegions;
     private TextureData textureData;
-    private int aniTick, aniIndex, aniSpeed = 25;
-    private Vector<Integer> finalPosition;
+    protected int aniTick, aniIndex, aniSpeed = 25;
+    public Vector<Integer> finalPosition;
+    protected int actionIndex;
 
     public MovableDefaultActor(Vector<Integer> position, ArrayList<Checkbox> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim) {
         super(ActorTypes.DYNAMIC, position, checkboxArray, texturePath, dim);
         this.textureData = textureData;
-        this.finalPosition = position;
+        this.finalPosition = new Vector<>(100, 100);
         loadAnimations();
     }
 
@@ -43,6 +44,27 @@ public class MovableDefaultActor extends DefaultActor {
                 textureRegions[j][i] = new TextureRegion(texture, i * textureWidth, j * textureHeight, textureWidth, textureHeight);
     }
 
+    @Override
+    public void draw(SpriteBatch sb) {
+        sb.draw(textureRegions[actionIndex][aniIndex], finalPosition.x, finalPosition.y, dim.width, dim.height);
+    }
+
+    public void resetPosition() {
+        position.x = finalPosition.x;
+        position.y = finalPosition.y;
+        checkboxArray.get(0).position.x = finalPosition.x;
+        checkboxArray.get(0).position.y = finalPosition.y;
+    }
+
+    /**
+     * set aniTack & aniIndex to 0
+     */
+    protected void resetAniTick() {
+        aniTick = 0;
+        aniIndex = 0;
+    }
+
+    // setters
     public void setRight(boolean v) {
         direction.right = v;
     }
@@ -59,8 +81,5 @@ public class MovableDefaultActor extends DefaultActor {
         direction.bot = v;
     }
 
-    @Override
-    public void draw(SpriteBatch sb) {
-        sb.draw(textureRegions[0][0], finalPosition.x, finalPosition.y, dim.width, dim.height);
-    }
+
 }

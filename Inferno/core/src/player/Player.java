@@ -97,7 +97,6 @@ public class Player {
                 aniIndex = 0;
                 attacking = false;
             }
-
         }
     }
 
@@ -153,7 +152,7 @@ public class Player {
     }
 
     public void setLeft(boolean left) {
-        this.left = left;
+//        this.left = left;
     }
 
     public boolean isUp() {
@@ -161,7 +160,7 @@ public class Player {
     }
 
     public void setUp(boolean up) {
-        this.up = up;
+//        this.up = up;
     }
 
     public boolean isRight() {
@@ -169,7 +168,7 @@ public class Player {
     }
 
     public void setRight(boolean right) {
-        this.right = right;
+//        this.right = right;
     }
 
     public boolean isDown() {
@@ -177,7 +176,7 @@ public class Player {
     }
 
     public void setDown(boolean down) {
-        this.down = down;
+//        this.down = down;
     }
 
     public void draw(ShapeRenderer sr, SpriteBatch sb) {
