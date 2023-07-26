@@ -103,6 +103,9 @@ public class PlayScreen implements Screen {
         testObject.draw(game.batch);
 
         game.batch.end();
+        if (game.showCheckboxes) {
+            actorsManager.renderCheckboxes(game.sr);
+        }
     }
 
     @Override
