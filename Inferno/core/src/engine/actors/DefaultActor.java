@@ -21,8 +21,6 @@ public abstract class DefaultActor {
     public DefaultActor(ActorTypes actorType, Vector<Integer> position, ArrayList<Checkbox> checkboxArray, String texturePath, DimensionVector<Integer> dim) {
         this.actorType = actorType;
         this.position = position;
-        System.out.println("DEFAULT ACTORL: ");
-        System.out.println(checkboxArray);
         this.checkboxArray = checkboxArray;
         this.dim = dim;
         this.texture = SpritesManager.loadSprite(texturePath);

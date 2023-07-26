@@ -46,7 +46,7 @@ public class PlayScreen implements Screen {
         exampleTree = new ExampleTree();
         sr = new ShapeRenderer();
         camera.translate(camera.viewportWidth / 2, camera.viewportHeight / 2);
-        Gdx.input.setInputProcessor(new GameInputProcessor(player, newPlayer));
+        Gdx.input.setInputProcessor(new GameInputProcessor(player, newPlayer, exampleTree));
         testObject = new TestObject();
 
         checkboxes.addAll(testObject.checkboxArrayList);
@@ -113,6 +113,7 @@ public class PlayScreen implements Screen {
         player.draw(sr, game.batch);
         newPlayer.draw(game.batch);
         testObject.draw(game.batch);
+        exampleTree.draw(game.batch);
         game.batch.end();
     }
 

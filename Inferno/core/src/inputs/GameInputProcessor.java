@@ -2,6 +2,7 @@ package inputs;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import environment.trees.ExampleTree;
 import game.entities.player.NewPlayer;
 import player.Player;
 
@@ -9,10 +10,12 @@ public class GameInputProcessor implements InputProcessor {
 
     private Player player;
     private NewPlayer newPlayer;
+    ExampleTree tree;
 
-    public GameInputProcessor(Player player, NewPlayer newPlayer) {
+    public GameInputProcessor(Player player, NewPlayer newPlayer, ExampleTree tree) {
         this.player = player;
         this.newPlayer = newPlayer;
+        this.tree = tree;
     }
 
     @Override
@@ -21,6 +24,7 @@ public class GameInputProcessor implements InputProcessor {
             case Input.Keys.W:
                 player.setUp(true);
                 newPlayer.setTop(true);
+                tree.right();
                 break;
             case Input.Keys.A:
                 player.setLeft(true);
