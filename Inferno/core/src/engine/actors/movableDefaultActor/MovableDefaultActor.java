@@ -24,10 +24,10 @@ public class MovableDefaultActor extends DefaultActor {
     public Vector<Integer> finalPosition;
     protected int actionIndex;
 
-    public MovableDefaultActor(Vector<Integer> position, ArrayList<Checkbox> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim) {
-        super(ActorTypes.DYNAMIC, position, checkboxArray, texturePath, dim);
+    public MovableDefaultActor(int positionX, int positionY, ArrayList<Checkbox> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim) {
+        super(ActorTypes.DYNAMIC, new Vector(positionX, positionY), checkboxArray, texturePath, dim);
         this.textureData = textureData;
-        this.finalPosition = new Vector<>(100, 100);
+        this.finalPosition = new Vector<>(positionX, positionY);
         loadAnimations();
     }
 

@@ -8,18 +8,16 @@ public class NewPlayer extends MovableDefaultActor {
     private boolean isAttacking = false;
 
     public NewPlayer() {
-        super(NewPlayerConstants.position, NewPlayerConstants.checkboxArray, NewPlayerConstants.textureSrc, NewPlayerConstants.textureData, NewPlayerConstants.dim);
+        super(100, 100, NewPlayerConstants.checkboxArray, NewPlayerConstants.textureSrc, NewPlayerConstants.textureData, NewPlayerConstants.dim);
         System.out.println(NewPlayerConstants.checkboxArray);
     }
 
     public void update() {
         if (!isCollision) {
-            System.out.println("new position");
             finalPosition.x = position.x;
             finalPosition.y = position.y;
         }
 
-//        updatePos();
         updateAnimationTick();
         setAnimation();
     }

@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.MyGdxGame;
+import environment.trees.ExampleTree;
 import game.entities.player.NewPlayer;
 import inputs.GameInputProcessor;
 import levelManager.LevelManager;
@@ -22,6 +23,7 @@ public class PlayScreen implements Screen {
     private LevelManager levelManager;
     private Player player;
     private NewPlayer newPlayer;
+    private ExampleTree exampleTree;
     private ShapeRenderer sr;
 
     Sprite sprite;
@@ -41,6 +43,7 @@ public class PlayScreen implements Screen {
         levelManager = new LevelManager();
         player = new Player();
         newPlayer = new NewPlayer();
+        exampleTree = new ExampleTree();
         sr = new ShapeRenderer();
         camera.translate(camera.viewportWidth / 2, camera.viewportHeight / 2);
         Gdx.input.setInputProcessor(new GameInputProcessor(player, newPlayer));
