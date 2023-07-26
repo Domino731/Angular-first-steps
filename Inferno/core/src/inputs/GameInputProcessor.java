@@ -2,40 +2,31 @@ package inputs;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
-import environment.trees.ExampleTree;
+import engine.actorsManager.ActorsManager;
 import game.entities.player.NewPlayer;
-import player.Player;
 
 public class GameInputProcessor implements InputProcessor {
-
-    private Player player;
+    private ActorsManager actorsManager;
     private NewPlayer newPlayer;
-    ExampleTree tree;
 
-    public GameInputProcessor(Player player, NewPlayer newPlayer, ExampleTree tree) {
-        this.player = player;
-        this.newPlayer = newPlayer;
-        this.tree = tree;
+    public GameInputProcessor(ActorsManager actorsManager) {
+        this.actorsManager = actorsManager;
+        newPlayer = this.actorsManager.player;
     }
 
     @Override
     public boolean keyDown(int keycode) {
         switch (keycode) {
             case Input.Keys.W:
-                player.setUp(true);
                 newPlayer.setTop(true);
-                tree.right();
                 break;
             case Input.Keys.A:
-                player.setLeft(true);
                 newPlayer.setLeft(true);
                 break;
             case Input.Keys.S:
-                player.setDown(true);
                 newPlayer.setBot(true);
                 break;
             case Input.Keys.D:
-                player.setRight(true);
                 newPlayer.setRight(true);
                 break;
         }
@@ -46,19 +37,15 @@ public class GameInputProcessor implements InputProcessor {
     public boolean keyUp(int keycode) {
         switch (keycode) {
             case Input.Keys.W:
-                player.setUp(false);
                 newPlayer.setTop(false);
                 break;
             case Input.Keys.A:
-                player.setLeft(false);
                 newPlayer.setLeft(false);
                 break;
             case Input.Keys.S:
-                player.setDown(false);
                 newPlayer.setBot(false);
                 break;
             case Input.Keys.D:
-                player.setRight(false);
                 newPlayer.setRight(false);
                 break;
         }

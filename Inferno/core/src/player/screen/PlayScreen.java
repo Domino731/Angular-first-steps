@@ -5,14 +5,12 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.MyGdxGame;
-import environment.trees.ExampleTree;
+import engine.actorsManager.ActorsManager;
 import game.entities.player.NewPlayer;
 import inputs.GameInputProcessor;
 import levelManager.LevelManager;
-import player.Player;
 import player.TestObject;
 import utils.Checkbox;
 
@@ -21,10 +19,8 @@ import java.util.Vector;
 public class PlayScreen implements Screen {
     private MyGdxGame game;
     private LevelManager levelManager;
-    private Player player;
+    private ActorsManager actorsManager;
     private NewPlayer newPlayer;
-    private ExampleTree exampleTree;
-    private ShapeRenderer sr;
 
     Sprite sprite;
     OrthographicCamera camera;
@@ -41,12 +37,12 @@ public class PlayScreen implements Screen {
 
         this.game = game;
         levelManager = new LevelManager();
-        player = new Player();
-        newPlayer = new NewPlayer();
-        exampleTree = new ExampleTree();
-        sr = new ShapeRenderer();
+
+        actorsManager = new ActorsManager();
+        newPlayer = actorsManager.player;
+
         camera.translate(camera.viewportWidth / 2, camera.viewportHeight / 2);
-        Gdx.input.setInputProcessor(new GameInputProcessor(player, newPlayer, exampleTree));
+        Gdx.input.setInputProcessor(new GameInputProcessor(actorsManager));
         testObject = new TestObject();
 
         checkboxes.addAll(testObject.checkboxArrayList);
@@ -58,11 +54,8 @@ public class PlayScreen implements Screen {
 
     }
 
-    private void update(float delta) {
-//        player.isCollision = false;
+    private void update() {
         newPlayer.setIsCollision(false);
-
-//        player.updatePos();
         newPlayer.updatePos();
 
         // Loop to check collisions
@@ -71,16 +64,12 @@ public class PlayScreen implements Screen {
             for (int j = i + 1; j < checkboxes.size(); j++) {
                 Checkbox checkbox2 = checkboxes.get(j);
                 if (checkCollision(checkbox1, checkbox2)) {
-//                    player.isCollision = true;
                     newPlayer.setIsCollision(true);
-
-                    player.resetPosition();
                     newPlayer.resetPosition();
                 }
             }
         }
 
-        player.update();
         newPlayer.update();
     }
 
@@ -103,17 +92,16 @@ public class PlayScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        update(delta);
+        update();
         ScreenUtils.clear(0, 0, 0, 1);
         camera.update();
         game.batch.begin();
         game.batch.setProjectionMatrix(camera.combined);
 
         levelManager.render(game.batch);
-        player.draw(sr, game.batch);
-        newPlayer.draw(game.batch);
+        actorsManager.draw(game.batch);
         testObject.draw(game.batch);
-        exampleTree.draw(game.batch);
+
         game.batch.end();
     }
 
