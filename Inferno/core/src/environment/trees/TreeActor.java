@@ -8,15 +8,15 @@ import utils.vectors.Vector;
 public class TreeActor extends EnvironmentDefaultActor {
     private String id;
 
-    public TreeActor() {
+    public TreeActor(int x, int y) {
         super(
-                new Vector<>(150, 150),
+                new Vector<>(x, y),
                 TreesConfig.get("MAPLE").checkboxesCords,
                 TreesConfig.get("MAPLE").spriteSrc,
                 new DimensionVector<>((int) TreeConstants.FINAL_STAGE_WIDTH,
                         (int) TreeConstants.FINAL_STAGE_HEIGHT),
                 TreesConfig.get("MAPLE").textures,
-                new DimensionCordVector(10, 10, 0, 0)
+                new DimensionCordVector(20, 17, 14, 0)
         );
     }
 

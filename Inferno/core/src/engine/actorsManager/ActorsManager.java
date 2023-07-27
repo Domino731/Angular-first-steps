@@ -9,25 +9,34 @@ import player.TestObject;
 import utils.Checkbox;
 
 import java.util.ArrayList;
-import java.util.Vector;
+import java.util.Collections;
+import java.util.Comparator;
+
 
 public class ActorsManager {
     private ArrayList<DefaultActor> allActors = new ArrayList<>();
     public NewPlayer player = new NewPlayer();
-    private Vector<Checkbox> checkboxes = new Vector<>();
-    private Vector<Checkbox> groundCheckboxes = new Vector<>();
+    private ArrayList<Checkbox> checkboxes = new ArrayList<>();
+    private ArrayList<Checkbox> groundCheckboxes = new ArrayList<>();
     private TestObject testObject;
 
     public ActorsManager() {
-        ExampleTree exampleTree = new ExampleTree();
 
+        ExampleTree exampleTree = new ExampleTree(150, 150);
+        ExampleTree exampleTree2 = new ExampleTree(150, 200);
         allActors.add(player);
+
         allActors.add(exampleTree);
+        allActors.add(exampleTree2);
 
         testObject = new TestObject();
         checkboxes.addAll(testObject.checkboxArrayList);
-        checkboxes.addAll(player.getCheckboxArray());
+        checkboxes.add(player.getGroundCheckbox());
+        checkboxes.add(exampleTree.getGroundCheckbox());
+
+//        checkboxes.addAll(player.getCheckboxArray());
         groundCheckboxes.add(exampleTree.getGroundCheckbox());
+        groundCheckboxes.add(exampleTree2.getGroundCheckbox());
         groundCheckboxes.add(player.getGroundCheckbox());
     }
 
@@ -38,6 +47,7 @@ public class ActorsManager {
     }
 
     public void update() {
+        sortCheckboxesByPosition();
         player.setIsCollision(false);
         player.updatePos();
 
@@ -56,6 +66,18 @@ public class ActorsManager {
         player.update();
     }
 
+    public void sortCheckboxesByPosition() {
+        // Implement custom comparator to sort checkboxes by 'y' position in ascending order
+        Comparator<DefaultActor> checkboxComparator = new Comparator<DefaultActor>() {
+            @Override
+            public int compare(DefaultActor checkbox1, DefaultActor checkbox2) {
+                return Integer.compare(checkbox2.getPosition().y, checkbox1.getPosition().y);
+            }
+        };
+
+        Collections.sort(allActors, checkboxComparator);
+    }
+
     public void renderCheckboxes(ShapeRenderer sr) {
         for (Checkbox cb : checkboxes) {
             sr.begin(ShapeRenderer.ShapeType.Line);
@@ -69,6 +91,11 @@ public class ActorsManager {
             sr.rect(cb.position.x, cb.position.y, cb.dim.width, cb.dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
             sr.end();
         }
+//        Vector<Integer> position = player.getFinalPosition();
+//        sr.begin(ShapeRenderer.ShapeType.Line);
+//        sr.setColor(0, 0, 1, 1); // Red color
+//        sr.rect(position.x, position.y, player.getDim().width, player.getDim().height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
+//        sr.end();
     }
 
 

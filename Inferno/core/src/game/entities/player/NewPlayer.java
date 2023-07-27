@@ -4,13 +4,18 @@ import engine.actors.movableDefaultActor.MovableDefaultActor;
 import player.PlayerConstants;
 import utils.Checkbox;
 import utils.vectors.DimensionCordVector;
+import utils.vectors.Vector;
 
 public class NewPlayer extends MovableDefaultActor {
     private boolean isAttacking = false;
 
     public NewPlayer() {
-        super(100, 100, NewPlayerConstants.checkboxArray, NewPlayerConstants.textureSrc, NewPlayerConstants.textureData, NewPlayerConstants.dim, new DimensionCordVector(10, 10, 0, 0));
+        super(100, 100, NewPlayerConstants.checkboxArray, NewPlayerConstants.textureSrc, NewPlayerConstants.textureData, NewPlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
         System.out.println(NewPlayerConstants.checkboxArray);
+    }
+
+    public Vector<Integer> getFinalPosition() {
+        return finalPosition;
     }
 
     public void update() {

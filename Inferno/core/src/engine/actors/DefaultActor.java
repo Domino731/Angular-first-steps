@@ -62,6 +62,9 @@ public abstract class DefaultActor {
         return position;
     }
 
+    public DimensionVector<Integer> getDim() {
+        return dim;
+    }
 
     public ArrayList<Checkbox> getCheckboxArray() {
         return checkboxArray;
