@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class StaticDefaultActor extends DefaultActor {
 
-    public StaticDefaultActor(Vector<Integer> position, ArrayList<DimensionCordVector> checkboxArray, String texturePath, DimensionVector<Integer> dim) {
-        super(ActorTypes.STATIC, position, texturePath, dim, checkboxArray);
+    public StaticDefaultActor(Vector<Integer> position, ArrayList<DimensionCordVector> checkboxArray, String texturePath, DimensionVector<Integer> dim, DimensionCordVector dcv) {
+        super(ActorTypes.STATIC, position, texturePath, dim, checkboxArray, dcv);
     }
 }

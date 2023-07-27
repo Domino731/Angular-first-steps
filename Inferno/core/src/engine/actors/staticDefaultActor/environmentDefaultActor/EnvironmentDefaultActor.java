@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class EnvironmentDefaultActor extends StaticDefaultActor {
     protected TextureRegion[] textures;
 
-    public EnvironmentDefaultActor(Vector<Integer> position, ArrayList<DimensionCordVector> checkboxArray, String texturePath, DimensionVector<Integer> dim, TextureRegion[] textures) {
-        super(position, checkboxArray, texturePath, dim);
+    public EnvironmentDefaultActor(Vector<Integer> position, ArrayList<DimensionCordVector> checkboxArray, String texturePath, DimensionVector<Integer> dim, TextureRegion[] textures, DimensionCordVector dcv) {
+        super(position, checkboxArray, texturePath, dim, dcv);
         this.textures = textures;
     }
 

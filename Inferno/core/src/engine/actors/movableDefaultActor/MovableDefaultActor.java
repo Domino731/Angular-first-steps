@@ -9,6 +9,7 @@ import engine.actors.utils.ActorDirection;
 import spritesManager.SpritesManager;
 import utils.Checkbox;
 import utils.TextureData;
+import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
@@ -24,8 +25,8 @@ public class MovableDefaultActor extends DefaultActor {
     public Vector<Integer> finalPosition;
     protected int actionIndex;
 
-    public MovableDefaultActor(int positionX, int positionY, ArrayList<Checkbox> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim) {
-        super(ActorTypes.DYNAMIC, new Vector(positionX, positionY), checkboxArray, texturePath, dim);
+    public MovableDefaultActor(int positionX, int positionY, ArrayList<Checkbox> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim, DimensionCordVector groundCheckbox) {
+        super(ActorTypes.DYNAMIC, new Vector(positionX, positionY), checkboxArray, texturePath, dim, groundCheckbox);
         this.textureData = textureData;
         this.finalPosition = new Vector<>(positionX, positionY);
         loadAnimations();
@@ -54,6 +55,9 @@ public class MovableDefaultActor extends DefaultActor {
         position.y = finalPosition.y;
         checkboxArray.get(0).position.x = finalPosition.x;
         checkboxArray.get(0).position.y = finalPosition.y;
+        groundCheckbox.position.x = finalPosition.x + groundCheckbox.absolutePosition.x;
+        groundCheckbox.position.y = finalPosition.y + groundCheckbox.absolutePosition.y;
+
     }
 
     /**

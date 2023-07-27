@@ -15,26 +15,29 @@ import java.util.ArrayList;
 public abstract class DefaultActor {
     protected Vector<Integer> position = null;
     protected ArrayList<Checkbox> checkboxArray = null;
+    protected Checkbox groundCheckbox;
     protected boolean isCollision = false;
     protected Texture texture;
     protected ActorTypes actorType;
     protected DimensionVector<Integer> dim;
     private String id = StringUtils.generateRandomId();
 
-    public DefaultActor(ActorTypes actorType, Vector<Integer> position, ArrayList<Checkbox> checkboxArray, String texturePath, DimensionVector<Integer> dim) {
+    public DefaultActor(ActorTypes actorType, Vector<Integer> position, ArrayList<Checkbox> checkboxArray, String texturePath, DimensionVector<Integer> dim, DimensionCordVector dimCordVector) {
         this.actorType = actorType;
         this.position = position;
         this.checkboxArray = checkboxArray;
         this.dim = dim;
         this.texture = SpritesManager.loadSprite(texturePath);
+        this.groundCheckbox = new Checkbox(id, new Vector<>(position.x + dimCordVector.x, position.y + dimCordVector.y), new DimensionVector<>(dimCordVector.width, dimCordVector.height), new Vector<>(dimCordVector.x, dimCordVector.y));
     }
 
-    public DefaultActor(ActorTypes actorType, Vector<Integer> position, String texturePath, DimensionVector<Integer> dim, ArrayList<DimensionCordVector> arrayList) {
+    public DefaultActor(ActorTypes actorType, Vector<Integer> position, String texturePath, DimensionVector<Integer> dim, ArrayList<DimensionCordVector> arrayList, DimensionCordVector dimCordVector) {
         this.actorType = actorType;
         this.position = position;
         this.checkboxArray = createCheckboxList(arrayList);
         this.dim = dim;
         this.texture = SpritesManager.loadSprite(texturePath);
+        this.groundCheckbox = new Checkbox(id, new Vector<>(position.x + dimCordVector.x, position.y + dimCordVector.y), new DimensionVector<>(dimCordVector.width, dimCordVector.height));
     }
 
     private ArrayList<Checkbox> createCheckboxList(ArrayList<DimensionCordVector> arrayList) {
@@ -55,13 +58,17 @@ public abstract class DefaultActor {
     }
 
     // getters
-    protected Vector<Integer> getPosition() {
+    public Vector<Integer> getPosition() {
         return position;
     }
 
 
     public ArrayList<Checkbox> getCheckboxArray() {
         return checkboxArray;
+    }
+
+    public Checkbox getGroundCheckbox() {
+        return groundCheckbox;
     }
 
     public void draw(SpriteBatch sb) {

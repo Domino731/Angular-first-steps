@@ -3,12 +3,13 @@ package game.entities.player;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
 import player.PlayerConstants;
 import utils.Checkbox;
+import utils.vectors.DimensionCordVector;
 
 public class NewPlayer extends MovableDefaultActor {
     private boolean isAttacking = false;
 
     public NewPlayer() {
-        super(100, 100, NewPlayerConstants.checkboxArray, NewPlayerConstants.textureSrc, NewPlayerConstants.textureData, NewPlayerConstants.dim);
+        super(100, 100, NewPlayerConstants.checkboxArray, NewPlayerConstants.textureSrc, NewPlayerConstants.textureData, NewPlayerConstants.dim, new DimensionCordVector(10, 10, 0, 0));
         System.out.println(NewPlayerConstants.checkboxArray);
     }
 
@@ -56,26 +57,30 @@ public class NewPlayer extends MovableDefaultActor {
             for (Checkbox cb : checkboxArray) {
                 cb.position.x -= speed;
             }
+            groundCheckbox.position.x -= speed;
             isMoving = true;
         } else if (direction.right && !direction.left) {
             position.x += speed;
             for (Checkbox cb : checkboxArray) {
                 cb.position.x += speed;
             }
+            groundCheckbox.position.x += speed;
             isMoving = true;
         }
 
-        if (direction.top && !direction.bot) {
+        if (!direction.top && direction.bot) {
             position.y -= speed;
             for (Checkbox cb : checkboxArray) {
                 cb.position.y -= speed;
             }
+            groundCheckbox.position.y -= speed;
             isMoving = true;
-        } else if (direction.bot && !direction.top) {
+        } else if (direction.top && !direction.bot) {
             position.y += speed;
             for (Checkbox cb : checkboxArray) {
                 cb.position.y += speed;
             }
+            groundCheckbox.position.y += speed;
             isMoving = true;
         }
     }
