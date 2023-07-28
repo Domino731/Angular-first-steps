@@ -34,7 +34,8 @@ public class PlayerConstants {
             case RUNNING:
                 return 6;
             case IDLE:
-                return 5;
+//                return 5;
+                return 1;
             case HIT:
                 return 4;
             case JUMP:

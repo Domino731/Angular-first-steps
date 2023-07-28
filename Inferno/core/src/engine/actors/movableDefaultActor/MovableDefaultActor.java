@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
 import engine.actors.utils.ActorDirection;
+import game.entities.player.PlayerTextures;
 import spritesManager.SpritesManager;
 import utils.Checkbox;
 import utils.TextureData;
@@ -24,6 +25,7 @@ public class MovableDefaultActor extends DefaultActor {
     protected int aniTick, aniIndex, aniSpeed = 25;
     public Vector<Integer> finalPosition;
     protected int actionIndex;
+    private PlayerTextures playerTextures = new PlayerTextures();
 
     public MovableDefaultActor(int positionX, int positionY, ArrayList<Checkbox> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim, DimensionCordVector groundCheckbox) {
         super(ActorTypes.DYNAMIC, new Vector(positionX, positionY), checkboxArray, texturePath, dim, groundCheckbox);
@@ -47,7 +49,9 @@ public class MovableDefaultActor extends DefaultActor {
 
     @Override
     public void draw(SpriteBatch sb) {
-        sb.draw(textureRegions[actionIndex][aniIndex], finalPosition.x, finalPosition.y, dim.width, dim.height);
+        sb.draw(playerTextures.bodyTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+//        sb.draw(textureRegions[actionIndex][aniIndex], finalPosition.x, finalPosition.y, dim.width, dim.height);
     }
 
     public void resetPosition() {

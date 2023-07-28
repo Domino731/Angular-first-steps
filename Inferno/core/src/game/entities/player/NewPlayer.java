@@ -11,7 +11,6 @@ public class NewPlayer extends MovableDefaultActor {
 
     public NewPlayer() {
         super(100, 100, NewPlayerConstants.checkboxArray, NewPlayerConstants.textureSrc, NewPlayerConstants.textureData, NewPlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
-        System.out.println(NewPlayerConstants.checkboxArray);
     }
 
     public Vector<Integer> getFinalPosition() {
@@ -32,9 +31,11 @@ public class NewPlayer extends MovableDefaultActor {
         int startAni = actionIndex;
 
         if (isMoving)
-            actionIndex = PlayerConstants.Actions.RUNNING;
+//            actionIndex = PlayerConstants.Actions.RUNNING;
+            actionIndex = 1;
         else
-            actionIndex = PlayerConstants.Actions.IDLE;
+//            actionIndex = PlayerConstants.Actions.IDLE;
+            actionIndex = 0;
 
         if (isAttacking)
             actionIndex = PlayerConstants.Actions.ATTACK_1;
