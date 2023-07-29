@@ -67,6 +67,7 @@ public class PlayerTextures {
         }
         if (idleHorizontally != null && idleHorizontally.isArray()) {
             loadTexturesForAnimationState(textures, STATE_IDLE_HORIZONTALLY, idleHorizontally, texture);
+//            loadHorizontallyTexturesForAnimationState(textures, STATE_RUNNING_LEFT, STATE_RUNNING_RIGHT, runningHorizontally, texture);
         }
         if (idleDown != null && idleDown.isArray()) {
             loadTexturesForAnimationState(textures, STATE_IDLE_DOWN, idleDown, texture);
@@ -110,14 +111,6 @@ public class PlayerTextures {
             int x = cord.get(0).shortValue() * textureWidth;
             int y = cord.get(1).shortValue() * textureHeight;
 
-            TextureRegion textureLeft = new TextureRegion(
-                    texture,
-                    x,
-                    y,
-                    textureWidth,
-                    textureHeight
-            );
-            // sprites are directed to the right, so create left version of texture
             TextureRegion textureRight = new TextureRegion(
                     texture,
                     x,
@@ -125,7 +118,15 @@ public class PlayerTextures {
                     textureWidth,
                     textureHeight
             );
-            textureRight.flip(true, false);
+            // sprites are directed to the right, so create left version of texture
+            TextureRegion textureLeft = new TextureRegion(
+                    texture,
+                    x,
+                    y,
+                    textureWidth,
+                    textureHeight
+            );
+            textureLeft.flip(true, false);
 
             // put textures into array
             textures[stateLeft][i] = textureLeft;

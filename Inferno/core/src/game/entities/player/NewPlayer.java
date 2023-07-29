@@ -30,11 +30,17 @@ public class NewPlayer extends MovableDefaultActor {
     private void setAnimation() {
         int startAni = actionIndex;
 
-        if (isMoving)
-//            actionIndex = PlayerConstants.Actions.RUNNING;
-            actionIndex = 1;
-        else
-//            actionIndex = PlayerConstants.Actions.IDLE;
+        if (isMoving) {
+            if (direction.left) {
+                actionIndex = PlayerTextures.STATE_RUNNING_LEFT;
+            } else if (direction.right) {
+                actionIndex = PlayerTextures.STATE_RUNNING_RIGHT;
+            } else if (direction.top) {
+                actionIndex = PlayerTextures.STATE_RUNNING_UP;
+            } else if (direction.bot) {
+                actionIndex = PlayerTextures.STATE_RUNNING_DOWN;
+            }
+        } else
             actionIndex = 0;
 
         if (isAttacking)
