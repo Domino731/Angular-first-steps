@@ -87,17 +87,23 @@
           2
         ]
       ],
-      "idleUp": [
-        0,
-        2
+      "idleHorizontally": [
+        [
+          0,
+          2
+        ]
       ],
       "idleRight": [
-        0,
-        1
+        [
+          0,
+          1
+        ]
       ],
       "idleDown": [
-        0,
-        0
+        [
+          0,
+          0
+        ]
       ]
     },
     "arms": {
@@ -185,17 +191,23 @@
           2
         ]
       ],
-      "idleUp": [
-        6,
-        2
+      "idleHorizontally": [
+        [
+          6,
+          2
+        ]
       ],
       "idleRight": [
-        6,
-        1
+        [
+          6,
+          1
+        ]
       ],
       "idleDown": [
-        6,
-        0
+        [
+          6,
+          0
+        ]
       ]
     }
   }

@@ -13,8 +13,13 @@ import java.io.IOException;
 
 
 public class PlayerTextures {
-    public static final int STATE_IDLE = 0;
-    public static final int STATE_RUNNING_HORIZONTALLY = 1;
+    public static final int STATE_RUNNING_HORIZONTALLY = 0;
+    public static final int STATE_RUNNING_DOWN = 1;
+    public static final int STATE_RUNNING_UP = 2;
+    public static final int STATE_IDLE_UP = 3;
+    public static final int STATE_IDLE_DOWN = 4;
+    public static final int STATE_IDLE_HORIZONTALLY = 5;
+
     private static final int MAX_ANIMATION_FRAMES = 6;
 
     public TextureRegion[][] bodyTextures;
@@ -23,8 +28,8 @@ public class PlayerTextures {
     private final int textureHeight = 32;
 
     public PlayerTextures() {
-        bodyTextures = new TextureRegion[2][MAX_ANIMATION_FRAMES];
-        armsTextures = new TextureRegion[2][MAX_ANIMATION_FRAMES];
+        bodyTextures = new TextureRegion[6][MAX_ANIMATION_FRAMES];
+        armsTextures = new TextureRegion[6][MAX_ANIMATION_FRAMES];
         readJson();
     }
 
@@ -48,15 +53,32 @@ public class PlayerTextures {
             return;
         }
 
-        JsonNode idle = animationNode.get("idle");
         JsonNode runningHorizontally = animationNode.get("runningHorizontally");
+        JsonNode runningDown = animationNode.get("runningDown");
+        JsonNode runningUp = animationNode.get("runningUp");
+        JsonNode idleUp = animationNode.get("idleUp");
+        JsonNode idleHorizontally = animationNode.get("idleHorizontally");
+        JsonNode idleDown = animationNode.get("idleDown");
 
-        if (idle != null && idle.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_IDLE, idle, texture);
+        if (idleUp != null && idleUp.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_IDLE_UP, idleUp, texture);
+        }
+        if (idleHorizontally != null && idleHorizontally.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_IDLE_HORIZONTALLY, idleHorizontally, texture);
+        }
+        if (idleDown != null && idleDown.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_IDLE_DOWN, idleDown, texture);
         }
 
+        // handle running textures
         if (runningHorizontally != null && runningHorizontally.isArray()) {
             loadTexturesForAnimationState(textures, STATE_RUNNING_HORIZONTALLY, runningHorizontally, texture);
+        }
+        if (runningDown != null && runningDown.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_RUNNING_DOWN, runningDown, texture);
+        }
+        if (runningUp != null && runningUp.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_RUNNING_UP, runningUp, texture);
         }
     }
 
