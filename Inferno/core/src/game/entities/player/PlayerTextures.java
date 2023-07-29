@@ -19,6 +19,8 @@ public class PlayerTextures {
     public static final int STATE_IDLE_UP = 3;
     public static final int STATE_IDLE_DOWN = 4;
     public static final int STATE_IDLE_HORIZONTALLY = 5;
+    public static final int STATE_RUNNING_RIGHT = 6;
+    public static final int STATE_RUNNING_LEFT = 7;
 
     private static final int MAX_ANIMATION_FRAMES = 6;
 
@@ -28,8 +30,8 @@ public class PlayerTextures {
     private final int textureHeight = 32;
 
     public PlayerTextures() {
-        bodyTextures = new TextureRegion[6][MAX_ANIMATION_FRAMES];
-        armsTextures = new TextureRegion[6][MAX_ANIMATION_FRAMES];
+        bodyTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
+        armsTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
         readJson();
     }
 
@@ -73,6 +75,7 @@ public class PlayerTextures {
         // handle running textures
         if (runningHorizontally != null && runningHorizontally.isArray()) {
             loadTexturesForAnimationState(textures, STATE_RUNNING_HORIZONTALLY, runningHorizontally, texture);
+            loadHorizontallyTexturesForAnimationState(textures, STATE_RUNNING_LEFT, STATE_RUNNING_RIGHT, runningHorizontally, texture);
         }
         if (runningDown != null && runningDown.isArray()) {
             loadTexturesForAnimationState(textures, STATE_RUNNING_DOWN, runningDown, texture);
@@ -94,6 +97,40 @@ public class PlayerTextures {
                     textureWidth,
                     textureHeight
             );
+            i++;
+            if (i >= MAX_ANIMATION_FRAMES) {
+                break;
+            }
+        }
+    }
+
+    private void loadHorizontallyTexturesForAnimationState(TextureRegion[][] textures, int stateLeft, int stateRight, JsonNode animationNode, Texture texture) {
+        int i = 0;
+        for (JsonNode cord : animationNode) {
+            int x = cord.get(0).shortValue() * textureWidth;
+            int y = cord.get(1).shortValue() * textureHeight;
+
+            TextureRegion textureLeft = new TextureRegion(
+                    texture,
+                    x,
+                    y,
+                    textureWidth,
+                    textureHeight
+            );
+            // sprites are directed to the right, so create left version of texture
+            TextureRegion textureRight = new TextureRegion(
+                    texture,
+                    x,
+                    y,
+                    textureWidth,
+                    textureHeight
+            );
+            textureRight.flip(true, false);
+
+            // put textures into array
+            textures[stateLeft][i] = textureLeft;
+            textures[stateRight][i] = textureRight;
+
             i++;
             if (i >= MAX_ANIMATION_FRAMES) {
                 break;
