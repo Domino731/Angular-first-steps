@@ -55,7 +55,7 @@ public class NewPlayer extends MovableDefaultActor {
         if (aniTick >= aniSpeed) {
             aniTick = 0;
             aniIndex++;
-            if (aniIndex >= PlayerConstants.GetSpriteAmount(actionIndex)) {
+            if (aniIndex >= PlayerTextures.actionTextureAmount(actionIndex)) {
                 aniIndex = 0;
                 isAttacking = false;
             }

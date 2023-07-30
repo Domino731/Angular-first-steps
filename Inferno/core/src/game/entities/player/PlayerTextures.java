@@ -29,6 +29,23 @@ public class PlayerTextures {
     private final int textureWidth = 16;
     private final int textureHeight = 32;
 
+    public static int actionTextureAmount(int player_action) {
+        switch (player_action) {
+            // running
+            case STATE_RUNNING_LEFT:
+            case STATE_RUNNING_RIGHT:
+            case STATE_RUNNING_DOWN:
+            case STATE_RUNNING_UP:
+                return 6;
+            // idle
+            case STATE_IDLE_DOWN:
+            case STATE_IDLE_UP:
+                return 1;
+            default:
+                return 1;
+        }
+    }
+
     public PlayerTextures() {
         bodyTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
         armsTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];

@@ -22,7 +22,7 @@ public class MovableDefaultActor extends DefaultActor {
     protected byte speed = 1;
     private TextureRegion[][] textureRegions;
     private TextureData textureData;
-    protected int aniTick, aniIndex, aniSpeed = 25;
+    protected int aniTick, aniIndex, aniSpeed = 30;
     public Vector<Integer> finalPosition;
     protected int actionIndex;
     private PlayerTextures playerTextures = new PlayerTextures();
@@ -51,7 +51,6 @@ public class MovableDefaultActor extends DefaultActor {
     public void draw(SpriteBatch sb) {
         sb.draw(playerTextures.bodyTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
         sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-//        sb.draw(textureRegions[actionIndex][aniIndex], finalPosition.x, finalPosition.y, dim.width, dim.height);
     }
 
     public void resetPosition() {
@@ -61,7 +60,6 @@ public class MovableDefaultActor extends DefaultActor {
         checkboxArray.get(0).position.y = finalPosition.y;
         groundCheckbox.position.x = finalPosition.x + groundCheckbox.absolutePosition.x;
         groundCheckbox.position.y = finalPosition.y + groundCheckbox.absolutePosition.y;
-
     }
 
     /**
