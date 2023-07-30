@@ -12,41 +12,37 @@ import game.entities.player.NewPlayer;
 import inputs.GameInputProcessor;
 import levelManager.LevelManager;
 import player.TestObject;
-import utils.Checkbox;
+import utils.vectors.Vector;
 
-import java.util.Vector;
 
 public class PlayScreen implements Screen {
     private MyGdxGame game;
     private LevelManager levelManager;
     private ActorsManager actorsManager;
     private NewPlayer newPlayer;
-
+    Texture txt;
     Sprite sprite;
     OrthographicCamera camera;
     final float GAME_WORLD_WIDTH = 100;
     final float GAME_WORLD_HEIGHT = 100;
 
     private TestObject testObject;
-    public Vector<Checkbox> checkboxes = new Vector<>();
 
     public PlayScreen(MyGdxGame game) {
+        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.translate(camera.viewportWidth / 2, camera.viewportHeight / 2);
         sprite = new Sprite(new Texture(Gdx.files.internal("testImg.jpg")));
         sprite.setSize(GAME_WORLD_WIDTH, GAME_WORLD_HEIGHT);
-        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
         this.game = game;
         levelManager = new LevelManager();
-
+        txt = new Texture("download.jpg");
         actorsManager = new ActorsManager();
         newPlayer = actorsManager.player;
 
-        camera.translate(camera.viewportWidth / 2, camera.viewportHeight / 2);
         Gdx.input.setInputProcessor(new GameInputProcessor(actorsManager));
         testObject = new TestObject();
 
-        checkboxes.addAll(testObject.checkboxArrayList);
-        checkboxes.addAll(newPlayer.getCheckboxArray());
+        camera.zoom = 0.5f;
     }
 
     @Override
@@ -54,22 +50,45 @@ public class PlayScreen implements Screen {
 
     }
 
+    private void update() {
+        ScreenUtils.clear(0, 0, 0, 1);
+        Vector<Integer> position = newPlayer.getPosition();
+        camera.position.set(position.x, position.y, 0);
+        camera.update();
+        actorsManager.update();
+    }
+
     @Override
     public void render(float delta) {
-        actorsManager.update();
-        ScreenUtils.clear(0, 0, 0, 1);
-        camera.update();
-        game.batch.begin();
+        update();
         game.batch.setProjectionMatrix(camera.combined);
-
+        game.batch.begin();
         levelManager.render(game.batch);
         actorsManager.draw(game.batch);
-        testObject.draw(game.batch);
+//        game.batch.draw(txt, 0, 0);
 
+//        game.batch.draw(txt, 10, 10);
+//        game.batch.draw(txt, 20, 20, 100, 100);
         game.batch.end();
-        if (game.showCheckboxes) {
-            actorsManager.renderCheckboxes(game.sr);
-        }
+
+//        game.batch.begin();
+
+//        levelManager.render(game.batch);
+
+//        game.batch.end();
+
+//        actorsManager.update();
+
+//        game.batch.begin();
+//
+//        levelManager.render(game.batch);
+//        actorsManager.draw(game.batch);
+//
+//        game.batch.end();
+//
+//        if (game.showCheckboxes) {
+//            actorsManager.renderCheckboxes(game.sr);
+//        }
     }
 
     @Override
@@ -93,6 +112,6 @@ public class PlayScreen implements Screen {
 
     @Override
     public void dispose() {
-        sprite.getTexture().dispose();
+//        sprite.getTexture().dispose();
     }
 }

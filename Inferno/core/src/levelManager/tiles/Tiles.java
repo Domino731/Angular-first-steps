@@ -1,7 +1,6 @@
 package levelManager.tiles;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.fasterxml.jackson.databind.JsonNode;
 import utils.vectors.Vector2s;
 
@@ -10,10 +9,9 @@ import java.util.List;
 
 public class Tiles {
     private List<Tile> tilesList;
-    private Stage tilesState;
+
     public Tiles() {
         tilesList = new ArrayList<>();
-        tilesState = new Stage();
     }
 
     private static final Vector2s defaultTileSpriteCords = new Vector2s((short) 10, (short) 10);
@@ -23,10 +21,10 @@ public class Tiles {
         createTilesList(tiles);
     }
 
-    public void createTilesList(JsonNode tiles){
+    public void createTilesList(JsonNode tiles) {
         for (int i = 0; i < 100; i++) {
             for (int j = 0; j < 100; j++) {
-                tilesState.addActor(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) 10, (short) 10), "TEST" ));
+                tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) 10, (short) 10), "TEST"));
             }
         }
 
@@ -60,9 +58,8 @@ public class Tiles {
     }
 
     public void render(SpriteBatch batch) {
-        tilesState.draw();
-//        for (Tile tile: tilesList ) {
-//            tile
-//        }
+        for (Tile tile : tilesList) {
+            tile.draw(batch);
+        }
     }
 }
