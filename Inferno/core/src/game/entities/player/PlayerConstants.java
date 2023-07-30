@@ -7,7 +7,7 @@ import utils.vectors.Vector;
 
 import java.util.ArrayList;
 
-public class NewPlayerConstants {
+public class PlayerConstants {
     public static Vector<Integer> position = new Vector<>(100, 100);
     public static ArrayList<Checkbox> checkboxArray = getCheckboxArray();
     public static final String textureSrc = "sprites/entities/player.png";

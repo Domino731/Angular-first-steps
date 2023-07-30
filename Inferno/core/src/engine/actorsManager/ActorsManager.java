@@ -4,8 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import engine.actors.DefaultActor;
 import environment.trees.ExampleTree;
-import game.entities.player.NewPlayer;
-import player.TestObject;
+import game.entities.player.Player;
 import utils.Checkbox;
 
 import java.util.ArrayList;
@@ -15,10 +14,9 @@ import java.util.Comparator;
 
 public class ActorsManager {
     private ArrayList<DefaultActor> allActors = new ArrayList<>();
-    public NewPlayer player = new NewPlayer();
+    public Player player = new Player();
     private ArrayList<Checkbox> checkboxes = new ArrayList<>();
     private ArrayList<Checkbox> groundCheckboxes = new ArrayList<>();
-    private TestObject testObject;
 
     public ActorsManager() {
 
@@ -29,8 +27,6 @@ public class ActorsManager {
         allActors.add(exampleTree);
         allActors.add(exampleTree2);
 
-        testObject = new TestObject();
-        checkboxes.addAll(testObject.checkboxArrayList);
         checkboxes.add(player.getGroundCheckbox());
         checkboxes.add(exampleTree.getGroundCheckbox());
 

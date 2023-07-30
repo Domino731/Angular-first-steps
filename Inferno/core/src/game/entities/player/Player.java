@@ -1,16 +1,15 @@
 package game.entities.player;
 
 import engine.actors.movableDefaultActor.MovableDefaultActor;
-import player.PlayerConstants;
 import utils.Checkbox;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.Vector;
 
-public class NewPlayer extends MovableDefaultActor {
+public class Player extends MovableDefaultActor {
     private boolean isAttacking = false;
 
-    public NewPlayer() {
-        super(100, 100, NewPlayerConstants.checkboxArray, NewPlayerConstants.textureSrc, NewPlayerConstants.textureData, NewPlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
+    public Player() {
+        super(100, 100, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
     }
 
     public Vector<Integer> getFinalPosition() {
@@ -43,8 +42,6 @@ public class NewPlayer extends MovableDefaultActor {
         } else
             actionIndex = 0;
 
-        if (isAttacking)
-            actionIndex = PlayerConstants.Actions.ATTACK_1;
 
         if (startAni != actionIndex)
             resetAniTick();

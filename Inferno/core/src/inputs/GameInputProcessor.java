@@ -3,31 +3,31 @@ package inputs;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import engine.actorsManager.ActorsManager;
-import game.entities.player.NewPlayer;
+import game.entities.player.Player;
 
 public class GameInputProcessor implements InputProcessor {
     private ActorsManager actorsManager;
-    private NewPlayer newPlayer;
+    private Player player;
 
     public GameInputProcessor(ActorsManager actorsManager) {
         this.actorsManager = actorsManager;
-        newPlayer = this.actorsManager.player;
+        player = this.actorsManager.player;
     }
 
     @Override
     public boolean keyDown(int keycode) {
         switch (keycode) {
             case Input.Keys.W:
-                newPlayer.setTop(true);
+                player.setTop(true);
                 break;
             case Input.Keys.A:
-                newPlayer.setLeft(true);
+                player.setLeft(true);
                 break;
             case Input.Keys.S:
-                newPlayer.setBot(true);
+                player.setBot(true);
                 break;
             case Input.Keys.D:
-                newPlayer.setRight(true);
+                player.setRight(true);
                 break;
         }
         return true;
@@ -37,16 +37,16 @@ public class GameInputProcessor implements InputProcessor {
     public boolean keyUp(int keycode) {
         switch (keycode) {
             case Input.Keys.W:
-                newPlayer.setTop(false);
+                player.setTop(false);
                 break;
             case Input.Keys.A:
-                newPlayer.setLeft(false);
+                player.setLeft(false);
                 break;
             case Input.Keys.S:
-                newPlayer.setBot(false);
+                player.setBot(false);
                 break;
             case Input.Keys.D:
-                newPlayer.setRight(false);
+                player.setRight(false);
                 break;
         }
         return true;
