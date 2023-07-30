@@ -2,12 +2,15 @@ package game.entities.player;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import spritesManager.SpritesManager;
 import utils.EngineLog;
 import utils.Json;
+import utils.vectors.DimensionVector;
 
 import java.io.IOException;
 
@@ -22,12 +25,61 @@ public class PlayerTextures {
     public static final int STATE_RUNNING_RIGHT = 6;
     public static final int STATE_RUNNING_LEFT = 7;
 
+    public static final int STATE_HAIR_UP = 0;
+    public static final int STATE_HAIR_RIGHT = 1;
+    public static final int STATE_HAIR_DOWN = 2;
+    public static final int STATE_HAIR_LEFT = 3;
+
+    public static final DimensionVector<Byte> HAIR_SIZE = new DimensionVector<Byte>((byte) 16, (byte) 32);
+
     private static final int MAX_ANIMATION_FRAMES = 6;
+    public static TextureRegion[] hairsTexture = getHair();
 
     public TextureRegion[][] bodyTextures;
     public TextureRegion[][] armsTextures;
     private final int textureWidth = 16;
     private final int textureHeight = 32;
+
+    private static TextureRegion[] getHair() {
+        Texture texture = new Texture("sprites/style/hairs.png");
+        TextureData textureData = texture.getTextureData();
+        if (!textureData.isPrepared()) {
+            textureData.prepare();
+        }
+
+        Pixmap pixmap = textureData.consumePixmap();
+
+        for (int x = 0; x < pixmap.getWidth(); x++) {
+            for (int y = 0; y < pixmap.getHeight(); y++) {
+                // Get the current pixel color
+                int colorInt = pixmap.getPixel(x, y);
+
+                // Extract the RGB components
+                int r = (colorInt & 0xff000000) >>> 24; // Red component (8 bits)
+                int g = (colorInt & 0x00ff0000) >>> 16; // Green component (8 bits)
+                int b = (colorInt & 0x0000ff00) >>> 8;  // Blue component (8 bits)
+                int a = colorInt & 0x000000ff;         // Alpha component (8 bits)
+
+                // Increase the green component (you can adjust this value as needed)
+                r = Math.min(r + 50, 255); // In this example, we're increasing green by 50
+
+                // Recombine the components and update the pixel
+                colorInt = (r << 24) | (g << 16) | (b << 8) | a;
+                pixmap.drawPixel(x, y, colorInt);
+            }
+        }
+
+        Texture coloredHair = new Texture(pixmap);
+        TextureRegion[] hairs = new TextureRegion[4];
+        hairs[STATE_HAIR_UP] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 0, HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[STATE_HAIR_RIGHT] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 1, HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[STATE_HAIR_DOWN] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 2, HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[STATE_HAIR_LEFT] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 1, HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[STATE_HAIR_LEFT].flip(true, false);
+        return hairs;
+
+    }
+
 
     public static int actionTextureAmount(int player_action) {
         switch (player_action) {

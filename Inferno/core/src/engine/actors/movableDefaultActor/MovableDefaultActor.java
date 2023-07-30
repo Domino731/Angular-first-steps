@@ -49,8 +49,6 @@ public class MovableDefaultActor extends DefaultActor {
 
     @Override
     public void draw(SpriteBatch sb) {
-//        sb.draw(playerTextures.bodyTextures[1][1], finalPosition.x, finalPosition.y, 16, 32);
-//        sb.draw(playerTextures.armsTextures[1][1], finalPosition.x, finalPosition.y, 16, 32);
         sb.draw(playerTextures.bodyTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
         sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
     }

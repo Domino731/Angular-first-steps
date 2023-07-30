@@ -1,5 +1,6 @@
 package game.entities.player;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
 import utils.Checkbox;
 import utils.vectors.DimensionCordVector;
@@ -7,6 +8,7 @@ import utils.vectors.Vector;
 
 public class Player extends MovableDefaultActor {
     private boolean isAttacking = false;
+    private PlayerStyle style = new PlayerStyle();
 
     public Player() {
         super(100, 100, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -57,6 +59,13 @@ public class Player extends MovableDefaultActor {
                 isAttacking = false;
             }
         }
+    }
+
+    @Override
+    public void draw(SpriteBatch sb) {
+        super.draw(sb);
+        sb.draw(style.hair, finalPosition.x, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
+
     }
 
     public void updatePos() {
