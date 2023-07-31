@@ -32,7 +32,6 @@ public class MovableDefaultActor extends DefaultActor {
         super(ActorTypes.DYNAMIC, new Vector(positionX, positionY), checkboxArray, texturePath, dim, groundCheckbox);
         this.textureData = textureData;
         this.finalPosition = new Vector<>(positionX, positionY);
-        aniIndex = PlayerTextures.STATE_IDLE_DOWN;
         loadAnimations();
     }
 

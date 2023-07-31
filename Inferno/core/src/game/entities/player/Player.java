@@ -9,6 +9,8 @@ import utils.vectors.Vector;
 public class Player extends MovableDefaultActor {
     private boolean isAttacking = false;
     private PlayerStyle style = new PlayerStyle();
+    private int hairTextureIndex = 0;
+    private byte hairTextureYOffset = -2;
 
     public Player() {
         super(100, 100, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -42,10 +44,10 @@ public class Player extends MovableDefaultActor {
                 actionIndex = PlayerTextures.STATE_RUNNING_DOWN;
             }
         } else {
-            System.out.println(PlayerTextures.idleActionByLastAction(actionIndex));
             actionIndex = PlayerTextures.idleActionByLastAction(actionIndex);
         }
 
+        hairTextureIndex = PlayerTextures.hairTextureIndexByAction(actionIndex);
 
         if (startAni != actionIndex)
             resetAniTick();
@@ -62,13 +64,18 @@ public class Player extends MovableDefaultActor {
                 isAttacking = false;
             }
         }
+        System.out.println(PlayerTextureUtils.getHairYOffset(actionIndex, aniIndex));
+        hairTextureYOffset = PlayerTextureUtils.getHairYOffset(actionIndex, aniIndex);
     }
 
     @Override
     public void draw(SpriteBatch sb) {
         super.draw(sb);
-        sb.draw(style.hair, finalPosition.x, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
-
+        sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
+//        sb.draw(style.hairArray[PlayerTextures.STATE_HAIR_UP], finalPosition.x, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
+//        sb.draw(style.hairArray[PlayerTextures.STATE_HAIR_RIGHT], finalPosition.x + 25, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
+//        sb.draw(style.hairArray[PlayerTextures.STATE_HAIR_DOWN], finalPosition.x + 50, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
+//        sb.draw(style.hairArray[PlayerTextures.STATE_HAIR_LEFT], finalPosition.x + 75, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
     }
 
     public void updatePos() {

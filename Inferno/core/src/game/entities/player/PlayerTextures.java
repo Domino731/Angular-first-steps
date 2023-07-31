@@ -72,15 +72,33 @@ public class PlayerTextures {
 
         Texture coloredHair = new Texture(pixmap);
         TextureRegion[] hairs = new TextureRegion[4];
-        hairs[STATE_HAIR_UP] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 0, HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[STATE_HAIR_UP] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 2, HAIR_SIZE.width, HAIR_SIZE.height);
         hairs[STATE_HAIR_RIGHT] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 1, HAIR_SIZE.width, HAIR_SIZE.height);
-        hairs[STATE_HAIR_DOWN] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 2, HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[STATE_HAIR_DOWN] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 0, HAIR_SIZE.width, HAIR_SIZE.height);
         hairs[STATE_HAIR_LEFT] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 1, HAIR_SIZE.width, HAIR_SIZE.height);
         hairs[STATE_HAIR_LEFT].flip(true, false);
         return hairs;
 
     }
 
+    public static int hairTextureIndexByAction(int playerAction) {
+        switch (playerAction) {
+            case STATE_IDLE_UP:
+            case STATE_RUNNING_UP:
+                return STATE_HAIR_UP;
+            case STATE_IDLE_RIGHT:
+            case STATE_RUNNING_RIGHT:
+                return STATE_HAIR_RIGHT;
+            case STATE_IDLE_DOWN:
+            case STATE_RUNNING_DOWN:
+                return STATE_HAIR_DOWN;
+            case STATE_IDLE_LEFT:
+            case STATE_RUNNING_LEFT:
+                return STATE_HAIR_LEFT;
+            default:
+                return 0;
+        }
+    }
 
     public static int actionTextureAmount(int player_action) {
         switch (player_action) {
@@ -91,8 +109,10 @@ public class PlayerTextures {
             case STATE_RUNNING_UP:
                 return 6;
             // idle
-            case STATE_IDLE_DOWN:
             case STATE_IDLE_UP:
+            case STATE_IDLE_RIGHT:
+            case STATE_IDLE_DOWN:
+            case STATE_IDLE_LEFT:
                 return 1;
             default:
                 return 1;
