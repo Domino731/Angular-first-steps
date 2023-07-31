@@ -6,6 +6,7 @@ import engine.actors.DefaultActor;
 import environment.trees.ExampleTree;
 import game.entities.player.Player;
 import utils.Checkbox;
+import world.trees.NewTree;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,6 +27,7 @@ public class ActorsManager {
 
         allActors.add(exampleTree);
         allActors.add(exampleTree2);
+        allActors.add(new NewTree());
 
         checkboxes.add(player.getGroundCheckbox());
         checkboxes.add(exampleTree.getGroundCheckbox());
