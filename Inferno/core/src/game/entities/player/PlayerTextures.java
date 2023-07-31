@@ -16,22 +16,23 @@ import java.io.IOException;
 
 
 public class PlayerTextures {
-    public static final int STATE_RUNNING_HORIZONTALLY = 0;
-    public static final int STATE_RUNNING_DOWN = 1;
-    public static final int STATE_RUNNING_UP = 2;
-    public static final int STATE_IDLE_UP = 3;
-    public static final int STATE_IDLE_DOWN = 4;
-    public static final int STATE_IDLE_HORIZONTALLY = 5;
-    public static final int STATE_RUNNING_RIGHT = 6;
+    // IDLE
+    public static final int STATE_IDLE_UP = 0;
+    public static final int STATE_IDLE_RIGHT = 1;
+    public static final int STATE_IDLE_DOWN = 2;
+    public static final int STATE_IDLE_LEFT = 3;
+    // RUNNING
+    public static final int STATE_RUNNING_UP = 4;
+    public static final int STATE_RUNNING_RIGHT = 5;
+    public static final int STATE_RUNNING_DOWN = 6;
     public static final int STATE_RUNNING_LEFT = 7;
-
+    // HAIR
     public static final int STATE_HAIR_UP = 0;
     public static final int STATE_HAIR_RIGHT = 1;
     public static final int STATE_HAIR_DOWN = 2;
     public static final int STATE_HAIR_LEFT = 3;
 
-    public static final DimensionVector<Byte> HAIR_SIZE = new DimensionVector<Byte>((byte) 16, (byte) 32);
-
+    public static final DimensionVector<Byte> HAIR_SIZE = new DimensionVector<>((byte) 16, (byte) 32);
     private static final int MAX_ANIMATION_FRAMES = 6;
     public static TextureRegion[] hairsTexture = getHair();
 
@@ -98,6 +99,26 @@ public class PlayerTextures {
         }
     }
 
+    public static int idleActionByLastAction(int playerAction) {
+        switch (playerAction) {
+            case STATE_IDLE_UP:
+            case STATE_IDLE_RIGHT:
+            case STATE_IDLE_DOWN:
+            case STATE_IDLE_LEFT:
+                return playerAction;
+            case STATE_RUNNING_UP:
+                return STATE_IDLE_UP;
+            case STATE_RUNNING_RIGHT:
+                return STATE_IDLE_RIGHT;
+            case STATE_RUNNING_DOWN:
+                return STATE_IDLE_DOWN;
+            case STATE_RUNNING_LEFT:
+                return STATE_IDLE_LEFT;
+            default:
+                return STATE_IDLE_DOWN;
+        }
+    }
+
     public PlayerTextures() {
         bodyTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
         armsTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
@@ -131,20 +152,18 @@ public class PlayerTextures {
         JsonNode idleHorizontally = animationNode.get("idleHorizontally");
         JsonNode idleDown = animationNode.get("idleDown");
 
+        // IDLE
         if (idleUp != null && idleUp.isArray()) {
             loadTexturesForAnimationState(textures, STATE_IDLE_UP, idleUp, texture);
         }
         if (idleHorizontally != null && idleHorizontally.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_IDLE_HORIZONTALLY, idleHorizontally, texture);
-//            loadHorizontallyTexturesForAnimationState(textures, STATE_RUNNING_LEFT, STATE_RUNNING_RIGHT, runningHorizontally, texture);
+            loadHorizontallyTexturesForAnimationState(textures, STATE_IDLE_LEFT, STATE_IDLE_RIGHT, idleHorizontally, texture);
         }
         if (idleDown != null && idleDown.isArray()) {
             loadTexturesForAnimationState(textures, STATE_IDLE_DOWN, idleDown, texture);
         }
-
-        // handle running textures
+        // RUNNING
         if (runningHorizontally != null && runningHorizontally.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_RUNNING_HORIZONTALLY, runningHorizontally, texture);
             loadHorizontallyTexturesForAnimationState(textures, STATE_RUNNING_LEFT, STATE_RUNNING_RIGHT, runningHorizontally, texture);
         }
         if (runningDown != null && runningDown.isArray()) {

@@ -3,10 +3,10 @@
   "textureHeight": 32,
   "animations": {
     "body": {
-      "idle": [
+      "idleUp": [
         [
           0,
-          0
+          2
         ]
       ],
       "runningHorizontally": [
@@ -90,7 +90,7 @@
       "idleHorizontally": [
         [
           0,
-          2
+          1
         ]
       ],
       "idleRight": [
@@ -107,10 +107,10 @@
       ]
     },
     "arms": {
-      "idle": [
+      "idleUp": [
         [
           6,
-          0
+          2
         ]
       ],
       "runningHorizontally": [
@@ -194,7 +194,7 @@
       "idleHorizontally": [
         [
           6,
-          2
+          1
         ]
       ],
       "idleRight": [

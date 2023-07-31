@@ -41,13 +41,16 @@ public class Player extends MovableDefaultActor {
             } else if (direction.bot) {
                 actionIndex = PlayerTextures.STATE_RUNNING_DOWN;
             }
-        } else
-            actionIndex = 0;
+        } else {
+            System.out.println(PlayerTextures.idleActionByLastAction(actionIndex));
+            actionIndex = PlayerTextures.idleActionByLastAction(actionIndex);
+        }
 
 
         if (startAni != actionIndex)
             resetAniTick();
     }
+
 
     private void updateAnimationTick() {
         aniTick++;

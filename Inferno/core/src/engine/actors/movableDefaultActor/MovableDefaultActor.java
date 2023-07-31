@@ -26,11 +26,13 @@ public class MovableDefaultActor extends DefaultActor {
     public Vector<Integer> finalPosition;
     protected int actionIndex;
     private PlayerTextures playerTextures = new PlayerTextures();
+    private String lastDir = "";
 
     public MovableDefaultActor(int positionX, int positionY, ArrayList<Checkbox> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim, DimensionCordVector groundCheckbox) {
         super(ActorTypes.DYNAMIC, new Vector(positionX, positionY), checkboxArray, texturePath, dim, groundCheckbox);
         this.textureData = textureData;
         this.finalPosition = new Vector<>(positionX, positionY);
+        aniIndex = PlayerTextures.STATE_IDLE_DOWN;
         loadAnimations();
     }
 
