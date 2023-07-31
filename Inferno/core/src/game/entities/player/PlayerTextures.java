@@ -219,6 +219,13 @@ public class PlayerTextures {
             int x = cord.get(0).shortValue() * textureWidth;
             int y = cord.get(1).shortValue() * textureHeight;
 
+            // TODO later: fix offset, this fixed value should be in json file
+            if (stateLeft == STATE_RUNNING_LEFT || stateRight == STATE_RUNNING_RIGHT) {
+                if (i == 0 || i == 3) {
+                    y += 1;
+                }
+            }
+
             TextureRegion textureRight = new TextureRegion(
                     texture,
                     x,
