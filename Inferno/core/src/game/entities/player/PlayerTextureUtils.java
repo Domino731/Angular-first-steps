@@ -25,6 +25,40 @@ public class PlayerTextureUtils {
             }
         }
 
+        if (playerAction == PlayerTextures.STATE_RUNNING_DOWN) {
+            switch (aniIndex) {
+                case 0:
+                    return -4;
+                case 1:
+                    return -5;
+                case 2:
+                    return -3;
+                case 3:
+                    return -4;
+                case 4:
+                    return -5;
+                case 5:
+                    return -3;
+
+            }
+        }
+        if (playerAction == PlayerTextures.STATE_RUNNING_UP) {
+            switch (aniIndex) {
+                case 0:
+                    return -4;
+                case 1:
+                    return -4;
+                case 2:
+                    return -3;
+                case 3:
+                    return -4;
+                case 4:
+                    return -4;
+                case 5:
+                    return -3;
+
+            }
+        }
         return 0;
     }
 }
