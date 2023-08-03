@@ -64,14 +64,13 @@ public class Player extends MovableDefaultActor {
                 isAttacking = false;
             }
         }
-        System.out.println(PlayerTextureUtils.getHairYOffset(actionIndex, aniIndex));
         hairTextureYOffset = PlayerTextureUtils.getHairYOffset(actionIndex, aniIndex);
     }
 
     @Override
     public void draw(SpriteBatch sb) {
         super.draw(sb);
-        sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
+        sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
 //        sb.draw(style.hairArray[PlayerTextures.STATE_HAIR_UP], finalPosition.x, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
 //        sb.draw(style.hairArray[PlayerTextures.STATE_HAIR_RIGHT], finalPosition.x + 25, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
 //        sb.draw(style.hairArray[PlayerTextures.STATE_HAIR_DOWN], finalPosition.x + 50, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);

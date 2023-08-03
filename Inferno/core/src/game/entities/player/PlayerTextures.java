@@ -11,6 +11,7 @@ import spritesManager.SpritesManager;
 import utils.EngineLog;
 import utils.Json;
 import utils.vectors.DimensionVector;
+import utils.vectors.Vector;
 
 import java.io.IOException;
 
@@ -32,18 +33,21 @@ public class PlayerTextures {
     public static final int STATE_HAIR_DOWN = 2;
     public static final int STATE_HAIR_LEFT = 3;
 
-    public static final DimensionVector<Byte> HAIR_SIZE = new DimensionVector<>((byte) 16, (byte) 32);
     private static final int MAX_ANIMATION_FRAMES = 6;
-    public static TextureRegion[] hairsTexture = getHair();
+    private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
+    public static TextureRegion[] hairsTexture = getHair("1");
 
     public TextureRegion[][] bodyTextures;
     public TextureRegion[][] armsTextures;
     private final int textureWidth = 16;
     private final int textureHeight = 32;
 
-    private static TextureRegion[] getHair() {
-        Texture texture = new Texture("sprites/style/hairs.png");
-        TextureData textureData = texture.getTextureData();
+
+    public static TextureRegion[] getHair(String hairId) {
+        TextureData textureData = hairTexture.getTextureData();
+        PlayerHairsData.Config hairData = PlayerHairsData.getHairData(hairId);
+        Vector<Byte> hairOffset = hairData.getOffset();
+
         if (!textureData.isPrepared()) {
             textureData.prepare();
         }
@@ -72,10 +76,14 @@ public class PlayerTextures {
 
         Texture coloredHair = new Texture(pixmap);
         TextureRegion[] hairs = new TextureRegion[4];
-        hairs[STATE_HAIR_UP] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 2, HAIR_SIZE.width, HAIR_SIZE.height);
-        hairs[STATE_HAIR_RIGHT] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 1, HAIR_SIZE.width, HAIR_SIZE.height);
-        hairs[STATE_HAIR_DOWN] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 0, HAIR_SIZE.width, HAIR_SIZE.height);
-        hairs[STATE_HAIR_LEFT] = new TextureRegion(coloredHair, 0, HAIR_SIZE.height * 1, HAIR_SIZE.width, HAIR_SIZE.height);
+        DimensionVector<Byte> HAIR_SIZE = PlayerHairsData.HAIR_SIZE;
+        int xOffset = hairOffset.x * HAIR_SIZE.width;
+        int yOffset = hairOffset.y * HAIR_SIZE.height;
+
+        hairs[STATE_HAIR_UP] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 2), HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[STATE_HAIR_RIGHT] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 1), HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[STATE_HAIR_DOWN] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 0), HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[STATE_HAIR_LEFT] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 1), HAIR_SIZE.width, HAIR_SIZE.height);
         hairs[STATE_HAIR_LEFT].flip(true, false);
         return hairs;
 
