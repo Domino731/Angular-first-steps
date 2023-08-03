@@ -1,10 +1,34 @@
 package game.entities.player;
 
+import utils.vectors.Vector;
+
 import java.util.HashMap;
 
 public class PlayerHatsData {
     private static HashMap<HatsNames, Config> hats = createHats();
     public static final byte HAT_SIZE = 20;
+
+    public static Config getHat(HatsNames id) {
+        return hats.get(id);
+    }
+
+    public static class Config {
+        private String name;
+        private Vector<Byte> offset;
+
+        public Config(String name, byte xOffset, byte yOffset) {
+            this.name = name;
+            offset = new Vector<>(xOffset, yOffset);
+        }
+
+        public Vector<Byte> getOffset() {
+            return offset;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
 
     private static HashMap<HatsNames, Config> createHats() {
         HashMap<HatsNames, Config> payload = new HashMap<>();
@@ -65,35 +89,7 @@ public class PlayerHatsData {
         payload.put(HatsNames.TEST_47, new Config("HAT_47", (byte) 10, (byte) 3));
         payload.put(HatsNames.TEST_48, new Config("HAT_48", (byte) 11, (byte) 3));
 
-
         return payload;
     }
-
-
-    public static class Config {
-        private String name;
-        private byte xOffset;
-        private byte yOffset;
-
-        public Config(String name, byte xOffset, byte yOffset) {
-            this.name = name;
-            this.xOffset = xOffset;
-            this.yOffset = yOffset;
-        }
-
-        // getters
-        public byte getxOffset() {
-            return xOffset;
-        }
-
-        public byte getyOffset() {
-            return yOffset;
-        }
-
-        public String getName() {
-            return name;
-        }
-    }
-
 
 }

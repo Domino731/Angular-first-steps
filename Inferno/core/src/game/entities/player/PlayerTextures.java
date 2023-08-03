@@ -35,13 +35,31 @@ public class PlayerTextures {
 
     private static final int MAX_ANIMATION_FRAMES = 6;
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
-    public static TextureRegion[] hairsTexture = getHair("1");
+    private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
 
     public TextureRegion[][] bodyTextures;
     public TextureRegion[][] armsTextures;
     private final int textureWidth = 16;
     private final int textureHeight = 32;
 
+    public static TextureRegion[] getHat(HatsNames hatId) {
+        PlayerHatsData.Config hatData = PlayerHatsData.getHat(hatId);
+        Vector<Byte> hairOffset = hatData.getOffset();
+
+        TextureRegion[] hats = new TextureRegion[4];
+        DimensionVector<Byte> HAIR_SIZE = PlayerHairsData.HAIR_SIZE;
+        byte size = PlayerHatsData.HAT_SIZE;
+        final int xOffset = hairOffset.x * size;
+        final int yOffset = hairOffset.y * size;
+
+
+        hats[STATE_HAIR_UP] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 2), size, size);
+        hats[STATE_HAIR_RIGHT] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 1), size, size);
+        hats[STATE_HAIR_DOWN] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 0), size, size);
+        hats[STATE_HAIR_LEFT] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 1), size, size);
+        hats[STATE_HAIR_LEFT].flip(true, false);
+        return hats;
+    }
 
     public static TextureRegion[] getHair(String hairId) {
         TextureData textureData = hairTexture.getTextureData();
@@ -86,8 +104,8 @@ public class PlayerTextures {
         hairs[STATE_HAIR_LEFT] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 1), HAIR_SIZE.width, HAIR_SIZE.height);
         hairs[STATE_HAIR_LEFT].flip(true, false);
         return hairs;
-
     }
+
 
     public static int hairTextureIndexByAction(int playerAction) {
         switch (playerAction) {
