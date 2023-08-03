@@ -5,7 +5,7 @@ import utils.vectors.Vector;
 import java.util.HashMap;
 
 public class PlayerHairsData {
-    private HashMap<String, Config> hairs = createHairs();
+    private static HashMap<String, Config> hairs = createHairs();
 
     private static HashMap<String, Config> createHairs() {
         HashMap<String, Config> hairs = new HashMap<>();
@@ -31,5 +31,11 @@ public class PlayerHairsData {
             this.name = name;
             offset = new Vector<>(xOffset, yOffset);
         }
+
+        public Vector<Byte> getOffset() {return offset};
+    }
+
+    public static Config getHairData(String hairId) {
+        return hairs.get(hairId);
     }
 }
