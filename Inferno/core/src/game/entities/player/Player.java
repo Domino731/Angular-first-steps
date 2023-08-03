@@ -71,15 +71,8 @@ public class Player extends MovableDefaultActor {
     public void draw(SpriteBatch sb) {
         super.draw(sb);
         sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-        sb.draw(style.hatsArray[0], finalPosition.x, finalPosition.y + 20, 20, 20);
-        sb.draw(style.hatsArray[1], finalPosition.x, finalPosition.y + 40, 20, 20);
-        sb.draw(style.hatsArray[2], finalPosition.x, finalPosition.y + 60, 20, 20);
-        sb.draw(style.hatsArray[3], finalPosition.x, finalPosition.y + 70, 20, 20);
+        sb.draw(style.hatsArray[3], finalPosition.x, finalPosition.y + 20, 20, 20);
 
-//        sb.draw(style.hairArray[PlayerTextures.STATE_HAIR_UP], finalPosition.x, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
-//        sb.draw(style.hairArray[PlayerTextures.STATE_HAIR_RIGHT], finalPosition.x + 25, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
-//        sb.draw(style.hairArray[PlayerTextures.STATE_HAIR_DOWN], finalPosition.x + 50, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
-//        sb.draw(style.hairArray[PlayerTextures.STATE_HAIR_LEFT], finalPosition.x + 75, finalPosition.y - 3, PlayerTextures.HAIR_SIZE.width, PlayerTextures.HAIR_SIZE.height);
     }
 
     public void updatePos() {

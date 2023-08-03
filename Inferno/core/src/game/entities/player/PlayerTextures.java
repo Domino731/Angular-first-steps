@@ -33,6 +33,11 @@ public class PlayerTextures {
     public static final int STATE_HAIR_DOWN = 2;
     public static final int STATE_HAIR_LEFT = 3;
 
+    public static final int STATE_HAT_UP = 0;
+    public static final int STATE_HAT_RIGHT = 1;
+    public static final int STATE_HAT_DOWN = 2;
+    public static final int STATE_HAT_LEFT = 3;
+
     private static final int MAX_ANIMATION_FRAMES = 6;
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
@@ -53,11 +58,10 @@ public class PlayerTextures {
         final int yOffset = hairOffset.y * size;
 
 
-        hats[STATE_HAIR_UP] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 2), size, size);
-        hats[STATE_HAIR_RIGHT] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 1), size, size);
-        hats[STATE_HAIR_DOWN] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 0), size, size);
-        hats[STATE_HAIR_LEFT] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 1), size, size);
-        hats[STATE_HAIR_LEFT].flip(true, false);
+        hats[STATE_HAT_DOWN] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 0), size, size);
+        hats[STATE_HAT_RIGHT] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 1), size, size);
+        hats[STATE_HAT_LEFT] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 2), size, size);
+        hats[STATE_HAT_UP] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 3), size, size);
         return hats;
     }
 
