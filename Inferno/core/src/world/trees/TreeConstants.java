@@ -9,6 +9,8 @@ public class TreeConstants {
         public static final DimensionCordVector STAGE_THREE = new DimensionCordVector(16, 16, 16, 128);
         public static final DimensionCordVector STAGE_FOUR = new DimensionCordVector(16, 32, 16, 96);
         public static final DimensionCordVector STAGE_FIVE = new DimensionCordVector(48, 96, 0, 0);
+        public static final DimensionCordVector EMPTY_TRUNK = new DimensionCordVector(16, 32, 32, 96);
+        public static final DimensionCordVector TRUNK = new DimensionCordVector(16, 16, 0, 144);
     }
 
     public enum Tree {

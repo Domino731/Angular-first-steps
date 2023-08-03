@@ -6,6 +6,7 @@ import engine.actors.DefaultActor;
 import environment.trees.ExampleTree;
 import game.entities.player.Player;
 import utils.Checkbox;
+import utils.vectors.Vector;
 import world.trees.NewTree;
 
 import java.util.ArrayList;
@@ -18,16 +19,18 @@ public class ActorsManager {
     public Player player = new Player();
     private ArrayList<Checkbox> checkboxes = new ArrayList<>();
     private ArrayList<Checkbox> groundCheckboxes = new ArrayList<>();
+    NewTree newTree;
 
     public ActorsManager() {
 
         ExampleTree exampleTree = new ExampleTree(150, 150);
         ExampleTree exampleTree2 = new ExampleTree(150, 200);
+        newTree = new NewTree(new Vector<Integer>(5 * 16, 5 * 16));
         allActors.add(player);
 
         allActors.add(exampleTree);
         allActors.add(exampleTree2);
-        allActors.add(new NewTree());
+        allActors.add(newTree);
 
         checkboxes.add(player.getGroundCheckbox());
         checkboxes.add(exampleTree.getGroundCheckbox());
@@ -45,6 +48,7 @@ public class ActorsManager {
     }
 
     public void update() {
+        newTree.update();
         sortCheckboxesByPosition();
         player.setIsCollision(false);
         player.updatePos();
