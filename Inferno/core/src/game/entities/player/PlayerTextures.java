@@ -70,7 +70,6 @@ public class PlayerTextures {
         return shirts;
     }
 
-
     public static TextureRegion[] getHat(HatsNames hatId) {
         PlayerHatsData.Config hatData = PlayerHatsData.getHat(hatId);
         Vector<Byte> hairOffset = hatData.getOffset();
