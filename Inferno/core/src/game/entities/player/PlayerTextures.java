@@ -130,6 +130,25 @@ public class PlayerTextures {
         }
     }
 
+    public static byte hatTextureIndexByAction(int playerAction) {
+        switch (playerAction) {
+            case STATE_IDLE_UP:
+            case STATE_RUNNING_UP:
+                return STATE_HAT_UP;
+            case STATE_IDLE_RIGHT:
+            case STATE_RUNNING_RIGHT:
+                return STATE_HAT_RIGHT;
+            case STATE_IDLE_DOWN:
+            case STATE_RUNNING_DOWN:
+                return STATE_HAT_DOWN;
+            case STATE_IDLE_LEFT:
+            case STATE_RUNNING_LEFT:
+                return STATE_HAT_LEFT;
+            default:
+                return 0;
+        }
+    }
+
     public static int actionTextureAmount(int player_action) {
         switch (player_action) {
             // running

@@ -15,6 +15,11 @@ public class PlayerConstants {
     public static final DimensionVector<Integer> dim = new DimensionVector<>(64, 40);
     public static final byte hairXOffset = -2;
     public static final byte hairYOffset = 17;
+    public static byte hatTextureIndex = 2;
+
+    public static void setHatTextureIndex(byte value) {
+        hatTextureIndex = value;
+    }
 
     private static ArrayList<Checkbox> getCheckboxArray() {
         ArrayList<Checkbox> payload = new ArrayList<>();
