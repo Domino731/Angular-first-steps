@@ -41,22 +41,43 @@ public class PlayerTextures {
     private static final int MAX_ANIMATION_FRAMES = 6;
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
+    private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
+
+    public static final byte STATE_TEXTURE_UP = 0;
+    public static final byte STATE_TEXTURE_RIGHT = 1;
+    public static final byte STATE_TEXTURE_DOWN = 2;
+    public static final byte STATE_TEXTURE_LEFT = 3;
 
     public TextureRegion[][] bodyTextures;
     public TextureRegion[][] armsTextures;
     private final int textureWidth = 16;
     private final int textureHeight = 32;
 
+
+    public static TextureRegion[] getShirts() {
+        TextureRegion[] shirts = new TextureRegion[4];
+
+        int xOffset = 2 * PlayerConstants.shirtDim.width;
+        int yOffset = 0;
+        byte width = PlayerConstants.shirtDim.width;
+        byte height = PlayerConstants.shirtDim.height;
+
+        shirts[STATE_HAT_DOWN] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
+        shirts[STATE_HAT_RIGHT] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
+        shirts[STATE_HAT_LEFT] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
+        shirts[STATE_HAT_UP] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
+
+        return shirts;
+    }
+
+
     public static TextureRegion[] getHat(HatsNames hatId) {
         PlayerHatsData.Config hatData = PlayerHatsData.getHat(hatId);
         Vector<Byte> hairOffset = hatData.getOffset();
-
         TextureRegion[] hats = new TextureRegion[4];
-        DimensionVector<Byte> HAIR_SIZE = PlayerHairsData.HAIR_SIZE;
         byte size = PlayerHatsData.HAT_SIZE;
         final int xOffset = hairOffset.x * size;
         final int yOffset = hairOffset.y * size;
-
 
         hats[STATE_HAT_DOWN] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 0), size, size);
         hats[STATE_HAT_RIGHT] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 1), size, size);

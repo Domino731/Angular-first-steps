@@ -16,6 +16,7 @@ public class PlayerConstants {
     public static final byte hairXOffset = -2;
     public static final byte hairYOffset = 17;
     public static byte hatTextureIndex = 2;
+    public static final DimensionVector<Byte> shirtDim = new DimensionVector<>((byte) 8, (byte) 8);
 
     public static void setHatTextureIndex(byte value) {
         hatTextureIndex = value;

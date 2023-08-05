@@ -73,7 +73,7 @@ public class Player extends MovableDefaultActor {
         super.draw(sb);
         sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
         sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
-
+        sb.draw(style.shirtsArray[2], finalPosition.x + 40, finalPosition.y + 40, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
     }
 
     public void updatePos() {
