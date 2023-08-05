@@ -71,7 +71,7 @@ public class Player extends MovableDefaultActor {
     public void draw(SpriteBatch sb) {
         super.draw(sb);
         sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-        sb.draw(style.hatsArray[3], finalPosition.x, finalPosition.y + 20, 20, 20);
+        sb.draw(style.hatsArray[2], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
 
     }
 

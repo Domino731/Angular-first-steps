@@ -13,6 +13,8 @@ public class PlayerConstants {
     public static final String textureSrc = "sprites/entities/player.png";
     public static final TextureData textureData = new TextureData((short) 9, (short) 6, (short) 64, (short) 40, textureSrc);
     public static final DimensionVector<Integer> dim = new DimensionVector<>(64, 40);
+    public static final byte hairXOffset = -2;
+    public static final byte hairYOffset = 17;
 
     private static ArrayList<Checkbox> getCheckboxArray() {
         ArrayList<Checkbox> payload = new ArrayList<>();

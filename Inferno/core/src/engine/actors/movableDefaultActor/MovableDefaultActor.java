@@ -52,14 +52,6 @@ public class MovableDefaultActor extends DefaultActor {
     public void draw(SpriteBatch sb) {
         sb.draw(playerTextures.bodyTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
         sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_RUNNING_UP][0], finalPosition.x + 16, finalPosition.y, 16, 32);
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_RUNNING_UP][1], finalPosition.x + 32, finalPosition.y, 16, 32);
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_RUNNING_UP][2], finalPosition.x + 48, finalPosition.y, 16, 32);
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_RUNNING_UP][3], finalPosition.x + 64, finalPosition.y, 16, 32);
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_RUNNING_UP][4], finalPosition.x + 80, finalPosition.y, 16, 32);
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_RUNNING_UP][5], finalPosition.x + 96, finalPosition.y, 16, 32);
-//        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_RUNNING_UP][0], finalPosition.x, finalPosition.y, 16, 32);
     }
 
     public void resetPosition() {
