@@ -122,8 +122,8 @@ public class PlayerTextures {
 
                 // Recombine the components and update the pixel
                 colorInt = (r << 24) | (g << 16) | (b << 8) | a;
-
-                pixmap.drawPixel(x, y, -1679772417);
+// [1242302207, 1880561919]
+                pixmap.drawPixel(x, y, 1242302207);
 //                pixmap.drawPixel(x, y, colorInt);
             }
         }

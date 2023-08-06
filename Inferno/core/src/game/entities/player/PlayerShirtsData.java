@@ -18,6 +18,11 @@ public class PlayerShirtsData {
     }
 
     private void setColorsBasedOnShirt(TextureRegion shirtTxtRg) {
+        HashMap<Integer, Integer> newColors = new HashMap<>();
+        newColors.put(1795177215, 1795177215);
+        newColors.put(-106001921, -106001921);
+        newColors.put(-529832449, -529832449);
+
         Pixmap pixmap = getPixmapFromTextureRegion(shirtTxtRg);
 
         int width = pixmap.getWidth();
@@ -65,6 +70,13 @@ public class PlayerShirtsData {
                 textureColors.add(color);
             }
         }
+
+        // set main sleeve color
+        newColors.put(-1910567681, textureColors.get(0));
+        // set sleeve border color
+        newColors.put(1242302207, borderColor);
+        // set shadow color
+        newColors.put(1880561919, textureColors.get(1));
 
         System.out.println(textureColors);
     }
