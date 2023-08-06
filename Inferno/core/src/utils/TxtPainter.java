@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 import static utils.TxtUtils.getPixmapFromTextureRegion;
 
+// TODO: delete
 public class TxtPainter {
     public static TextureRegion paint(TextureRegion colorSource, TextureRegion arm, int[] skipColors) {
         int[] sourceColors = TxtUtils.getColors(colorSource, true);

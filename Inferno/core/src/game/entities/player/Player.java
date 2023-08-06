@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
 import utils.Checkbox;
-import utils.TxtPainter;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.Vector;
 
@@ -14,11 +13,12 @@ public class Player extends MovableDefaultActor {
     private int hairTextureIndex = 0;
     private byte hairTextureYOffset = -2;
     private TextureRegion testRg;
+    private PlayerShirtsData shirts;
 
     public Player() {
         super(100, 100, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
-        testRg = TxtPainter.paint(style.shirtsArray[0], playerTextures.armsTextures[1][0], PlayerConstants.skinColors);
-        new PlayerShirtsData(style.shirtsArray[0]);
+        shirts = new PlayerShirtsData(style.shirtsArray[0], playerTextures.armsTextures[1][0]);
+        testRg = shirts.arm;
     }
 
     public Vector<Integer> getFinalPosition() {

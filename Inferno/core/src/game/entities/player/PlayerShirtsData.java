@@ -1,6 +1,7 @@
 package game.entities.player;
 
 import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import java.util.ArrayList;
@@ -12,12 +13,34 @@ import static utils.TxtUtils.getPixmapFromTextureRegion;
 
 public class PlayerShirtsData {
     private HashMap<Integer, Integer> colors = new HashMap<>();
+    public TextureRegion arm;
 
-    public PlayerShirtsData(TextureRegion shirtTxtRg) {
-        setColorsBasedOnShirt(shirtTxtRg);
+    public PlayerShirtsData(TextureRegion shirtTxtRg, TextureRegion armTxtRg) {
+        arm = createArmTextureRegion(armTxtRg, setColorsBasedOnShirt(shirtTxtRg));
     }
 
-    private void setColorsBasedOnShirt(TextureRegion shirtTxtRg) {
+    private TextureRegion createArmTextureRegion(TextureRegion armTxtRg, HashMap<Integer, Integer> colors) {
+        Pixmap pixmap = getPixmapFromTextureRegion(armTxtRg);
+
+        for (int x = 0; x < pixmap.getWidth(); x++) {
+            for (int y = 0; y < pixmap.getHeight(); y++) {
+                int colorInt = pixmap.getPixel(x, y);
+                Integer color = colors.get(colorInt);
+
+                // Use a default color when the mapping is not found
+                if (color != null) {
+                    pixmap.drawPixel(x, y, color);
+                } else {
+                    pixmap.drawPixel(x, y, colorInt);
+                }
+            }
+        }
+
+        Texture newTxt = new Texture(pixmap);
+        return new TextureRegion(newTxt);
+    }
+
+    private HashMap<Integer, Integer> setColorsBasedOnShirt(TextureRegion shirtTxtRg) {
         HashMap<Integer, Integer> newColors = new HashMap<>();
         newColors.put(1795177215, 1795177215);
         newColors.put(-106001921, -106001921);
@@ -44,7 +67,7 @@ public class PlayerShirtsData {
                 if (pixel != 0 && borderColor == 0) {
                     borderColor = pixel;
                 }
-                if (a != 0) {
+                if (a != 0 && pixel != borderColor) {
                     colorsList.add(pixel);
                 }
             }
@@ -78,7 +101,7 @@ public class PlayerShirtsData {
         // set shadow color
         newColors.put(1880561919, textureColors.get(1));
 
-        System.out.println(textureColors);
+        return newColors;
     }
 
 }
