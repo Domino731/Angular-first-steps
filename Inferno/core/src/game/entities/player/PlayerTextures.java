@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import spritesManager.SpritesManager;
 import utils.EngineLog;
 import utils.Json;
+import utils.TxtUtils;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
@@ -48,6 +49,7 @@ public class PlayerTextures {
     public static final byte STATE_TEXTURE_DOWN = 2;
     public static final byte STATE_TEXTURE_LEFT = 3;
 
+
     public TextureRegion[][] bodyTextures;
     public TextureRegion[][] armsTextures;
     private final int textureWidth = 16;
@@ -62,10 +64,10 @@ public class PlayerTextures {
         byte width = PlayerConstants.shirtDim.width;
         byte height = PlayerConstants.shirtDim.height;
 
-        shirts[STATE_HAT_DOWN] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
-        shirts[STATE_HAT_RIGHT] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
-        shirts[STATE_HAT_LEFT] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
-        shirts[STATE_HAT_UP] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
+        shirts[STATE_TEXTURE_DOWN] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
+        shirts[STATE_TEXTURE_RIGHT] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
+        shirts[STATE_TEXTURE_LEFT] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
+        shirts[STATE_TEXTURE_UP] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
 
         return shirts;
     }
@@ -213,6 +215,8 @@ public class PlayerTextures {
         bodyTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
         armsTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
         readJson();
+
+        TxtUtils.test(armsTextures[0][0]);
     }
 
     private void readJson() {

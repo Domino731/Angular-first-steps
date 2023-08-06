@@ -1,7 +1,6 @@
 package engine.actors.movableDefaultActor;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
@@ -25,7 +24,7 @@ public class MovableDefaultActor extends DefaultActor {
     protected int aniTick, aniIndex, aniSpeed = 20;
     public Vector<Integer> finalPosition;
     protected int actionIndex;
-    private PlayerTextures playerTextures = new PlayerTextures();
+    protected PlayerTextures playerTextures = new PlayerTextures();
     private String lastDir = "";
 
     public MovableDefaultActor(int positionX, int positionY, ArrayList<Checkbox> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim, DimensionCordVector groundCheckbox) {
@@ -46,12 +45,6 @@ public class MovableDefaultActor extends DefaultActor {
         for (int j = 0; j < textureRegions.length; j++)
             for (int i = 0; i < textureRegions[j].length; i++)
                 textureRegions[j][i] = new TextureRegion(texture, i * textureWidth, j * textureHeight, textureWidth, textureHeight);
-    }
-
-    @Override
-    public void draw(SpriteBatch sb) {
-        sb.draw(playerTextures.bodyTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-        sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
     }
 
     public void resetPosition() {

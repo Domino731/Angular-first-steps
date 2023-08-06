@@ -10,6 +10,11 @@ import java.util.Map;
 
 public class TxtUtils {
 
+    public static void test(TextureRegion armTexture) {
+        Pixmap pixmap = getPixmapFromTextureRegion(armTexture);
+
+    }
+
     public static int findMainColor(TextureRegion textureRegion) {
         Pixmap pixmap = getPixmapFromTextureRegion(textureRegion);
 
