@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import spritesManager.SpritesManager;
 import utils.EngineLog;
 import utils.Json;
-import utils.TxtUtils;
+import utils.colors.ColorSorter;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
@@ -59,8 +59,6 @@ public class PlayerTextures {
         bodyTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
         armsTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
         readJson();
-
-        TxtUtils.test(armsTextures[1][0], PlayerConstants.skinColors);
     }
 
     public static TextureRegion[] getShirts() {
@@ -106,6 +104,8 @@ public class PlayerTextures {
 
         Pixmap pixmap = textureData.consumePixmap();
 
+        Integer[] colors = ColorSorter.sort(PlayerConstants.skinColors);
+
         for (int x = 0; x < pixmap.getWidth(); x++) {
             for (int y = 0; y < pixmap.getHeight(); y++) {
                 // Get the current pixel color
@@ -123,7 +123,7 @@ public class PlayerTextures {
                 // Recombine the components and update the pixel
                 colorInt = (r << 24) | (g << 16) | (b << 8) | a;
 
-                pixmap.drawPixel(x, y, -1910567681);
+                pixmap.drawPixel(x, y, -1679772417);
 //                pixmap.drawPixel(x, y, colorInt);
             }
         }

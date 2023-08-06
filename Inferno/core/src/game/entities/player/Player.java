@@ -1,8 +1,10 @@
 package game.entities.player;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
 import utils.Checkbox;
+import utils.TxtPainter;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.Vector;
 
@@ -11,9 +13,12 @@ public class Player extends MovableDefaultActor {
     private PlayerStyle style = new PlayerStyle();
     private int hairTextureIndex = 0;
     private byte hairTextureYOffset = -2;
+    private TextureRegion testRg;
 
     public Player() {
         super(100, 100, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
+        testRg = TxtPainter.paint(style.shirtsArray[0], playerTextures.armsTextures[1][0], PlayerConstants.skinColors);
+        new PlayerShirtsData(style.shirtsArray[0]);
     }
 
     public Vector<Integer> getFinalPosition() {
@@ -76,6 +81,7 @@ public class Player extends MovableDefaultActor {
         sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
         sb.draw(style.shirtsArray[2], finalPosition.x + 40, finalPosition.y + 40, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
         sb.draw(playerTextures.armsTextures[1][0], finalPosition.x + 20, finalPosition.y, 16, 32);
+        sb.draw(testRg, finalPosition.x + 50, finalPosition.y, 16, 32);
     }
 
     public void updatePos() {

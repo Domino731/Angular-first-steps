@@ -3,6 +3,7 @@ package utils;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import utils.colors.ColorSorter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,12 +12,32 @@ import java.util.Map;
 public class TxtUtils {
 
     public static void test(TextureRegion armTexture, int[] skipColors) {
-        Pixmap pixmap = getPixmapFromTextureRegion(armTexture);
+        getColorsArray(armTexture, skipColors);
+    }
+
+    public static int[] getColors(TextureRegion armTexture, boolean sortByDarkness) {
+        ArrayList<Integer> colorsList = getColorsArray(armTexture, new int[1]);
+
+        int[] colors = new int[colorsList.size()];
+        for (int i = 0; i < colorsList.size(); i++) {
+            colors[i] = colorsList.get(i);
+        }
+
+        if (sortByDarkness) {
+            Integer[] newColors = ColorSorter.sort(colors);
+            for (int i = 0; i < newColors.length; i++) {
+                colors[i] = newColors[i];
+            }
+        }
+
+        return colors;
+    }
+
+
+    public static ArrayList<Integer> getColorsArray(TextureRegion txtRg, int[] skipColors) {
+        Pixmap pixmap = getPixmapFromTextureRegion(txtRg);
         int width = pixmap.getWidth();
         int height = pixmap.getHeight();
-        System.out.println(width);
-        System.out.println(height);
-
         int[] histogram = new int[256];
         ArrayList<Integer> colorsList = new ArrayList<>();
 
@@ -38,7 +59,7 @@ public class TxtUtils {
             }
         }
 
-        System.out.println(colorsList.get(colorsList.size() - 1));
+        return colorsList;
     }
 
     public static int findMainColor(TextureRegion textureRegion) {
