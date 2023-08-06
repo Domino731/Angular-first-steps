@@ -55,6 +55,13 @@ public class PlayerTextures {
     private final int textureWidth = 16;
     private final int textureHeight = 32;
 
+    public PlayerTextures() {
+        bodyTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
+        armsTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
+        readJson();
+
+        TxtUtils.test(armsTextures[1][0], PlayerConstants.skinColors);
+    }
 
     public static TextureRegion[] getShirts() {
         TextureRegion[] shirts = new TextureRegion[4];
@@ -116,12 +123,7 @@ public class PlayerTextures {
                 // Recombine the components and update the pixel
                 colorInt = (r << 24) | (g << 16) | (b << 8) | a;
 
-                // od najadsniejszego do
-                // -106001921 - skin 1
-                // -529832449
-                // 1795177215 - skin 3
-
-                pixmap.drawPixel(x, y, -529832449);
+                pixmap.drawPixel(x, y, -1910567681);
 //                pixmap.drawPixel(x, y, colorInt);
             }
         }
@@ -216,14 +218,6 @@ public class PlayerTextures {
             default:
                 return STATE_IDLE_DOWN;
         }
-    }
-
-    public PlayerTextures() {
-        bodyTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
-        armsTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
-        readJson();
-
-        TxtUtils.test(armsTextures[1][0]);
     }
 
     private void readJson() {

@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class TxtUtils {
 
-    public static void test(TextureRegion armTexture) {
+    public static void test(TextureRegion armTexture, int[] skipColors) {
         Pixmap pixmap = getPixmapFromTextureRegion(armTexture);
         int width = pixmap.getWidth();
         int height = pixmap.getHeight();
@@ -30,7 +30,7 @@ public class TxtUtils {
                 int a = (pixel & 0x000000ff);
 
                 // Ignore pixels that are completely transparent
-                if (a != 0 && !colorsList.contains(pixel)) {
+                if (a != 0 && !colorsList.contains(pixel) && !ArrayUtils.contains(skipColors, pixel)) {
                     colorsList.add(pixel);
                     int luminance = (r + g + b) / 3;
                     histogram[luminance]++;
@@ -38,7 +38,7 @@ public class TxtUtils {
             }
         }
 
-        System.out.println(colorsList.get(colorsList.size() - 3));
+        System.out.println(colorsList.get(colorsList.size() - 1));
     }
 
     public static int findMainColor(TextureRegion textureRegion) {
