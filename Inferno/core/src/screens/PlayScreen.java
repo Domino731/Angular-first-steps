@@ -29,7 +29,7 @@ public class PlayScreen implements Screen {
         actorsManager = new ActorsManager();
         player = actorsManager.player;
         Gdx.input.setInputProcessor(new GameInputProcessor(actorsManager));
-        camera.zoom = 0.2f;
+        camera.zoom = 0.1f;
     }
 
     @Override

@@ -115,7 +115,14 @@ public class PlayerTextures {
 
                 // Recombine the components and update the pixel
                 colorInt = (r << 24) | (g << 16) | (b << 8) | a;
-                pixmap.drawPixel(x, y, colorInt);
+
+                // od najadsniejszego do
+                // -106001921 - skin 1
+                // -529832449
+                // 1795177215 - skin 3
+
+                pixmap.drawPixel(x, y, -529832449);
+//                pixmap.drawPixel(x, y, colorInt);
             }
         }
 
@@ -216,7 +223,7 @@ public class PlayerTextures {
         armsTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
         readJson();
 
-        TxtUtils.test(armsTextures[0][0]);
+        TxtUtils.test(armsTextures[1][0]);
     }
 
     private void readJson() {

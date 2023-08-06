@@ -12,7 +12,33 @@ public class TxtUtils {
 
     public static void test(TextureRegion armTexture) {
         Pixmap pixmap = getPixmapFromTextureRegion(armTexture);
+        int width = pixmap.getWidth();
+        int height = pixmap.getHeight();
+        System.out.println(width);
+        System.out.println(height);
 
+        int[] histogram = new int[256];
+        ArrayList<Integer> colorsList = new ArrayList<>();
+
+        // Calculate the histogram of color occurrences within the TextureRegion
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int pixel = pixmap.getPixel(x, y);
+                int r = (pixel & 0xff000000) >>> 24;
+                int g = (pixel & 0x00ff0000) >>> 16;
+                int b = (pixel & 0x0000ff00) >>> 8;
+                int a = (pixel & 0x000000ff);
+
+                // Ignore pixels that are completely transparent
+                if (a != 0 && !colorsList.contains(pixel)) {
+                    colorsList.add(pixel);
+                    int luminance = (r + g + b) / 3;
+                    histogram[luminance]++;
+                }
+            }
+        }
+
+        System.out.println(colorsList.get(colorsList.size() - 3));
     }
 
     public static int findMainColor(TextureRegion textureRegion) {
