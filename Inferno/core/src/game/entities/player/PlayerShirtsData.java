@@ -15,11 +15,29 @@ public class PlayerShirtsData {
     private HashMap<Integer, Integer> colors = new HashMap<>();
     public TextureRegion arm;
 
-    public PlayerShirtsData(TextureRegion shirtTxtRg, TextureRegion armTxtRg) {
-        arm = createArmTextureRegion(armTxtRg, setColorsBasedOnShirt(shirtTxtRg));
+    public PlayerShirtsData() {
+
     }
 
-    private TextureRegion createArmTextureRegion(TextureRegion armTxtRg, HashMap<Integer, Integer> colors) {
+    public TextureRegion[][] createShirtSleeves(TextureRegion[][] arms, TextureRegion shirtTxtRg) {
+        setColorsBasedOnShirt(shirtTxtRg);
+        TextureRegion[][] newArms = new TextureRegion[PlayerTextures.ARMS_MAX_TEXTURES][PlayerTextures.MAX_ANIMATION_FRAMES];
+
+        for (int i = 0; i < arms.length; i++) {
+            TextureRegion[] armsTxtRg = arms[i];
+//            System.out.println(armsTxtRg);
+            for (int j = 0; j < armsTxtRg.length; j++) {
+                TextureRegion armTxtRg = armsTxtRg[j];
+                if (armTxtRg != null) {
+                    newArms[i][j] = createArmTextureRegion(armTxtRg);
+                }
+            }
+        }
+
+        return newArms;
+    }
+
+    private TextureRegion createArmTextureRegion(TextureRegion armTxtRg) {
         Pixmap pixmap = getPixmapFromTextureRegion(armTxtRg);
 
         for (int x = 0; x < pixmap.getWidth(); x++) {
@@ -100,6 +118,8 @@ public class PlayerShirtsData {
         newColors.put(1242302207, borderColor);
         // set shadow color
         newColors.put(1880561919, textureColors.get(1));
+
+        colors = newColors;
 
         return newColors;
     }

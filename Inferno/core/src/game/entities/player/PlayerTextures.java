@@ -39,7 +39,8 @@ public class PlayerTextures {
     public static final int STATE_HAT_DOWN = 2;
     public static final int STATE_HAT_LEFT = 3;
 
-    private static final int MAX_ANIMATION_FRAMES = 6;
+    public static final int MAX_ANIMATION_FRAMES = 6;
+    public static final byte ARMS_MAX_TEXTURES = 8;
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
@@ -56,8 +57,8 @@ public class PlayerTextures {
     private final int textureHeight = 32;
 
     public PlayerTextures() {
-        bodyTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
-        armsTextures = new TextureRegion[8][MAX_ANIMATION_FRAMES];
+        bodyTextures = new TextureRegion[ARMS_MAX_TEXTURES][MAX_ANIMATION_FRAMES];
+        armsTextures = new TextureRegion[ARMS_MAX_TEXTURES][MAX_ANIMATION_FRAMES];
         readJson();
     }
 
