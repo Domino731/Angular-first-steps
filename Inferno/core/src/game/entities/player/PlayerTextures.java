@@ -64,15 +64,20 @@ public class PlayerTextures {
     public static TextureRegion[] getShirts() {
         TextureRegion[] shirts = new TextureRegion[4];
 
-        int xOffset = 2 * PlayerConstants.shirtDim.width;
-        int yOffset = 0;
+        byte x = 2;
+        byte y = 0;
+
         byte width = PlayerConstants.shirtDim.width;
         byte height = PlayerConstants.shirtDim.height;
 
+        int xOffset = x * PlayerConstants.shirtDim.width;
+        int yOffset = y * PlayerConstants.shirtDim.height;
+
+        // top, right, left, bot
+        shirts[STATE_TEXTURE_UP] = new TextureRegion(shirtsTexture, xOffset, yOffset + (3 * height), width, height);
+        shirts[STATE_TEXTURE_RIGHT] = new TextureRegion(shirtsTexture, xOffset, yOffset + height, width, height);
+        shirts[STATE_TEXTURE_LEFT] = new TextureRegion(shirtsTexture, xOffset, yOffset + (2 * height), width, height);
         shirts[STATE_TEXTURE_DOWN] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
-        shirts[STATE_TEXTURE_RIGHT] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
-        shirts[STATE_TEXTURE_LEFT] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
-        shirts[STATE_TEXTURE_UP] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
 
         return shirts;
     }

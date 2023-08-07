@@ -79,9 +79,13 @@ public class Player extends MovableDefaultActor {
         sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
         sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
         sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
-        sb.draw(style.shirtsArray[2], finalPosition.x + 40, finalPosition.y + 40, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
-        sb.draw(playerTextures.armsTextures[1][0], finalPosition.x + 20, finalPosition.y, 16, 32);
-        sb.draw(testRg, finalPosition.x + 50, finalPosition.y, 16, 32);
+        sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + 8, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+
+        sb.draw(style.shirtsArray[0], finalPosition.x + 20, finalPosition.y + 8, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+        sb.draw(style.shirtsArray[1], finalPosition.x + 40, finalPosition.y + 8, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+        sb.draw(style.shirtsArray[2], finalPosition.x + 80, finalPosition.y + 8, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+        sb.draw(style.shirtsArray[3], finalPosition.x + 100, finalPosition.y + 8, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+//        sb.draw(testRg, finalPosition.x + 50, finalPosition.y, 16, 32);
     }
 
     public void updatePos() {
