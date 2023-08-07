@@ -14,6 +14,8 @@ public class Player extends MovableDefaultActor {
     private byte hairTextureYOffset = -2;
     private TextureRegion testRg;
     private PlayerShirtsData shirts;
+    private TextureRegion[][] newArms;
+    private int textIndex = PlayerTextures.STATE_IDLE_RIGHT;
 
     public Player() {
         super(100, 100, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));

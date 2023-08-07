@@ -25,12 +25,33 @@ public class PlayerShirtsData {
 
         for (int i = 0; i < arms.length; i++) {
             TextureRegion[] armsTxtRg = arms[i];
+            // skip reversed textures
+            if (i == PlayerTextures.STATE_RUNNING_LEFT) {
+                armsTxtRg = arms[PlayerTextures.STATE_RUNNING_RIGHT];
+            }
+            if (i == PlayerTextures.STATE_IDLE_LEFT) {
+                armsTxtRg = arms[PlayerTextures.STATE_IDLE_RIGHT];
+            }
 //            System.out.println(armsTxtRg);
             for (int j = 0; j < armsTxtRg.length; j++) {
                 TextureRegion armTxtRg = armsTxtRg[j];
                 if (armTxtRg != null) {
                     newArms[i][j] = createArmTextureRegion(armTxtRg);
                 }
+            }
+        }
+
+        // reverse colored textures
+        for (int i = 0; i < newArms[PlayerTextures.STATE_RUNNING_LEFT].length; i++) {
+            TextureRegion armTxtRg = newArms[PlayerTextures.STATE_RUNNING_LEFT][i];
+            if (armTxtRg != null) {
+                armTxtRg.flip(true, false);
+            }
+        }
+        for (int i = 0; i < newArms[PlayerTextures.STATE_IDLE_LEFT].length; i++) {
+            TextureRegion armTxtRg = newArms[PlayerTextures.STATE_IDLE_LEFT][i];
+            if (armTxtRg != null) {
+                armTxtRg.flip(true, false);
             }
         }
 
