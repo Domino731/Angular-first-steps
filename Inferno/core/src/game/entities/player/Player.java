@@ -16,12 +16,14 @@ public class Player extends MovableDefaultActor {
     private PlayerShirtsData shirts;
     private TextureRegion[][] newArms;
     private int textIndex = PlayerTextures.STATE_IDLE_RIGHT;
+    private TextureRegion pants;
 
     public Player() {
         super(100, 100, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
         shirts = new PlayerShirtsData();
         testRg = shirts.arm;
         playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
+        pants = shirts.test();
     }
 
     public Vector<Integer> getFinalPosition() {
@@ -83,6 +85,7 @@ public class Player extends MovableDefaultActor {
         sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
         sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + 8, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
         sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+        sb.draw(pants, finalPosition.x + 20, finalPosition.y);
     }
 
     public void updatePos() {

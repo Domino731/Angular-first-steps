@@ -19,6 +19,38 @@ public class PlayerShirtsData {
 
     }
 
+    // TODO: test method, remove later
+    public TextureRegion test() {
+        Texture pantsTxt = new Texture("sprites/style/pants.png");
+        TextureRegion pants = new TextureRegion(pantsTxt, 0, 0, 16, 16);
+        Pixmap pixmap = getPixmapFromTextureRegion(pants);
+        ArrayList<Integer> colorsList = new ArrayList<>();
+
+        int width = pixmap.getWidth();
+        int height = pixmap.getHeight();
+
+        int borderColor = 0;
+
+        // Calculate the histogram of color occurrences within the TextureRegion
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int pixel = pixmap.getPixel(x, y);
+                int a = (pixel & 0x000000ff);
+
+                // Ignore pixels that are completely transparent
+                if (pixel != 0 && borderColor == 0) {
+                    borderColor = pixel;
+                }
+                if (a != 0 && pixel != borderColor && !colorsList.contains(pixel)) {
+                    colorsList.add(pixel);
+                }
+            }
+        }
+
+        System.out.println(colorsList);
+        return pants;
+    }
+
     public TextureRegion[][] createShirtSleeves(TextureRegion[][] arms, TextureRegion shirtTxtRg) {
         setColorsBasedOnShirt(shirtTxtRg);
         TextureRegion[][] newArms = new TextureRegion[PlayerTextures.ARMS_MAX_TEXTURES][PlayerTextures.MAX_ANIMATION_FRAMES];
@@ -66,6 +98,15 @@ public class PlayerShirtsData {
                 int colorInt = pixmap.getPixel(x, y);
                 Integer color = colors.get(colorInt);
 
+                //      //  -1330331137, -1869440513
+                // 1. 707410431
+                // 2. 2038337279, 2054914815, 1852930559, -1869440513
+                // 3. -959851521, -1330331137
+                // 4. -131841
+                // 5.
+                // 6.
+                // 7.
+                color = 1852930559;
                 // Use a default color when the mapping is not found
                 if (color != null) {
                     pixmap.drawPixel(x, y, color);
