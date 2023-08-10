@@ -3,122 +3,14 @@ package utils;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import utils.colors.ColorSorter;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class TxtUtils {
 
-    public static void test(TextureRegion armTexture, int[] skipColors) {
-        getColorsArray(armTexture, skipColors);
-    }
-
-    public static int[] getColors(TextureRegion armTexture, boolean sortByDarkness) {
-        ArrayList<Integer> colorsList = getColorsArray(armTexture, new int[1]);
-
-        int[] colors = new int[colorsList.size()];
-        for (int i = 0; i < colorsList.size(); i++) {
-            colors[i] = colorsList.get(i);
-        }
-
-        if (sortByDarkness) {
-            Integer[] newColors = ColorSorter.sort(colors);
-            for (int i = 0; i < newColors.length; i++) {
-                colors[i] = newColors[i];
-            }
-        }
-
-        return colors;
-    }
-
-
-    public static ArrayList<Integer> getColorsArray(TextureRegion txtRg, int[] skipColors) {
-        Pixmap pixmap = getPixmapFromTextureRegion(txtRg);
-        int width = pixmap.getWidth();
-        int height = pixmap.getHeight();
-        int[] histogram = new int[256];
-        ArrayList<Integer> colorsList = new ArrayList<>();
-
-        // Calculate the histogram of color occurrences within the TextureRegion
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                int pixel = pixmap.getPixel(x, y);
-                int r = (pixel & 0xff000000) >>> 24;
-                int g = (pixel & 0x00ff0000) >>> 16;
-                int b = (pixel & 0x0000ff00) >>> 8;
-                int a = (pixel & 0x000000ff);
-
-                // Ignore pixels that are completely transparent
-                if (a != 0 && !colorsList.contains(pixel) && !ArrayUtils.contains(skipColors, pixel)) {
-                    colorsList.add(pixel);
-                    int luminance = (r + g + b) / 3;
-                    histogram[luminance]++;
-                }
-            }
-        }
-
-        return colorsList;
-    }
-
-    public static int findMainColor(TextureRegion textureRegion) {
-        Pixmap pixmap = getPixmapFromTextureRegion(textureRegion);
-
-        int width = pixmap.getWidth();
-        int height = pixmap.getHeight();
-        int[] histogram = new int[256];
-
-        ArrayList<Integer> colorsList = new ArrayList<>();
-
-        // Calculate the histogram of color occurrences within the TextureRegion
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                int pixel = pixmap.getPixel(x, y);
-                int r = (pixel & 0xff000000) >>> 24;
-                int g = (pixel & 0x00ff0000) >>> 16;
-                int b = (pixel & 0x0000ff00) >>> 8;
-                int a = (pixel & 0x000000ff);
-
-                // Ignore pixels that are completely transparent
-                if (a != 0) {
-                    colorsList.add(pixel);
-                    int luminance = (r + g + b) / 3;
-                    histogram[luminance]++;
-                }
-            }
-        }
-
-        pixmap.dispose(); // Dispose of the Pixmap once we're done with it
-
-        return findMostFrequentElement(colorsList);
-    }
-
-    public static int findMostFrequentElement(ArrayList<Integer> list) {
-        Map<Integer, Integer> elementCount = new HashMap<>();
-
-        // Zliczanie wystąpień każdego elementu
-        for (int element : list) {
-            elementCount.put(element, elementCount.getOrDefault(element, 0) + 1);
-        }
-
-        int mostFrequentElement = 0;
-        int maxCount = 0;
-
-        // Szukanie elementu o największej liczbie wystąpień
-        for (Map.Entry<Integer, Integer> entry : elementCount.entrySet()) {
-            int element = entry.getKey();
-            int count = entry.getValue();
-
-            if (count > maxCount) {
-                mostFrequentElement = element;
-                maxCount = count;
-            }
-        }
-
-        return mostFrequentElement;
-    }
-
+    /**
+     * Create a pixmap based on texture region
+     *
+     * @param textureRegion - TextureRegion class you want to convert into a pixmap
+     */
     public static Pixmap getPixmapFromTextureRegion(TextureRegion textureRegion) {
         // Get the dimensions of the TextureRegion
         int regionWidth = textureRegion.getRegionWidth();
