@@ -91,6 +91,45 @@ public class PlayerShirtsData {
     }
 
 
+    public TextureRegion[][] createPants(TextureRegion[][] pants, TextureRegion shirtTxtRg) {
+        pantsColors = setPantsColorsBasedOnShirt(shirtTxtRg);
+        TextureRegion[][] newArms = new TextureRegion[PlayerTextures.ARMS_MAX_TEXTURES][PlayerTextures.MAX_ANIMATION_FRAMES];
+
+        for (int i = 0; i < pants.length; i++) {
+            TextureRegion[] armsTxtRg = pants[i];
+            // skip reversed textures
+            if (i == PlayerTextures.STATE_RUNNING_LEFT) {
+                armsTxtRg = pants[PlayerTextures.STATE_RUNNING_RIGHT];
+            }
+            if (i == PlayerTextures.STATE_IDLE_LEFT) {
+                armsTxtRg = pants[PlayerTextures.STATE_IDLE_RIGHT];
+            }
+//            System.out.println(armsTxtRg);
+            for (int j = 0; j < armsTxtRg.length; j++) {
+                TextureRegion armTxtRg = armsTxtRg[j];
+                if (armTxtRg != null) {
+                    newArms[i][j] = createArmTextureRegion(armTxtRg, pantsColors, false);
+                }
+            }
+        }
+
+        // reverse colored textures
+        for (int i = 0; i < newArms[PlayerTextures.STATE_RUNNING_LEFT].length; i++) {
+            TextureRegion armTxtRg = newArms[PlayerTextures.STATE_RUNNING_LEFT][i];
+            if (armTxtRg != null) {
+                armTxtRg.flip(true, false);
+            }
+        }
+        for (int i = 0; i < newArms[PlayerTextures.STATE_IDLE_LEFT].length; i++) {
+            TextureRegion armTxtRg = newArms[PlayerTextures.STATE_IDLE_LEFT][i];
+            if (armTxtRg != null) {
+                armTxtRg.flip(true, false);
+            }
+        }
+
+        return newArms;
+    }
+
     private TextureRegion createArmTextureRegion(TextureRegion armTxtRg, HashMap<Integer, Integer> colorsMap, boolean debug) {
         Pixmap pixmap = getPixmapFromTextureRegion(armTxtRg);
         for (int x = 0; x < pixmap.getWidth(); x++) {
