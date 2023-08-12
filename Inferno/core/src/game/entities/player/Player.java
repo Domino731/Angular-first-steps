@@ -23,7 +23,7 @@ public class Player extends MovableDefaultActor {
         shirts = new PlayerShirtsData();
         testRg = shirts.arm;
         playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
-        pants = shirts.test();
+        pants = shirts.test(style.shirtsArray[2]);
     }
 
     public Vector<Integer> getFinalPosition() {

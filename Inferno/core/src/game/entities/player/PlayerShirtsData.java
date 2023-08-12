@@ -12,7 +12,10 @@ import java.util.Map;
 import static utils.TxtUtils.getPixmapFromTextureRegion;
 
 public class PlayerShirtsData {
-    private HashMap<Integer, Integer> colors = new HashMap<>();
+    private HashMap<Integer, Integer> shirtColors = new HashMap<>();
+    private HashMap<Integer, Integer> pantsColors = new HashMap<>();
+    Texture pantsTxt = new Texture("sprites/style/pants.png");
+
     public TextureRegion arm;
 
     public PlayerShirtsData() {
@@ -20,39 +23,36 @@ public class PlayerShirtsData {
     }
 
     // TODO: test method, remove later
-    public TextureRegion test() {
-        Texture pantsTxt = new Texture("sprites/style/pants.png");
+    public TextureRegion test(TextureRegion currentShirt) {
+        pantsColors = setPantsColorsBasedOnShirt(currentShirt);
         TextureRegion pants = new TextureRegion(pantsTxt, 0, 0, 16, 16);
-        Pixmap pixmap = getPixmapFromTextureRegion(pants);
-        ArrayList<Integer> colorsList = new ArrayList<>();
+        return createArmTextureRegion2(pants, pantsColors, true);
+    }
 
-        int width = pixmap.getWidth();
-        int height = pixmap.getHeight();
-
-        int borderColor = 0;
-
-        // Calculate the histogram of color occurrences within the TextureRegion
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                int pixel = pixmap.getPixel(x, y);
-                int a = (pixel & 0x000000ff);
-
-                // Ignore pixels that are completely transparent
-                if (pixel != 0 && borderColor == 0) {
-                    borderColor = pixel;
+    private TextureRegion createArmTextureRegion2(TextureRegion armTxtRg, HashMap<Integer, Integer> colorsMap, boolean debug) {
+        Pixmap pixmap = getPixmapFromTextureRegion(armTxtRg);
+        for (int x = 0; x < pixmap.getWidth(); x++) {
+            for (int y = 0; y < pixmap.getHeight(); y++) {
+                int colorInt = pixmap.getPixel(x, y);
+                Integer color = colorsMap.get(colorInt);
+                if (colorInt != 0 && color == null) {
+                    System.out.println(colorInt);
                 }
-                if (a != 0 && pixel != borderColor && !colorsList.contains(pixel)) {
-                    colorsList.add(pixel);
+                if (color != null) {
+                    pixmap.drawPixel(x, y, color);
+                } else {
+                    pixmap.drawPixel(x, y, colorInt);
                 }
             }
         }
 
-        System.out.println(colorsList);
-        return pants;
+        Texture newTxt = new Texture(pixmap);
+        return new TextureRegion(newTxt);
     }
 
+
     public TextureRegion[][] createShirtSleeves(TextureRegion[][] arms, TextureRegion shirtTxtRg) {
-        setColorsBasedOnShirt(shirtTxtRg);
+        setColorsBasedOnShirt(shirtTxtRg, false);
         TextureRegion[][] newArms = new TextureRegion[PlayerTextures.ARMS_MAX_TEXTURES][PlayerTextures.MAX_ANIMATION_FRAMES];
 
         for (int i = 0; i < arms.length; i++) {
@@ -68,7 +68,7 @@ public class PlayerShirtsData {
             for (int j = 0; j < armsTxtRg.length; j++) {
                 TextureRegion armTxtRg = armsTxtRg[j];
                 if (armTxtRg != null) {
-                    newArms[i][j] = createArmTextureRegion(armTxtRg);
+                    newArms[i][j] = createArmTextureRegion(armTxtRg, shirtColors, false);
                 }
             }
         }
@@ -90,24 +90,18 @@ public class PlayerShirtsData {
         return newArms;
     }
 
-    private TextureRegion createArmTextureRegion(TextureRegion armTxtRg) {
-        Pixmap pixmap = getPixmapFromTextureRegion(armTxtRg);
 
+    private TextureRegion createArmTextureRegion(TextureRegion armTxtRg, HashMap<Integer, Integer> colorsMap, boolean debug) {
+        Pixmap pixmap = getPixmapFromTextureRegion(armTxtRg);
         for (int x = 0; x < pixmap.getWidth(); x++) {
             for (int y = 0; y < pixmap.getHeight(); y++) {
                 int colorInt = pixmap.getPixel(x, y);
-                Integer color = colors.get(colorInt);
+                Integer color = colorsMap.get(colorInt);
+                if (debug && colorInt != 0) {
+                    System.out.println(colorInt);
+                    System.out.println(color);
+                }
 
-                //      //  -1330331137, -1869440513
-                // 1. 707410431
-                // 2. 2038337279, 2054914815, 1852930559, -1869440513
-                // 3. -959851521, -1330331137
-                // 4. -131841
-                // 5.
-                // 6.
-                // 7.
-                color = 1852930559;
-                // Use a default color when the mapping is not found
                 if (color != null) {
                     pixmap.drawPixel(x, y, color);
                 } else {
@@ -120,7 +114,11 @@ public class PlayerShirtsData {
         return new TextureRegion(newTxt);
     }
 
-    private HashMap<Integer, Integer> setColorsBasedOnShirt(TextureRegion shirtTxtRg) {
+    private TextureRegion createPantsTextureRegion(TextureRegion txtRg) {
+        return new TextureRegion();
+    }
+
+    private HashMap<Integer, Integer> setColorsBasedOnShirt(TextureRegion shirtTxtRg, boolean isPantsMode) {
         HashMap<Integer, Integer> newColors = new HashMap<>();
         newColors.put(1795177215, 1795177215);
         newColors.put(-106001921, -106001921);
@@ -133,7 +131,6 @@ public class PlayerShirtsData {
 
         ArrayList<Integer> colorsList = new ArrayList<>();
         int borderColor = 0;
-
         // Calculate the histogram of color occurrences within the TextureRegion
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -181,7 +178,81 @@ public class PlayerShirtsData {
         // set shadow color
         newColors.put(1880561919, textureColors.get(1));
 
-        colors = newColors;
+        shirtColors = newColors;
+
+        return newColors;
+    }
+
+
+    private HashMap<Integer, Integer> setPantsColorsBasedOnShirt(TextureRegion shirtTxtRg) {
+        HashMap<Integer, Integer> newColors = new HashMap<>();
+        Pixmap pixmap = getPixmapFromTextureRegion(shirtTxtRg);
+        int width = pixmap.getWidth();
+        int height = pixmap.getHeight();
+        ArrayList<Integer> colorsList = new ArrayList<>();
+        int borderColor = 0;
+
+        // Calculate the histogram of color occurrences within the TextureRegion
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int pixel = pixmap.getPixel(x, y);
+                int r = (pixel & 0xff000000) >>> 24;
+                int g = (pixel & 0x00ff0000) >>> 16;
+                int b = (pixel & 0x0000ff00) >>> 8;
+                int a = (pixel & 0x000000ff);
+
+                // Ignore pixels that are completely transparent
+                if (pixel != 0 && borderColor == 0) {
+                    borderColor = pixel;
+                }
+                if (a != 0 && pixel != borderColor) {
+                    colorsList.add(pixel);
+                }
+            }
+        }
+
+        // sorting by occurrences
+        final Map<Integer, Integer> occurrenceMap = new HashMap<>();
+        for (Integer number : colorsList) {
+            occurrenceMap.put(number, occurrenceMap.getOrDefault(number, 0) + 1);
+        }
+        colorsList.sort(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer a, Integer b) {
+                return occurrenceMap.get(b) - occurrenceMap.get(a);
+            }
+        });
+
+        // remove duplicates
+        ArrayList<Integer> textureColors = new ArrayList<>();
+
+        for (Integer color : colorsList) {
+            if (!textureColors.contains(color)) {
+                textureColors.add(color);
+            }
+        }
+        //// 1. 707410431
+        //// 2. 2038337279, 2054914815, 1852930559, -1869440513
+        //// 3. -959851521, -1330331137
+        //// 4. -131841
+
+        // set main sleeve color
+        newColors.put(-131841, textureColors.get(0));
+
+        // set sleeve border color
+        newColors.put(707410431, borderColor);
+        newColors.put(976898815, borderColor);
+
+        // set shadow color
+        int shadowColor = textureColors.get(3);
+        newColors.put(2038337279, shadowColor);
+        newColors.put(2054914815, shadowColor);
+        newColors.put(1852930559, shadowColor);
+        newColors.put(-1869440513, shadowColor);
+
+        // shadow 2
+        int shadowColor2 = textureColors.get(1);
+        newColors.put(-959851521, shadowColor2);
 
         return newColors;
     }
