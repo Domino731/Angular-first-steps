@@ -44,21 +44,25 @@ public class PlayerTextures {
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
+    private Texture pantsTxt = new Texture("sprites/style/pants.png");
 
     public static final byte STATE_TEXTURE_UP = 0;
     public static final byte STATE_TEXTURE_RIGHT = 1;
     public static final byte STATE_TEXTURE_DOWN = 2;
     public static final byte STATE_TEXTURE_LEFT = 3;
 
-
     public TextureRegion[][] bodyTextures;
     public TextureRegion[][] armsTextures;
+    public TextureRegion[][] pantsTextures;
+
     private final int textureWidth = 16;
     private final int textureHeight = 32;
 
     public PlayerTextures() {
         bodyTextures = new TextureRegion[ARMS_MAX_TEXTURES][MAX_ANIMATION_FRAMES];
         armsTextures = new TextureRegion[ARMS_MAX_TEXTURES][MAX_ANIMATION_FRAMES];
+        pantsTextures = new TextureRegion[ARMS_MAX_TEXTURES][MAX_ANIMATION_FRAMES];
+
         readJson();
     }
 
@@ -148,7 +152,6 @@ public class PlayerTextures {
         return hairs;
     }
 
-
     public static int hairTextureIndexByAction(int playerAction) {
         switch (playerAction) {
             case STATE_IDLE_UP:
@@ -233,15 +236,15 @@ public class PlayerTextures {
                 JsonNode jsonNode = Json.parse(fileHandle.readString()).get("animations");
                 Texture texture = SpritesManager.loadSprite("sprites/entities/player_new_1.png");
 
-                loadAnimationTextures(jsonNode.get("body"), bodyTextures, texture);
-                loadAnimationTextures(jsonNode.get("arms"), armsTextures, texture);
+                loadAnimationTextures(jsonNode.get("body"), bodyTextures, texture, true);
+                loadAnimationTextures(jsonNode.get("arms"), armsTextures, texture, false);
             } catch (IOException e) {
                 EngineLog.resourceError("config/playerConfig.json");
             }
         }
     }
 
-    private void loadAnimationTextures(JsonNode animationNode, TextureRegion[][] textures, Texture texture) {
+    private void loadAnimationTextures(JsonNode animationNode, TextureRegion[][] textures, Texture texture, boolean loadPants) {
         if (animationNode == null) {
             return;
         }
@@ -255,31 +258,32 @@ public class PlayerTextures {
 
         // IDLE
         if (idleUp != null && idleUp.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_IDLE_UP, idleUp, texture);
+            loadTexturesForAnimationState(textures, STATE_IDLE_UP, idleUp, texture, loadPants);
         }
         if (idleHorizontally != null && idleHorizontally.isArray()) {
-            loadHorizontallyTexturesForAnimationState(textures, STATE_IDLE_LEFT, STATE_IDLE_RIGHT, idleHorizontally, texture);
+            loadHorizontallyTexturesForAnimationState(textures, STATE_IDLE_LEFT, STATE_IDLE_RIGHT, idleHorizontally, texture, loadPants);
         }
         if (idleDown != null && idleDown.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_IDLE_DOWN, idleDown, texture);
+            loadTexturesForAnimationState(textures, STATE_IDLE_DOWN, idleDown, texture, loadPants);
         }
         // RUNNING
         if (runningHorizontally != null && runningHorizontally.isArray()) {
-            loadHorizontallyTexturesForAnimationState(textures, STATE_RUNNING_LEFT, STATE_RUNNING_RIGHT, runningHorizontally, texture);
+            loadHorizontallyTexturesForAnimationState(textures, STATE_RUNNING_LEFT, STATE_RUNNING_RIGHT, runningHorizontally, texture, loadPants);
         }
         if (runningDown != null && runningDown.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_RUNNING_DOWN, runningDown, texture);
+            loadTexturesForAnimationState(textures, STATE_RUNNING_DOWN, runningDown, texture, loadPants);
         }
         if (runningUp != null && runningUp.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_RUNNING_UP, runningUp, texture);
+            loadTexturesForAnimationState(textures, STATE_RUNNING_UP, runningUp, texture, loadPants);
         }
     }
 
-    private void loadTexturesForAnimationState(TextureRegion[][] textures, int state, JsonNode animationNode, Texture texture) {
+    private void loadTexturesForAnimationState(TextureRegion[][] textures, int state, JsonNode animationNode, Texture texture, boolean loadPants) {
         int i = 0;
         for (JsonNode cord : animationNode) {
             int x = cord.get(0).shortValue() * textureWidth;
             int y = cord.get(1).shortValue() * textureHeight;
+//            16
             textures[state][i] = new TextureRegion(
                     texture,
                     x,
@@ -287,6 +291,14 @@ public class PlayerTextures {
                     textureWidth,
                     textureHeight
             );
+            if (loadPants) {
+                int pantsX = cord.get(0).shortValue() * 16;
+                int pantsY = cord.get(1).shortValue() * 16;
+                pantsTextures[state][i] = new TextureRegion(
+                        pantsTxt,
+                        pantsX, pantsY, 16, 16
+                );
+            }
             i++;
             if (i >= MAX_ANIMATION_FRAMES) {
                 break;
@@ -294,7 +306,7 @@ public class PlayerTextures {
         }
     }
 
-    private void loadHorizontallyTexturesForAnimationState(TextureRegion[][] textures, int stateLeft, int stateRight, JsonNode animationNode, Texture texture) {
+    private void loadHorizontallyTexturesForAnimationState(TextureRegion[][] textures, int stateLeft, int stateRight, JsonNode animationNode, Texture texture, boolean loadPants) {
         int i = 0;
         for (JsonNode cord : animationNode) {
             int x = cord.get(0).shortValue() * textureWidth;
@@ -327,6 +339,22 @@ public class PlayerTextures {
             // put textures into array
             textures[stateLeft][i] = textureLeft;
             textures[stateRight][i] = textureRight;
+
+
+            if (loadPants) {
+                int pantsX = cord.get(0).shortValue() * 16;
+                int pantsY = cord.get(1).shortValue() * 16;
+                pantsTextures[stateRight][i] = new TextureRegion(
+                        pantsTxt,
+                        pantsX, pantsY, 16, 16
+                );
+                pantsTextures[stateLeft][i] = new TextureRegion(
+                        pantsTxt,
+                        pantsX, pantsY, 16, 16
+                );
+                pantsTextures[stateLeft][i].flip(true, false);
+            }
+
 
             i++;
             if (i >= MAX_ANIMATION_FRAMES) {
