@@ -28,6 +28,9 @@ public class PlayerTextures {
     public static final int STATE_RUNNING_RIGHT = 5;
     public static final int STATE_RUNNING_DOWN = 6;
     public static final int STATE_RUNNING_LEFT = 7;
+    // HARVEST
+    public static final int STATE_HARVEST_UP = 8;
+
     // HAIR
     public static final int STATE_HAIR_UP = 0;
     public static final int STATE_HAIR_RIGHT = 1;
@@ -40,7 +43,7 @@ public class PlayerTextures {
     public static final int STATE_HAT_LEFT = 3;
 
     public static final int MAX_ANIMATION_FRAMES = 6;
-    public static final byte ARMS_MAX_TEXTURES = 8;
+    public static final byte ARMS_MAX_TEXTURES = 9;
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
@@ -197,6 +200,7 @@ public class PlayerTextures {
             case STATE_RUNNING_RIGHT:
             case STATE_RUNNING_DOWN:
             case STATE_RUNNING_UP:
+            case STATE_HARVEST_UP:
                 return 6;
             // idle
             case STATE_IDLE_UP:
@@ -255,6 +259,7 @@ public class PlayerTextures {
         JsonNode idleUp = animationNode.get("idleUp");
         JsonNode idleHorizontally = animationNode.get("idleHorizontally");
         JsonNode idleDown = animationNode.get("idleDown");
+        JsonNode harvestUp = animationNode.get("harvestUp");
 
         // IDLE
         if (idleUp != null && idleUp.isArray()) {
@@ -275,6 +280,10 @@ public class PlayerTextures {
         }
         if (runningUp != null && runningUp.isArray()) {
             loadTexturesForAnimationState(textures, STATE_RUNNING_UP, runningUp, texture, loadPants);
+        }
+        // HARVEST
+        if (harvestUp != null && harvestUp.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_HARVEST_UP, harvestUp, texture, loadPants);
         }
     }
 

@@ -19,6 +19,7 @@ public class Player extends MovableDefaultActor {
     private TextureRegion[][] newArms;
     private int textIndex = PlayerTextures.STATE_IDLE_RIGHT;
     private TextureRegion pants;
+    private boolean isStaticAction = false;
 
     public Player() {
         super(100, 100, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -31,6 +32,11 @@ public class Player extends MovableDefaultActor {
     public Vector<Integer> getFinalPosition() {
         return finalPosition;
     }
+
+    public void startStaticAction() {
+        isStaticAction = true;
+    }
+
 
     public void update() {
         if (!isCollision) {
@@ -45,8 +51,10 @@ public class Player extends MovableDefaultActor {
     private void setAnimation() {
         int startAni = actionIndex;
 
-        if (isMoving) {
-            if (direction.left) {
+        if (isMoving || isStaticAction) {
+            if (isStaticAction) {
+                actionIndex = PlayerTextures.STATE_HARVEST_UP;
+            } else if (direction.left) {
                 actionIndex = PlayerTextures.STATE_RUNNING_LEFT;
             } else if (direction.right) {
                 actionIndex = PlayerTextures.STATE_RUNNING_RIGHT;

@@ -1,12 +1,10 @@
 package engine.actors.movableDefaultActor;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
 import engine.actors.utils.ActorDirection;
 import game.entities.player.PlayerTextures;
-import spritesManager.SpritesManager;
 import utils.Checkbox;
 import utils.TextureData;
 import utils.vectors.DimensionCordVector;
@@ -31,20 +29,6 @@ public class MovableDefaultActor extends DefaultActor {
         super(ActorTypes.DYNAMIC, new Vector(positionX, positionY), checkboxArray, texturePath, dim, groundCheckbox);
         this.textureData = textureData;
         this.finalPosition = new Vector<>(positionX, positionY);
-        loadAnimations();
-    }
-
-    private void loadAnimations() {
-        short texturesInColumn = textureData.getTexturesInColumn();
-        short texturesInRow = textureData.getTexturesInRow();
-        short textureWidth = textureData.getTextureWidth();
-        short textureHeight = textureData.getTextureHeight();
-        Texture texture = SpritesManager.loadSprite(textureData.getSrc());
-        textureRegions = new TextureRegion[texturesInColumn][texturesInRow];
-
-        for (int j = 0; j < textureRegions.length; j++)
-            for (int i = 0; i < textureRegions[j].length; i++)
-                textureRegions[j][i] = new TextureRegion(texture, i * textureWidth, j * textureHeight, textureWidth, textureHeight);
     }
 
     public void resetPosition() {
