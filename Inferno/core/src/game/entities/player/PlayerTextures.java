@@ -30,7 +30,8 @@ public class PlayerTextures {
     public static final int STATE_RUNNING_LEFT = 7;
     // HARVEST
     public static final int STATE_HARVEST_UP = 8;
-
+    public static final int STATE_HARVEST_RIGHT = 9;
+    public static final int STATE_HARVEST_LEFT = 10;
     // HAIR
     public static final int STATE_HAIR_UP = 0;
     public static final int STATE_HAIR_RIGHT = 1;
@@ -43,7 +44,7 @@ public class PlayerTextures {
     public static final int STATE_HAT_LEFT = 3;
 
     public static final int MAX_ANIMATION_FRAMES = 6;
-    public static final byte ARMS_MAX_TEXTURES = 9;
+    public static final byte ARMS_MAX_TEXTURES = 11;
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
@@ -195,6 +196,9 @@ public class PlayerTextures {
 
     public static int actionTextureAmount(int player_action) {
         switch (player_action) {
+            case STATE_HARVEST_LEFT:
+            case STATE_HARVEST_RIGHT:
+                return 5;
             // running
             case STATE_RUNNING_LEFT:
             case STATE_RUNNING_RIGHT:
@@ -260,6 +264,7 @@ public class PlayerTextures {
         JsonNode idleHorizontally = animationNode.get("idleHorizontally");
         JsonNode idleDown = animationNode.get("idleDown");
         JsonNode harvestUp = animationNode.get("harvestUp");
+        JsonNode harvestHorizontally = animationNode.get("harvestHorizontally");
 
         // IDLE
         if (idleUp != null && idleUp.isArray()) {
@@ -284,6 +289,9 @@ public class PlayerTextures {
         // HARVEST
         if (harvestUp != null && harvestUp.isArray()) {
             loadTexturesForAnimationState(textures, STATE_HARVEST_UP, harvestUp, texture, loadPants);
+        }
+        if (harvestHorizontally != null && harvestHorizontally.isArray()) {
+            loadHorizontallyTexturesForAnimationState(textures, STATE_HARVEST_LEFT, STATE_HARVEST_RIGHT, harvestHorizontally, texture, loadPants);
         }
     }
 
