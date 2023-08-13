@@ -3,6 +3,7 @@ package game.entities.player;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
+import game.entities.player.tools.ToolsConstants;
 import utils.Checkbox;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.Vector;
@@ -20,6 +21,7 @@ public class Player extends MovableDefaultActor {
     private int textIndex = PlayerTextures.STATE_IDLE_RIGHT;
     private TextureRegion pants;
     private boolean isStaticAction = false;
+    private byte[][] rightAxeAnimation = ToolsConstants.rightAxeAnimation;
 
     public Player() {
         super(100, 100, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -75,6 +77,10 @@ public class Player extends MovableDefaultActor {
             resetAniTick();
     }
 
+    protected void resetAniTick() {
+        aniTick = 0;
+        aniIndex = 0;
+    }
 
     private void updateAnimationTick() {
         aniTick++;
@@ -82,6 +88,10 @@ public class Player extends MovableDefaultActor {
             aniTick = 0;
             aniIndex++;
             if (aniIndex >= PlayerTextures.actionTextureAmount(actionIndex)) {
+                if (isStaticAction) {
+                    isStaticAction = false;
+                    actionIndex = PlayerTextures.STATE_IDLE_RIGHT;
+                }
                 aniIndex = 0;
                 isAttacking = false;
             }
@@ -98,34 +108,43 @@ public class Player extends MovableDefaultActor {
 //        sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + shirtYOffset, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
         sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
 
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 20, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 20, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.pickaxe, (finalPosition.x - 20) - 8, finalPosition.y, 16 / 2, 32 / 2, 16, 32, 1, 1, 15);
+        if (isStaticAction) {
+            sb.draw(playerTextures.pickaxe,
+                    finalPosition.x + rightAxeAnimation[aniIndex][0], (finalPosition.y + 20) + rightAxeAnimation[aniIndex][1],
+                    playerTextures.toolXOrigin, playerTextures.toolYOrigin,
+                    playerTextures.toolWidth, playerTextures.toolHeight,
+                    1, 1,
+                    rightAxeAnimation[aniIndex][2]);
+        }
 
-//        sb.draw(style.hairArray[1], finalPosition.x - 20, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 0), 16, 32);
-
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][1], finalPosition.x, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][1], finalPosition.x, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.pickaxe, finalPosition.x + 5, finalPosition.y, 16 / 2, 32 / 2, 16, 32, 1, 1, -15);
-//        sb.draw(style.hairArray[1], finalPosition.x, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 1), 16, 32);
-
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][2], finalPosition.x + 20, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][2], finalPosition.x + 20, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.pickaxe, (finalPosition.x + 20) + 17, finalPosition.y - 5, 16 / 2, 32 / 2, 16, 32, 1, 1, -45);
-//        sb.draw(style.hairArray[1], finalPosition.x + 20, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 2), 16, 32);
-
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][3], finalPosition.x + 40, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][3], finalPosition.x + 40, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.pickaxe, (finalPosition.x + 40) + 21, finalPosition.y - 23, 16 / 2, 32 / 2, 16, 32, 1, 1, -105);
-
-//        sb.draw(style.hairArray[1], finalPosition.x + 40, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 3), 16, 32);
-
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][4], finalPosition.x + 80, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][4], finalPosition.x + 80, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.pickaxe, (finalPosition.x + 80) + 21, finalPosition.y - 25, 16 / 2, 32 / 2, 16, 32, 1, 1, -105);
-//        sb.draw(style.hairArray[1], finalPosition.x + 60, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 4), 16, 32);
-
-//        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_RUNNING_UP][5], finalPosition.x + 80, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 20, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 20, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.pickaxe, (finalPosition.x - 20) - 8, finalPosition.y - 2, 16 / 2, 32 / 2, 16, 32, 1, 1, 15);
+//
+////        sb.draw(style.hairArray[1], finalPosition.x - 20, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 0), 16, 32);
+//
+//        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][1], finalPosition.x, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][1], finalPosition.x, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.pickaxe, finalPosition.x + 5, finalPosition.y - 1, 16 / 2, 32 / 2, 16, 32, 1, 1, -15);
+////        sb.draw(style.hairArray[1], finalPosition.x, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 1), 16, 32);
+//
+//        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][2], finalPosition.x + 20, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][2], finalPosition.x + 20, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.pickaxe, (finalPosition.x + 20) + 16, finalPosition.y - 6, 16 / 2, 32 / 2, 16, 32, 1, 1, -45);
+////        sb.draw(style.hairArray[1], finalPosition.x + 20, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 2), 16, 32);
+//
+//        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][3], finalPosition.x + 40, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][3], finalPosition.x + 40, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.pickaxe, (finalPosition.x + 40) + 20, finalPosition.y - 24, 16 / 2, 32 / 2, 16, 32, 1, 1, -105);
+//
+////        sb.draw(style.hairArray[1], finalPosition.x + 40, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 3), 16, 32);
+//
+//        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][4], finalPosition.x + 80, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][4], finalPosition.x + 80, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.pickaxe, (finalPosition.x + 80) + 20, finalPosition.y - 26, 16 / 2, 32 / 2, 16, 32, 1, 1, -105);
+////        sb.draw(style.hairArray[1], finalPosition.x + 60, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 4), 16, 32);
+//
+////        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_RUNNING_UP][5], finalPosition.x + 80, finalPosition.y - 20, 16, 32);
 //        sb.draw(style.hairArray[1], finalPosition.x + 80, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 5), 16, 32);
     }
 

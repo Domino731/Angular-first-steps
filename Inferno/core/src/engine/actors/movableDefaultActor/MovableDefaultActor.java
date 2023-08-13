@@ -43,10 +43,6 @@ public class MovableDefaultActor extends DefaultActor {
     /**
      * set aniTack & aniIndex to 0
      */
-    protected void resetAniTick() {
-        aniTick = 0;
-        aniIndex = 0;
-    }
 
     // setters
     public void setRight(boolean v) {

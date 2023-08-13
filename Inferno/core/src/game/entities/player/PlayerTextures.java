@@ -66,7 +66,8 @@ public class PlayerTextures {
     private final int textureHeight = 32;
     public final byte toolWidth = 16;
     public final byte toolHeight = 32;
-
+    public final byte toolXOrigin = toolWidth / 2;
+    public final byte toolYOrigin = toolHeight / 2;
 
     public PlayerTextures() {
         bodyTextures = new TextureRegion[ARMS_MAX_TEXTURES][MAX_ANIMATION_FRAMES];
