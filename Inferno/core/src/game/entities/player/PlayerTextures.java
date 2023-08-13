@@ -78,7 +78,7 @@ public class PlayerTextures {
     }
 
     private void loadTools() {
-        pickaxe = new TextureRegion(toolsTxt, 2 * toolWidth, 1 * toolWidth, toolWidth, toolHeight);
+        pickaxe = new TextureRegion(toolsTxt, 2 * toolWidth, 7 * toolWidth, toolWidth, toolHeight);
     }
 
     public static TextureRegion[] getShirts() {
