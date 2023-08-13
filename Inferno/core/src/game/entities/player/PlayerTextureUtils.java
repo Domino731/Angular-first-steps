@@ -3,7 +3,7 @@ package game.entities.player;
 public class PlayerTextureUtils {
     public static byte getShirtYOffset(int playerAction, int aniIndex) {
         if (playerAction == PlayerTextures.STATE_IDLE_UP || playerAction == PlayerTextures.STATE_IDLE_RIGHT || playerAction == PlayerTextures.STATE_IDLE_DOWN || playerAction == PlayerTextures.STATE_IDLE_LEFT) {
-            return 8;
+            return 9;
         }
         // handle running horizontally
         if (playerAction == PlayerTextures.STATE_RUNNING_LEFT || playerAction == PlayerTextures.STATE_RUNNING_RIGHT || playerAction == PlayerTextures.STATE_RUNNING_UP) {
@@ -12,9 +12,9 @@ public class PlayerTextureUtils {
                 case 1:
                 case 3:
                 case 4:
-                    return 7;
-                default:
                     return 8;
+                default:
+                    return 9;
             }
         }
         // handle running down
@@ -22,16 +22,16 @@ public class PlayerTextureUtils {
             switch (aniIndex) {
                 case 1:
                 case 4:
-                    return 6;
+                    return 7;
                 case 0:
                 case 3:
-                    return 7;
-                default:
                     return 8;
+                default:
+                    return 9;
             }
         }
 
-        return 8;
+        return 9;
     }
 
     public static byte getHairYOffset(int playerAction, int aniIndex) {
