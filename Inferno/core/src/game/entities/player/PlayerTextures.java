@@ -48,19 +48,25 @@ public class PlayerTextures {
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
-    private Texture pantsTxt = new Texture("sprites/style/pants.png");
+    private static final Texture pantsTxt = new Texture("sprites/style/pants.png");
+    private static final Texture toolsTxt = new Texture("sprites/tools.png");
 
     public static final byte STATE_TEXTURE_UP = 0;
     public static final byte STATE_TEXTURE_RIGHT = 1;
     public static final byte STATE_TEXTURE_DOWN = 2;
     public static final byte STATE_TEXTURE_LEFT = 3;
 
+    // textures
     public TextureRegion[][] bodyTextures;
     public TextureRegion[][] armsTextures;
     public TextureRegion[][] pantsTextures;
+    public TextureRegion pickaxe;
 
     private final int textureWidth = 16;
     private final int textureHeight = 32;
+    public final byte toolWidth = 16;
+    public final byte toolHeight = 32;
+
 
     public PlayerTextures() {
         bodyTextures = new TextureRegion[ARMS_MAX_TEXTURES][MAX_ANIMATION_FRAMES];
@@ -68,6 +74,11 @@ public class PlayerTextures {
         pantsTextures = new TextureRegion[ARMS_MAX_TEXTURES][MAX_ANIMATION_FRAMES];
 
         readJson();
+        loadTools();
+    }
+
+    private void loadTools() {
+        pickaxe = new TextureRegion(toolsTxt, 2 * toolWidth, 1 * toolWidth, toolWidth, toolHeight);
     }
 
     public static TextureRegion[] getShirts() {
@@ -90,7 +101,6 @@ public class PlayerTextures {
 
         return shirts;
     }
-
 
     public static TextureRegion[] getHat(HatsNames hatId) {
         PlayerHatsData.Config hatData = PlayerHatsData.getHat(hatId);
