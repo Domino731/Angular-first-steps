@@ -10,6 +10,8 @@ import levelManager.LevelManager;
 import screens.PlayScreen;
 import spritesManager.SpritesManager;
 
+// TODO:
+// 1. Add cloud after pickaxe, axe animation
 public class MyGdxGame extends Game {
     public SpriteBatch batch;
     public ShapeRenderer sr;
