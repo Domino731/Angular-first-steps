@@ -10,6 +10,8 @@ import utils.vectors.Vector;
 import java.util.ArrayList;
 
 public class Resource extends DefaultActor {
+    private ResourcesConfig.Config config;
+
     public Resource(Vector<Integer> position) {
         super(
                 ActorTypes.STATIC,
@@ -19,11 +21,12 @@ public class Resource extends DefaultActor {
                 new ArrayList<DimensionCordVector>(),
                 new DimensionCordVector(10, 10, 10, 10)
         );
+        config = ResourcesConfig.get("trunk_big");
     }
 
 
     @Override
     public void draw(SpriteBatch sb) {
-       
+        sb.draw(config.txt, position.x, position.y, 32, 32);
     }
 }

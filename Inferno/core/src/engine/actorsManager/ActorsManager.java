@@ -3,6 +3,7 @@ package engine.actorsManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import engine.actors.DefaultActor;
+import environment.resources.Resource;
 import environment.trees.ExampleTree;
 import game.entities.player.Player;
 import utils.Checkbox;
@@ -26,11 +27,13 @@ public class ActorsManager {
         ExampleTree exampleTree = new ExampleTree(150, 150);
         ExampleTree exampleTree2 = new ExampleTree(150, 200);
         newTree = new NewTree(new Vector<Integer>(5 * 16, 5 * 16));
+        Resource rsc = new Resource(new Vector<Integer>(32, 32));
         allActors.add(player);
 
         allActors.add(exampleTree);
         allActors.add(exampleTree2);
         allActors.add(newTree);
+        allActors.add(rsc);
 
         checkboxes.add(player.getGroundCheckbox());
         checkboxes.add(exampleTree.getGroundCheckbox());
