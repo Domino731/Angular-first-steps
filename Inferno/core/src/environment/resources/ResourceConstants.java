@@ -1,9 +1,9 @@
 package environment.resources;
 
+import utils.vectors.DimensionVector;
+
 public class ResourceConstants {
-    public static final byte RES_16_WIDTH = 16;
-    public static final byte RES_16_HEIGHT = 16;
-    public static final byte RES_32_WIDTH = 32;
-    public static final byte RES_32_HEIGHT = 32;
-    public static final String RES_32_TXT_SRC = "";
+    public static final DimensionVector<Byte> res16Dim = new DimensionVector<>((byte) 16, (byte) 16);
+    public static final DimensionVector<Byte> res32Dim = new DimensionVector<>((byte) 16, (byte) 16);
+    public static final String RES_TXT_SRC = "sprites/mines.png";
 }
