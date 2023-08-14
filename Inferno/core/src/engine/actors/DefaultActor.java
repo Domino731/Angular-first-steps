@@ -43,7 +43,7 @@ public abstract class DefaultActor {
     private ArrayList<Checkbox> createCheckboxList(ArrayList<DimensionCordVector> arrayList) {
         ArrayList<Checkbox> payload = new ArrayList<>();
         for (DimensionCordVector vector : arrayList) {
-            payload.add(new Checkbox(id, new Vector<>(vector.x, vector.y), new DimensionVector<>(vector.width, vector.height)));
+            payload.add(new Checkbox(id, new Vector<>(position.x + vector.x, position.y + vector.y), new DimensionVector<>(vector.width, vector.height)));
         }
         return payload;
     }

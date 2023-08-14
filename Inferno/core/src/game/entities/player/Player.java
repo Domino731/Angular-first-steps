@@ -3,6 +3,7 @@ package game.entities.player;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
+import environment.resources.ResourceTextures;
 import game.entities.player.tools.ToolsConstants;
 import utils.Checkbox;
 import utils.vectors.DimensionCordVector;
@@ -24,7 +25,7 @@ public class Player extends MovableDefaultActor {
     private byte[][] rightAxeAnimation = ToolsConstants.rightAxeAnimation;
 
     public Player() {
-        super(100, 100, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
+        super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
         shirts = new PlayerShirtsData();
         testRg = shirts.arm;
         playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
@@ -116,7 +117,7 @@ public class Player extends MovableDefaultActor {
                     1, 1,
                     rightAxeAnimation[aniIndex][2]);
         }
-
+        sb.draw(ResourceTextures.txtTest, checkboxArray.get(0).position.x, checkboxArray.get(0).position.y, checkboxArray.get(0).dim.width, checkboxArray.get(0).dim.height);
 //        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 20, finalPosition.y - 20, 16, 32);
 //        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 20, finalPosition.y - 20, 16, 32);
 //        sb.draw(playerTextures.pickaxe, (finalPosition.x - 20) - 8, finalPosition.y - 2, 16 / 2, 32 / 2, 16, 32, 1, 1, 15);

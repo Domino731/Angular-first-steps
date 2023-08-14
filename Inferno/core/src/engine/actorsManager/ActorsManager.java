@@ -38,11 +38,12 @@ public class ActorsManager {
         allActors.add(rsc);
         allActors.add(rsc2);
 
-        checkboxes.add(player.getGroundCheckbox());
+        checkboxes.addAll(player.getCheckboxArray());
         checkboxes.add(exampleTree.getGroundCheckbox());
         checkboxes.add(rsc.getGroundCheckbox());
         checkboxes.add(rsc2.getGroundCheckbox());
 
+        System.out.println(player.getCheckboxArray().get(0).position.x);
 //        checkboxes.addAll(player.getCheckboxArray());
         groundCheckboxes.add(exampleTree.getGroundCheckbox());
         groundCheckboxes.add(exampleTree2.getGroundCheckbox());
@@ -103,6 +104,10 @@ public class ActorsManager {
             sr.rect(cb.position.x, cb.position.y, cb.dim.width, cb.dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
             sr.end();
         }
+        sr.begin(ShapeRenderer.ShapeType.Line);
+        sr.setColor(0, 0, 1, 1); // Red color
+        sr.rect(player.getCheckboxArray().get(0).position.x, player.getCheckboxArray().get(0).position.y, player.getCheckboxArray().get(0).dim.width, player.getCheckboxArray().get(0).dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
+        sr.end();
 //        Vector<Integer> position = player.getFinalPosition();
 //        sr.begin(ShapeRenderer.ShapeType.Line);
 //        sr.setColor(0, 0, 1, 1); // Red color

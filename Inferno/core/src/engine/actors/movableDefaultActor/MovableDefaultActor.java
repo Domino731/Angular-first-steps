@@ -5,7 +5,6 @@ import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
 import engine.actors.utils.ActorDirection;
 import game.entities.player.PlayerTextures;
-import utils.Checkbox;
 import utils.TextureData;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
@@ -25,8 +24,15 @@ public class MovableDefaultActor extends DefaultActor {
     protected PlayerTextures playerTextures = new PlayerTextures();
     private String lastDir = "";
 
-    public MovableDefaultActor(int positionX, int positionY, ArrayList<Checkbox> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim, DimensionCordVector groundCheckbox) {
-        super(ActorTypes.DYNAMIC, new Vector(positionX, positionY), checkboxArray, texturePath, dim, groundCheckbox);
+    public MovableDefaultActor(int positionX, int positionY, ArrayList<DimensionCordVector> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim, DimensionCordVector groundCheckbox) {
+        super(
+                ActorTypes.STATIC,
+                new Vector<Integer>(positionX * 16, positionY * 16),
+                texturePath,
+                new DimensionVector<Integer>(16, 32),
+                checkboxArray,
+                groundCheckbox
+        );
         this.textureData = textureData;
         this.finalPosition = new Vector<>(positionX, positionY);
     }
@@ -34,8 +40,8 @@ public class MovableDefaultActor extends DefaultActor {
     public void resetPosition() {
         position.x = finalPosition.x;
         position.y = finalPosition.y;
-        checkboxArray.get(0).position.x = finalPosition.x;
-        checkboxArray.get(0).position.y = finalPosition.y;
+        checkboxArray.get(0).position.x = finalPosition.x + 10;
+        checkboxArray.get(0).position.y = finalPosition.y + 10;
         groundCheckbox.position.x = finalPosition.x + groundCheckbox.absolutePosition.x;
         groundCheckbox.position.y = finalPosition.y + groundCheckbox.absolutePosition.y;
     }
