@@ -25,7 +25,7 @@ public class PlayerConstants {
 
     private static ArrayList<DimensionCordVector> getCheckboxArray() {
         ArrayList<DimensionCordVector> payload = new ArrayList<>();
-        payload.add(new DimensionCordVector(10, 10, 10, 10));
+        payload.add(new DimensionCordVector(10, 5, 3, 0));
         return payload;
     }
 }

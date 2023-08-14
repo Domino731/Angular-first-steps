@@ -40,8 +40,9 @@ public class MovableDefaultActor extends DefaultActor {
     public void resetPosition() {
         position.x = finalPosition.x;
         position.y = finalPosition.y;
-        checkboxArray.get(0).position.x = finalPosition.x + 10;
-        checkboxArray.get(0).position.y = finalPosition.y + 10;
+        System.out.println(checkboxArray.get(0).absolutePosition.x);
+        checkboxArray.get(0).position.x = finalPosition.x + checkboxArray.get(0).absolutePosition.x;
+        checkboxArray.get(0).position.y = finalPosition.y + checkboxArray.get(0).absolutePosition.y;
         groundCheckbox.position.x = finalPosition.x + groundCheckbox.absolutePosition.x;
         groundCheckbox.position.y = finalPosition.y + groundCheckbox.absolutePosition.y;
     }

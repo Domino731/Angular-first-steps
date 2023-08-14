@@ -28,5 +28,6 @@ public class Resource extends DefaultActor {
     @Override
     public void draw(SpriteBatch sb) {
         sb.draw(config.txt, position.x, position.y);
+        sb.draw(ResourceTextures.txtTest, position.x, position.y, 32, 32);
     }
 }
