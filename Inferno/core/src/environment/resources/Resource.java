@@ -15,11 +15,11 @@ public class Resource extends DefaultActor {
     public Resource(Vector<Integer> position) {
         super(
                 ActorTypes.STATIC,
-                position,
+                new Vector<Integer>(position.x * 16, position.y * 16),
                 "sprites/trees/oak_spring.png",
                 new DimensionVector<Integer>(20, 20),
                 new ArrayList<DimensionCordVector>(),
-                new DimensionCordVector(10, 10, 10, 10)
+                new DimensionCordVector(32, 32, 0, 0)
         );
         config = ResourcesConfig.get("trunk_big");
     }
@@ -27,6 +27,6 @@ public class Resource extends DefaultActor {
 
     @Override
     public void draw(SpriteBatch sb) {
-        sb.draw(config.txt, position.x, position.y, 32, 32);
+        sb.draw(config.txt, position.x, position.y);
     }
 }

@@ -27,21 +27,28 @@ public class ActorsManager {
         ExampleTree exampleTree = new ExampleTree(150, 150);
         ExampleTree exampleTree2 = new ExampleTree(150, 200);
         newTree = new NewTree(new Vector<Integer>(5 * 16, 5 * 16));
-        Resource rsc = new Resource(new Vector<Integer>(32, 32));
+        Resource rsc = new Resource(new Vector<Integer>(2, 2));
+        Resource rsc2 = new Resource(new Vector<Integer>(6, 2));
+
         allActors.add(player);
 
         allActors.add(exampleTree);
         allActors.add(exampleTree2);
         allActors.add(newTree);
         allActors.add(rsc);
+        allActors.add(rsc2);
 
         checkboxes.add(player.getGroundCheckbox());
         checkboxes.add(exampleTree.getGroundCheckbox());
+        checkboxes.add(rsc.getGroundCheckbox());
+        checkboxes.add(rsc2.getGroundCheckbox());
 
 //        checkboxes.addAll(player.getCheckboxArray());
         groundCheckboxes.add(exampleTree.getGroundCheckbox());
         groundCheckboxes.add(exampleTree2.getGroundCheckbox());
         groundCheckboxes.add(player.getGroundCheckbox());
+        groundCheckboxes.add(rsc.getGroundCheckbox());
+        groundCheckboxes.add(rsc2.getGroundCheckbox());
     }
 
     public void draw(SpriteBatch sb) {

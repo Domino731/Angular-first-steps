@@ -61,8 +61,16 @@ public class ResourcesConfig {
             return config;
         }
         JsonNode resourceConfig = getResourceConfig(id);
-        Vector<Integer> offset = new Vector<Integer>(resourceConfig.get("cords").get("x").shortValue() * 16, resourceConfig.get("cords").get("y").shortValue() * 16);
-        DimensionVector<Byte> dim = new DimensionVector<>((byte) resourceConfig.get("size").get("width").asInt(), (byte) resourceConfig.get("size").get("height").asInt());
+        Vector<Integer> offset = new Vector<Integer>(resourceConfig.get("cords").get("x").intValue(), resourceConfig.get("cords").get("y").intValue());
+        Boolean isBig = resourceConfig.get("isBig").asBoolean();
+        byte width = 16;
+        byte height = 16;
+        if (isBig) {
+            width = 32;
+            height = 32;
+        }
+
+        DimensionVector<Byte> dim = new DimensionVector<>(width, height);
         resources.put(resourceConfig.get("id").asText(), new Config(offset, dim));
 
         return resources.get(id);

@@ -3,11 +3,8 @@
     "id": "trunk_big",
     "cords": {
       "x": 0,
-      "y": 0
+      "y": 156
     },
-    "size": {
-      "width": 32,
-      "height": 32
-    }
+    "isBig": true
   }
 ]
