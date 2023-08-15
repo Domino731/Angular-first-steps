@@ -2,6 +2,7 @@ package engine.actors;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import engine.actionCollision.ActionCollision;
 import engine.actors.constants.ActorTypes;
 import spritesManager.SpritesManager;
 import utils.Checkbox;
@@ -20,9 +21,9 @@ public abstract class DefaultActor {
     protected Texture texture;
     protected ActorTypes actorType;
     protected DimensionVector<Integer> dim;
-    protected
+    protected ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
 
-    private String id = StringUtils.generateRandomId();
+    protected final String id = StringUtils.generateRandomId();
 
     public DefaultActor(ActorTypes actorType, Vector<Integer> position, ArrayList<Checkbox> checkboxArray, String texturePath, DimensionVector<Integer> dim, DimensionCordVector dimCordVector) {
         this.actorType = actorType;
@@ -57,6 +58,10 @@ public abstract class DefaultActor {
 
     public void setIsCollision(boolean v) {
         this.isCollision = v;
+    }
+
+    public ArrayList<ActionCollision> getActionCollisions() {
+        return actionCollisions;
     }
 
     // getters

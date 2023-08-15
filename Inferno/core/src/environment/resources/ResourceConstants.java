@@ -8,4 +8,5 @@ public class ResourceConstants {
     public static final byte spriteCell = 16;
     public static final String RES_TXT_SRC = "sprites/mines.png";
     public static final String RES_CONFIG_SRC = "config/mines.json";
+
 }

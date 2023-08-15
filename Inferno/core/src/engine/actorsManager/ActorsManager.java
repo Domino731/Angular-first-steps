@@ -2,6 +2,7 @@ package engine.actorsManager;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import engine.actionCollision.ActionCollision;
 import engine.actors.DefaultActor;
 import environment.resources.Resource;
 import environment.trees.ExampleTree;
@@ -20,6 +21,8 @@ public class ActorsManager {
     public Player player = new Player();
     private ArrayList<Checkbox> checkboxes = new ArrayList<>();
     private ArrayList<Checkbox> groundCheckboxes = new ArrayList<>();
+    private ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
+
     NewTree newTree;
 
     public ActorsManager() {
@@ -50,6 +53,9 @@ public class ActorsManager {
         groundCheckboxes.add(player.getGroundCheckbox());
         groundCheckboxes.add(rsc.getGroundCheckbox());
         groundCheckboxes.add(rsc2.getGroundCheckbox());
+
+
+        actionCollisions.addAll(rsc.getActionCollisions());
     }
 
     public void draw(SpriteBatch sb) {
@@ -92,22 +98,28 @@ public class ActorsManager {
     }
 
     public void renderCheckboxes(ShapeRenderer sr) {
-        for (Checkbox cb : checkboxes) {
-            sr.begin(ShapeRenderer.ShapeType.Line);
-            sr.setColor(1, 0, 0, 1); // Red color
-            sr.rect(cb.position.x, cb.position.y, cb.dim.width, cb.dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
-            sr.end();
-        }
-        for (Checkbox cb : groundCheckboxes) {
-            sr.begin(ShapeRenderer.ShapeType.Line);
-            sr.setColor(0, 0, 1, 1); // Red color
-            sr.rect(cb.position.x, cb.position.y, cb.dim.width, cb.dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
-            sr.end();
-        }
-        sr.begin(ShapeRenderer.ShapeType.Line);
-        sr.setColor(0, 0, 1, 1); // Red color
-        sr.rect(player.getCheckboxArray().get(0).position.x, player.getCheckboxArray().get(0).position.y, player.getCheckboxArray().get(0).dim.width, player.getCheckboxArray().get(0).dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
-        sr.end();
+//        for (Checkbox cb : checkboxes) {
+//            sr.begin(ShapeRenderer.ShapeType.Line);
+//            sr.setColor(1, 0, 0, 1); // Red color
+//            sr.rect(cb.position.x, cb.position.y, cb.dim.width, cb.dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
+//            sr.end();
+//        }
+//        for (Checkbox cb : checkboxes) {
+//            sr.begin(ShapeRenderer.ShapeType.Line);
+//            sr.setColor(1, 0, 0, 1); // Red color
+//            sr.rect(cb.position.x, cb.position.y, cb.dim.width, cb.dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
+//            sr.end();
+//        }
+//        for (Checkbox cb : groundCheckboxes) {
+//            sr.begin(ShapeRenderer.ShapeType.Line);
+//            sr.setColor(0, 0, 1, 1); // Red color
+//            sr.rect(cb.position.x, cb.position.y, cb.dim.width, cb.dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
+//            sr.end();
+//        }
+//        sr.begin(ShapeRenderer.ShapeType.Line);
+//        sr.setColor(0, 0, 1, 1); // Red color
+//        sr.rect(player.getCheckboxArray().get(0).position.x, player.getCheckboxArray().get(0).position.y, player.getCheckboxArray().get(0).dim.width, player.getCheckboxArray().get(0).dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
+//        sr.end();
 //        Vector<Integer> position = player.getFinalPosition();
 //        sr.begin(ShapeRenderer.ShapeType.Line);
 //        sr.setColor(0, 0, 1, 1); // Red color
