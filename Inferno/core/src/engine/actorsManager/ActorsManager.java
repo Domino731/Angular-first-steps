@@ -81,6 +81,13 @@ public class ActorsManager {
                 }
             }
         }
+        // Loop to check action collisions
+        for (int i = 0; i < actionCollisions.size(); i++) {
+            Checkbox checkbox = actionCollisions.get(i);
+            if (checkCollision(checkbox, player.getActionCollisions().get(0))) {
+                System.out.println("ACTION COLLISION");
+            }
+        }
 
         player.update();
     }
