@@ -20,6 +20,8 @@ public abstract class DefaultActor {
     protected Texture texture;
     protected ActorTypes actorType;
     protected DimensionVector<Integer> dim;
+    protected
+
     private String id = StringUtils.generateRandomId();
 
     public DefaultActor(ActorTypes actorType, Vector<Integer> position, ArrayList<Checkbox> checkboxArray, String texturePath, DimensionVector<Integer> dim, DimensionCordVector dimCordVector) {

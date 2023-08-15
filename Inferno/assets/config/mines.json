@@ -6,5 +6,21 @@
       "y": 156
     },
     "isBig": true
+  },
+  {
+    "id": "trunk_big",
+    "cords": {
+      "x": 0,
+      "y": 156
+    },
+    "isBig": true
+  },
+  {
+    "id": "trunk_big",
+    "cords": {
+      "x": 0,
+      "y": 156
+    },
+    "isBig": true
   }
 ]
