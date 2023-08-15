@@ -2,11 +2,14 @@ package game.entities.player;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import engine.actionCollision.ActionCollision;
+import engine.actionCollision.ActionTypes;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
 import environment.resources.ResourceTextures;
 import game.entities.player.tools.ToolsConstants;
 import utils.Checkbox;
 import utils.vectors.DimensionCordVector;
+import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
 public class Player extends MovableDefaultActor {
@@ -30,6 +33,7 @@ public class Player extends MovableDefaultActor {
         testRg = shirts.arm;
         playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
         playerTextures.pantsTextures = shirts.createPants(playerTextures.pantsTextures, style.shirtsArray[2]);
+        setActionsCollisions();
     }
 
     public Vector<Integer> getFinalPosition() {
@@ -39,7 +43,6 @@ public class Player extends MovableDefaultActor {
     public void startStaticAction() {
         isStaticAction = true;
     }
-
 
     public void update() {
         if (!isCollision) {
@@ -117,7 +120,7 @@ public class Player extends MovableDefaultActor {
                     1, 1,
                     rightAxeAnimation[aniIndex][2]);
         }
-        sb.draw(ResourceTextures.txtTest, checkboxArray.get(0).position.x, checkboxArray.get(0).position.y, checkboxArray.get(0).dim.width, checkboxArray.get(0).dim.height);
+        sb.draw(ResourceTextures.txtTest, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
 //        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 20, finalPosition.y - 20, 16, 32);
 //        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 20, finalPosition.y - 20, 16, 32);
 //        sb.draw(playerTextures.pickaxe, (finalPosition.x - 20) - 8, finalPosition.y - 2, 16 / 2, 32 / 2, 16, 32, 1, 1, 15);
@@ -156,11 +159,17 @@ public class Player extends MovableDefaultActor {
             for (Checkbox cb : checkboxArray) {
                 cb.position.x -= speed;
             }
+            for (ActionCollision cb : actionCollisions) {
+                cb.position.x -= speed;
+            }
             groundCheckbox.position.x -= speed;
             isMoving = true;
         } else if (direction.right && !direction.left) {
             position.x += speed;
             for (Checkbox cb : checkboxArray) {
+                cb.position.x += speed;
+            }
+            for (ActionCollision cb : actionCollisions) {
                 cb.position.x += speed;
             }
             groundCheckbox.position.x += speed;
@@ -172,6 +181,9 @@ public class Player extends MovableDefaultActor {
             for (Checkbox cb : checkboxArray) {
                 cb.position.y -= speed;
             }
+            for (ActionCollision cb : actionCollisions) {
+                cb.position.y -= speed;
+            }
             groundCheckbox.position.y -= speed;
             isMoving = true;
         } else if (direction.top && !direction.bot) {
@@ -179,8 +191,15 @@ public class Player extends MovableDefaultActor {
             for (Checkbox cb : checkboxArray) {
                 cb.position.y += speed;
             }
+            for (ActionCollision cb : actionCollisions) {
+                cb.position.y += speed;
+            }
             groundCheckbox.position.y += speed;
             isMoving = true;
         }
+    }
+
+    private void setActionsCollisions() {
+        actionCollisions.add(new ActionCollision(ActionTypes.ACTION_AREA, id, new Vector<>(position.x, position.y), new DimensionVector<>(16, 16), new Vector<Integer>(0, 0)));
     }
 }

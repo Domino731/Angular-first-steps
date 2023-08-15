@@ -31,13 +31,12 @@ public class Resource extends DefaultActor {
     @Override
     public void draw(SpriteBatch sb) {
         sb.draw(config.txt, position.x, position.y);
-        sb.draw(ResourceTextures.txtTest, position.x, position.y, 32, 32);
         sb.draw(ResourceTextures.txtTest, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
     }
 
 
     // initialize methods
     private void setActionsCollisions() {
-        actionCollisions.add(new ActionCollision(ActionTypes.CUT_TREE, id, new Vector<>(position.x - 5, position.y - 5), new DimensionVector<>(40, 40), new Vector<Integer>(0, 0)));
+        actionCollisions.add(new ActionCollision(ActionTypes.MINE_RESOURCE, id, new Vector<>(position.x - 5, position.y - 5), new DimensionVector<>(40, 40), new Vector<Integer>(0, 0)));
     }
 }
