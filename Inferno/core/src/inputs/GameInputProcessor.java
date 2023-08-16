@@ -30,7 +30,9 @@ public class GameInputProcessor implements InputProcessor {
                 player.setRight(true);
                 break;
             case Input.Keys.E:
-                player.startStaticAction();
+                if (actorsManager.currentAction != null) {
+                    player.startStaticAction();
+                }
         }
         return true;
     }

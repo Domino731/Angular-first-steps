@@ -22,7 +22,7 @@ public class ActorsManager {
     private ArrayList<Checkbox> checkboxes = new ArrayList<>();
     private ArrayList<Checkbox> groundCheckboxes = new ArrayList<>();
     private ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
-    private ActionCollision currentAction = null;
+    public ActionCollision currentAction = null;
     NewTree newTree;
 
     public ActorsManager() {
