@@ -22,7 +22,7 @@ public class ActorsManager {
     private ArrayList<Checkbox> checkboxes = new ArrayList<>();
     private ArrayList<Checkbox> groundCheckboxes = new ArrayList<>();
     private ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
-
+    private ActionCollision currentAction = null;
     NewTree newTree;
 
     public ActorsManager() {
@@ -81,13 +81,22 @@ public class ActorsManager {
                 }
             }
         }
-        // Loop to check action collisions
-        for (int i = 0; i < actionCollisions.size(); i++) {
-            Checkbox checkbox = actionCollisions.get(i);
-            if (checkCollision(checkbox, player.getActionCollisions().get(0))) {
-                System.out.println("ACTION COLLISION");
+
+        // check if player is already in collision area
+        if (currentAction != null) {
+            if (!checkCollision(currentAction, player.getActionCollisions().get(0))) {
+                currentAction = null;
+            }
+        } else {
+            // Loop to check action collisions
+            for (int i = 0; i < actionCollisions.size(); i++) {
+                ActionCollision checkbox = actionCollisions.get(i);
+                if (checkCollision(checkbox, player.getActionCollisions().get(0))) {
+                    currentAction = checkbox;
+                }
             }
         }
+
 
         player.update();
     }
