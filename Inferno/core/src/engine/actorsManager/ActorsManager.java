@@ -86,6 +86,7 @@ public class ActorsManager {
         if (currentAction != null) {
             if (!checkCollision(currentAction, player.getActionCollisions().get(0))) {
                 currentAction = null;
+                player.setCurrentAction(null);
             }
         } else {
             // Loop to check action collisions
@@ -93,6 +94,7 @@ public class ActorsManager {
                 ActionCollision checkbox = actionCollisions.get(i);
                 if (checkCollision(checkbox, player.getActionCollisions().get(0))) {
                     currentAction = checkbox;
+                    player.setCurrentAction(currentAction);
                 }
             }
         }

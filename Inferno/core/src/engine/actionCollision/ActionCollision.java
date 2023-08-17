@@ -16,4 +16,8 @@ public class ActionCollision extends Checkbox {
         super(actorId, position, dim, absolutePosition);
         this.type = type;
     }
+
+    public void execute() {
+        System.out.println("ACTION EXECUTE");
+    }
 }

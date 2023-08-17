@@ -26,6 +26,7 @@ public class Player extends MovableDefaultActor {
     private TextureRegion pants;
     private boolean isStaticAction = false;
     private byte[][] rightAxeAnimation = ToolsConstants.rightAxeAnimation;
+    private ActionCollision action = null;
 
     public Player() {
         super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -36,12 +37,12 @@ public class Player extends MovableDefaultActor {
         setActionsCollisions();
     }
 
-    public Vector<Integer> getFinalPosition() {
-        return finalPosition;
-    }
-
     public void startStaticAction() {
         isStaticAction = true;
+    }
+
+    public void setCurrentAction(ActionCollision action) {
+        this.action = action;
     }
 
     public void update() {
@@ -88,6 +89,11 @@ public class Player extends MovableDefaultActor {
 
     private void updateAnimationTick() {
         aniTick++;
+        // HERE WILL BE AN ACTION
+        if (action != null && aniTick >= speed && aniIndex == 5) {
+            System.out.println("TEST");
+        }
+
         if (aniTick >= aniSpeed) {
             aniTick = 0;
             aniIndex++;
