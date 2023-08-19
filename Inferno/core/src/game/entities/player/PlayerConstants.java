@@ -19,6 +19,12 @@ public class PlayerConstants {
     public static final DimensionVector<Byte> shirtDim = new DimensionVector<>((byte) 8, (byte) 8);
     public static final int[] skinColors = {-106001921, -529832449, 1795177215};
 
+    // ANIMATION CONSTANTS - LENGTH
+    public static final byte ANI_CUT_TREE_LENGTH = 5;
+
+
+    // UTILS
+
     public static void setHatTextureIndex(byte value) {
         hatTextureIndex = value;
     }

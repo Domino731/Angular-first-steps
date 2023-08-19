@@ -26,7 +26,6 @@ public class Player extends MovableDefaultActor {
     private TextureRegion pants;
     private boolean isStaticAction = false;
     private byte[][] rightAxeAnimation = ToolsConstants.rightAxeAnimation;
-    private ActionCollision action = null;
 
     public Player() {
         super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -40,11 +39,7 @@ public class Player extends MovableDefaultActor {
     public void startStaticAction() {
         isStaticAction = true;
     }
-
-    public void setCurrentAction(ActionCollision action) {
-        this.action = action;
-    }
-
+    
     public void update() {
         if (!isCollision) {
             finalPosition.x = position.x;
@@ -89,14 +84,12 @@ public class Player extends MovableDefaultActor {
 
     private void updateAnimationTick() {
         aniTick++;
-        // HERE WILL BE AN ACTION
-        if (action != null && aniTick >= speed && aniIndex == 5) {
-            System.out.println("TEST");
-        }
 
         if (aniTick >= aniSpeed) {
             aniTick = 0;
             aniIndex++;
+
+            handleActions();
             if (aniIndex >= PlayerTextures.actionTextureAmount(actionIndex)) {
                 if (isStaticAction) {
                     isStaticAction = false;
@@ -106,7 +99,18 @@ public class Player extends MovableDefaultActor {
                 isAttacking = false;
             }
         }
+
+
         hairTextureYOffset = PlayerTextureUtils.getHairYOffset(actionIndex, aniIndex);
+    }
+
+    /**
+     * Trigger the specific action when action end
+     */
+    private void handleActions() {
+        if (actionIndex == PlayerTextures.STATE_HARVEST_RIGHT && aniIndex >= PlayerConstants.ANI_CUT_TREE_LENGTH) {
+            System.out.println("ACTION END");
+        }
     }
 
     @Override
