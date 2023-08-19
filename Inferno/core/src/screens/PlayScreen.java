@@ -53,9 +53,9 @@ public class PlayScreen implements Screen {
         levelManager.render(game.batch);
         actorsManager.draw(game.batch);
         game.batch.end();
-        if (game.showCheckboxes) {
-            actorsManager.renderCheckboxes(game.sr);
-        }
+
+
+        player.inventory.draw();
     }
 
 

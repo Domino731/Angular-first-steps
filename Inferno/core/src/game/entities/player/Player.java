@@ -30,6 +30,7 @@ public class Player extends MovableDefaultActor {
     private byte[][] rightAxeAnimation = ToolsConstants.rightAxeAnimation;
     // Action collision from ActorManager
     private ActorsManager actorsManager;
+    public PlayerInventory inventory = new PlayerInventory();
 
     public Player(ActorsManager actorsManager) {
         super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
