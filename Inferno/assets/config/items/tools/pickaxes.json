@@ -1,0 +1,13 @@
+{
+  "stone_pickaxe": {
+    "id": "stone_pickaxe",
+    "name": "Stone pickaxe",
+    "usage": 1000,
+    "damage": 25,
+    "sprite": "tools",
+    "inventoryTxt": {
+      "x": 78,
+      "y": 125
+    }
+  }
+}

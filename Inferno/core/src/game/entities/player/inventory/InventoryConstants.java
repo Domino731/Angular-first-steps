@@ -13,8 +13,7 @@ public class InventoryConstants {
     }
 
     public static int getXOffset() {
-        int screenWidth = (Gdx.graphics.getWidth() / 2) - (getInventoryBarWidth() / 2);
-        return screenWidth;
+        return (Gdx.graphics.getWidth() / 2) - (getInventoryBarWidth() / 2);
     }
 
 }

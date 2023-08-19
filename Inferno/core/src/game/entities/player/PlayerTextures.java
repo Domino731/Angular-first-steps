@@ -49,7 +49,7 @@ public class PlayerTextures {
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
     private static final Texture pantsTxt = new Texture("sprites/style/pants.png");
-    private static final Texture toolsTxt = new Texture("sprites/tools.png");
+    public static final Texture toolsTxt = new Texture("sprites/tools.png");
 
     public static final byte STATE_TEXTURE_UP = 0;
     public static final byte STATE_TEXTURE_RIGHT = 1;
