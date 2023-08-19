@@ -5,6 +5,7 @@ import engine.actionCollision.ActionCollision;
 import engine.actionCollision.ActionTypes;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
+import engine.actorsManager.ActorsManager;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
@@ -13,8 +14,9 @@ import java.util.ArrayList;
 
 public class Resource extends DefaultActor {
     private ResourcesConfig.Config config;
+    private ActorsManager actorsManager;
 
-    public Resource(Vector<Integer> position) {
+    public Resource(Vector<Integer> position, ActorsManager actorsManager) {
         super(
                 ActorTypes.STATIC,
                 new Vector<Integer>(position.x * 16, position.y * 16),
@@ -23,7 +25,9 @@ public class Resource extends DefaultActor {
                 new ArrayList<DimensionCordVector>(),
                 new DimensionCordVector(32, 32, 0, 0)
         );
+        this.actorsManager = actorsManager;
         config = ResourcesConfig.get("trunk_big");
+        hp = 100;
         setActionsCollisions();
     }
 
@@ -47,7 +51,7 @@ public class Resource extends DefaultActor {
                         new ResourceAction() {
                             @Override
                             public void action() {
-                                System.out.println("RESOURCE ACTION");
+                                hp -= 10;
                             }
                         }
                 ));

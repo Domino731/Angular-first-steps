@@ -22,6 +22,7 @@ public abstract class DefaultActor {
     protected ActorTypes actorType;
     protected DimensionVector<Integer> dim;
     protected ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
+    protected int hp = 0;
 
     protected final String id = StringUtils.generateRandomId();
 

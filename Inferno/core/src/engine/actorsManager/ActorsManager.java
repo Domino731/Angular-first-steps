@@ -5,11 +5,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import engine.actionCollision.ActionCollision;
 import engine.actors.DefaultActor;
 import environment.resources.Resource;
-import environment.trees.ExampleTree;
 import game.entities.player.Player;
 import utils.Checkbox;
 import utils.vectors.Vector;
-import world.trees.NewTree;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,39 +21,26 @@ public class ActorsManager {
     private ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
     public ActionCollision currentAction = null;
     public Player player;
-    NewTree newTree;
 
     public ActorsManager() {
+        createPlayer();
+        Resource rsc = new Resource(new Vector<Integer>(2, 2), this);
+        addActor(rsc);
+    }
+
+
+    private void createPlayer() {
         player = new Player(this);
-        ExampleTree exampleTree = new ExampleTree(150, 150);
-        ExampleTree exampleTree2 = new ExampleTree(150, 200);
-        newTree = new NewTree(new Vector<Integer>(5 * 16, 5 * 16));
-        Resource rsc = new Resource(new Vector<Integer>(2, 2));
-        Resource rsc2 = new Resource(new Vector<Integer>(6, 2));
-
         allActors.add(player);
-
-        allActors.add(exampleTree);
-        allActors.add(exampleTree2);
-        allActors.add(newTree);
-        allActors.add(rsc);
-        allActors.add(rsc2);
-
         checkboxes.addAll(player.getCheckboxArray());
-        checkboxes.add(exampleTree.getGroundCheckbox());
-        checkboxes.add(rsc.getGroundCheckbox());
-        checkboxes.add(rsc2.getGroundCheckbox());
-
-        System.out.println(player.getCheckboxArray().get(0).position.x);
-//        checkboxes.addAll(player.getCheckboxArray());
-        groundCheckboxes.add(exampleTree.getGroundCheckbox());
-        groundCheckboxes.add(exampleTree2.getGroundCheckbox());
         groundCheckboxes.add(player.getGroundCheckbox());
-        groundCheckboxes.add(rsc.getGroundCheckbox());
-        groundCheckboxes.add(rsc2.getGroundCheckbox());
+    }
 
-
-        actionCollisions.addAll(rsc.getActionCollisions());
+    private void addActor(DefaultActor actor) {
+        allActors.add(actor);
+        checkboxes.add(actor.getGroundCheckbox());
+        groundCheckboxes.add(actor.getGroundCheckbox());
+        actionCollisions.addAll(actor.getActionCollisions());
     }
 
     public void draw(SpriteBatch sb) {
@@ -65,7 +50,6 @@ public class ActorsManager {
     }
 
     public void update() {
-        newTree.update();
         sortCheckboxesByPosition();
         player.setIsCollision(false);
         player.updatePos();
