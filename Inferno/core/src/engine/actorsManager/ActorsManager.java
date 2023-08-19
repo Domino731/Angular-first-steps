@@ -18,15 +18,15 @@ import java.util.Comparator;
 
 public class ActorsManager {
     private ArrayList<DefaultActor> allActors = new ArrayList<>();
-    public Player player = new Player();
     private ArrayList<Checkbox> checkboxes = new ArrayList<>();
     private ArrayList<Checkbox> groundCheckboxes = new ArrayList<>();
     private ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
     public ActionCollision currentAction = null;
+    public Player player;
     NewTree newTree;
 
     public ActorsManager() {
-
+        player = new Player(this);
         ExampleTree exampleTree = new ExampleTree(150, 150);
         ExampleTree exampleTree2 = new ExampleTree(150, 200);
         newTree = new NewTree(new Vector<Integer>(5 * 16, 5 * 16));

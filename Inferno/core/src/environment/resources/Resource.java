@@ -37,6 +37,19 @@ public class Resource extends DefaultActor {
 
     // initialize methods
     private void setActionsCollisions() {
-        actionCollisions.add(new ActionCollision(ActionTypes.MINE_RESOURCE, id, new Vector<>(position.x - 5, position.y - 5), new DimensionVector<>(40, 40), new Vector<Integer>(0, 0)));
+        actionCollisions.add(
+                new ActionCollision(
+                        ActionTypes.MINE_RESOURCE,
+                        id,
+                        new Vector<>(position.x - 5, position.y - 5),
+                        new DimensionVector<>(40, 40),
+                        new Vector<>(0, 0),
+                        new ResourceAction() {
+                            @Override
+                            public void action() {
+                                System.out.println("RESOURCE ACTION");
+                            }
+                        }
+                ));
     }
 }

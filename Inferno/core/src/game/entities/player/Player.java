@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.ActionTypes;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
+import engine.actorsManager.ActorsManager;
+import environment.resources.ResourceAction;
 import environment.resources.ResourceTextures;
 import game.entities.player.tools.ToolsConstants;
 import utils.Checkbox;
@@ -26,10 +28,13 @@ public class Player extends MovableDefaultActor {
     private TextureRegion pants;
     private boolean isStaticAction = false;
     private byte[][] rightAxeAnimation = ToolsConstants.rightAxeAnimation;
+    // Action collision from ActorManager
+    private ActorsManager actorsManager;
 
-    public Player() {
+    public Player(ActorsManager actorsManager) {
         super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
         shirts = new PlayerShirtsData();
+        this.actorsManager = actorsManager;
         testRg = shirts.arm;
         playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
         playerTextures.pantsTextures = shirts.createPants(playerTextures.pantsTextures, style.shirtsArray[2]);
@@ -39,7 +44,7 @@ public class Player extends MovableDefaultActor {
     public void startStaticAction() {
         isStaticAction = true;
     }
-    
+
     public void update() {
         if (!isCollision) {
             finalPosition.x = position.x;
@@ -108,8 +113,10 @@ public class Player extends MovableDefaultActor {
      * Trigger the specific action when action end
      */
     private void handleActions() {
+        if (actorsManager.currentAction == null) return;
+
         if (actionIndex == PlayerTextures.STATE_HARVEST_RIGHT && aniIndex >= PlayerConstants.ANI_CUT_TREE_LENGTH) {
-            System.out.println("ACTION END");
+            actorsManager.currentAction.action();
         }
     }
 
@@ -210,6 +217,18 @@ public class Player extends MovableDefaultActor {
     }
 
     private void setActionsCollisions() {
-        actionCollisions.add(new ActionCollision(ActionTypes.ACTION_AREA, id, new Vector<>(position.x, position.y), new DimensionVector<>(16, 16), new Vector<Integer>(0, 0)));
+        actionCollisions.add(new ActionCollision(
+                ActionTypes.ACTION_AREA,
+                id,
+                new Vector<>(position.x, position.y),
+                new DimensionVector<>(16, 16),
+                new Vector<Integer>(0, 0),
+                new ResourceAction() {
+                    @Override
+                    public void action() {
+                        System.out.println("PLAYER ACTION COLLISION");
+                    }
+                }
+        ));
     }
 }
