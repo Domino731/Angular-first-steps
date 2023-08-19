@@ -17,7 +17,7 @@ public class PlayerInventory {
     private void createInventorySlots() {
         for (int i = 0; i < InventoryConstants.inventoryLength; i++) {
             inventorySlots[i] = new InventorySlot();
-            inventorySlots[i].setPosition(i * InventoryConstants.slotSize, InventoryConstants.inventorySlotsYOffset);
+            inventorySlots[i].setPosition(i * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
             stage.addActor(inventorySlots[i]);
         }
     }

@@ -6,7 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import engine.Textures;
 
 public class InventorySlot extends Actor {
-    private final TextureRegion slotTexture = Textures.slotTxt;
+    private TextureRegion slotTexture = Textures.slotTxt;
 
     public InventorySlot() {
         setWidth(slotTexture.getRegionWidth());
@@ -15,6 +15,6 @@ public class InventorySlot extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        batch.draw(slotTexture, getX(), getY());
+        batch.draw(slotTexture, getX(), getY(), InventoryConstants.slotSize, InventoryConstants.slotSize);
     }
 }
