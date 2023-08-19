@@ -1,41 +1,29 @@
 package game.entities.player;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import constants.Urls;
+import game.entities.player.inventory.InventoryConstants;
+import game.entities.player.inventory.InventorySlot;
 
 public class PlayerInventory {
     private Stage stage;
+    private InventorySlot[] inventorySlots = new InventorySlot[InventoryConstants.inventoryLength];
 
     public PlayerInventory() {
         stage = new Stage(new ScreenViewport());
-        TextureRegion slotTexture = new TextureRegion(new Texture(Urls.checkboxImg), 48, 48);
-        InventorySlot inventorySlot = new InventorySlot(slotTexture);
-        inventorySlot.setPosition(10, 10); // Set position as needed
-        stage.addActor(inventorySlot);
+        createInventorySlots();
+    }
+
+    private void createInventorySlots() {
+        for (int i = 0; i < InventoryConstants.inventoryLength; i++) {
+            inventorySlots[i] = new InventorySlot();
+            inventorySlots[i].setPosition(i * InventoryConstants.slotSize, InventoryConstants.inventorySlotsYOffset);
+            stage.addActor(inventorySlots[i]);
+        }
     }
 
     public void draw() {
         stage.draw();
-    }
-
-    public class InventorySlot extends Actor {
-        private TextureRegion slotTexture;
-
-        public InventorySlot(TextureRegion slotTexture) {
-            this.slotTexture = slotTexture;
-            setWidth(slotTexture.getRegionWidth());
-            setHeight(slotTexture.getRegionHeight());
-        }
-
-        @Override
-        public void draw(Batch batch, float parentAlpha) {
-            batch.draw(slotTexture, getX(), getY());
-        }
     }
 
 

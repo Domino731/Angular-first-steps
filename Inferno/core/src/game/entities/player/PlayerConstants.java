@@ -18,6 +18,7 @@ public class PlayerConstants {
     public static byte hatTextureIndex = 2;
     public static final DimensionVector<Byte> shirtDim = new DimensionVector<>((byte) 8, (byte) 8);
     public static final int[] skinColors = {-106001921, -529832449, 1795177215};
+    public static final byte inventoryLevelLength = 10;
 
     // ANIMATION CONSTANTS - LENGTH
     public static final byte ANI_CUT_TREE_LENGTH = 5;
