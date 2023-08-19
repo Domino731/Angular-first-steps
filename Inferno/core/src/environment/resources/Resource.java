@@ -41,6 +41,8 @@ public class Resource extends DefaultActor {
 
     // initialize methods
     private void setActionsCollisions() {
+        final Resource resource = this;
+
         actionCollisions.add(
                 new ActionCollision(
                         ActionTypes.MINE_RESOURCE,
@@ -51,7 +53,7 @@ public class Resource extends DefaultActor {
                         new ResourceAction() {
                             @Override
                             public void action() {
-                                hp -= 10;
+                                actorsManager.removeActor(resource);
                             }
                         }
                 ));

@@ -19,12 +19,14 @@ public class ActorsManager {
     private ArrayList<Checkbox> checkboxes = new ArrayList<>();
     private ArrayList<Checkbox> groundCheckboxes = new ArrayList<>();
     private ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
-    public ActionCollision currentAction = null;
+
     public Player player;
+
+    public ActionCollision currentAction = null;
 
     public ActorsManager() {
         createPlayer();
-        Resource rsc = new Resource(new Vector<Integer>(2, 2), this);
+        Resource rsc = new Resource(new Vector<>(2, 2), this);
         addActor(rsc);
     }
 
@@ -41,6 +43,14 @@ public class ActorsManager {
         checkboxes.add(actor.getGroundCheckbox());
         groundCheckboxes.add(actor.getGroundCheckbox());
         actionCollisions.addAll(actor.getActionCollisions());
+    }
+
+    public void removeActor(DefaultActor actor) {
+        allActors.remove(actor);
+        checkboxes.remove(actor.getGroundCheckbox());
+        groundCheckboxes.remove(actor.getGroundCheckbox());
+        actionCollisions.removeAll(actor.getActionCollisions());
+        currentAction = null;
     }
 
     public void draw(SpriteBatch sb) {
