@@ -10,11 +10,13 @@ public class PlayerInventory {
     private Stage stage;
     private InventorySlot[] inventorySlots = new InventorySlot[InventoryConstants.inventoryLength];
     private InventoryItem[] inventoryItems = new InventoryItem[InventoryConstants.inventoryLength];
+    private byte currentSlot;
 
     public PlayerInventory() {
         stage = new Stage(new ScreenViewport());
         createInventorySlots();
         createInventoryItems();
+        changeCurrentSlot((byte) 3);
     }
 
     private void createInventoryItems() {
@@ -31,6 +33,21 @@ public class PlayerInventory {
             inventorySlots[i].setPosition(i * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
             stage.addActor(inventorySlots[i]);
         }
+    }
+
+    public void changeCurrentSlot(byte slot) {
+        currentSlot = slot;
+        markCurrentSlot();
+    }
+
+    public void markCurrentSlot() {
+        for (int i = 0; i < inventorySlots.length; i++) {
+            inventorySlots[i].markSlot(i == currentSlot);
+        }
+    }
+
+    public byte getCurrentSlot() {
+        return currentSlot;
     }
 
     public void draw() {
