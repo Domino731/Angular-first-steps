@@ -232,4 +232,8 @@ public class Player extends MovableDefaultActor {
                 }
         ));
     }
+
+    public void changeInventorySlot(byte slot) {
+        inventory.changeCurrentSlot(slot);
+    }
 }

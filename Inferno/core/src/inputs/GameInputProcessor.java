@@ -17,6 +17,7 @@ public class GameInputProcessor implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         switch (keycode) {
+            // PLAYER MOVEMENT
             case Input.Keys.W:
                 player.setTop(true);
                 break;
@@ -33,6 +34,38 @@ public class GameInputProcessor implements InputProcessor {
                 if (actorsManager.currentAction != null) {
                     player.startStaticAction();
                 }
+
+                // CHANGE INVENTORY SLOT
+            case Input.Keys.NUM_1:
+                player.changeInventorySlot((byte) 0);
+                break;
+            case Input.Keys.NUM_2:
+                player.changeInventorySlot((byte) 1);
+                break;
+            case Input.Keys.NUM_3:
+                player.changeInventorySlot((byte) 2);
+                break;
+            case Input.Keys.NUM_4:
+                player.changeInventorySlot((byte) 3);
+                break;
+            case Input.Keys.NUM_5:
+                player.changeInventorySlot((byte) 4);
+                break;
+            case Input.Keys.NUM_6:
+                player.changeInventorySlot((byte) 5);
+                break;
+            case Input.Keys.NUM_7:
+                player.changeInventorySlot((byte) 6);
+                break;
+            case Input.Keys.NUM_8:
+                player.changeInventorySlot((byte) 7);
+                break;
+            case Input.Keys.NUM_9:
+                player.changeInventorySlot((byte) 8);
+                break;
+            case Input.Keys.NUM_0:
+                player.changeInventorySlot((byte) 9);
+                break;
         }
         return true;
     }
