@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import spritesManager.SpritesManager;
+import utils.Direction;
 import utils.EngineLog;
 import utils.Json;
 import utils.colors.ColorSorter;
@@ -32,16 +33,6 @@ public class PlayerTextures {
     public static final int STATE_HARVEST_UP = 8;
     public static final int STATE_HARVEST_RIGHT = 9;
     public static final int STATE_HARVEST_LEFT = 10;
-    // HAIR
-    public static final int STATE_HAIR_UP = 0;
-    public static final int STATE_HAIR_RIGHT = 1;
-    public static final int STATE_HAIR_DOWN = 2;
-    public static final int STATE_HAIR_LEFT = 3;
-
-    public static final int STATE_HAT_UP = 0;
-    public static final int STATE_HAT_RIGHT = 1;
-    public static final int STATE_HAT_DOWN = 2;
-    public static final int STATE_HAT_LEFT = 3;
 
     public static final int MAX_ANIMATION_FRAMES = 6;
     public static final byte ARMS_MAX_TEXTURES = 11;
@@ -111,10 +102,10 @@ public class PlayerTextures {
         final int xOffset = hairOffset.x * size;
         final int yOffset = hairOffset.y * size;
 
-        hats[STATE_HAT_DOWN] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 0), size, size);
-        hats[STATE_HAT_RIGHT] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 1), size, size);
-        hats[STATE_HAT_LEFT] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 2), size, size);
-        hats[STATE_HAT_UP] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 3), size, size);
+        hats[Direction.down] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 0), size, size);
+        hats[Direction.right] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 1), size, size);
+        hats[Direction.left] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 2), size, size);
+        hats[Direction.up] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 3), size, size);
         return hats;
     }
 
@@ -159,11 +150,11 @@ public class PlayerTextures {
         int xOffset = hairOffset.x * HAIR_SIZE.width;
         int yOffset = hairOffset.y * HAIR_SIZE.height;
 
-        hairs[STATE_HAIR_UP] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 2), HAIR_SIZE.width, HAIR_SIZE.height);
-        hairs[STATE_HAIR_RIGHT] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 1), HAIR_SIZE.width, HAIR_SIZE.height);
-        hairs[STATE_HAIR_DOWN] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 0), HAIR_SIZE.width, HAIR_SIZE.height);
-        hairs[STATE_HAIR_LEFT] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 1), HAIR_SIZE.width, HAIR_SIZE.height);
-        hairs[STATE_HAIR_LEFT].flip(true, false);
+        hairs[Direction.up] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 2), HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[Direction.right] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 1), HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[Direction.down] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 0), HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[Direction.left] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 1), HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[Direction.left].flip(true, false);
         return hairs;
     }
 
@@ -171,16 +162,16 @@ public class PlayerTextures {
         switch (playerAction) {
             case STATE_IDLE_UP:
             case STATE_RUNNING_UP:
-                return STATE_HAIR_UP;
+                return Direction.up;
             case STATE_IDLE_RIGHT:
             case STATE_RUNNING_RIGHT:
-                return STATE_HAIR_RIGHT;
+                return Direction.right;
             case STATE_IDLE_DOWN:
             case STATE_RUNNING_DOWN:
-                return STATE_HAIR_DOWN;
+                return Direction.down;
             case STATE_IDLE_LEFT:
             case STATE_RUNNING_LEFT:
-                return STATE_HAIR_LEFT;
+                return Direction.left;
             default:
                 return 0;
         }
@@ -190,16 +181,16 @@ public class PlayerTextures {
         switch (playerAction) {
             case STATE_IDLE_UP:
             case STATE_RUNNING_UP:
-                return STATE_HAT_UP;
+                return Direction.up;
             case STATE_IDLE_RIGHT:
             case STATE_RUNNING_RIGHT:
-                return STATE_HAT_RIGHT;
+                return Direction.right;
             case STATE_IDLE_DOWN:
             case STATE_RUNNING_DOWN:
-                return STATE_HAT_DOWN;
+                return Direction.down;
             case STATE_IDLE_LEFT:
             case STATE_RUNNING_LEFT:
-                return STATE_HAT_LEFT;
+                return Direction.left;
             default:
                 return 0;
         }
