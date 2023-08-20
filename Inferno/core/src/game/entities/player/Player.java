@@ -142,14 +142,13 @@ public class Player extends MovableDefaultActor {
 
 
     private void drawCutUp(SpriteBatch sb) {
-
         sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_UP][0], finalPosition.x - 25, finalPosition.y - 20, 16, 32);
         sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_UP][0], finalPosition.x - 25, finalPosition.y - 20, 16, 32);
-        sb.draw(inventory.currentItem.upTextures[0], (finalPosition.x - 25), (finalPosition.y - 20) + 25, 16, 32);
+        sb.draw(inventory.currentItem.leftTxt, (finalPosition.x - 25), (finalPosition.y - 20) + 25, 16, 32);
 
         sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_UP][1], finalPosition.x, finalPosition.y - 20, 16, 32);
         sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_UP][1], finalPosition.x, finalPosition.y - 20, 16, 32);
-        sb.draw(inventory.currentItem.upTextures[0], (finalPosition.x), (finalPosition.y - 20) + 20, 16, 32);
+        sb.draw(inventory.currentItem.rightTxt, (finalPosition.x), (finalPosition.y - 20) + 20, 16, 32);
 
         sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_UP][2], finalPosition.x + 25, finalPosition.y - 20, 16, 32);
         sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_UP][2], finalPosition.x + 25, finalPosition.y - 20, 16, 32);

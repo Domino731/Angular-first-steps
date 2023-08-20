@@ -10,11 +10,15 @@ public class InventoryItem extends Actor {
     private TextureRegion txt;
     public TextureRegion[] downTextures;
     public TextureRegion[] upTextures;
+    public TextureRegion rightTxt;
+    public TextureRegion leftTxt;
 
     public InventoryItem(String itemId) {
         txt = Items.get(itemId).inventoryTxt;
         downTextures = Items.get(itemId).downTextures;
         upTextures = Items.get(itemId).upTextures;
+        rightTxt = Items.get(itemId).rightTxt;
+        leftTxt = Items.get(itemId).leftTxt;
 
         setWidth(48);
         setHeight(48);
