@@ -61,6 +61,7 @@ public class Items {
         private int damage;
         public TextureRegion inventoryTxt;
         public TextureRegion[] downTextures;
+        public TextureRegion[] upTextures;
 
         public Config(String id, String name, int usage, int damage, int txtX, int txtY, JsonNode textures) {
             this.id = id;
@@ -69,13 +70,17 @@ public class Items {
             this.damage = damage;
             inventoryTxt = new TextureRegion(toolsTxt, txtX, txtY, 20, 20);
             downTextures = new TextureRegion[2];
+            upTextures = new TextureRegion[2];
+
             JsonNode down1 = textures.get("down").get(0);
             JsonNode down2 = textures.get("down").get(1);
-
-            System.out.println(down1.get(1));
+            JsonNode up1 = textures.get("up").get(0);
+            JsonNode up2 = textures.get("up").get(1);
 
             downTextures[0] = new TextureRegion(toolsTxt, down1.get(0).asInt(), down1.get(1).asInt(), toolWidth, toolHeight);
             downTextures[1] = new TextureRegion(toolsTxt, down2.get(0).asInt(), down2.get(1).asInt(), toolWidth, toolHeight);
+            upTextures[0] = new TextureRegion(toolsTxt, up1.get(0).asInt(), up1.get(1).asInt(), toolWidth, toolHeight);
+            upTextures[1] = new TextureRegion(toolsTxt, up2.get(0).asInt(), up2.get(1).asInt(), toolWidth, toolHeight);
         }
     }
 }
