@@ -9,6 +9,7 @@ import engine.actorsManager.ActorsManager;
 import environment.resources.ResourceAction;
 import game.entities.player.tools.ToolsConstants;
 import utils.Checkbox;
+import utils.Direction;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
@@ -137,9 +138,60 @@ public class Player extends MovableDefaultActor {
 //                    1, 1,
 //                    rightAxeAnimation[aniIndex][2]);
 //        }
-        drawCutUp(sb);
+//        drawCutUp(sb);
+        drawMineRight(sb);
+        drawMineLeft(sb);
     }
 
+    private void drawMineLeft(SpriteBatch sb) {
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_LEFT][0], finalPosition.x - 25, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_LEFT][0], finalPosition.x - 25, finalPosition.y, 16, 32);
+        drawPickaxe(sb, -25, 0, 0, inventory.currentItem.leftTxt, Direction.left);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_LEFT][1], finalPosition.x, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_LEFT][1], finalPosition.x, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 0, 0, 1, inventory.currentItem.leftTxt, Direction.left);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_LEFT][2], finalPosition.x + 25, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_LEFT][2], finalPosition.x + 25, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 25, 0, 2, inventory.currentItem.leftTxt, Direction.left);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_LEFT][3], finalPosition.x + 50, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_LEFT][3], finalPosition.x + 50, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 50, 0, 3, inventory.currentItem.leftTxt, Direction.left);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_LEFT][4], finalPosition.x + 75, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_LEFT][4], finalPosition.x + 75, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 75, 0, 4, inventory.currentItem.leftTxt, Direction.left);
+    }
+
+    private void drawMineRight(SpriteBatch sb) {
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 25, finalPosition.y - 40, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 25, finalPosition.y - 40, 16, 32);
+        drawPickaxe(sb, -25, -40, 0, inventory.currentItem.rightTxt, Direction.right);
+
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][1], finalPosition.x, finalPosition.y - 40, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][1], finalPosition.x, finalPosition.y - 40, 16, 32);
+        drawPickaxe(sb, 0, -40, 1, inventory.currentItem.rightTxt, Direction.right);
+
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][2], finalPosition.x + 25, finalPosition.y - 40, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][2], finalPosition.x + 25, finalPosition.y - 40, 16, 32);
+        drawPickaxe(sb, 25, -40, 2, inventory.currentItem.rightTxt, Direction.right);
+
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][3], finalPosition.x + 50, finalPosition.y - 40, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][3], finalPosition.x + 50, finalPosition.y - 40, 16, 32);
+        drawPickaxe(sb, 50, -40, 3, inventory.currentItem.rightTxt, Direction.right);
+
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][4], finalPosition.x + 75, finalPosition.y - 40, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][4], finalPosition.x + 75, finalPosition.y - 40, 16, 32);
+        drawPickaxe(sb, 75, -40, 4, inventory.currentItem.rightTxt, Direction.right);
+    }
+
+
+    private void drawPickaxe(SpriteBatch sb, int x, int y, int aniIndex, TextureRegion txt, byte directionIndex) {
+        sb.draw(txt,
+                (finalPosition.x + x) + ToolsConstants.animations[directionIndex][aniIndex][0], ((finalPosition.y + y) + 20) + ToolsConstants.animations[directionIndex][aniIndex][1],
+                playerTextures.toolXOrigin, playerTextures.toolYOrigin,
+                playerTextures.toolWidth, playerTextures.toolHeight,
+                1, 1,
+                ToolsConstants.animations[directionIndex][aniIndex][2]);
+    }
 
     private void drawCutUp(SpriteBatch sb) {
         sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_UP][0], finalPosition.x - 25, finalPosition.y - 20, 16, 32);
