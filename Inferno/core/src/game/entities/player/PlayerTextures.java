@@ -42,11 +42,6 @@ public class PlayerTextures {
     private static final Texture pantsTxt = new Texture("sprites/style/pants.png");
     public static final Texture toolsTxt = new Texture("sprites/tools.png");
 
-    public static final byte STATE_TEXTURE_UP = 0;
-    public static final byte STATE_TEXTURE_RIGHT = 1;
-    public static final byte STATE_TEXTURE_DOWN = 2;
-    public static final byte STATE_TEXTURE_LEFT = 3;
-
     // textures
     public TextureRegion[][] bodyTextures;
     public TextureRegion[][] armsTextures;
@@ -85,11 +80,10 @@ public class PlayerTextures {
         int xOffset = x * PlayerConstants.shirtDim.width;
         int yOffset = y * PlayerConstants.shirtDim.height;
 
-        // top, right, left, bot
-        shirts[STATE_TEXTURE_UP] = new TextureRegion(shirtsTexture, xOffset, yOffset + (3 * height), width, height);
-        shirts[STATE_TEXTURE_RIGHT] = new TextureRegion(shirtsTexture, xOffset, yOffset + height, width, height);
-        shirts[STATE_TEXTURE_LEFT] = new TextureRegion(shirtsTexture, xOffset, yOffset + (2 * height), width, height);
-        shirts[STATE_TEXTURE_DOWN] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
+        shirts[Direction.up] = new TextureRegion(shirtsTexture, xOffset, yOffset + (3 * height), width, height);
+        shirts[Direction.right] = new TextureRegion(shirtsTexture, xOffset, yOffset + height, width, height);
+        shirts[Direction.left] = new TextureRegion(shirtsTexture, xOffset, yOffset + (2 * height), width, height);
+        shirts[Direction.down] = new TextureRegion(shirtsTexture, xOffset, yOffset, width, height);
 
         return shirts;
     }
