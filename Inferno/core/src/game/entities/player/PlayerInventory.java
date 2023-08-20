@@ -11,6 +11,7 @@ public class PlayerInventory {
     private InventorySlot[] inventorySlots = new InventorySlot[InventoryConstants.inventoryLength];
     private InventoryItem[] inventoryItems = new InventoryItem[InventoryConstants.inventoryLength];
     private byte currentSlot;
+    public InventoryItem currentItem;
 
     public PlayerInventory() {
         stage = new Stage(new ScreenViewport());
@@ -37,6 +38,7 @@ public class PlayerInventory {
 
     public void changeCurrentSlot(byte slot) {
         currentSlot = slot;
+        currentItem = inventoryItems[slot];
         markCurrentSlot();
     }
 

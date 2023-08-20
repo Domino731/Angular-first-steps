@@ -15,16 +15,8 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class Items {
-    //   {
-    //    "id": "stone_pickaxe",
-    //    "name": "Stone pickaxe",
-    //    "usage": 1000,
-    //    "damage": 25,
-    //    "inventoryTxt": {
-    //      "x": 10,
-    //      "y": 10
-    //    }
-    //  }
+    public static final byte toolWidth = 16;
+    public static final byte toolHeight = 32;
     private static HashMap<String, Config> items = new HashMap<>();
     private static final Texture toolsTxt = PlayerTextures.toolsTxt;
     private static JsonNode data = readJson();
@@ -56,8 +48,8 @@ public class Items {
         int damage = item.get("damage").asInt();
         int x = item.get("inventoryTxt").get("x").asInt();
         int y = item.get("inventoryTxt").get("y").asInt();
-
-        items.put(id, new Config(id, name, usage, damage, x, y));
+        JsonNode textures = item.get("textures");
+        items.put(id, new Config(id, name, usage, damage, x, y, textures));
 
         return items.get(itemId);
     }
@@ -68,13 +60,22 @@ public class Items {
         private int usage;
         private int damage;
         public TextureRegion inventoryTxt;
+        public TextureRegion[] downTextures;
 
-        public Config(String id, String name, int usage, int damage, int txtX, int txtY) {
+        public Config(String id, String name, int usage, int damage, int txtX, int txtY, JsonNode textures) {
             this.id = id;
             this.name = name;
             this.usage = usage;
             this.damage = damage;
             inventoryTxt = new TextureRegion(toolsTxt, txtX, txtY, 20, 20);
+            downTextures = new TextureRegion[2];
+            JsonNode down1 = textures.get("down").get(0);
+            JsonNode down2 = textures.get("down").get(1);
+
+            System.out.println(down1.get(1));
+
+            downTextures[0] = new TextureRegion(toolsTxt, down1.get(0).asInt(), down1.get(1).asInt(), toolWidth, toolHeight);
+            downTextures[1] = new TextureRegion(toolsTxt, down2.get(0).asInt(), down2.get(1).asInt(), toolWidth, toolHeight);
         }
     }
 }

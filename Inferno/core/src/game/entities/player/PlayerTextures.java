@@ -33,9 +33,10 @@ public class PlayerTextures {
     public static final int STATE_HARVEST_UP = 8;
     public static final int STATE_HARVEST_RIGHT = 9;
     public static final int STATE_HARVEST_LEFT = 10;
+    public static final int STATE_MINE_RES = 11;
 
     public static final int MAX_ANIMATION_FRAMES = 6;
-    public static final byte ARMS_MAX_TEXTURES = 11;
+    public static final byte ARMS_MAX_TEXTURES = 12;
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
@@ -261,6 +262,7 @@ public class PlayerTextures {
         JsonNode idleDown = animationNode.get("idleDown");
         JsonNode harvestUp = animationNode.get("harvestUp");
         JsonNode harvestHorizontally = animationNode.get("harvestHorizontally");
+        JsonNode mineResourceDown = animationNode.get("cutResourceDown");
 
         // IDLE
         if (idleUp != null && idleUp.isArray()) {
@@ -288,6 +290,9 @@ public class PlayerTextures {
         }
         if (harvestHorizontally != null && harvestHorizontally.isArray()) {
             loadHorizontallyTexturesForAnimationState(textures, STATE_HARVEST_LEFT, STATE_HARVEST_RIGHT, harvestHorizontally, texture, loadPants);
+        }
+        if (mineResourceDown != null && mineResourceDown.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_MINE_RES, mineResourceDown, texture, loadPants);
         }
     }
 

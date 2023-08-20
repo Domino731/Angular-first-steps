@@ -8,9 +8,12 @@ import items.Items;
 
 public class InventoryItem extends Actor {
     private TextureRegion txt;
+    public TextureRegion[] downTextures;
 
     public InventoryItem(String itemId) {
         txt = Items.get(itemId).inventoryTxt;
+        downTextures = Items.get(itemId).downTextures;
+
         setWidth(48);
         setHeight(48);
     }

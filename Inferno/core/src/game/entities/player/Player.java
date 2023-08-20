@@ -7,7 +7,6 @@ import engine.actionCollision.ActionTypes;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
 import engine.actorsManager.ActorsManager;
 import environment.resources.ResourceAction;
-import environment.resources.ResourceTextures;
 import game.entities.player.tools.ToolsConstants;
 import utils.Checkbox;
 import utils.vectors.DimensionCordVector;
@@ -37,7 +36,7 @@ public class Player extends MovableDefaultActor {
         shirts = new PlayerShirtsData();
         this.actorsManager = actorsManager;
         testRg = shirts.arm;
-        playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
+//        playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
         playerTextures.pantsTextures = shirts.createPants(playerTextures.pantsTextures, style.shirtsArray[2]);
         setActionsCollisions();
     }
@@ -123,22 +122,23 @@ public class Player extends MovableDefaultActor {
 
     @Override
     public void draw(SpriteBatch sb) {
-        sb.draw(playerTextures.bodyTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-//        sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-//        sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
-//        sb.draw(playerTextures.pantsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 16);
-//        sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + shirtYOffset, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
-        sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-
-        if (isStaticAction) {
-            sb.draw(playerTextures.pickaxe,
-                    finalPosition.x + rightAxeAnimation[aniIndex][0], (finalPosition.y + 20) + rightAxeAnimation[aniIndex][1],
-                    playerTextures.toolXOrigin, playerTextures.toolYOrigin,
-                    playerTextures.toolWidth, playerTextures.toolHeight,
-                    1, 1,
-                    rightAxeAnimation[aniIndex][2]);
-        }
-        sb.draw(ResourceTextures.txtTest, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
+//        sb.draw(playerTextures.bodyTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+////        sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+////        sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
+////        sb.draw(playerTextures.pantsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 16);
+////        sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + shirtYOffset, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+//        sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+//
+//        if (isStaticAction) {
+//            sb.draw(playerTextures.pickaxe,
+//                    finalPosition.x + rightAxeAnimation[aniIndex][0], (finalPosition.y + 20) + rightAxeAnimation[aniIndex][1],
+//                    playerTextures.toolXOrigin, playerTextures.toolYOrigin,
+//                    playerTextures.toolWidth, playerTextures.toolHeight,
+//                    1, 1,
+//                    rightAxeAnimation[aniIndex][2]);
+//        }
+        drawCutDown(sb);
+        // sb.draw(ResourceTextures.txtTest, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
 //        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 20, finalPosition.y - 20, 16, 32);
 //        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][0], finalPosition.x - 20, finalPosition.y - 20, 16, 32);
 //        sb.draw(playerTextures.pickaxe, (finalPosition.x - 20) - 8, finalPosition.y - 2, 16 / 2, 32 / 2, 16, 32, 1, 1, 15);
@@ -168,6 +168,26 @@ public class Player extends MovableDefaultActor {
 //
 ////        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_RUNNING_UP][5], finalPosition.x + 80, finalPosition.y - 20, 16, 32);
 //        sb.draw(style.hairArray[1], finalPosition.x + 80, (finalPosition.y - 20) + PlayerTextureUtils.getHairYOffset(PlayerTextures.STATE_RUNNING_RIGHT, 5), 16, 32);
+    }
+
+
+    private void drawCutDown(SpriteBatch sb) {
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][0], finalPosition.x - 25, finalPosition.y - 20, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][0], finalPosition.x - 25, finalPosition.y - 20, 16, 32);
+        sb.draw(inventory.currentItem.downTextures[0], finalPosition.x - 25, finalPosition.y - 20, 16, 32);
+
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][1], finalPosition.x, finalPosition.y - 20, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][1], finalPosition.x, finalPosition.y - 20, 16, 32);
+
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][2], finalPosition.x + 25, finalPosition.y - 20, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][2], finalPosition.x + 25, finalPosition.y - 20, 16, 32);
+
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][3], finalPosition.x + 50, finalPosition.y - 20, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][3], finalPosition.x + 50, finalPosition.y - 20, 16, 32);
+
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][4], finalPosition.x + 75, finalPosition.y - 20, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][4], finalPosition.x + 75, finalPosition.y - 20, 16, 32);
+//        sb.draw(playerTextures.pickaxe, finalPosition.x + 5, finalPosition.y - 1, 16 / 2, 32 / 2, 16, 32, 1, 1, -15);
     }
 
     public void updatePos() {
