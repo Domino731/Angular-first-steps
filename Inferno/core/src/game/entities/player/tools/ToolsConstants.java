@@ -22,15 +22,15 @@ public class ToolsConstants {
 
         payload[2][xIndex] = 0;
         payload[2][yIndex] = 2;
-        payload[2][rotateIndex] = 32;
+        payload[2][rotateIndex] = 0;
 
         payload[3][xIndex] = 0;
         payload[3][yIndex] = 0;
-        payload[3][rotateIndex] = 32;
+        payload[3][rotateIndex] = 0;
 
         payload[4][xIndex] = 0;
         payload[4][yIndex] = 0;
-        payload[4][rotateIndex] = 32;
+        payload[4][rotateIndex] = 0;
 
         return payload;
     }

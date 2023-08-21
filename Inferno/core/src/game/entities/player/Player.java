@@ -236,29 +236,25 @@ public class Player extends MovableDefaultActor {
     }
 
     private void drawCutDown(SpriteBatch sb) {
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][0], finalPosition.x - 25, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][0], finalPosition.x - 25, finalPosition.y - 20, 16, 32);
-        sb.draw(inventory.currentItem.downTextures[0], (finalPosition.x - 25) - 5, (finalPosition.y - 20) + 21, 16, 32);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][0], finalPosition.x - 25, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][0], finalPosition.x - 25, finalPosition.y, 16, 32);
+        drawPickaxe(sb, -25, -20, 0, inventory.currentItem.downTextures[0], Direction.down);
 
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][1], finalPosition.x, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][1], finalPosition.x, finalPosition.y - 20, 16, 32);
-        sb.draw(inventory.currentItem.downTextures[0], (finalPosition.x) - 3, (finalPosition.y - 20) + 16,
-                playerTextures.toolXOrigin, playerTextures.toolYOrigin,
-                playerTextures.toolWidth, playerTextures.toolHeight,
-                1, 1,
-                10);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][1], finalPosition.x, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][1], finalPosition.x, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 0, -20, 1, inventory.currentItem.downTextures[0], Direction.down);
 
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][2], finalPosition.x + 25, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][2], finalPosition.x + 25, finalPosition.y - 20, 16, 32);
-        sb.draw(inventory.currentItem.downTextures[1], (finalPosition.x + 25), (finalPosition.y - 20) + 2, 16, 32);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][2], finalPosition.x + 25, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][2], finalPosition.x + 25, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 25, -20, 2, inventory.currentItem.downTextures[1], Direction.down);
 
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][3], finalPosition.x + 50, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][3], finalPosition.x + 50, finalPosition.y - 20, 16, 32);
-        sb.draw(inventory.currentItem.downTextures[1], (finalPosition.x + 50), (finalPosition.y - 20), 16, 32);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][3], finalPosition.x + 50, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][3], finalPosition.x + 50, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 50, -20, 3, inventory.currentItem.downTextures[1], Direction.down);
 
-        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][4], finalPosition.x + 75, finalPosition.y - 20, 16, 32);
-        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][4], finalPosition.x + 75, finalPosition.y - 20, 16, 32);
-        sb.draw(inventory.currentItem.downTextures[1], (finalPosition.x + 75), (finalPosition.y - 20), 16, 32);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_MINE_RES][4], finalPosition.x + 75, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_MINE_RES][4], finalPosition.x + 75, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 75, -20, 4, inventory.currentItem.downTextures[1], Direction.down);
     }
 
     public void updatePos() {
