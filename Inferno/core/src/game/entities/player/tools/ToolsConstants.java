@@ -9,6 +9,32 @@ public class ToolsConstants {
     private static final byte yIndex = 1;
     private static final byte rotateIndex = 2;
 
+    private static byte[][] createDownAxeAnimation() {
+        byte[][] payload = new byte[5][3];
+
+        payload[0][xIndex] = -5;
+        payload[0][yIndex] = 21;
+        payload[0][rotateIndex] = 0;
+
+        payload[1][xIndex] = -3;
+        payload[1][yIndex] = 16;
+        payload[1][rotateIndex] = 10;
+
+        payload[2][xIndex] = 0;
+        payload[2][yIndex] = 2;
+        payload[2][rotateIndex] = 32;
+
+        payload[3][xIndex] = 0;
+        payload[3][yIndex] = 0;
+        payload[3][rotateIndex] = 32;
+
+        payload[4][xIndex] = 0;
+        payload[4][yIndex] = 0;
+        payload[4][rotateIndex] = 32;
+
+        return payload;
+    }
+
     private static byte[][] createRightAxeAnimation() {
         byte[][] rightAxeAnimation = new byte[5][3];
         rightAxeAnimation[0][xIndex] = -8;
@@ -63,9 +89,10 @@ public class ToolsConstants {
         byte[][][] payload = new byte[4][5][3];
         payload[Direction.up] = createRightAxeAnimation();
         payload[Direction.right] = createRightAxeAnimation();
-        payload[Direction.down] = createRightAxeAnimation();
+        payload[Direction.down] = createDownAxeAnimation();
         payload[Direction.left] = createLeftAxeAnimation();
         return payload;
     }
+
 
 }
