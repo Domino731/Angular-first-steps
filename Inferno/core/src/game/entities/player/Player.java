@@ -218,7 +218,6 @@ public class Player extends MovableDefaultActor {
         sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_UP][0], finalPosition.x - 25, finalPosition.y, 16, 32);
         sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_UP][0], finalPosition.x - 25, finalPosition.y, 16, 32);
         drawPickaxe(sb, -25, 0, 0, inventory.currentItem.upTextures[0], Direction.up);
-//        sb.draw(inventory.currentItem.leftTxt, (finalPosition.x - 25), (finalPosition.y) + 25, 16, 32);
 
         sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_UP][1], finalPosition.x, finalPosition.y, 16, 32);
         sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_UP][1], finalPosition.x, finalPosition.y, 16, 32);
