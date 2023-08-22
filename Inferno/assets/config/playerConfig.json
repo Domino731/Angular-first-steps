@@ -175,7 +175,7 @@
           11
         ]
       ],
-      "collectPlantHorizontally": [
+      "collectWeedHorizontally": [
         [
           0,
           5
@@ -201,7 +201,7 @@
           5
         ]
       ],
-      "collectPlantUp": [
+      "collectWeedUp": [
         [
           0,
           6
@@ -227,7 +227,7 @@
           6
         ]
       ],
-      "collectPlanDown": [
+      "collectWeedDown": [
         [
           0,
           4
@@ -423,7 +423,7 @@
           11
         ]
       ],
-      "collectPlantHorizontally": [
+      "collectWeedHorizontally": [
         [
           12,
           5
@@ -449,7 +449,7 @@
           5
         ]
       ],
-      "collectPlantUp": [
+      "collectWeedUp": [
         [
           7,
           6
@@ -475,7 +475,7 @@
           6
         ]
       ],
-      "collectPlanDown": [
+      "collectWeedDown": [
         [
           12,
           4

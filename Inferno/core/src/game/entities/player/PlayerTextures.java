@@ -34,9 +34,14 @@ public class PlayerTextures {
     public static final int STATE_HARVEST_RIGHT = 9;
     public static final int STATE_HARVEST_LEFT = 10;
     public static final int STATE_MINE_RES = 11;
+    // HARVEST WEED
+    public static final int STATE_HARVEST_WEED_UP = 12;
+    public static final int STATE_HARVEST_WEED_RIGHT = 13;
+    public static final int STATE_HARVEST_WEED_LEFT = 14;
+    public static final int STATE_HARVEST_WEED_DOWN = 15;
 
     public static final int MAX_ANIMATION_FRAMES = 6;
-    public static final byte ARMS_MAX_TEXTURES = 12;
+    public static final byte ARMS_MAX_TEXTURES = 16;
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
@@ -263,7 +268,9 @@ public class PlayerTextures {
         JsonNode harvestUp = animationNode.get("harvestUp");
         JsonNode harvestHorizontally = animationNode.get("harvestHorizontally");
         JsonNode mineResourceDown = animationNode.get("cutResourceDown");
-
+        JsonNode collectWeedHorizontally = animationNode.get("collectWeedHorizontally");
+        JsonNode collectWeedUp = animationNode.get("collectWeedUp");
+        JsonNode collectWeedDown = animationNode.get("collectWeedDown");
         // IDLE
         if (idleUp != null && idleUp.isArray()) {
             loadTexturesForAnimationState(textures, STATE_IDLE_UP, idleUp, texture, loadPants);
@@ -294,6 +301,17 @@ public class PlayerTextures {
         if (mineResourceDown != null && mineResourceDown.isArray()) {
             loadTexturesForAnimationState(textures, STATE_MINE_RES, mineResourceDown, texture, loadPants);
         }
+        // HARVEST WEED
+        if (collectWeedUp != null && collectWeedUp.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_HARVEST_WEED_UP, collectWeedUp, texture, loadPants);
+        }
+        if (harvestHorizontally != null && harvestHorizontally.isArray()) {
+            loadHorizontallyTexturesForAnimationState(textures, STATE_HARVEST_WEED_LEFT, STATE_HARVEST_WEED_RIGHT, collectWeedHorizontally, texture, loadPants);
+        }
+        if (collectWeedDown != null && collectWeedDown.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_HARVEST_WEED_DOWN, collectWeedDown, texture, loadPants);
+        }
+
     }
 
     private void loadTexturesForAnimationState(TextureRegion[][] textures, int state, JsonNode animationNode, Texture texture, boolean loadPants) {
