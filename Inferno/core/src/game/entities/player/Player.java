@@ -143,7 +143,7 @@ public class Player extends MovableDefaultActor {
 //        drawMineLeft(sb);
 //        drawMineDown(sb);
 //        drawCutDown(sb);
-        drawCutUp(sb);
+        drawMineLeft(sb);
     }
 
     private void drawMineDown(SpriteBatch sb) {
