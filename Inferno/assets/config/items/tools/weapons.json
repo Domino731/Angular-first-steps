@@ -1,0 +1,12 @@
+{
+  "stone_pickaxe": {
+    "id": "stone_sword",
+    "name": "Stone sword",
+    "usage": 1000,
+    "damage": 25,
+    "txt": [
+      0,
+      0
+    ]
+  }
+}
