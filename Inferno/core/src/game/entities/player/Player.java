@@ -143,7 +143,26 @@ public class Player extends MovableDefaultActor {
 //        drawMineLeft(sb);
 //        drawMineDown(sb);
 //        drawCutDown(sb);
-        drawMineLeft(sb);
+//        drawMineLeft(sb);
+        harvestWeedRight(sb);
+    }
+
+    private void harvestWeedRight(SpriteBatch sb) {
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_WEED_LEFT][0], finalPosition.x - 25, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_WEED_LEFT][0], finalPosition.x - 25, finalPosition.y, 16, 32);
+        drawPickaxe(sb, -25, 0, 0, inventory.currentItem.leftTxt, Direction.left);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_WEED_LEFT][1], finalPosition.x, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_WEED_LEFT][1], finalPosition.x, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 0, 0, 1, inventory.currentItem.leftTxt, Direction.left);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_WEED_LEFT][2], finalPosition.x + 25, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_WEED_LEFT][2], finalPosition.x + 25, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 25, 0, 2, inventory.currentItem.leftTxt, Direction.left);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_WEED_LEFT][3], finalPosition.x + 50, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_WEED_LEFT][3], finalPosition.x + 50, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 50, 0, 3, inventory.currentItem.leftTxt, Direction.left);
+        sb.draw(playerTextures.bodyTextures[PlayerTextures.STATE_HARVEST_WEED_LEFT][4], finalPosition.x + 75, finalPosition.y, 16, 32);
+        sb.draw(playerTextures.armsTextures[PlayerTextures.STATE_HARVEST_WEED_LEFT][4], finalPosition.x + 75, finalPosition.y, 16, 32);
+        drawPickaxe(sb, 75, 0, 4, inventory.currentItem.leftTxt, Direction.left);
     }
 
     private void drawMineDown(SpriteBatch sb) {
