@@ -148,7 +148,7 @@ public class Player extends MovableDefaultActor {
 //        drawMineLeft(sb);
 //        harvestWeedRight(sb);
 //        animationsTest.harvestWeedRight(sb);
-        animationsTest.harvestWeedDown(sb);
+        animationsTest.harvestWeedLeft(sb);
     }
 
     private void harvestWeedRight(SpriteBatch sb) {
