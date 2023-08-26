@@ -1,9 +1,11 @@
-package game.entities.player;
+package game.entities.player.animations;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import constants.Urls;
+import game.entities.player.Player;
+import game.entities.player.PlayerTextures;
 
 public class PlayerAnimationsTest {
     Player player;
@@ -45,23 +47,18 @@ public class PlayerAnimationsTest {
         sb.draw(weaponTexture, (player.finalPosition.x) - 1, player.finalPosition.y + 20, weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, 50);
         sb.draw(bodyTextures[PlayerTextures.STATE_HARVEST_WEED_UP][2], player.finalPosition.x, player.finalPosition.y, 16, 32);
         sb.draw(armsTextures[PlayerTextures.STATE_HARVEST_WEED_UP][2], player.finalPosition.x, player.finalPosition.y, 16, 32);
-//        sb.draw(weaponTexture, (player.finalPosition.x) + 8, player.finalPosition.y - 8, weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, -100);
-//
+
         sb.draw(weaponTexture, (player.finalPosition.x + 25) + 8, player.finalPosition.y + 20, weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, 26);
         sb.draw(bodyTextures[PlayerTextures.STATE_HARVEST_WEED_UP][3], player.finalPosition.x + 25, player.finalPosition.y, 16, 32);
         sb.draw(armsTextures[PlayerTextures.STATE_HARVEST_WEED_UP][3], player.finalPosition.x + 25, player.finalPosition.y, 16, 32);
-//        sb.draw(weaponTexture, (player.finalPosition.x + 25) - 3, player.finalPosition.y - 11, weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, -130);
-//
-//
+
         sb.draw(weaponTexture, (player.finalPosition.x + 50) + 14, player.finalPosition.y + 18, weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, 3);
         sb.draw(bodyTextures[PlayerTextures.STATE_HARVEST_WEED_UP][4], player.finalPosition.x + 50, player.finalPosition.y, 16, 32);
         sb.draw(armsTextures[PlayerTextures.STATE_HARVEST_WEED_UP][4], player.finalPosition.x + 50, player.finalPosition.y, 16, 32);
-//        sb.draw(weaponTexture, (player.finalPosition.x + 50) - 11, player.finalPosition.y - 11, weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, -170);
 
         sb.draw(weaponTexture, (player.finalPosition.x + 75) + 17, player.finalPosition.y + 12, weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, -27);
         sb.draw(bodyTextures[PlayerTextures.STATE_HARVEST_WEED_UP][5], player.finalPosition.x + 75, player.finalPosition.y, 16, 32);
         sb.draw(armsTextures[PlayerTextures.STATE_HARVEST_WEED_UP][5], player.finalPosition.x + 75, player.finalPosition.y, 16, 32);
-//        sb.draw(weaponTexture, (player.finalPosition.x + 75) - 12, player.finalPosition.y - 9, weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, -170);
     }
 
     public void harvestWeedDown(SpriteBatch sb) {

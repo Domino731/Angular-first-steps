@@ -7,6 +7,7 @@ import engine.actionCollision.ActionTypes;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
 import engine.actorsManager.ActorsManager;
 import environment.resources.ResourceAction;
+import game.entities.player.animations.PlayerAnimationsTest;
 import game.entities.player.tools.ToolsConstants;
 import utils.Checkbox;
 import utils.Direction;
