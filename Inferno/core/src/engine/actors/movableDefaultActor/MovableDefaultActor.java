@@ -18,9 +18,9 @@ public class MovableDefaultActor extends DefaultActor {
     protected byte speed = 1;
     private TextureRegion[][] textureRegions;
     private TextureData textureData;
-    protected int aniTick, aniIndex, aniSpeed = 20;
+    public int aniTick, aniIndex, aniSpeed = 20;
     public Vector<Integer> finalPosition;
-    protected int actionIndex;
+    public int actionIndex;
     public PlayerTextures playerTextures = new PlayerTextures();
     private String lastDir = "";
 

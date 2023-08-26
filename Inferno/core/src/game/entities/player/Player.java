@@ -7,6 +7,7 @@ import engine.actionCollision.ActionTypes;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
 import engine.actorsManager.ActorsManager;
 import environment.resources.ResourceAction;
+import game.entities.player.animations.PlayerAnimations;
 import game.entities.player.animations.PlayerAnimationsTest;
 import game.entities.player.tools.ToolsConstants;
 import utils.Checkbox;
@@ -33,6 +34,7 @@ public class Player extends MovableDefaultActor {
     private ActorsManager actorsManager;
     public PlayerInventory inventory = new PlayerInventory();
     private PlayerAnimationsTest animationsTest;
+    private PlayerAnimations animations;
 
     public Player(ActorsManager actorsManager) {
         super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -43,6 +45,7 @@ public class Player extends MovableDefaultActor {
         playerTextures.pantsTextures = shirts.createPants(playerTextures.pantsTextures, style.shirtsArray[2]);
         setActionsCollisions();
         animationsTest = new PlayerAnimationsTest(this);
+        animations = new PlayerAnimations(this);
     }
 
     public void startStaticAction() {
@@ -126,13 +129,14 @@ public class Player extends MovableDefaultActor {
 
     @Override
     public void draw(SpriteBatch sb) {
+        animations.draw(sb);
 //        sb.draw(playerTextures.bodyTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-////        sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-////        sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
-////        sb.draw(playerTextures.pantsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 16);
-////        sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + shirtYOffset, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+//        sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+//        sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
+//        sb.draw(playerTextures.pantsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 16);
+//        sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + shirtYOffset, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
 //        sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-//
+
 //        if (isStaticAction) {
 //            sb.draw(playerTextures.pickaxe,
 //                    finalPosition.x + rightAxeAnimation[aniIndex][0], (finalPosition.y + 20) + rightAxeAnimation[aniIndex][1],
@@ -141,15 +145,7 @@ public class Player extends MovableDefaultActor {
 //                    1, 1,
 //                    rightAxeAnimation[aniIndex][2]);
 //        }
-//        drawCutUp(sb);
-//        drawMineRight(sb);
-//        drawMineLeft(sb);
-//        drawMineDown(sb);
-//        drawCutDown(sb);
-//        drawMineLeft(sb);
-//        harvestWeedRight(sb);
-//        animationsTest.harvestWeedRight(sb);
-        animationsTest.harvestWeedLeft(sb);
+
     }
 
     private void harvestWeedRight(SpriteBatch sb) {

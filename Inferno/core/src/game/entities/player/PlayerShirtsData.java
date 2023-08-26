@@ -53,7 +53,7 @@ public class PlayerShirtsData {
 
     public TextureRegion[][] createShirtSleeves(TextureRegion[][] arms, TextureRegion shirtTxtRg) {
         setColorsBasedOnShirt(shirtTxtRg, false);
-        TextureRegion[][] newArms = new TextureRegion[PlayerTextures.ARMS_MAX_TEXTURES][PlayerTextures.MAX_ANIMATION_FRAMES];
+        TextureRegion[][] newArms = new TextureRegion[PlayerTextures.ANIMATION_AMOUNT][PlayerTextures.MAX_ANIMATION_FRAMES];
 
         for (int i = 0; i < arms.length; i++) {
             TextureRegion[] armsTxtRg = arms[i];
@@ -93,7 +93,7 @@ public class PlayerShirtsData {
 
     public TextureRegion[][] createPants(TextureRegion[][] pants, TextureRegion shirtTxtRg) {
         pantsColors = setPantsColorsBasedOnShirt(shirtTxtRg);
-        TextureRegion[][] newArms = new TextureRegion[PlayerTextures.ARMS_MAX_TEXTURES][PlayerTextures.MAX_ANIMATION_FRAMES];
+        TextureRegion[][] newArms = new TextureRegion[PlayerTextures.ANIMATION_AMOUNT][PlayerTextures.MAX_ANIMATION_FRAMES];
 
         for (int i = 0; i < pants.length; i++) {
             TextureRegion[] armsTxtRg = pants[i];

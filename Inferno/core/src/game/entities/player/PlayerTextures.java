@@ -41,7 +41,7 @@ public class PlayerTextures {
     public static final int STATE_HARVEST_WEED_DOWN = 15;
 
     public static final int MAX_ANIMATION_FRAMES = 6;
-    public static final byte ARMS_MAX_TEXTURES = 16;
+    public static final byte ANIMATION_AMOUNT = 16;
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
@@ -62,9 +62,9 @@ public class PlayerTextures {
     public final byte toolYOrigin = toolHeight / 2;
 
     public PlayerTextures() {
-        bodyTextures = new TextureRegion[ARMS_MAX_TEXTURES][MAX_ANIMATION_FRAMES];
-        armsTextures = new TextureRegion[ARMS_MAX_TEXTURES][MAX_ANIMATION_FRAMES];
-        pantsTextures = new TextureRegion[ARMS_MAX_TEXTURES][MAX_ANIMATION_FRAMES];
+        bodyTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
+        armsTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
+        pantsTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
 
         readJson();
         loadTools();
