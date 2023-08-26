@@ -31,6 +31,7 @@ public class Player extends MovableDefaultActor {
     // Action collision from ActorManager
     private ActorsManager actorsManager;
     public PlayerInventory inventory = new PlayerInventory();
+    private PlayerAnimationsTest animationsTest;
 
     public Player(ActorsManager actorsManager) {
         super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -40,6 +41,7 @@ public class Player extends MovableDefaultActor {
 //        playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
         playerTextures.pantsTextures = shirts.createPants(playerTextures.pantsTextures, style.shirtsArray[2]);
         setActionsCollisions();
+        animationsTest = new PlayerAnimationsTest(this);
     }
 
     public void startStaticAction() {
@@ -144,7 +146,8 @@ public class Player extends MovableDefaultActor {
 //        drawMineDown(sb);
 //        drawCutDown(sb);
 //        drawMineLeft(sb);
-        harvestWeedRight(sb);
+//        harvestWeedRight(sb);
+        animationsTest.harvestWeedRight(sb);
     }
 
     private void harvestWeedRight(SpriteBatch sb) {

@@ -21,7 +21,7 @@ public class MovableDefaultActor extends DefaultActor {
     protected int aniTick, aniIndex, aniSpeed = 20;
     public Vector<Integer> finalPosition;
     protected int actionIndex;
-    protected PlayerTextures playerTextures = new PlayerTextures();
+    public PlayerTextures playerTextures = new PlayerTextures();
     private String lastDir = "";
 
     public MovableDefaultActor(int positionX, int positionY, ArrayList<DimensionCordVector> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim, DimensionCordVector groundCheckbox) {
