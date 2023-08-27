@@ -73,7 +73,8 @@ public class PlayerAnimations {
             @Override
             public void draw(SpriteBatch sb) {
 //                drawHarvestWeedDown(sb);
-                drawHarvestWeedUp(sb);
+//                drawHarvestWeedUp(sb);
+                drawHarvestWeedRight(sb);
             }
         };
         animationDraws = animations;
@@ -101,5 +102,17 @@ public class PlayerAnimations {
         sb.draw(weaponTexture, (player.finalPosition.x) + WeaponAnimationConfig.animations[Direction.up][player.aniIndex][0], player.finalPosition.y + WeaponAnimationConfig.animations[Direction.up][player.aniIndex][1], weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, WeaponAnimationConfig.animations[Direction.up][player.aniIndex][2]);
         sb.draw(bodyTextures[PlayerTextures.STATE_HARVEST_WEED_UP][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
         sb.draw(armsTextures[PlayerTextures.STATE_HARVEST_WEED_UP][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
+    }
+
+    private void drawHarvestWeedRight(SpriteBatch sb) {
+        if (WeaponAnimationConfig.animations[Direction.right][player.aniIndex][3] == 0) {
+            sb.draw(weaponTexture, (player.finalPosition.x) + WeaponAnimationConfig.animations[Direction.right][player.aniIndex][0], player.finalPosition.y + WeaponAnimationConfig.animations[Direction.right][player.aniIndex][1], weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, WeaponAnimationConfig.animations[Direction.right][player.aniIndex][2]);
+        }
+        sb.draw(weaponTexture, (player.finalPosition.x) + WeaponAnimationConfig.animations[Direction.right][player.aniIndex][0], player.finalPosition.y + WeaponAnimationConfig.animations[Direction.right][player.aniIndex][1], weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, WeaponAnimationConfig.animations[Direction.right][player.aniIndex][2]);
+        sb.draw(bodyTextures[PlayerTextures.STATE_HARVEST_WEED_RIGHT][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
+        sb.draw(armsTextures[PlayerTextures.STATE_HARVEST_WEED_RIGHT][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
+        if (WeaponAnimationConfig.animations[Direction.right][player.aniIndex][3] == 1) {
+            sb.draw(weaponTexture, (player.finalPosition.x) + WeaponAnimationConfig.animations[Direction.right][player.aniIndex][0], player.finalPosition.y + WeaponAnimationConfig.animations[Direction.right][player.aniIndex][1], weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, WeaponAnimationConfig.animations[Direction.right][player.aniIndex][2]);
+        }
     }
 }
