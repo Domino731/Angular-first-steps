@@ -29,4 +29,21 @@ public class Utils {
                 return Direction.down;
         }
     }
+
+    public static byte getHarvestWeedAniIndex(byte actionIndex) {
+        byte direction = getDirectionByLastAction(actionIndex);
+        switch (direction) {
+            case Direction.up:
+                return PlayerTextures.STATE_HARVEST_WEED_UP;
+            case Direction.right:
+                return PlayerTextures.STATE_HARVEST_WEED_RIGHT;
+            case Direction.down:
+                return PlayerTextures.STATE_HARVEST_WEED_DOWN;
+            case Direction.left:
+                return PlayerTextures.STATE_HARVEST_WEED_LEFT;
+            default:
+                return Direction.down;
+        }
+    }
+
 }
