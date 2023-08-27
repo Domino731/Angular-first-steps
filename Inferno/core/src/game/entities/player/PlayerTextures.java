@@ -35,10 +35,10 @@ public class PlayerTextures {
     public static final int STATE_HARVEST_LEFT = 10;
     public static final int STATE_MINE_RES = 11;
     // HARVEST WEED
-    public static final int STATE_HARVEST_WEED_UP = 12;
-    public static final int STATE_HARVEST_WEED_RIGHT = 13;
-    public static final int STATE_HARVEST_WEED_LEFT = 14;
-    public static final int STATE_HARVEST_WEED_DOWN = 15;
+    public static final byte STATE_HARVEST_WEED_UP = 12;
+    public static final byte STATE_HARVEST_WEED_RIGHT = 13;
+    public static final byte STATE_HARVEST_WEED_LEFT = 14;
+    public static final byte STATE_HARVEST_WEED_DOWN = 15;
 
     public static final int MAX_ANIMATION_FRAMES = 6;
     public static final byte ANIMATION_AMOUNT = 16;

@@ -31,22 +31,22 @@ public class WeaponAnimationConfig {
         payload[2][xIndex] = -1;
         payload[2][yIndex] = 20;
         payload[2][rotateIndex] = 50;
-        payload[2][txtIndex] = 1;
+        payload[2][txtIndex] = 0;
 
         payload[3][xIndex] = 8;
         payload[3][yIndex] = 20;
         payload[3][rotateIndex] = 26;
-        payload[3][txtIndex] = 1;
+        payload[3][txtIndex] = 0;
 
         payload[4][xIndex] = 14;
         payload[4][yIndex] = 18;
         payload[4][rotateIndex] = 3;
-        payload[4][txtIndex] = 1;
+        payload[4][txtIndex] = 0;
 
         payload[5][xIndex] = 17;
         payload[5][yIndex] = 12;
         payload[5][rotateIndex] = -27;
-        payload[5][txtIndex] = 1;
+        payload[5][txtIndex] = 0;
         return payload;
     }
 
@@ -56,12 +56,12 @@ public class WeaponAnimationConfig {
         payload[0][xIndex] = 16;
         payload[0][yIndex] = 6;
         payload[0][rotateIndex] = -28;
-        payload[0][txtIndex] = 0;
+        payload[0][txtIndex] = 1;
 
         payload[1][xIndex] = 11;
         payload[1][yIndex] = -6;
         payload[1][rotateIndex] = -90;
-        payload[1][txtIndex] = 0;
+        payload[1][txtIndex] = 1;
 
         payload[2][xIndex] = 8;
         payload[2][yIndex] = -8;
