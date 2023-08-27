@@ -72,7 +72,8 @@ public class PlayerAnimations {
         animations[PlayerTextures.STATE_HARVEST_WEED_DOWN] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                drawHarvestWeedDown(sb);
+//                drawHarvestWeedDown(sb);
+                drawHarvestWeedUp(sb);
             }
         };
         animationDraws = animations;
@@ -94,5 +95,11 @@ public class PlayerAnimations {
         sb.draw(bodyTextures[PlayerTextures.STATE_HARVEST_WEED_DOWN][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
         sb.draw(armsTextures[PlayerTextures.STATE_HARVEST_WEED_DOWN][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
         sb.draw(weaponTexture, (player.finalPosition.x) + WeaponAnimationConfig.animations[Direction.down][player.aniIndex][0], player.finalPosition.y + WeaponAnimationConfig.animations[Direction.down][player.aniIndex][1], weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, WeaponAnimationConfig.animations[Direction.down][player.aniIndex][2]);
+    }
+
+    private void drawHarvestWeedUp(SpriteBatch sb) {
+        sb.draw(weaponTexture, (player.finalPosition.x) + WeaponAnimationConfig.animations[Direction.up][player.aniIndex][0], player.finalPosition.y + WeaponAnimationConfig.animations[Direction.up][player.aniIndex][1], weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, WeaponAnimationConfig.animations[Direction.up][player.aniIndex][2]);
+        sb.draw(bodyTextures[PlayerTextures.STATE_HARVEST_WEED_UP][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
+        sb.draw(armsTextures[PlayerTextures.STATE_HARVEST_WEED_UP][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
     }
 }
