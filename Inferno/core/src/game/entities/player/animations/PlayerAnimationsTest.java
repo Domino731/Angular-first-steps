@@ -62,7 +62,6 @@ public class PlayerAnimationsTest {
     }
 
     public void harvestWeedDown(SpriteBatch sb) {
-
         sb.draw(bodyTextures[PlayerTextures.STATE_HARVEST_WEED_DOWN][0], player.finalPosition.x - 50, player.finalPosition.y, 16, 32);
         sb.draw(armsTextures[PlayerTextures.STATE_HARVEST_WEED_DOWN][0], player.finalPosition.x - 50, player.finalPosition.y, 16, 32);
         sb.draw(weaponTexture, (player.finalPosition.x - 50) + 16, player.finalPosition.y + 6, weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, -28);

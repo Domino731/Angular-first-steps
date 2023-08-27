@@ -67,7 +67,8 @@ public class Player extends MovableDefaultActor {
 
         if (isMoving || isStaticAction) {
             if (isStaticAction) {
-                actionIndex = PlayerTextures.STATE_HARVEST_RIGHT;
+                actionIndex = PlayerTextures.STATE_HARVEST_WEED_DOWN;
+
             } else if (direction.left) {
                 actionIndex = PlayerTextures.STATE_RUNNING_LEFT;
             } else if (direction.right) {

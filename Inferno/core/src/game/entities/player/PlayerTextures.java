@@ -206,7 +206,10 @@ public class PlayerTextures {
             case STATE_RUNNING_RIGHT:
             case STATE_RUNNING_DOWN:
             case STATE_RUNNING_UP:
-            case STATE_HARVEST_UP:
+            case STATE_HARVEST_WEED_UP:
+            case STATE_HARVEST_WEED_RIGHT:
+            case STATE_HARVEST_WEED_DOWN:
+            case STATE_HARVEST_WEED_LEFT:
                 return 6;
             // idle
             case STATE_IDLE_UP:
