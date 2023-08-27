@@ -72,7 +72,7 @@ public class Player extends MovableDefaultActor {
         if (isMoving || isStaticAction) {
             if (isStaticAction) {
                 setActionIndex();
-                actionIndex = PlayerTextures.STATE_HARVEST_WEED_DOWN;
+                actionIndex = Utils.getHarvestWeedAniIndex(actionIndex);
 
             } else if (direction.left) {
                 actionIndex = PlayerTextures.STATE_RUNNING_LEFT;

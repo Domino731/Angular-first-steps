@@ -3,7 +3,7 @@ package game.entities.player;
 import utils.Direction;
 
 public class Utils {
-    public static byte getDirectionByLastAction(byte actionIndex) {
+    public static byte getDirectionByLastAction(int actionIndex) {
         switch (actionIndex) {
             case PlayerTextures.STATE_HARVEST_WEED_LEFT:
             case PlayerTextures.STATE_IDLE_LEFT:
@@ -30,7 +30,7 @@ public class Utils {
         }
     }
 
-    public static byte getHarvestWeedAniIndex(byte actionIndex) {
+    public static byte getHarvestWeedAniIndex(int actionIndex) {
         byte direction = getDirectionByLastAction(actionIndex);
         switch (direction) {
             case Direction.up:
