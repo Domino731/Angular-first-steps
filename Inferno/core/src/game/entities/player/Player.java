@@ -62,11 +62,16 @@ public class Player extends MovableDefaultActor {
         setAnimation();
     }
 
+    private void setActionIndex() {
+        System.out.println(direction);
+    }
+
     private void setAnimation() {
         int startAni = actionIndex;
 
         if (isMoving || isStaticAction) {
             if (isStaticAction) {
+                setActionIndex();
                 actionIndex = PlayerTextures.STATE_HARVEST_WEED_DOWN;
 
             } else if (direction.left) {
