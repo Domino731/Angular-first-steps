@@ -19,12 +19,12 @@ public class ToolsConstants {
         byte[][] payload = new byte[aniLength][aniDataLength];
 
         payload[0][xIndex] = 0;
-        payload[0][yIndex] = 0;
+        payload[0][yIndex] = 25;
         payload[0][rotateIndex] = 0;
         payload[0][txtIndex] = 0;
 
         payload[1][xIndex] = 0;
-        payload[1][yIndex] = -3;
+        payload[1][yIndex] = 22;
         payload[1][rotateIndex] = 0;
         payload[1][txtIndex] = 0;
 
