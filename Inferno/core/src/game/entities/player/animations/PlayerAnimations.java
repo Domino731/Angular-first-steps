@@ -74,53 +74,53 @@ public class PlayerAnimations {
             };
         }
         // HARVEST WEED
-        animations[PlayerTextures.STATE_HARVEST_WEED_UP] = new AnimationDraw() {
-            @Override
-            public void draw(SpriteBatch sb) {
-                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_WEED_UP, Direction.up, weaponTexture);
-            }
-        };
-        animations[PlayerTextures.STATE_HARVEST_WEED_RIGHT] = new AnimationDraw() {
-            @Override
-            public void draw(SpriteBatch sb) {
-                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_WEED_RIGHT, Direction.right, weaponTexture);
-            }
-        };
-        animations[PlayerTextures.STATE_HARVEST_WEED_DOWN] = new AnimationDraw() {
-            @Override
-            public void draw(SpriteBatch sb) {
-                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_WEED_DOWN, Direction.down, weaponTexture);
-            }
-        };
-        animations[PlayerTextures.STATE_HARVEST_WEED_LEFT] = new AnimationDraw() {
-            @Override
-            public void draw(SpriteBatch sb) {
-                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_WEED_LEFT, Direction.left, weaponTextureReversed);
-            }
-        };
-        // MINE RESOURCES
         animations[PlayerTextures.STATE_HARVEST_UP] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                mineAnimation(sb, PlayerTextures.STATE_HARVEST_UP, Direction.up);
+                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_UP, Direction.up, weaponTexture);
             }
         };
         animations[PlayerTextures.STATE_HARVEST_RIGHT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                mineAnimation(sb, PlayerTextures.STATE_HARVEST_RIGHT, Direction.right);
+                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_RIGHT, Direction.right, weaponTexture);
             }
         };
-        animations[PlayerTextures.STATE_MINE_RES] = new AnimationDraw() {
+        animations[PlayerTextures.STATE_HARVEST_DOWN] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                mineAnimation(sb, PlayerTextures.STATE_MINE_RES, Direction.down);
+                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_DOWN, Direction.down, weaponTexture);
             }
         };
         animations[PlayerTextures.STATE_HARVEST_LEFT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                mineAnimation(sb, PlayerTextures.STATE_HARVEST_LEFT, Direction.left);
+                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_LEFT, Direction.left, weaponTextureReversed);
+            }
+        };
+        // MINE RESOURCES
+        animations[PlayerTextures.STATE_MINE_UP] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                mineAnimation(sb, PlayerTextures.STATE_MINE_UP, Direction.up);
+            }
+        };
+        animations[PlayerTextures.STATE_MINE_RIGHT] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                mineAnimation(sb, PlayerTextures.STATE_MINE_RIGHT, Direction.right);
+            }
+        };
+        animations[PlayerTextures.STATE_MINE_DOWN] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                mineAnimation(sb, PlayerTextures.STATE_MINE_DOWN, Direction.down);
+            }
+        };
+        animations[PlayerTextures.STATE_MINE_LEFT] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                mineAnimation(sb, PlayerTextures.STATE_MINE_LEFT, Direction.left);
             }
         };
         animationDraws = animations;

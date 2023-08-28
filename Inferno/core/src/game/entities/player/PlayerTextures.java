@@ -30,18 +30,19 @@ public class PlayerTextures {
     public static final int STATE_RUNNING_DOWN = 6;
     public static final int STATE_RUNNING_LEFT = 7;
     // HARVEST
-    public static final byte STATE_HARVEST_UP = 8;
-    public static final byte STATE_HARVEST_RIGHT = 9;
-    public static final byte STATE_HARVEST_LEFT = 10;
-    public static final byte STATE_MINE_RES = 11;
+    public static final byte STATE_MINE_UP = 8;
+    public static final byte STATE_MINE_RIGHT = 9;
+    public static final byte STATE_MINE_LEFT = 10;
+    public static final byte STATE_MINE_DOWN = 11;
     // HARVEST WEED
-    public static final byte STATE_HARVEST_WEED_UP = 12;
-    public static final byte STATE_HARVEST_WEED_RIGHT = 13;
-    public static final byte STATE_HARVEST_WEED_LEFT = 14;
-    public static final byte STATE_HARVEST_WEED_DOWN = 15;
+    public static final byte STATE_HARVEST_UP = 12;
+    public static final byte STATE_HARVEST_RIGHT = 13;
+    public static final byte STATE_HARVEST_LEFT = 14;
+    public static final byte STATE_HARVEST_DOWN = 15;
 
     public static final int MAX_ANIMATION_FRAMES = 6;
     public static final byte ANIMATION_AMOUNT = 16;
+    
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
@@ -198,20 +199,20 @@ public class PlayerTextures {
 
     public static int actionTextureAmount(int player_action) {
         switch (player_action) {
-            case STATE_HARVEST_LEFT:
-            case STATE_HARVEST_RIGHT:
-            case STATE_HARVEST_UP:
-            case STATE_MINE_RES:
+            case STATE_MINE_LEFT:
+            case STATE_MINE_RIGHT:
+            case STATE_MINE_UP:
+            case STATE_MINE_DOWN:
                 return 5;
             // running
             case STATE_RUNNING_LEFT:
             case STATE_RUNNING_RIGHT:
             case STATE_RUNNING_DOWN:
             case STATE_RUNNING_UP:
-            case STATE_HARVEST_WEED_UP:
-            case STATE_HARVEST_WEED_RIGHT:
-            case STATE_HARVEST_WEED_DOWN:
-            case STATE_HARVEST_WEED_LEFT:
+            case STATE_HARVEST_UP:
+            case STATE_HARVEST_RIGHT:
+            case STATE_HARVEST_DOWN:
+            case STATE_HARVEST_LEFT:
                 return 6;
             // idle
             case STATE_IDLE_UP:
@@ -267,15 +268,19 @@ public class PlayerTextures {
         JsonNode runningHorizontally = animationNode.get("runningHorizontally");
         JsonNode runningDown = animationNode.get("runningDown");
         JsonNode runningUp = animationNode.get("runningUp");
+
         JsonNode idleUp = animationNode.get("idleUp");
         JsonNode idleHorizontally = animationNode.get("idleHorizontally");
         JsonNode idleDown = animationNode.get("idleDown");
-        JsonNode harvestUp = animationNode.get("harvestUp");
-        JsonNode harvestHorizontally = animationNode.get("harvestHorizontally");
-        JsonNode mineResourceDown = animationNode.get("cutResourceDown");
-        JsonNode collectWeedHorizontally = animationNode.get("collectWeedHorizontally");
-        JsonNode collectWeedUp = animationNode.get("collectWeedUp");
-        JsonNode collectWeedDown = animationNode.get("collectWeedDown");
+
+        JsonNode harvestUp = animationNode.get("mineUp");
+        JsonNode harvestHorizontally = animationNode.get("mineHorizontally");
+        JsonNode mineResourceDown = animationNode.get("mineDown");
+
+        JsonNode collectWeedHorizontally = animationNode.get("harvestHorizontally");
+        JsonNode collectWeedUp = animationNode.get("harvestUp");
+        JsonNode collectWeedDown = animationNode.get("harvestDown");
+
         // IDLE
         if (idleUp != null && idleUp.isArray()) {
             loadTexturesForAnimationState(textures, STATE_IDLE_UP, idleUp, texture, loadPants);
@@ -286,6 +291,7 @@ public class PlayerTextures {
         if (idleDown != null && idleDown.isArray()) {
             loadTexturesForAnimationState(textures, STATE_IDLE_DOWN, idleDown, texture, loadPants);
         }
+
         // RUNNING
         if (runningHorizontally != null && runningHorizontally.isArray()) {
             loadHorizontallyTexturesForAnimationState(textures, STATE_RUNNING_LEFT, STATE_RUNNING_RIGHT, runningHorizontally, texture, loadPants);
@@ -296,25 +302,27 @@ public class PlayerTextures {
         if (runningUp != null && runningUp.isArray()) {
             loadTexturesForAnimationState(textures, STATE_RUNNING_UP, runningUp, texture, loadPants);
         }
+
         // HARVEST
         if (harvestUp != null && harvestUp.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_HARVEST_UP, harvestUp, texture, loadPants);
+            loadTexturesForAnimationState(textures, STATE_MINE_UP, harvestUp, texture, loadPants);
         }
         if (harvestHorizontally != null && harvestHorizontally.isArray()) {
-            loadHorizontallyTexturesForAnimationState(textures, STATE_HARVEST_LEFT, STATE_HARVEST_RIGHT, harvestHorizontally, texture, loadPants);
+            loadHorizontallyTexturesForAnimationState(textures, STATE_MINE_LEFT, STATE_MINE_RIGHT, harvestHorizontally, texture, loadPants);
         }
         if (mineResourceDown != null && mineResourceDown.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_MINE_RES, mineResourceDown, texture, loadPants);
+            loadTexturesForAnimationState(textures, STATE_MINE_DOWN, mineResourceDown, texture, loadPants);
         }
+
         // HARVEST WEED
         if (collectWeedUp != null && collectWeedUp.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_HARVEST_WEED_UP, collectWeedUp, texture, loadPants);
+            loadTexturesForAnimationState(textures, STATE_HARVEST_UP, collectWeedUp, texture, loadPants);
         }
         if (harvestHorizontally != null && harvestHorizontally.isArray()) {
-            loadHorizontallyTexturesForAnimationState(textures, STATE_HARVEST_WEED_LEFT, STATE_HARVEST_WEED_RIGHT, collectWeedHorizontally, texture, loadPants);
+            loadHorizontallyTexturesForAnimationState(textures, STATE_HARVEST_LEFT, STATE_HARVEST_RIGHT, collectWeedHorizontally, texture, loadPants);
         }
         if (collectWeedDown != null && collectWeedDown.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_HARVEST_WEED_DOWN, collectWeedDown, texture, loadPants);
+            loadTexturesForAnimationState(textures, STATE_HARVEST_DOWN, collectWeedDown, texture, loadPants);
         }
 
     }
