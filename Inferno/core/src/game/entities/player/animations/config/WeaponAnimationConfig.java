@@ -5,7 +5,6 @@ import utils.Direction;
 import static game.entities.player.animations.config.AniConfigConstants.*;
 
 public class WeaponAnimationConfig {
-    public static final short[][] rightAxeAnimation = createRightAxeAnimation();
     public static final short[][][] animations = createToolAnimationArray();
 
     // Array config
