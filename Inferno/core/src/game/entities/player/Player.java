@@ -9,7 +9,7 @@ import engine.actorsManager.ActorsManager;
 import environment.resources.ResourceAction;
 import game.entities.player.animations.PlayerAnimations;
 import game.entities.player.animations.PlayerAnimationsTest;
-import game.entities.player.tools.ToolsConstants;
+import game.entities.player.animations.config.ToolAnimationConfig;
 import utils.Checkbox;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
@@ -28,7 +28,7 @@ public class Player extends MovableDefaultActor {
     private int textIndex = PlayerTextures.STATE_IDLE_RIGHT;
     private TextureRegion pants;
     private boolean isStaticAction = false;
-    private byte[][] rightAxeAnimation = ToolsConstants.rightAxeAnimation;
+    private byte[][] rightAxeAnimation = ToolAnimationConfig.rightAxeAnimation;
     // Action collision from ActorManager
     private ActorsManager actorsManager;
     public PlayerInventory inventory = new PlayerInventory();

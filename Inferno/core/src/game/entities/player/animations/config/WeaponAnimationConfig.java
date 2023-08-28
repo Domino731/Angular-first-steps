@@ -2,14 +2,12 @@ package game.entities.player.animations.config;
 
 import utils.Direction;
 
+import static game.entities.player.animations.config.AniConfigConstants.*;
+
 public class WeaponAnimationConfig {
     public static final short[][] rightAxeAnimation = createRightAxeAnimation();
     public static final short[][][] animations = createToolAnimationArray();
-    // Array indices
-    public static final byte xIndex = 0;
-    public static final byte yIndex = 1;
-    public static final byte rotateIndex = 2;
-    public static final byte txtIndex = 3;
+
     // Array config
     public static final byte aniAmount = 4;
     public static final byte aniLength = 6;

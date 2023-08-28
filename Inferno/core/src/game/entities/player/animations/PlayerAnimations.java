@@ -6,11 +6,13 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import constants.Urls;
 import game.entities.player.Player;
 import game.entities.player.PlayerTextures;
+import game.entities.player.animations.config.ToolAnimationConfig;
 import game.entities.player.animations.config.WeaponAnimationConfig;
-import game.entities.player.tools.ToolsConstants;
 import items.Items;
 import utils.Direction;
 import utils.vectors.Vector;
+
+import static game.entities.player.animations.config.AniConfigConstants.*;
 
 public class PlayerAnimations {
     private Player player;
@@ -24,7 +26,7 @@ public class PlayerAnimations {
     TextureRegion weaponTextureReversed = loadWeaponTextureReversed();
     TextureRegion[][] toolTxts = Items.get("stone_pickaxe").txts;
     public static final short[][][] weaponAnimations = WeaponAnimationConfig.animations;
-    public static final byte[][][] toolAnimations = ToolsConstants.animations;
+    public static final byte[][][] toolAnimations = ToolAnimationConfig.animations;
 
     public final byte weaponXOrigin = 16 / 2;
     public final byte weaponYOrigin = 16 / 2;
@@ -77,25 +79,25 @@ public class PlayerAnimations {
         animations[PlayerTextures.STATE_HARVEST_UP] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_UP, Direction.up, weaponTexture);
+                harvestAnimation(sb, PlayerTextures.STATE_HARVEST_UP, Direction.up, weaponTexture);
             }
         };
         animations[PlayerTextures.STATE_HARVEST_RIGHT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_RIGHT, Direction.right, weaponTexture);
+                harvestAnimation(sb, PlayerTextures.STATE_HARVEST_RIGHT, Direction.right, weaponTexture);
             }
         };
         animations[PlayerTextures.STATE_HARVEST_DOWN] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_DOWN, Direction.down, weaponTexture);
+                harvestAnimation(sb, PlayerTextures.STATE_HARVEST_DOWN, Direction.down, weaponTexture);
             }
         };
         animations[PlayerTextures.STATE_HARVEST_LEFT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_LEFT, Direction.left, weaponTextureReversed);
+                harvestAnimation(sb, PlayerTextures.STATE_HARVEST_LEFT, Direction.left, weaponTextureReversed);
             }
         };
         // MINE RESOURCES
@@ -126,35 +128,35 @@ public class PlayerAnimations {
         animationDraws = animations;
     }
 
-    private void drawHarvestWeed(SpriteBatch sb, byte bodyTexturesIndex, byte directionIndex, TextureRegion weaponTexture) {
+    private void harvestAnimation(SpriteBatch sb, byte bodyTexturesIndex, byte directionIndex, TextureRegion weaponTexture) {
         if (weaponAnimations[directionIndex][player.aniIndex][3] == 0) {
-            sb.draw(weaponTexture, (player.finalPosition.x) + weaponAnimations[directionIndex][player.aniIndex][0], player.finalPosition.y + weaponAnimations[directionIndex][player.aniIndex][1], weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, weaponAnimations[directionIndex][player.aniIndex][2]);
+            sb.draw(weaponTexture, (player.finalPosition.x) + weaponAnimations[directionIndex][player.aniIndex][xIndex], player.finalPosition.y + weaponAnimations[directionIndex][player.aniIndex][yIndex], weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, weaponAnimations[directionIndex][player.aniIndex][rotateIndex]);
         }
         sb.draw(bodyTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
         sb.draw(armsTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
         if (weaponAnimations[directionIndex][player.aniIndex][3] == 1) {
-            sb.draw(weaponTexture, (player.finalPosition.x) + weaponAnimations[directionIndex][player.aniIndex][0], player.finalPosition.y + weaponAnimations[directionIndex][player.aniIndex][1], weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, weaponAnimations[directionIndex][player.aniIndex][2]);
+            sb.draw(weaponTexture, (player.finalPosition.x) + weaponAnimations[directionIndex][player.aniIndex][xIndex], player.finalPosition.y + weaponAnimations[directionIndex][player.aniIndex][yIndex], weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, weaponAnimations[directionIndex][player.aniIndex][rotateIndex]);
         }
     }
 
     private void mineAnimation(SpriteBatch sb, byte bodyTexturesIndex, byte directionIndex) {
-        if (toolAnimations[directionIndex][player.aniIndex][ToolsConstants.zIndex] == 0) {
-            sb.draw(toolTxts[directionIndex][toolAnimations[directionIndex][player.aniIndex][ToolsConstants.txtIndex]],
-                    player.finalPosition.x + toolAnimations[directionIndex][player.aniIndex][ToolsConstants.xIndex],
-                    player.finalPosition.y + toolAnimations[directionIndex][player.aniIndex][ToolsConstants.yIndex],
+        if (toolAnimations[directionIndex][player.aniIndex][zIndex] == 0) {
+            sb.draw(toolTxts[directionIndex][toolAnimations[directionIndex][player.aniIndex][txtIndex]],
+                    player.finalPosition.x + toolAnimations[directionIndex][player.aniIndex][xIndex],
+                    player.finalPosition.y + toolAnimations[directionIndex][player.aniIndex][yIndex],
                     PlayerTextures.toolXOrigin, PlayerTextures.toolYOrigin,
-                    Items.toolWidth, Items.toolHeight, 1, 1, toolAnimations[directionIndex][player.aniIndex][ToolsConstants.rotateIndex]);
+                    Items.toolWidth, Items.toolHeight, 1, 1, toolAnimations[directionIndex][player.aniIndex][rotateIndex]);
         }
 
         sb.draw(bodyTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
         sb.draw(armsTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
 
-        if (toolAnimations[directionIndex][player.aniIndex][ToolsConstants.zIndex] == 1) {
-            sb.draw(toolTxts[directionIndex][toolAnimations[directionIndex][player.aniIndex][ToolsConstants.txtIndex]],
-                    player.finalPosition.x + toolAnimations[directionIndex][player.aniIndex][ToolsConstants.xIndex],
-                    player.finalPosition.y + toolAnimations[directionIndex][player.aniIndex][ToolsConstants.yIndex],
+        if (toolAnimations[directionIndex][player.aniIndex][zIndex] == 1) {
+            sb.draw(toolTxts[directionIndex][toolAnimations[directionIndex][player.aniIndex][txtIndex]],
+                    player.finalPosition.x + toolAnimations[directionIndex][player.aniIndex][xIndex],
+                    player.finalPosition.y + toolAnimations[directionIndex][player.aniIndex][yIndex],
                     PlayerTextures.toolXOrigin, PlayerTextures.toolYOrigin,
-                    Items.toolWidth, Items.toolHeight, 1, 1, toolAnimations[directionIndex][player.aniIndex][ToolsConstants.rotateIndex]);
+                    Items.toolWidth, Items.toolHeight, 1, 1, toolAnimations[directionIndex][player.aniIndex][rotateIndex]);
         }
     }
 }

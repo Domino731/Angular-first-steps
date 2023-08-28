@@ -1,16 +1,12 @@
-package game.entities.player.tools;
+package game.entities.player.animations.config;
 
 import utils.Direction;
 
-public class ToolsConstants {
+import static game.entities.player.animations.config.AniConfigConstants.*;
+
+public class ToolAnimationConfig {
     public static final byte[][] rightAxeAnimation = createRightAxeAnimation();
     public static final byte[][][] animations = createToolAnimationArray();
-    // Array indices
-    public static final byte xIndex = 0;
-    public static final byte yIndex = 1;
-    public static final byte rotateIndex = 2;
-    public static final byte txtIndex = 3;
-    public static final byte zIndex = 4;
     // Array config
     public static final byte aniAmount = 4;
     public static final byte aniLength = 5;
