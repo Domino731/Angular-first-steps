@@ -30,10 +30,10 @@ public class PlayerTextures {
     public static final int STATE_RUNNING_DOWN = 6;
     public static final int STATE_RUNNING_LEFT = 7;
     // HARVEST
-    public static final int STATE_HARVEST_UP = 8;
-    public static final int STATE_HARVEST_RIGHT = 9;
-    public static final int STATE_HARVEST_LEFT = 10;
-    public static final int STATE_MINE_RES = 11;
+    public static final byte STATE_HARVEST_UP = 8;
+    public static final byte STATE_HARVEST_RIGHT = 9;
+    public static final byte STATE_HARVEST_LEFT = 10;
+    public static final byte STATE_MINE_RES = 11;
     // HARVEST WEED
     public static final byte STATE_HARVEST_WEED_UP = 12;
     public static final byte STATE_HARVEST_WEED_RIGHT = 13;
@@ -56,10 +56,10 @@ public class PlayerTextures {
 
     private final int textureWidth = 16;
     private final int textureHeight = 32;
-    public final byte toolWidth = 16;
-    public final byte toolHeight = 32;
-    public final byte toolXOrigin = toolWidth / 2;
-    public final byte toolYOrigin = toolHeight / 2;
+    public static final byte toolWidth = 16;
+    public static final byte toolHeight = 32;
+    public static final byte toolXOrigin = toolWidth / 2;
+    public static final byte toolYOrigin = toolHeight / 2;
 
     public PlayerTextures() {
         bodyTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
@@ -200,6 +200,8 @@ public class PlayerTextures {
         switch (player_action) {
             case STATE_HARVEST_LEFT:
             case STATE_HARVEST_RIGHT:
+            case STATE_HARVEST_UP:
+            case STATE_MINE_RES:
                 return 5;
             // running
             case STATE_RUNNING_LEFT:

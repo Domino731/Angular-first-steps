@@ -34,13 +34,17 @@ public class Utils {
         byte direction = getDirectionByLastAction(actionIndex);
         switch (direction) {
             case Direction.up:
-                return PlayerTextures.STATE_HARVEST_WEED_UP;
+                return PlayerTextures.STATE_HARVEST_UP;
+//                return PlayerTextures.STATE_HARVEST_WEED_UP;
             case Direction.right:
-                return PlayerTextures.STATE_HARVEST_WEED_RIGHT;
+                return PlayerTextures.STATE_HARVEST_RIGHT;
+//                return PlayerTextures.STATE_HARVEST_WEED_RIGHT;
             case Direction.down:
-                return PlayerTextures.STATE_HARVEST_WEED_DOWN;
+                return PlayerTextures.STATE_MINE_RES;
+//                return PlayerTextures.STATE_HARVEST_WEED_DOWN;
             case Direction.left:
-                return PlayerTextures.STATE_HARVEST_WEED_LEFT;
+                return PlayerTextures.STATE_HARVEST_LEFT;
+//                return PlayerTextures.STATE_HARVEST_WEED_LEFT;
             default:
                 return Direction.down;
         }

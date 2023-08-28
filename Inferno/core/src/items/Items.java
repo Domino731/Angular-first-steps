@@ -65,7 +65,7 @@ public class Items {
         public TextureRegion[] upTextures;
         public TextureRegion rightTxt;
         public TextureRegion leftTxt;
-        public TextureRegion[][] txt = new TextureRegion[4][2];
+        public TextureRegion[][] txts = new TextureRegion[4][2];
 
         public Config(String id, String name, int usage, int damage, int txtX, int txtY, JsonNode textures) {
             this.id = id;
@@ -82,13 +82,13 @@ public class Items {
             JsonNode up2 = textures.get("up").get(1);
             JsonNode right = textures.get("right").get(0);
 
-            txt[Direction.up][0] = new TextureRegion(toolsTxt, up1.get(0).asInt(), up1.get(1).asInt(), toolWidth, toolHeight);
-            txt[Direction.up][1] = new TextureRegion(toolsTxt, up2.get(0).asInt(), up2.get(1).asInt(), toolWidth, toolHeight);
-            txt[Direction.down][0] = new TextureRegion(toolsTxt, down1.get(0).asInt(), down1.get(1).asInt(), toolWidth, toolHeight);
-            txt[Direction.down][1] = new TextureRegion(toolsTxt, down2.get(0).asInt(), down2.get(1).asInt(), toolWidth, toolHeight);
-            txt[Direction.right][0] = new TextureRegion(toolsTxt, right.get(0).asInt(), right.get(1).asInt(), toolWidth, toolHeight);
-            txt[Direction.left][0] = new TextureRegion(toolsTxt, right.get(0).asInt(), right.get(1).asInt(), toolWidth, toolHeight);
-            txt[Direction.left][0].flip(true, false);
+            txts[Direction.up][0] = new TextureRegion(toolsTxt, up1.get(0).asInt(), up1.get(1).asInt(), toolWidth, toolHeight);
+            txts[Direction.up][1] = new TextureRegion(toolsTxt, up2.get(0).asInt(), up2.get(1).asInt(), toolWidth, toolHeight);
+            txts[Direction.down][0] = new TextureRegion(toolsTxt, down1.get(0).asInt(), down1.get(1).asInt(), toolWidth, toolHeight);
+            txts[Direction.down][1] = new TextureRegion(toolsTxt, down2.get(0).asInt(), down2.get(1).asInt(), toolWidth, toolHeight);
+            txts[Direction.right][0] = new TextureRegion(toolsTxt, right.get(0).asInt(), right.get(1).asInt(), toolWidth, toolHeight);
+            txts[Direction.left][0] = new TextureRegion(toolsTxt, right.get(0).asInt(), right.get(1).asInt(), toolWidth, toolHeight);
+            txts[Direction.left][0].flip(true, false);
 
             // TODO: remove
             downTextures[0] = new TextureRegion(toolsTxt, down1.get(0).asInt(), down1.get(1).asInt(), toolWidth, toolHeight);

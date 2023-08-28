@@ -7,6 +7,8 @@ import constants.Urls;
 import game.entities.player.Player;
 import game.entities.player.PlayerTextures;
 import game.entities.player.animations.config.WeaponAnimationConfig;
+import game.entities.player.tools.ToolsConstants;
+import items.Items;
 import utils.Direction;
 import utils.vectors.Vector;
 
@@ -20,7 +22,9 @@ public class PlayerAnimations {
     TextureRegion[][] bodyTextures, armsTextures;
     TextureRegion weaponTexture = loadWeaponTexture();
     TextureRegion weaponTextureReversed = loadWeaponTextureReversed();
+    TextureRegion[][] toolTxts = Items.get("stone_pickaxe").txts;
     public static final short[][][] weaponAnimations = WeaponAnimationConfig.animations;
+    public static final byte[][][] toolAnimations = ToolsConstants.animations;
 
     public final byte weaponXOrigin = 16 / 2;
     public final byte weaponYOrigin = 16 / 2;
@@ -69,6 +73,7 @@ public class PlayerAnimations {
                 }
             };
         }
+        // HARVEST WEED
         animations[PlayerTextures.STATE_HARVEST_WEED_UP] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
@@ -93,7 +98,31 @@ public class PlayerAnimations {
                 drawHarvestWeed(sb, PlayerTextures.STATE_HARVEST_WEED_LEFT, Direction.left, weaponTextureReversed);
             }
         };
-
+        // MINE RESOURCES
+        animations[PlayerTextures.STATE_HARVEST_UP] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                mineAnimation(sb, PlayerTextures.STATE_HARVEST_UP, Direction.up);
+            }
+        };
+        animations[PlayerTextures.STATE_HARVEST_RIGHT] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                mineAnimation(sb, PlayerTextures.STATE_HARVEST_RIGHT, Direction.right);
+            }
+        };
+        animations[PlayerTextures.STATE_MINE_RES] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                mineAnimation(sb, PlayerTextures.STATE_MINE_RES, Direction.down);
+            }
+        };
+        animations[PlayerTextures.STATE_HARVEST_LEFT] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                mineAnimation(sb, PlayerTextures.STATE_HARVEST_LEFT, Direction.left);
+            }
+        };
         animationDraws = animations;
     }
 
@@ -108,8 +137,13 @@ public class PlayerAnimations {
         }
     }
 
-    private void mine(SpriteBatch sb, byte bodyTexturesIndex, byte directionIndex) {
+    private void mineAnimation(SpriteBatch sb, byte bodyTexturesIndex, byte directionIndex) {
         sb.draw(bodyTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
         sb.draw(armsTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
+        sb.draw(toolTxts[directionIndex][toolAnimations[directionIndex][player.aniIndex][3]],
+                player.finalPosition.x, player.finalPosition.y,
+                PlayerTextures.toolXOrigin + toolAnimations[directionIndex][player.aniIndex][0],
+                PlayerTextures.toolYOrigin + toolAnimations[directionIndex][player.aniIndex][1],
+                Items.toolWidth, Items.toolHeight, 1, 1, toolAnimations[directionIndex][player.aniIndex][2]);
     }
 }
