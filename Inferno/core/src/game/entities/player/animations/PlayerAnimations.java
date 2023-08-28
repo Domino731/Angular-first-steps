@@ -50,12 +50,21 @@ public class PlayerAnimations {
     }
 
     public void running(SpriteBatch sb) {
-        sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-//          sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-//          sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
-//          sb.draw(playerTextures.pantsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 16);
-//          sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + shirtYOffset, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
-        sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+//        sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+////          sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+////          sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
+////          sb.draw(playerTextures.pantsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 16);
+////          sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + shirtYOffset, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+//        sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+
+        int aniIndex = 4;
+        sb.draw(bodyTextures[PlayerTextures.STATE_HARVEST_RIGHT][aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
+        sb.draw(armsTextures[PlayerTextures.STATE_HARVEST_RIGHT][aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
+        sb.draw(toolTxts[Direction.right][toolAnimations[Direction.right][aniIndex][3]],
+                player.finalPosition.x + toolAnimations[Direction.right][aniIndex][0], player.finalPosition.y + toolAnimations[Direction.right][aniIndex][1],
+                PlayerTextures.toolXOrigin,
+                PlayerTextures.toolYOrigin,
+                Items.toolWidth, Items.toolHeight, 1, 1, toolAnimations[Direction.right][aniIndex][2]);
     }
 
     public void draw(SpriteBatch sb) {

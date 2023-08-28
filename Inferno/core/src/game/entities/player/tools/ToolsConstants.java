@@ -81,27 +81,27 @@ public class ToolsConstants {
         byte[][] payload = new byte[aniLength][aniDataLength];
 
         payload[0][xIndex] = -8;
-        payload[0][yIndex] = -2;
+        payload[0][yIndex] = 18;
         payload[0][rotateIndex] = 15;
         payload[0][txtIndex] = 0;
 
         payload[1][xIndex] = 5;
-        payload[1][yIndex] = -1;
+        payload[1][yIndex] = 19;
         payload[1][rotateIndex] = -15;
         payload[1][txtIndex] = 0;
 
         payload[2][xIndex] = 16;
-        payload[2][yIndex] = -6;
+        payload[2][yIndex] = 14;
         payload[2][rotateIndex] = -45;
         payload[2][txtIndex] = 0;
 
         payload[3][xIndex] = 21;
-        payload[3][yIndex] = -24;
+        payload[3][yIndex] = -4;
         payload[3][rotateIndex] = -105;
         payload[3][txtIndex] = 0;
 
         payload[4][xIndex] = 21;
-        payload[4][yIndex] = -26;
+        payload[4][yIndex] = -6;
         payload[4][rotateIndex] = -105;
         payload[4][txtIndex] = 0;
 
