@@ -107,4 +107,9 @@ public class PlayerAnimations {
             sb.draw(weaponTexture, (player.finalPosition.x) + weaponAnimations[directionIndex][player.aniIndex][0], player.finalPosition.y + weaponAnimations[directionIndex][player.aniIndex][1], weaponXOrigin, weaponYOrigin, 16, 16, 1, 1, weaponAnimations[directionIndex][player.aniIndex][2]);
         }
     }
+
+    private void mine(SpriteBatch sb, byte bodyTexturesIndex, byte directionIndex) {
+        sb.draw(bodyTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
+        sb.draw(armsTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
+    }
 }

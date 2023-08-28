@@ -46,4 +46,19 @@ public class Utils {
         }
     }
 
+    public static byte getMineAniIndex(int actionIndex) {
+        byte direction = getDirectionByLastAction(actionIndex);
+        switch (direction) {
+            case Direction.up:
+                return PlayerTextures.STATE_HARVEST_UP;
+            case Direction.right:
+                return PlayerTextures.STATE_HARVEST_RIGHT;
+            case Direction.down:
+                return PlayerTextures.STATE_MINE_RES;
+            case Direction.left:
+                return PlayerTextures.STATE_HARVEST_LEFT;
+            default:
+                return Direction.down;
+        }
+    }
 }
