@@ -7,8 +7,8 @@ import game.entities.player.PlayerTextures;
 import static utils.TxtUtils.getPixmapFromTextureRegion;
 
 public class CreateHairYOffset {
-    public static int[][] create(TextureRegion[][] bodyTextures) {
-        int[][] data = new int[PlayerTextures.ANIMATION_AMOUNT][PlayerTextures.MAX_ANIMATION_FRAMES];
+    public static Integer[][] create(TextureRegion[][] bodyTextures) {
+        Integer[][] data = new Integer[PlayerTextures.ANIMATION_AMOUNT][PlayerTextures.MAX_ANIMATION_FRAMES];
 
         boolean t = false;
 
@@ -25,21 +25,20 @@ public class CreateHairYOffset {
                 for (int y = 0; y < height; y++) {
                     for (int x = 0; x < width; x++) {
                         int pixel = pixmap.getPixel(x, y);
-                        int a = (pixel & 0x000000ff);
 
-                        if (a != 0) {
-                            if (t == false) {
-                                t = true;
-                                System.out.println(y);
+                        if (pixel != 0) {
+                            if (data[i][j] == null) {
+                                data[i][j] = y;
                             }
-                            data[i][j] = y;
-                            break;
                         }
                     }
                 }
             }
         }
 
+        for (int i = 0; i < data[PlayerTextures.STATE_RUNNING_RIGHT].length; i++) {
+            System.out.println(data[PlayerTextures.STATE_RUNNING_RIGHT][i]);
+        }
 //        System.out.println(data[4][5]);
         return data;
     }
@@ -59,8 +58,8 @@ public class CreateHairYOffset {
                 int width = pixmap.getWidth();
                 int height = pixmap.getHeight();
 
-                for (int y = 0; y < height; y++) {
-                    for (int x = 0; x < width; x++) {
+                for (int y = 0; y < width; y++) {
+                    for (int x = 0; x < height; x++) {
                         int pixel = pixmap.getPixel(x, y);
                         int a = (pixel & 0x000000ff);
 

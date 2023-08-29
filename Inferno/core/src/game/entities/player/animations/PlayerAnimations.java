@@ -32,8 +32,8 @@ public class PlayerAnimations {
 
     public final byte weaponXOrigin = 16 / 2;
     public final byte weaponYOrigin = 16 / 2;
-    public int[][] hairOffset;
-    public int[][] shirtOffset;
+    public Integer[][] hairOffset;
+    public Integer[][] shirtOffset;
 
     public PlayerAnimations(Player player) {
         this.player = player;
@@ -41,7 +41,7 @@ public class PlayerAnimations {
         bodyTextures = player.playerTextures.bodyTextures;
         armsTextures = player.playerTextures.armsTextures;
         pantsTextures = player.playerTextures.pantsTextures;
-        hairOffset = CreateHairYOffset.create(player.playerTextures.armsTextures);
+//        hairOffset = CreateHairYOffset.create(player.playerTextures.armsTextures);
         shirtOffset = CreateHairYOffset.create(player.playerTextures.pantsTextures);
         setAnimationDraws();
     }
@@ -63,7 +63,7 @@ public class PlayerAnimations {
 //        sb.draw(player.style.hairArray[1], finalPosition.x, finalPosition.y + hairOffset[player.actionIndex][player.aniIndex], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
 //        sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
         sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
-        sb.draw(player.style.shirtsArray[1], finalPosition.x + 4, finalPosition.y + shirtOffset[player.actionIndex][player.aniIndex] - 2, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+        sb.draw(player.style.shirtsArray[1], finalPosition.x + 4, finalPosition.y + 16 - shirtOffset[player.actionIndex][player.aniIndex] - 1, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
         sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
     }
 
