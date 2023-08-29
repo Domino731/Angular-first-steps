@@ -21,7 +21,10 @@ public class TxtUtils {
 
         // Get the pixel data from the TextureRegion
         Texture texture = textureRegion.getTexture();
-        texture.getTextureData().prepare();
+        if (!texture.getTextureData().isPrepared()) {
+            // Texture data is already prepared, you can use it
+            texture.getTextureData().prepare();
+        }
         Pixmap texturePixmap = texture.getTextureData().consumePixmap();
 
         // Copy the pixel data from the TextureRegion to the Pixmap
