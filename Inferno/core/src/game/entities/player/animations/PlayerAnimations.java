@@ -5,9 +5,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import constants.Urls;
 import game.entities.player.Player;
+import game.entities.player.PlayerHairsData;
 import game.entities.player.PlayerTextures;
 import game.entities.player.animations.config.ToolAnimationConfig;
 import game.entities.player.animations.config.WeaponAnimationConfig;
+import game.entities.player.playerTextures.CreateHairYOffset;
 import items.Items;
 import utils.Direction;
 import utils.vectors.Vector;
@@ -30,12 +32,14 @@ public class PlayerAnimations {
 
     public final byte weaponXOrigin = 16 / 2;
     public final byte weaponYOrigin = 16 / 2;
+    public int[][] hairOffset;
 
     public PlayerAnimations(Player player) {
         this.player = player;
         finalPosition = player.finalPosition;
         bodyTextures = player.playerTextures.bodyTextures;
         armsTextures = player.playerTextures.armsTextures;
+        hairOffset = CreateHairYOffset.create(player.playerTextures.armsTextures);
         setAnimationDraws();
     }
 
@@ -53,7 +57,7 @@ public class PlayerAnimations {
 
     public void running(SpriteBatch sb) {
         sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-//          sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(player.style.hairArray[1], finalPosition.x, finalPosition.y + hairOffset[player.actionIndex][player.aniIndex], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
 //          sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
 //          sb.draw(playerTextures.pantsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 16);
 //          sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + shirtYOffset, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);

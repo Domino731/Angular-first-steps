@@ -42,7 +42,7 @@ public class PlayerTextures {
 
     public static final int MAX_ANIMATION_FRAMES = 6;
     public static final byte ANIMATION_AMOUNT = 16;
-    
+
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
