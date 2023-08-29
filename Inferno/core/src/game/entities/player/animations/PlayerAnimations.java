@@ -63,7 +63,7 @@ public class PlayerAnimations {
 //        sb.draw(player.style.hairArray[1], finalPosition.x, finalPosition.y + hairOffset[player.actionIndex][player.aniIndex], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
 //        sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
         sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
-        sb.draw(player.style.shirtsArray[1], finalPosition.x + 4, finalPosition.y, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+        sb.draw(player.style.shirtsArray[1], finalPosition.x + 4, finalPosition.y + shirtOffset[player.actionIndex][player.aniIndex] - 2, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
         sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
     }
 
