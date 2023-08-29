@@ -10,6 +10,7 @@ public class CreateHairYOffset {
     public static int[][] create(TextureRegion[][] bodyTextures) {
         int[][] data = new int[PlayerTextures.ANIMATION_AMOUNT][PlayerTextures.MAX_ANIMATION_FRAMES];
 
+        boolean t = false;
 
         for (int i = 0; i < bodyTextures.length; i++) {
             TextureRegion[] txts = bodyTextures[i];
@@ -27,6 +28,10 @@ public class CreateHairYOffset {
                         int a = (pixel & 0x000000ff);
 
                         if (a != 0) {
+                            if (t == false) {
+                                t = true;
+                                System.out.println(y);
+                            }
                             data[i][j] = y;
                             break;
                         }
@@ -35,7 +40,7 @@ public class CreateHairYOffset {
             }
         }
 
-        System.out.println(data[4][5]);
+//        System.out.println(data[4][5]);
         return data;
     }
 }

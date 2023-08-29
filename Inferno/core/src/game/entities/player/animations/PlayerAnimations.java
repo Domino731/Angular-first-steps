@@ -23,7 +23,7 @@ public class PlayerAnimations {
     private Vector<Integer> finalPosition;
     int actionIndex;
     int aniIndex;
-    TextureRegion[][] bodyTextures, armsTextures;
+    TextureRegion[][] bodyTextures, armsTextures, pantsTextures;
     TextureRegion weaponTexture = loadWeaponTexture();
     TextureRegion weaponTextureReversed = loadWeaponTextureReversed();
     TextureRegion[][] toolTxts = Items.get("stone_pickaxe").txts;
@@ -39,6 +39,7 @@ public class PlayerAnimations {
         finalPosition = player.finalPosition;
         bodyTextures = player.playerTextures.bodyTextures;
         armsTextures = player.playerTextures.armsTextures;
+        pantsTextures = player.playerTextures.pantsTextures;
         hairOffset = CreateHairYOffset.create(player.playerTextures.armsTextures);
         setAnimationDraws();
     }
@@ -59,7 +60,7 @@ public class PlayerAnimations {
         sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[1], finalPosition.x, finalPosition.y + hairOffset[player.actionIndex][player.aniIndex], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
 //          sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
-//          sb.draw(playerTextures.pantsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 16);
+        sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
 //          sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + shirtYOffset, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
         sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
     }
