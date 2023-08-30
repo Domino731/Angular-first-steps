@@ -18,7 +18,7 @@ import utils.vectors.Vector;
 public class Player extends MovableDefaultActor {
     private boolean isAttacking = false;
     public PlayerStyle style = new PlayerStyle();
-    private int hairTextureIndex = 0;
+    public int hairTextureIndex = 0;
     private byte hairTextureYOffset = -2;
     private byte shirtYOffset = 8;
 

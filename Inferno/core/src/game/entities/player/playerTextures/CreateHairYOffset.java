@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import game.entities.player.PlayerTextures;
 
+import java.util.Arrays;
+
 import static utils.TxtUtils.getPixmapFromTextureRegion;
 
 public class CreateHairYOffset {
@@ -11,11 +13,11 @@ public class CreateHairYOffset {
         Integer[][] data = new Integer[PlayerTextures.ANIMATION_AMOUNT][PlayerTextures.MAX_ANIMATION_FRAMES];
 
         boolean t = false;
-
         for (int i = 0; i < bodyTextures.length; i++) {
             TextureRegion[] txts = bodyTextures[i];
             for (int j = 0; j < txts.length; j++) {
                 if (txts[j] == null) {
+                    System.out.println(i);
                     break;
                 }
                 Pixmap pixmap = getPixmapFromTextureRegion(txts[j]);
@@ -35,10 +37,9 @@ public class CreateHairYOffset {
                 }
             }
         }
-
-        for (int i = 0; i < data[PlayerTextures.STATE_RUNNING_RIGHT].length; i++) {
-            System.out.println(data[PlayerTextures.STATE_RUNNING_RIGHT][i]);
-        }
+        System.out.println(Arrays.toString(data));
+        data[3] = data[1];
+        data[7] = data[5];
 //        System.out.println(data[4][5]);
         return data;
     }

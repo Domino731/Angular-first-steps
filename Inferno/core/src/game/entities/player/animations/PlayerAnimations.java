@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import constants.Urls;
 import game.entities.player.Player;
-import game.entities.player.PlayerConstants;
 import game.entities.player.PlayerTextures;
 import game.entities.player.animations.config.ToolAnimationConfig;
 import game.entities.player.animations.config.WeaponAnimationConfig;
@@ -13,6 +12,8 @@ import game.entities.player.playerTextures.CreateHairYOffset;
 import items.Items;
 import utils.Direction;
 import utils.vectors.Vector;
+
+import java.util.Arrays;
 
 import static game.entities.player.animations.config.AniConfigConstants.*;
 
@@ -43,6 +44,11 @@ public class PlayerAnimations {
         pantsTextures = player.playerTextures.pantsTextures;
 //        hairOffset = CreateHairYOffset.create(player.playerTextures.armsTextures);
         shirtOffset = CreateHairYOffset.create(player.playerTextures.pantsTextures);
+
+        for (int i = 0; i < shirtOffset.length; i++) {
+            System.out.println(Arrays.toString(shirtOffset[i]));
+        }
+
         setAnimationDraws();
     }
 
@@ -63,7 +69,7 @@ public class PlayerAnimations {
 //        sb.draw(player.style.hairArray[1], finalPosition.x, finalPosition.y + hairOffset[player.actionIndex][player.aniIndex], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
 //        sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
         sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
-        sb.draw(player.style.shirtsArray[1], finalPosition.x + 4, finalPosition.y + 16 - shirtOffset[player.actionIndex][player.aniIndex] - 1, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+//        sb.draw(player.style.shirtsArray[player.hairTextureIndex], finalPosition.x + 4, finalPosition.y + 16 - shirtOffset[player.actionIndex][player.aniIndex] - 1, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
         sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
     }
 
