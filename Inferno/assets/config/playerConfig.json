@@ -9,6 +9,18 @@
           2
         ]
       ],
+      "idleRight": [
+        [
+          0,
+          1
+        ]
+      ],
+      "idleDown": [
+        [
+          0,
+          0
+        ]
+      ],
       "runningHorizontally": [
         [
           2,
@@ -91,18 +103,6 @@
         [
           0,
           1
-        ]
-      ],
-      "idleRight": [
-        [
-          0,
-          1
-        ]
-      ],
-      "idleDown": [
-        [
-          0,
-          0
         ]
       ],
       "mineUp": [
@@ -251,6 +251,24 @@
         [
           5,
           4
+        ]
+      ],
+      "idleHoldItemUp": [
+        [
+          0,
+          2
+        ]
+      ],
+      "idleHoldItemRight": [
+        [
+          0,
+          1
+        ]
+      ],
+      "idleHoldItemDown": [
+        [
+          0,
+          0
         ]
       ]
     },
@@ -261,6 +279,18 @@
           2
         ]
       ],
+      "idleRight": [
+        [
+          6,
+          1
+        ]
+      ],
+      "idleDown": [
+        [
+          6,
+          0
+        ]
+      ],
       "runningHorizontally": [
         [
           8,
@@ -343,18 +373,6 @@
         [
           6,
           1
-        ]
-      ],
-      "idleRight": [
-        [
-          6,
-          1
-        ]
-      ],
-      "idleDown": [
-        [
-          6,
-          0
         ]
       ],
       "mineUp": [
@@ -503,6 +521,24 @@
         [
           17,
           4
+        ]
+      ],
+      "idleHoldItemUp": [
+        [
+          12,
+          2
+        ]
+      ],
+      "idleHoldItemRight": [
+        [
+          12,
+          1
+        ]
+      ],
+      "idleHoldItemDown": [
+        [
+          12,
+          0
         ]
       ]
     }

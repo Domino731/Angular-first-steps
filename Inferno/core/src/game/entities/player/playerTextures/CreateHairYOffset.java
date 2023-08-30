@@ -4,8 +4,6 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import game.entities.player.PlayerTextures;
 
-import java.util.Arrays;
-
 import static utils.TxtUtils.getPixmapFromTextureRegion;
 
 public class CreateHairYOffset {
@@ -37,7 +35,7 @@ public class CreateHairYOffset {
                 }
             }
         }
-        System.out.println(Arrays.toString(data));
+        // TODO: temporary solution, 3 and 7 arrays are empty :(
         data[3] = data[1];
         data[7] = data[5];
 //        System.out.println(data[4][5]);
