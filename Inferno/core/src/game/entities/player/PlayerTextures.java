@@ -39,9 +39,19 @@ public class PlayerTextures {
     public static final byte STATE_HARVEST_RIGHT = 13;
     public static final byte STATE_HARVEST_LEFT = 14;
     public static final byte STATE_HARVEST_DOWN = 15;
+    // IDLE WITH ITEM
+    public static final int STATE_IDLE_ITEM_UP = 16;
+    public static final int STATE_IDLE_ITEM_RIGHT = 17;
+    public static final int STATE_IDLE_ITEM_DOWN = 18;
+    public static final int STATE_IDLE_ITEM_LEFT = 19;
+    // RUNNING WITH ITEM
+    public static final int STATE_RUNNING_ITEM_UP = 20;
+    public static final int STATE_RUNNING_ITEM_RIGHT = 21;
+    public static final int STATE_RUNNING_ITEM_DOWN = 22;
+    public static final int STATE_RUNNING_ITEM_LEFT = 23;
 
     public static final int MAX_ANIMATION_FRAMES = 6;
-    public static final byte ANIMATION_AMOUNT = 16;
+    public static final byte ANIMATION_AMOUNT = 24;
 
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
@@ -281,6 +291,14 @@ public class PlayerTextures {
         JsonNode collectWeedUp = animationNode.get("harvestUp");
         JsonNode collectWeedDown = animationNode.get("harvestDown");
 
+        JsonNode idleHoldItemHorizontally = animationNode.get("idleHoldItemHorizontally");
+        JsonNode idleHoldItemUp = animationNode.get("idleHoldItemUp");
+        JsonNode idleHoldItemDown = animationNode.get("idleHoldItemDown");
+
+        JsonNode runningHoldItemHorizontally = animationNode.get("runningHoldItemHorizontally");
+        JsonNode runningHoldItemUp = animationNode.get("runningHoldItemUp");
+        JsonNode runningHoldItemDown = animationNode.get("runningHoldItemDown");
+
         // IDLE
         if (idleUp != null && idleUp.isArray()) {
             loadTexturesForAnimationState(textures, STATE_IDLE_UP, idleUp, texture, loadPants);
@@ -325,6 +343,26 @@ public class PlayerTextures {
             loadTexturesForAnimationState(textures, STATE_HARVEST_DOWN, collectWeedDown, texture, loadPants);
         }
 
+        // IDLE WITH Item
+        if (idleHoldItemUp != null && idleHoldItemUp.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_IDLE_ITEM_UP, idleHoldItemUp, texture, loadPants);
+        }
+        if (idleHoldItemHorizontally != null && idleHoldItemHorizontally.isArray()) {
+            loadHorizontallyTexturesForAnimationState(textures, STATE_IDLE_ITEM_LEFT, STATE_IDLE_ITEM_RIGHT, idleHoldItemHorizontally, texture, loadPants);
+        }
+        if (idleHoldItemDown != null && idleHoldItemDown.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_IDLE_ITEM_DOWN, idleHoldItemDown, texture, loadPants);
+        }
+
+        if (runningHoldItemUp != null && runningHoldItemUp.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_RUNNING_ITEM_UP, runningHoldItemUp, texture, loadPants);
+        }
+        if (runningHoldItemHorizontally != null && runningHoldItemHorizontally.isArray()) {
+            loadHorizontallyTexturesForAnimationState(textures, STATE_RUNNING_ITEM_LEFT, STATE_RUNNING_ITEM_RIGHT, runningHoldItemHorizontally, texture, loadPants);
+        }
+        if (runningHoldItemDown != null && runningHoldItemDown.isArray()) {
+            loadTexturesForAnimationState(textures, STATE_RUNNING_ITEM_DOWN, runningHoldItemDown, texture, loadPants);
+        }
     }
 
     private void loadTexturesForAnimationState(TextureRegion[][] textures, int state, JsonNode animationNode, Texture texture, boolean loadPants) {

@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import game.entities.player.PlayerTextures;
 
+import java.util.Arrays;
+
 import static utils.TxtUtils.getPixmapFromTextureRegion;
 
 public class CreateHairYOffset {
@@ -15,7 +17,6 @@ public class CreateHairYOffset {
             TextureRegion[] txts = bodyTextures[i];
             for (int j = 0; j < txts.length; j++) {
                 if (txts[j] == null) {
-                    System.out.println(i);
                     break;
                 }
                 Pixmap pixmap = getPixmapFromTextureRegion(txts[j]);
@@ -38,17 +39,15 @@ public class CreateHairYOffset {
         // TODO: temporary solution, 3 and 7 arrays are empty :(
         data[3] = data[1];
         data[7] = data[5];
-//        System.out.println(data[4][5]);
         return data;
     }
 
-    public static int[][] createPants(TextureRegion[][] pantsTextures) {
-        int[][] data = new int[PlayerTextures.ANIMATION_AMOUNT][PlayerTextures.MAX_ANIMATION_FRAMES];
+    public static Integer[][] createOffsetForHair(TextureRegion[][] bodyTextures) {
+        Integer[][] data = new Integer[PlayerTextures.ANIMATION_AMOUNT][PlayerTextures.MAX_ANIMATION_FRAMES];
 
         boolean t = false;
-
-        for (int i = 0; i < pantsTextures.length; i++) {
-            TextureRegion[] txts = pantsTextures[i];
+        for (int i = 0; i < bodyTextures.length; i++) {
+            TextureRegion[] txts = bodyTextures[i];
             for (int j = 0; j < txts.length; j++) {
                 if (txts[j] == null) {
                     break;
@@ -57,19 +56,20 @@ public class CreateHairYOffset {
                 int width = pixmap.getWidth();
                 int height = pixmap.getHeight();
 
-                for (int y = 0; y < width; y++) {
-                    for (int x = 0; x < height; x++) {
-                        int pixel = pixmap.getPixel(x, y);
-                        int a = (pixel & 0x000000ff);
+                for (int y = 0; y < height; y++) {
+                    for (int x = 0; x < width; x++) {
+                        int pixelColor = pixmap.getPixel(x, y);
 
-                        if (a != 0) {
+                        // Check if the pixel is non-transparent
+                        if ((pixelColor & 0x000000FF) != 0) {
                             data[i][j] = y;
-                            break;
                         }
                     }
                 }
             }
         }
+
+        System.out.println(Arrays.toString(data[PlayerTextures.STATE_RUNNING_RIGHT]));
         return data;
     }
 }
