@@ -1,6 +1,6 @@
 package game.entities.player.inventory;
 
-public enum InventoryItemTypes {
+public enum InventoryItemGroups {
     tool,
     weapon,
     seed,

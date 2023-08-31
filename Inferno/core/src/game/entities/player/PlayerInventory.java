@@ -4,7 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import game.entities.player.inventory.InventoryConstants;
 import game.entities.player.inventory.InventoryItem;
-import game.entities.player.inventory.InventoryItemTypes;
+import game.entities.player.inventory.InventoryItemGroups;
 import game.entities.player.inventory.InventorySlot;
 import game.entities.player.inventory.examples.PlantSeed;
 import game.entities.player.inventory.examples.Weapon;
@@ -66,7 +66,7 @@ public class PlayerInventory {
         return currentSlot;
     }
 
-    public InventoryItemTypes getCurrItemType() {
+    public InventoryItemGroups getCurrItemType() {
         return currentItem.getType();
     }
 

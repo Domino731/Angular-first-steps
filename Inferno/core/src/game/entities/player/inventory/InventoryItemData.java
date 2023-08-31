@@ -7,5 +7,5 @@ public interface InventoryItemData {
 
     TextureRegion getInventoryTxt();
 
-    InventoryItemTypes getType();
+    InventoryItemGroups getGroup();
 }

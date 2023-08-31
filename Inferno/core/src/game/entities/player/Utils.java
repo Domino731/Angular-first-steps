@@ -1,6 +1,6 @@
 package game.entities.player;
 
-import game.entities.player.inventory.InventoryItemTypes;
+import game.entities.player.inventory.InventoryItemGroups;
 import utils.Direction;
 
 public class Utils {
@@ -31,9 +31,9 @@ public class Utils {
         }
     }
 
-    public static byte getHarvestWeedAniIndex(int actionIndex, InventoryItemTypes inventoryItemType) {
+    public static byte getHarvestWeedAniIndex(int actionIndex, InventoryItemGroups inventoryItemType) {
         byte direction = getDirectionByLastAction(actionIndex);
-        if (inventoryItemType == InventoryItemTypes.tool) {
+        if (inventoryItemType == InventoryItemGroups.tool) {
             switch (direction) {
                 case Direction.up:
                     return PlayerTextures.STATE_MINE_UP;
