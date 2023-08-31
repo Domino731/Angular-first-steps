@@ -16,6 +16,7 @@ public class GameInputProcessor implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
+        System.out.println(keycode);
         switch (keycode) {
             // PLAYER MOVEMENT
             case Input.Keys.W:
@@ -34,8 +35,7 @@ public class GameInputProcessor implements InputProcessor {
                 if (actorsManager.currentAction != null) {
                     player.startStaticAction();
                 }
-
-                // CHANGE INVENTORY SLOT
+                break;
             case Input.Keys.NUM_1:
                 player.changeInventorySlot((byte) 0);
                 break;

@@ -6,13 +6,13 @@ import constants.Urls;
 import game.entities.player.inventory.InventoryItemData;
 import game.entities.player.inventory.InventoryItemTypes;
 
-public class Weapon implements InventoryItemData {
+public class PlantSeed implements InventoryItemData {
     private final TextureRegion texture;
     private final TextureRegion[] textures;
-    private final InventoryItemTypes type = InventoryItemTypes.weapon;
+    private final InventoryItemTypes type = InventoryItemTypes.seed;
 
-    public Weapon() {
-        texture = new TextureRegion(new Texture(Urls.weapons), 16 * 7, 16 * 5, 16, 16);
+    public PlantSeed() {
+        texture = new TextureRegion(new Texture(Urls.seeds));
         textures = new TextureRegion[1];
         textures[0] = texture;
     }
@@ -31,6 +31,4 @@ public class Weapon implements InventoryItemData {
     public InventoryItemTypes getType() {
         return type;
     }
-
-
 }

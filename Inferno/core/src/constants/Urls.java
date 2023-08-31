@@ -9,5 +9,6 @@ public class Urls {
     public static final String inventoryActiveSlot = "inventory/slotActive.png";
     public static final String toolsPickaxes = "config/items/tools/pickaxes.json";
     public static final String weapons = "sprites/weapons.png";
+    public static final String seeds = "sprites/seeds.png";
     public static final String weaponsConfig = "config/items/tools/weapons.json";
 }

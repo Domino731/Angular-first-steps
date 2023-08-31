@@ -12,16 +12,33 @@ public class InventoryItem extends Actor {
     public TextureRegion[] upTextures;
     public TextureRegion rightTxt;
     public TextureRegion leftTxt;
+    private InventoryItemTypes type;
 
+    // TODO: remove this constructor
     public InventoryItem(String itemId) {
         txt = Items.get(itemId).inventoryTxt;
         downTextures = Items.get(itemId).downTextures;
         upTextures = Items.get(itemId).upTextures;
         rightTxt = Items.get(itemId).rightTxt;
         leftTxt = Items.get(itemId).leftTxt;
-
+        type = InventoryItemTypes.tool;
         setWidth(48);
         setHeight(48);
+    }
+
+    public InventoryItem(InventoryItemData item) {
+        txt = item.getInventoryTxt();
+        downTextures = item.getTextures();
+        upTextures = item.getTextures();
+        rightTxt = item.getInventoryTxt();
+        leftTxt = item.getInventoryTxt();
+        type = item.getType();
+        setWidth(48);
+        setHeight(48);
+    }
+
+    public InventoryItemTypes getType() {
+        return type;
     }
 
     @Override

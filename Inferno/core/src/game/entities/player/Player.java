@@ -61,18 +61,13 @@ public class Player extends MovableDefaultActor {
         setAnimation();
     }
 
-    private void setActionIndex() {
-        System.out.println(direction);
-    }
 
     private void setAnimation() {
         int startAni = actionIndex;
 
         if (isMoving || isStaticAction) {
             if (isStaticAction) {
-                setActionIndex();
-                actionIndex = Utils.getHarvestWeedAniIndex(actionIndex);
-
+                actionIndex = Utils.getHarvestWeedAniIndex(actionIndex, inventory.getCurrItemType());
             } else if (direction.left) {
                 actionIndex = PlayerTextures.STATE_RUNNING_LEFT;
             } else if (direction.right) {

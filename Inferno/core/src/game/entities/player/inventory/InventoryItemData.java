@@ -6,4 +6,6 @@ public interface InventoryItemData {
     TextureRegion[] getTextures();
 
     TextureRegion getInventoryTxt();
+
+    InventoryItemTypes getType();
 }

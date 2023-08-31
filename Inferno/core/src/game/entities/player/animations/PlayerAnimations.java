@@ -60,30 +60,30 @@ public class PlayerAnimations {
     }
 
     public void running(SpriteBatch sb) {
-        int[] test = new int[6];
-        test[0] = -3;
-        test[1] = -3;
-        test[2] = -3;
-        test[3] = -3;
-        test[4] = -3;
-        test[5] = -2;
-        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][0], finalPosition.x - 40, finalPosition.y, 16, 32);
-        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x - 40, finalPosition.y + test[0], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-
-        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][1], finalPosition.x - 20, finalPosition.y, 16, 32);
-        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x - 20, finalPosition.y + test[1], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-
-        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][2], finalPosition.x, finalPosition.y, 16, 32);
-        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x, finalPosition.y + test[2], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-
-        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][3], finalPosition.x + 20, finalPosition.y, 16, 32);
-        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x + 20, finalPosition.y + test[3], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-
-        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][4], finalPosition.x + 40, finalPosition.y, 16, 32);
-        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x + 40, finalPosition.y + test[4], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-
-        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][5], finalPosition.x + 60, finalPosition.y, 16, 32);
-        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x + 60, finalPosition.y + test[5], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+//        int[] test = new int[6];
+//        test[0] = -3;
+//        test[1] = -3;
+//        test[2] = -3;
+//        test[3] = -3;
+//        test[4] = -3;
+//        test[5] = -2;
+//        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][0], finalPosition.x - 40, finalPosition.y, 16, 32);
+//        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x - 40, finalPosition.y + test[0], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+//
+//        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][1], finalPosition.x - 20, finalPosition.y, 16, 32);
+//        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x - 20, finalPosition.y + test[1], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+//
+//        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][2], finalPosition.x, finalPosition.y, 16, 32);
+//        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x, finalPosition.y + test[2], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+//
+//        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][3], finalPosition.x + 20, finalPosition.y, 16, 32);
+//        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x + 20, finalPosition.y + test[3], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+//
+//        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][4], finalPosition.x + 40, finalPosition.y, 16, 32);
+//        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x + 40, finalPosition.y + test[4], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+//
+//        sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_RIGHT][5], finalPosition.x + 60, finalPosition.y, 16, 32);
+//        sb.draw(player.style.hairArray[player.hairTextureIndex], finalPosition.x + 60, finalPosition.y + test[5], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
 
 
         sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);

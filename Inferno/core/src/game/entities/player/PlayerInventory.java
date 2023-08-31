@@ -4,7 +4,10 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import game.entities.player.inventory.InventoryConstants;
 import game.entities.player.inventory.InventoryItem;
+import game.entities.player.inventory.InventoryItemTypes;
 import game.entities.player.inventory.InventorySlot;
+import game.entities.player.inventory.examples.PlantSeed;
+import game.entities.player.inventory.examples.Weapon;
 
 public class PlayerInventory {
     private Stage stage;
@@ -20,12 +23,22 @@ public class PlayerInventory {
         changeCurrentSlot((byte) 3);
     }
 
+    // TODO: only for test purposes
     private void createInventoryItems() {
         for (int i = 0; i < InventoryConstants.inventoryLength; i++) {
-            inventoryItems[i] = new InventoryItem("stone_pickaxe");
+
+            if (i == 7) {
+                inventoryItems[i] = new InventoryItem(new Weapon());
+            } else if (i == 6) {
+                inventoryItems[i] = new InventoryItem(new PlantSeed());
+            } else {
+                inventoryItems[i] = new InventoryItem("stone_pickaxe");
+            }
             inventoryItems[i].setPosition(i * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
             stage.addActor(inventoryItems[i]);
         }
+
+
     }
 
     private void createInventorySlots() {
@@ -37,6 +50,7 @@ public class PlayerInventory {
     }
 
     public void changeCurrentSlot(byte slot) {
+        System.out.println("SLOT CHANGED");
         currentSlot = slot;
         currentItem = inventoryItems[slot];
         markCurrentSlot();
@@ -50,6 +64,10 @@ public class PlayerInventory {
 
     public byte getCurrentSlot() {
         return currentSlot;
+    }
+
+    public InventoryItemTypes getCurrItemType() {
+        return currentItem.getType();
     }
 
     public void draw() {
