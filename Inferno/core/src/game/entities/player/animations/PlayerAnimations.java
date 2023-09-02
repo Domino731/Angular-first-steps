@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import constants.Urls;
 import game.entities.player.Player;
+import game.entities.player.PlayerConstants;
 import game.entities.player.PlayerHairsData;
 import game.entities.player.PlayerTextures;
 import game.entities.player.animations.config.ToolAnimationConfig;
@@ -63,27 +64,50 @@ public class PlayerAnimations {
     public void running(SpriteBatch sb) {
         sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_DOWN][0], finalPosition.x - 40, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[2], finalPosition.x - 40, finalPosition.y - 4, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(pantsTextures[PlayerTextures.STATE_RUNNING_DOWN][0], finalPosition.x - 40, finalPosition.y, 16, 16);
+        sb.draw(player.style.shirtsArray[Direction.down], finalPosition.x - 36, finalPosition.y + 8, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+
 
         sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_DOWN][1], finalPosition.x - 20, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[2], finalPosition.x - 20, finalPosition.y - 5, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(pantsTextures[PlayerTextures.STATE_RUNNING_DOWN][1], finalPosition.x - 20, finalPosition.y, 16, 16);
+        sb.draw(player.style.shirtsArray[Direction.down], finalPosition.x - 16, finalPosition.y + 7, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+
 
         sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_DOWN][2], finalPosition.x, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[2], finalPosition.x, finalPosition.y - 4, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(player.style.shirtsArray[Direction.down], finalPosition.x + 4, finalPosition.y + 8, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+        sb.draw(pantsTextures[PlayerTextures.STATE_RUNNING_DOWN][2], finalPosition.x, finalPosition.y, 16, 16);
+
 
         sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_DOWN][3], finalPosition.x + 20, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[2], finalPosition.x + 20, finalPosition.y - 3, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(player.style.shirtsArray[Direction.down], finalPosition.x + 24, finalPosition.y + 9, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+        sb.draw(pantsTextures[PlayerTextures.STATE_RUNNING_DOWN][3], finalPosition.x + 20, finalPosition.y, 16, 16);
+
 
         sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_DOWN][4], finalPosition.x + 40, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[2], finalPosition.x + 40, finalPosition.y - 4, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(pantsTextures[PlayerTextures.STATE_RUNNING_DOWN][4], finalPosition.x + 40, finalPosition.y, 16, 16);
+        sb.draw(player.style.shirtsArray[Direction.down], finalPosition.x + 44, finalPosition.y + 8, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+
 
         sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_DOWN][5], finalPosition.x + 60, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[2], finalPosition.x + 60, finalPosition.y - 5, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(player.style.shirtsArray[Direction.down], finalPosition.x + 64, finalPosition.y + 7, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+        sb.draw(pantsTextures[PlayerTextures.STATE_RUNNING_DOWN][5], finalPosition.x + 60, finalPosition.y, 16, 16);
+
 
         sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_DOWN][6], finalPosition.x + 80, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[2], finalPosition.x + 80, finalPosition.y - 4, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(player.style.shirtsArray[Direction.down], finalPosition.x + 84, finalPosition.y + 8, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+        sb.draw(pantsTextures[PlayerTextures.STATE_RUNNING_DOWN][6], finalPosition.x + 80, finalPosition.y, 16, 16);
+
 
         sb.draw(bodyTextures[PlayerTextures.STATE_RUNNING_DOWN][7], finalPosition.x + 100, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[2], finalPosition.x + 100, finalPosition.y - 3, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(player.style.shirtsArray[Direction.down], finalPosition.x + 104, finalPosition.y + 9, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+        sb.draw(pantsTextures[PlayerTextures.STATE_RUNNING_DOWN][7], finalPosition.x + 100, finalPosition.y, 16, 16);
 
 //        sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
 //        sb.draw(player.style.hairArray[0], finalPosition.x, finalPosition.y - 2, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
