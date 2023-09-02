@@ -216,5 +216,6 @@ public class Player extends MovableDefaultActor {
 
     public void changeInventorySlot(byte slot) {
         inventory.changeCurrentSlot(slot);
+        isSeed = inventory.getCurrItemType() == InventoryItemGroups.seed;
     }
 }

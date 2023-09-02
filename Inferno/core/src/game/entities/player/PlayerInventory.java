@@ -50,7 +50,6 @@ public class PlayerInventory {
     }
 
     public void changeCurrentSlot(byte slot) {
-        System.out.println("SLOT CHANGED");
         currentSlot = slot;
         currentItem = inventoryItems[slot];
         markCurrentSlot();
