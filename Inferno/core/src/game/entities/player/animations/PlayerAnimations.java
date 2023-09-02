@@ -159,7 +159,63 @@ public class PlayerAnimations {
                 mineAnimation(sb, PlayerTextures.STATE_MINE_LEFT, Direction.left);
             }
         };
+        // IDLE ITEM
+        animations[PlayerTextures.STATE_IDLE_ITEM_UP] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                itemAnimation(sb);
+            }
+        };
+        animations[PlayerTextures.STATE_IDLE_ITEM_RIGHT] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                itemAnimation(sb);
+            }
+        };
+        animations[PlayerTextures.STATE_IDLE_ITEM_DOWN] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                itemAnimation(sb);
+            }
+        };
+        animations[PlayerTextures.STATE_IDLE_ITEM_LEFT] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                itemAnimation(sb);
+            }
+        };
+        // RUNNING ITEM
+        animations[PlayerTextures.STATE_RUNNING_ITEM_UP] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                itemAnimation(sb);
+            }
+        };
+        animations[PlayerTextures.STATE_RUNNING_ITEM_RIGHT] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                itemAnimation(sb);
+            }
+        };
+        animations[PlayerTextures.STATE_RUNNING_ITEM_DOWN] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                itemAnimation(sb);
+            }
+        };
+        animations[PlayerTextures.STATE_RUNNING_ITEM_LEFT] = new AnimationDraw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                itemAnimation(sb);
+            }
+        };
+
         animationDraws = animations;
+    }
+
+    private void itemAnimation(SpriteBatch sb) {
+        sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+        sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
     }
 
     private void harvestAnimation(SpriteBatch sb, byte bodyTexturesIndex, byte directionIndex, TextureRegion weaponTexture) {

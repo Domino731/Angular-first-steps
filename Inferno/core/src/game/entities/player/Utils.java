@@ -37,16 +37,12 @@ public class Utils {
             switch (direction) {
                 case Direction.up:
                     return PlayerTextures.STATE_MINE_UP;
-//                return PlayerTextures.STATE_HARVEST_WEED_UP;
                 case Direction.right:
                     return PlayerTextures.STATE_MINE_RIGHT;
-//                return PlayerTextures.STATE_HARVEST_WEED_RIGHT;
                 case Direction.down:
                     return PlayerTextures.STATE_MINE_DOWN;
-//                return PlayerTextures.STATE_HARVEST_WEED_DOWN;
                 case Direction.left:
                     return PlayerTextures.STATE_MINE_LEFT;
-//                return PlayerTextures.STATE_HARVEST_WEED_LEFT;
                 default:
                     return Direction.down;
             }

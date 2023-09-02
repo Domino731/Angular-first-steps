@@ -10,6 +10,7 @@ import environment.resources.ResourceAction;
 import game.entities.player.animations.PlayerAnimations;
 import game.entities.player.animations.PlayerAnimationsTest;
 import game.entities.player.animations.config.ToolAnimationConfig;
+import game.entities.player.inventory.InventoryItemGroups;
 import utils.Checkbox;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
@@ -69,12 +70,28 @@ public class Player extends MovableDefaultActor {
             if (isStaticAction) {
                 actionIndex = Utils.getHarvestWeedAniIndex(actionIndex, inventory.getCurrItemType());
             } else if (direction.left) {
+                if (inventory.currentItem.getType() == InventoryItemGroups.seed) {
+                    actionIndex = PlayerTextures.STATE_RUNNING_ITEM_LEFT;
+                    return;
+                }
                 actionIndex = PlayerTextures.STATE_RUNNING_LEFT;
             } else if (direction.right) {
+                if (inventory.currentItem.getType() == InventoryItemGroups.seed) {
+                    actionIndex = PlayerTextures.STATE_RUNNING_ITEM_RIGHT;
+                    return;
+                }
                 actionIndex = PlayerTextures.STATE_RUNNING_RIGHT;
             } else if (direction.top) {
+                if (inventory.currentItem.getType() == InventoryItemGroups.seed) {
+                    actionIndex = PlayerTextures.STATE_RUNNING_ITEM_UP;
+                    return;
+                }
                 actionIndex = PlayerTextures.STATE_RUNNING_UP;
             } else if (direction.bot) {
+                if (inventory.currentItem.getType() == InventoryItemGroups.seed) {
+                    actionIndex = PlayerTextures.STATE_RUNNING_ITEM_DOWN;
+                    return;
+                }
                 actionIndex = PlayerTextures.STATE_RUNNING_DOWN;
             }
         } else {

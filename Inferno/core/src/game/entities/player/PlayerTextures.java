@@ -40,15 +40,15 @@ public class PlayerTextures {
     public static final byte STATE_HARVEST_LEFT = 14;
     public static final byte STATE_HARVEST_DOWN = 15;
     // IDLE WITH ITEM
-    public static final int STATE_IDLE_ITEM_UP = 16;
-    public static final int STATE_IDLE_ITEM_RIGHT = 17;
-    public static final int STATE_IDLE_ITEM_DOWN = 18;
-    public static final int STATE_IDLE_ITEM_LEFT = 19;
+    public static final byte STATE_IDLE_ITEM_UP = 16;
+    public static final byte STATE_IDLE_ITEM_RIGHT = 17;
+    public static final byte STATE_IDLE_ITEM_DOWN = 18;
+    public static final byte STATE_IDLE_ITEM_LEFT = 19;
     // RUNNING WITH ITEM
-    public static final int STATE_RUNNING_ITEM_UP = 20;
-    public static final int STATE_RUNNING_ITEM_RIGHT = 21;
-    public static final int STATE_RUNNING_ITEM_DOWN = 22;
-    public static final int STATE_RUNNING_ITEM_LEFT = 23;
+    public static final byte STATE_RUNNING_ITEM_UP = 20;
+    public static final byte STATE_RUNNING_ITEM_RIGHT = 21;
+    public static final byte STATE_RUNNING_ITEM_DOWN = 22;
+    public static final byte STATE_RUNNING_ITEM_LEFT = 23;
 
     public static final int MAX_ANIMATION_FRAMES = 6;
     public static final byte ANIMATION_AMOUNT = 24;
@@ -223,6 +223,10 @@ public class PlayerTextures {
             case STATE_HARVEST_RIGHT:
             case STATE_HARVEST_DOWN:
             case STATE_HARVEST_LEFT:
+            case STATE_RUNNING_ITEM_UP:
+            case STATE_RUNNING_ITEM_RIGHT:
+            case STATE_RUNNING_ITEM_DOWN:
+            case STATE_RUNNING_ITEM_LEFT:
                 return 6;
             // idle
             case STATE_IDLE_UP:
