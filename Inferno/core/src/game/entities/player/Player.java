@@ -10,6 +10,7 @@ import environment.resources.ResourceAction;
 import game.entities.player.animations.PlayerAnimations;
 import game.entities.player.animations.PlayerAnimationsTest;
 import game.entities.player.animations.config.ToolAnimationConfig;
+import game.entities.player.animations.utils.AnimationAmount;
 import game.entities.player.inventory.InventoryItemGroups;
 import utils.Checkbox;
 import utils.vectors.DimensionCordVector;
@@ -38,6 +39,7 @@ public class Player extends MovableDefaultActor {
     private PlayerAnimationsTest animationsTest;
     private PlayerAnimations animations;
     private boolean isSeed = false;
+    private AnimationAmount animationAmount;
 
     public Player(ActorsManager actorsManager) {
         super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -49,6 +51,7 @@ public class Player extends MovableDefaultActor {
         setActionsCollisions();
         animationsTest = new PlayerAnimationsTest(this);
         animations = new PlayerAnimations(this);
+        animationAmount = new AnimationAmount(playerTextures.bodyTextures);
     }
 
     public void startStaticAction() {
@@ -124,7 +127,7 @@ public class Player extends MovableDefaultActor {
             aniIndex++;
 
             handleActions();
-            if (aniIndex >= PlayerTextures.actionTextureAmount(actionIndex)) {
+            if (aniIndex >= animationAmount.getAmount(actionIndex)) {
                 if (isStaticAction) {
                     isStaticAction = false;
                     actionIndex = PlayerTextures.STATE_IDLE_RIGHT;
