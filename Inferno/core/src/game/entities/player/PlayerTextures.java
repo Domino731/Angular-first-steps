@@ -233,6 +233,10 @@ public class PlayerTextures {
             case STATE_IDLE_RIGHT:
             case STATE_IDLE_DOWN:
             case STATE_IDLE_LEFT:
+            case STATE_IDLE_ITEM_UP:
+            case STATE_IDLE_ITEM_RIGHT:
+            case STATE_IDLE_ITEM_DOWN:
+            case STATE_IDLE_ITEM_LEFT:
                 return 1;
             default:
                 return 1;
@@ -256,6 +260,35 @@ public class PlayerTextures {
                 return STATE_IDLE_LEFT;
             default:
                 return STATE_IDLE_DOWN;
+        }
+    }
+
+
+    public static int idleActionByLastActionForItem(int playerAction) {
+        switch (playerAction) {
+            case STATE_RUNNING_UP:
+            case STATE_RUNNING_ITEM_UP:
+            case STATE_IDLE_UP:
+            case STATE_IDLE_ITEM_UP:
+                return STATE_IDLE_ITEM_UP;
+            case STATE_RUNNING_RIGHT:
+            case STATE_RUNNING_ITEM_RIGHT:
+            case STATE_IDLE_RIGHT:
+            case STATE_IDLE_ITEM_RIGHT:
+                return STATE_IDLE_ITEM_RIGHT;
+            case STATE_RUNNING_DOWN:
+            case STATE_RUNNING_ITEM_DOWN:
+            case STATE_IDLE_DOWN:
+            case STATE_IDLE_ITEM_DOWN:
+                return STATE_IDLE_ITEM_DOWN;
+            case STATE_RUNNING_LEFT:
+            case STATE_RUNNING_ITEM_LEFT:
+            case STATE_IDLE_LEFT:
+            case STATE_IDLE_ITEM_LEFT:
+                return STATE_IDLE_ITEM_LEFT;
+            default:
+                EngineLog.error("No match for player action in idleActionByLastActionForItem(), default value returned (STATE_IDLE_ITEM_DOWN)");
+                return STATE_IDLE_ITEM_DOWN;
         }
     }
 

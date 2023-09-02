@@ -16,6 +16,8 @@ import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
+import static game.entities.player.PlayerTextures.idleActionByLastActionForItem;
+
 public class Player extends MovableDefaultActor {
     private boolean isAttacking = false;
     public PlayerStyle style = new PlayerStyle();
@@ -35,6 +37,7 @@ public class Player extends MovableDefaultActor {
     public PlayerInventory inventory = new PlayerInventory();
     private PlayerAnimationsTest animationsTest;
     private PlayerAnimations animations;
+    private boolean isSeed = false;
 
     public Player(ActorsManager actorsManager) {
         super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -49,6 +52,10 @@ public class Player extends MovableDefaultActor {
     }
 
     public void startStaticAction() {
+        if (inventory.getCurrItemType() == InventoryItemGroups.seed) {
+            isSeed = true;
+            return;
+        }
         isStaticAction = true;
     }
 
@@ -66,44 +73,43 @@ public class Player extends MovableDefaultActor {
     private void setAnimation() {
         int startAni = actionIndex;
 
-        if (isMoving || isStaticAction) {
-            if (isStaticAction) {
-                actionIndex = Utils.getHarvestWeedAniIndex(actionIndex, inventory.getCurrItemType());
-            } else if (direction.left) {
-                if (inventory.currentItem.getType() == InventoryItemGroups.seed) {
+        if (isSeed) {
+            if (isMoving) {
+                System.out.println("seed.isMoving true");
+                if (direction.left) {
                     actionIndex = PlayerTextures.STATE_RUNNING_ITEM_LEFT;
-                    return;
+                } else if (direction.right) {
+                    actionIndex = PlayerTextures.STATE_RUNNING_ITEM_RIGHT;
+                } else if (direction.top) {
+                    actionIndex = PlayerTextures.STATE_RUNNING_ITEM_UP;
+                } else if (direction.bot) {
+                    actionIndex = PlayerTextures.STATE_RUNNING_ITEM_DOWN;
                 }
+            } else {
+                actionIndex = idleActionByLastActionForItem(actionIndex);
+            }
+
+        } else if (isMoving || isStaticAction) {
+            if (isStaticAction) {
+                actionIndex = Utils.getHarvestWeedAniIndex(actionIndex, inventory.getCurrItemType(), isMoving, isSeed);
+            } else if (direction.left) {
                 actionIndex = PlayerTextures.STATE_RUNNING_LEFT;
             } else if (direction.right) {
-                if (inventory.currentItem.getType() == InventoryItemGroups.seed) {
-                    actionIndex = PlayerTextures.STATE_RUNNING_ITEM_RIGHT;
-                    return;
-                }
                 actionIndex = PlayerTextures.STATE_RUNNING_RIGHT;
             } else if (direction.top) {
-                if (inventory.currentItem.getType() == InventoryItemGroups.seed) {
-                    actionIndex = PlayerTextures.STATE_RUNNING_ITEM_UP;
-                    return;
-                }
                 actionIndex = PlayerTextures.STATE_RUNNING_UP;
             } else if (direction.bot) {
-                if (inventory.currentItem.getType() == InventoryItemGroups.seed) {
-                    actionIndex = PlayerTextures.STATE_RUNNING_ITEM_DOWN;
-                    return;
-                }
                 actionIndex = PlayerTextures.STATE_RUNNING_DOWN;
             }
         } else {
             actionIndex = PlayerTextures.idleActionByLastAction(actionIndex);
         }
 
-        hairTextureIndex = PlayerTextures.hairTextureIndexByAction(actionIndex);
-        shirtYOffset = PlayerTextureUtils.getShirtYOffset(actionIndex, aniIndex);
-        PlayerConstants.setHatTextureIndex(PlayerTextures.hatTextureIndexByAction(actionIndex));
 
-        if (startAni != actionIndex)
+        if (startAni != actionIndex) {
             resetAniTick();
+        }
+
     }
 
     protected void resetAniTick() {
@@ -113,7 +119,6 @@ public class Player extends MovableDefaultActor {
 
     private void updateAnimationTick() {
         aniTick++;
-
         if (aniTick >= aniSpeed) {
             aniTick = 0;
             aniIndex++;
@@ -128,9 +133,6 @@ public class Player extends MovableDefaultActor {
                 isAttacking = false;
             }
         }
-
-
-        hairTextureYOffset = PlayerTextureUtils.getHairYOffset(actionIndex, aniIndex);
     }
 
     /**
@@ -147,15 +149,6 @@ public class Player extends MovableDefaultActor {
     @Override
     public void draw(SpriteBatch sb) {
         animations.draw(sb);
-//        animationsTest.harvestWeedRight(sb);
-//        sb.draw(playerTextures.bodyTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-//        sb.draw(style.hairArray[hairTextureIndex], finalPosition.x, finalPosition.y + hairTextureYOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-//        sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
-//        sb.draw(playerTextures.pantsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 16);
-//        sb.draw(style.shirtsArray[PlayerConstants.hatTextureIndex], finalPosition.x + 4, finalPosition.y + shirtYOffset, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
-//        sb.draw(playerTextures.armsTextures[actionIndex][aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-
-
     }
 
     public void updatePos() {

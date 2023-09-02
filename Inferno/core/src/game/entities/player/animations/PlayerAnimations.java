@@ -14,6 +14,8 @@ import items.Items;
 import utils.Direction;
 import utils.vectors.Vector;
 
+import java.util.Arrays;
+
 import static game.entities.player.animations.config.AniConfigConstants.*;
 
 public class PlayerAnimations {
@@ -34,6 +36,7 @@ public class PlayerAnimations {
     public final byte weaponYOrigin = 16 / 2;
     public Integer[][] hairOffset;
     public Integer[][] shirtOffset;
+    boolean test = false;
 
     public PlayerAnimations(Player player) {
         this.player = player;
@@ -214,8 +217,22 @@ public class PlayerAnimations {
     }
 
     private void itemAnimation(SpriteBatch sb) {
-        sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-        sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+//        sb.draw(bodyTextures[17][0], finalPosition.x, finalPosition.y, 16, 32);
+//        sb.draw(armsTextures[17][0], finalPosition.x, finalPosition.y, 16, 32);
+        if (bodyTextures[player.actionIndex][player.aniIndex] != null && armsTextures[player.actionIndex][player.aniIndex] != null) {
+            sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+            sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+        } else {
+            if (!test) {
+                System.out.println(Arrays.toString(bodyTextures[17]));
+                System.out.println(Arrays.toString(armsTextures[17]));
+                System.out.println(player.actionIndex);
+                System.out.println(player.aniIndex);
+                test = true;
+            }
+
+        }
+
     }
 
     private void harvestAnimation(SpriteBatch sb, byte bodyTexturesIndex, byte directionIndex, TextureRegion weaponTexture) {
