@@ -8,7 +8,6 @@ import engine.actors.movableDefaultActor.MovableDefaultActor;
 import engine.actorsManager.ActorsManager;
 import environment.resources.ResourceAction;
 import game.entities.player.animations.PlayerAnimations;
-import game.entities.player.animations.PlayerAnimationsTest;
 import game.entities.player.animations.config.ToolAnimationConfig;
 import game.entities.player.animations.utils.AnimationAmount;
 import game.entities.player.inventory.InventoryItemGroups;
@@ -36,7 +35,6 @@ public class Player extends MovableDefaultActor {
     // Action collision from ActorManager
     private ActorsManager actorsManager;
     public PlayerInventory inventory = new PlayerInventory();
-    private PlayerAnimationsTest animationsTest;
     private PlayerAnimations animations;
     private boolean isSeed = false;
     private AnimationAmount animationAmount;
@@ -49,7 +47,6 @@ public class Player extends MovableDefaultActor {
 //        playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
         playerTextures.pantsTextures = shirts.createPants(playerTextures.pantsTextures, style.shirtsArray[2]);
         setActionsCollisions();
-        animationsTest = new PlayerAnimationsTest(this);
         animations = new PlayerAnimations(this);
         animationAmount = new AnimationAmount(playerTextures.bodyTextures);
     }

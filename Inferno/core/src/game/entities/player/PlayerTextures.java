@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
+import game.entities.player.animations.config.HairOffset;
 import spritesManager.SpritesManager;
 import utils.Direction;
 import utils.EngineLog;
@@ -16,6 +17,7 @@ import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 
 public class PlayerTextures {
@@ -79,6 +81,8 @@ public class PlayerTextures {
 
         readJson();
         loadTools();
+
+        System.out.println(Arrays.deepToString(HairOffset.hairOffset));
     }
 
     private void loadTools() {
