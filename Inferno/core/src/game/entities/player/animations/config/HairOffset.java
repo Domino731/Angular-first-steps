@@ -12,21 +12,22 @@ public class HairOffset {
         byte[][] data = new byte[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
 
         // IDLE
-        data[PlayerTextures.STATE_IDLE_UP] = new byte[]{-2};
+        data[PlayerTextures.STATE_IDLE_UP] = new byte[]{-3};
         data[PlayerTextures.STATE_IDLE_RIGHT] = new byte[]{-2};
-        data[PlayerTextures.STATE_IDLE_DOWN] = new byte[]{-2};
+        data[PlayerTextures.STATE_IDLE_DOWN] = new byte[]{-3};
         data[PlayerTextures.STATE_IDLE_LEFT] = new byte[]{-2};
-        // RUNNING
-        data[PlayerTextures.STATE_RUNNING_UP] = new byte[]{-2};
-        data[PlayerTextures.STATE_RUNNING_RIGHT] = new byte[]{-4, -5, -4, -3, -4, -5, -4, -3};
-        data[PlayerTextures.STATE_RUNNING_DOWN] = new byte[]{-2};
-        data[PlayerTextures.STATE_RUNNING_LEFT] = new byte[]{-4, -5, -4, -3, -4, -5, -4, -3};
+        // IDLE WITH ITEM
+        data[PlayerTextures.STATE_IDLE_ITEM_UP] = new byte[]{-3};
+        data[PlayerTextures.STATE_IDLE_ITEM_RIGHT] = new byte[]{-2};
+        data[PlayerTextures.STATE_IDLE_ITEM_DOWN] = new byte[]{-3};
+        data[PlayerTextures.STATE_IDLE_ITEM_LEFT] = new byte[]{-2};
 
-        // RUNNING WITH ITEM
-        data[PlayerTextures.STATE_RUNNING_ITEM_UP] = new byte[]{-2};
-        data[PlayerTextures.STATE_RUNNING_ITEM_RIGHT] = new byte[]{-4, -5, -4, -3, -4, -5, -4, -3};
-        data[PlayerTextures.STATE_RUNNING_ITEM_DOWN] = new byte[]{-2};
-        data[PlayerTextures.STATE_RUNNING_ITEM_LEFT] = new byte[]{-4, -5, -4, -3, -4, -5, -4, -3};
+        // RUNNING
+        data[PlayerTextures.STATE_RUNNING_UP] = new byte[]{-4, -4, -3, -4, -4, -3};
+        data[PlayerTextures.STATE_RUNNING_RIGHT] = new byte[]{-3, -3, -2, -3, -3, -2};
+        data[PlayerTextures.STATE_RUNNING_DOWN] = new byte[]{-4, -5, -4, -3, -4, -5, -4, -3};
+        data[PlayerTextures.STATE_RUNNING_LEFT] = new byte[]{-3, -3, -2, -3, -3, -2};
+
 
         return data;
     }
