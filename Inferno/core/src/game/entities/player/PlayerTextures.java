@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
+import game.entities.player.animations.config.BodyOffsets;
 import game.entities.player.animations.config.HairOffset;
 import spritesManager.SpritesManager;
 import utils.Direction;
@@ -358,8 +359,7 @@ public class PlayerTextures {
                         pantsTxt,
                         pantsX, pantsY, 16, 16
                 );
-
-//                bodyOffsets[state][i] = BodyOffsets.bodyOffsets[cordX][cordY];
+                bodyOffsets[state][i] = BodyOffsets.bodyOffsets[cordY][cordX];
 
             }
             i++;
@@ -412,8 +412,8 @@ public class PlayerTextures {
                 );
                 pantsTextures[stateLeft][i].flip(true, false);
 
-//                bodyOffsets[stateLeft][i] = BodyOffsets.bodyOffsets[cordX][cordY];
-//                bodyOffsets[stateRight][i] = BodyOffsets.bodyOffsets[cordX][cordY];
+                bodyOffsets[stateLeft][i] = BodyOffsets.bodyOffsets[cordY][cordX];
+                bodyOffsets[stateRight][i] = BodyOffsets.bodyOffsets[cordY][cordX];
             }
 
 

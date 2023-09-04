@@ -15,7 +15,6 @@ import utils.Direction;
 import utils.vectors.Vector;
 
 import static game.entities.player.animations.config.AniConfigConstants.*;
-import static game.entities.player.animations.config.BodyOffsets.bodyOffsets;
 
 public class PlayerAnimations {
     private Player player;
@@ -30,7 +29,7 @@ public class PlayerAnimations {
     TextureRegion[][] toolTxts = Items.get("stone_pickaxe").txts;
     public static final short[][][] weaponAnimations = WeaponAnimationConfig.animations;
     public static final byte[][][] toolAnimations = ToolAnimationConfig.animations;
-
+    public byte[][] bodyOffsets;
 
     public final byte weaponXOrigin = 16 / 2;
     public final byte weaponYOrigin = 16 / 2;
@@ -46,6 +45,7 @@ public class PlayerAnimations {
         pantsTextures = player.playerTextures.pantsTextures;
         hairOffset = CreateHairYOffset.createOffsetForHair(player.playerTextures.armsTextures);
         shirtOffset = CreateHairYOffset.create(player.playerTextures.pantsTextures);
+        bodyOffsets = player.playerTextures.bodyOffsets;
         setAnimationDraws();
     }
 
