@@ -69,7 +69,7 @@ public class PlayerTextures {
     public TextureRegion pickaxe;
 
     // offsets
-    public byte[][] bodyOffsets;
+    public short[][] bodyOffsets;
 
     private final int textureWidth = 16;
     private final int textureHeight = 32;
@@ -82,7 +82,7 @@ public class PlayerTextures {
         bodyTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
         armsTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
         pantsTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
-        bodyOffsets = new byte[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
+        bodyOffsets = new short[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
 
         readJson();
         loadTools();
@@ -359,7 +359,7 @@ public class PlayerTextures {
                         pantsTxt,
                         pantsX, pantsY, 16, 16
                 );
-                bodyOffsets[state][i] = BodyOffsets.bodyOffsets[cordY][cordX];
+                bodyOffsets[state][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
 
             }
             i++;
@@ -412,8 +412,8 @@ public class PlayerTextures {
                 );
                 pantsTextures[stateLeft][i].flip(true, false);
 
-                bodyOffsets[stateLeft][i] = BodyOffsets.bodyOffsets[cordY][cordX];
-                bodyOffsets[stateRight][i] = BodyOffsets.bodyOffsets[cordY][cordX];
+                bodyOffsets[stateLeft][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
+                bodyOffsets[stateRight][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
             }
 
 
