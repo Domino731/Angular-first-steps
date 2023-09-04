@@ -67,6 +67,9 @@ public class PlayerTextures {
     public TextureRegion[][] pantsTextures;
     public TextureRegion pickaxe;
 
+    // offsets
+    public byte[][] bodyOffsets;
+
     private final int textureWidth = 16;
     private final int textureHeight = 32;
     public static final byte toolWidth = 16;
@@ -78,6 +81,7 @@ public class PlayerTextures {
         bodyTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
         armsTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
         pantsTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
+        bodyOffsets = new byte[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
 
         readJson();
         loadTools();
@@ -335,9 +339,11 @@ public class PlayerTextures {
     private void loadTexturesForAnimationState(TextureRegion[][] textures, int state, JsonNode animationNode, Texture texture, boolean loadPants) {
         int i = 0;
         for (JsonNode cord : animationNode) {
-            int x = cord.get(0).shortValue() * textureWidth;
-            int y = cord.get(1).shortValue() * textureHeight;
-//            16
+            int cordX = cord.get(0).shortValue();
+            int cordY = cord.get(1).shortValue();
+            int x = cordX * textureWidth;
+            int y = cordY * textureHeight;
+
             textures[state][i] = new TextureRegion(
                     texture,
                     x,
@@ -352,6 +358,9 @@ public class PlayerTextures {
                         pantsTxt,
                         pantsX, pantsY, 16, 16
                 );
+
+//                bodyOffsets[state][i] = BodyOffsets.bodyOffsets[cordX][cordY];
+
             }
             i++;
             if (i >= MAX_ANIMATION_FRAMES) {
@@ -363,15 +372,10 @@ public class PlayerTextures {
     private void loadHorizontallyTexturesForAnimationState(TextureRegion[][] textures, int stateLeft, int stateRight, JsonNode animationNode, Texture texture, boolean loadPants) {
         int i = 0;
         for (JsonNode cord : animationNode) {
-            int x = cord.get(0).shortValue() * textureWidth;
-            int y = cord.get(1).shortValue() * textureHeight;
-
-            // TODO later: fix offset, this fixed value should be in json file
-//            if (stateLeft == STATE_RUNNING_LEFT || stateRight == STATE_RUNNING_RIGHT) {
-//                if (i == 0 || i == 3) {
-//                    y += 1;
-//                }
-//            }
+            int cordX = cord.get(0).shortValue();
+            int cordY = cord.get(1).shortValue();
+            int x = cordX * textureWidth;
+            int y = cordY * textureHeight;
 
             TextureRegion textureRight = new TextureRegion(
                     texture,
@@ -407,6 +411,9 @@ public class PlayerTextures {
                         pantsX, pantsY, 16, 16
                 );
                 pantsTextures[stateLeft][i].flip(true, false);
+
+//                bodyOffsets[stateLeft][i] = BodyOffsets.bodyOffsets[cordX][cordY];
+//                bodyOffsets[stateRight][i] = BodyOffsets.bodyOffsets[cordX][cordY];
             }
 
 

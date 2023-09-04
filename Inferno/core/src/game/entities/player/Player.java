@@ -75,7 +75,6 @@ public class Player extends MovableDefaultActor {
 
         if (isSeed) {
             if (isMoving) {
-                System.out.println("seed.isMoving true");
                 if (direction.left) {
                     actionIndex = PlayerTextures.STATE_RUNNING_ITEM_LEFT;
                 } else if (direction.right) {

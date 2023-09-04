@@ -35,9 +35,7 @@ public class PlayerShirtsData {
             for (int y = 0; y < pixmap.getHeight(); y++) {
                 int colorInt = pixmap.getPixel(x, y);
                 Integer color = colorsMap.get(colorInt);
-                if (colorInt != 0 && color == null) {
-                    System.out.println(colorInt);
-                }
+
                 if (color != null) {
                     pixmap.drawPixel(x, y, color);
                 } else {
@@ -64,7 +62,7 @@ public class PlayerShirtsData {
             if (i == PlayerTextures.STATE_IDLE_LEFT) {
                 armsTxtRg = arms[PlayerTextures.STATE_IDLE_RIGHT];
             }
-//            System.out.println(armsTxtRg);
+
             for (int j = 0; j < armsTxtRg.length; j++) {
                 TextureRegion armTxtRg = armsTxtRg[j];
                 if (armTxtRg != null) {
@@ -104,7 +102,7 @@ public class PlayerShirtsData {
             if (i == PlayerTextures.STATE_IDLE_LEFT) {
                 armsTxtRg = pants[PlayerTextures.STATE_IDLE_RIGHT];
             }
-//            System.out.println(armsTxtRg);
+
             for (int j = 0; j < armsTxtRg.length; j++) {
                 TextureRegion armTxtRg = armsTxtRg[j];
                 if (armTxtRg != null) {
@@ -136,10 +134,6 @@ public class PlayerShirtsData {
             for (int y = 0; y < pixmap.getHeight(); y++) {
                 int colorInt = pixmap.getPixel(x, y);
                 Integer color = colorsMap.get(colorInt);
-                if (debug && colorInt != 0) {
-                    System.out.println(colorInt);
-                    System.out.println(color);
-                }
 
                 if (color != null) {
                     pixmap.drawPixel(x, y, color);

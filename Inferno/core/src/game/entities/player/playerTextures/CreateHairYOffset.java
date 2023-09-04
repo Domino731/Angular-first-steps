@@ -4,8 +4,6 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import game.entities.player.PlayerTextures;
 
-import java.util.Arrays;
-
 import static utils.TxtUtils.getPixmapFromTextureRegion;
 
 public class CreateHairYOffset {
@@ -69,7 +67,6 @@ public class CreateHairYOffset {
             }
         }
 
-        System.out.println(Arrays.toString(data[PlayerTextures.STATE_RUNNING_RIGHT]));
         return data;
     }
 }
