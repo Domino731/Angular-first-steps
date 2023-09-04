@@ -208,7 +208,7 @@ public class Player extends MovableDefaultActor {
                 new ResourceAction() {
                     @Override
                     public void action() {
-                        System.out.println("PLAYER ACTION COLLISION");
+//                        System.out.println("PLAYER ACTION COLLISION");
                     }
                 }
         ));

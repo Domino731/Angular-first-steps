@@ -13,7 +13,10 @@ import items.Items;
 import utils.Direction;
 import utils.vectors.Vector;
 
+import java.util.Arrays;
+
 import static game.entities.player.animations.config.AniConfigConstants.*;
+import static game.entities.player.animations.config.BodyOffsets.bodyOffsets;
 
 public class PlayerAnimations {
     private Player player;
@@ -29,6 +32,7 @@ public class PlayerAnimations {
     public static final short[][][] weaponAnimations = WeaponAnimationConfig.animations;
     public static final byte[][][] toolAnimations = ToolAnimationConfig.animations;
 
+
     public final byte weaponXOrigin = 16 / 2;
     public final byte weaponYOrigin = 16 / 2;
     public Integer[][] hairOffset;
@@ -43,7 +47,7 @@ public class PlayerAnimations {
         pantsTextures = player.playerTextures.pantsTextures;
         hairOffset = CreateHairYOffset.createOffsetForHair(player.playerTextures.armsTextures);
         shirtOffset = CreateHairYOffset.create(player.playerTextures.pantsTextures);
-
+        System.out.println(Arrays.deepToString(bodyOffsets));
         setAnimationDraws();
     }
 
