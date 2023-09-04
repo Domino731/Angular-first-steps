@@ -69,8 +69,11 @@ public class PlayerTextures {
     public TextureRegion pickaxe;
 
     // offsets
-    public short[][] bodyOffsets;
+    public short[][] hairOffsets;
+    public short[][] hatsOffsets;
 
+
+    public static byte hatSize = 20;
     private final int textureWidth = 16;
     private final int textureHeight = 32;
     public static final byte toolWidth = 16;
@@ -82,7 +85,8 @@ public class PlayerTextures {
         bodyTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
         armsTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
         pantsTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
-        bodyOffsets = new short[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
+        hairOffsets = new short[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
+        hatsOffsets = new short[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
 
         readJson();
         loadTools();
@@ -359,8 +363,8 @@ public class PlayerTextures {
                         pantsTxt,
                         pantsX, pantsY, 16, 16
                 );
-                bodyOffsets[state][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
-
+                hairOffsets[state][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
+                hatsOffsets[state][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
             }
             i++;
             if (i >= MAX_ANIMATION_FRAMES) {
@@ -412,8 +416,10 @@ public class PlayerTextures {
                 );
                 pantsTextures[stateLeft][i].flip(true, false);
 
-                bodyOffsets[stateLeft][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
-                bodyOffsets[stateRight][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
+                hairOffsets[stateLeft][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
+                hairOffsets[stateRight][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
+                hatsOffsets[stateLeft][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
+                hatsOffsets[stateRight][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
             }
 
 
