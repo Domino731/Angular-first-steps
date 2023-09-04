@@ -1,17 +1,16 @@
 package game.entities.player;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.ActionTypes;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
 import engine.actorsManager.ActorsManager;
 import environment.resources.ResourceAction;
 import game.entities.player.animations.PlayerAnimations;
-import game.entities.player.animations.config.ToolAnimationConfig;
 import game.entities.player.animations.utils.AnimationAmount;
 import game.entities.player.inventory.InventoryItemGroups;
 import utils.Checkbox;
+import utils.Direction;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
@@ -19,31 +18,22 @@ import utils.vectors.Vector;
 import static game.entities.player.PlayerTextures.idleActionByLastActionForItem;
 
 public class Player extends MovableDefaultActor {
-    private boolean isAttacking = false;
     public PlayerStyle style = new PlayerStyle();
     public int hairTextureIndex = 0;
-    private byte hairTextureYOffset = -2;
-    private byte shirtYOffset = 8;
-
-    private TextureRegion testRg;
     private PlayerShirtsData shirts;
-    private TextureRegion[][] newArms;
-    private int textIndex = PlayerTextures.STATE_IDLE_RIGHT;
-    private TextureRegion pants;
     private boolean isStaticAction = false;
-    private byte[][] rightAxeAnimation = ToolAnimationConfig.rightAxeAnimation;
     // Action collision from ActorManager
     private ActorsManager actorsManager;
     public PlayerInventory inventory = new PlayerInventory();
     private PlayerAnimations animations;
     private boolean isSeed = false;
     private AnimationAmount animationAmount;
+    private byte directionIndex = Direction.down;
 
     public Player(ActorsManager actorsManager) {
         super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
         shirts = new PlayerShirtsData();
         this.actorsManager = actorsManager;
-        testRg = shirts.arm;
 //        playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
         playerTextures.pantsTextures = shirts.createPants(playerTextures.pantsTextures, style.shirtsArray[2]);
         setActionsCollisions();
@@ -129,7 +119,6 @@ public class Player extends MovableDefaultActor {
                     actionIndex = PlayerTextures.STATE_IDLE_RIGHT;
                 }
                 aniIndex = 0;
-                isAttacking = false;
             }
         }
     }
@@ -150,10 +139,15 @@ public class Player extends MovableDefaultActor {
         animations.draw(sb);
     }
 
+    public byte getDirectionIndex() {
+        return directionIndex;
+    }
+
     public void updatePos() {
         isMoving = false;
         if (direction.left && !direction.right) {
             position.x -= speed;
+            directionIndex = Direction.left;
             for (Checkbox cb : checkboxArray) {
                 cb.position.x -= speed;
             }
@@ -164,6 +158,7 @@ public class Player extends MovableDefaultActor {
             isMoving = true;
         } else if (direction.right && !direction.left) {
             position.x += speed;
+            directionIndex = Direction.right;
             for (Checkbox cb : checkboxArray) {
                 cb.position.x += speed;
             }
@@ -176,6 +171,7 @@ public class Player extends MovableDefaultActor {
 
         if (!direction.top && direction.bot) {
             position.y -= speed;
+            directionIndex = Direction.down;
             for (Checkbox cb : checkboxArray) {
                 cb.position.y -= speed;
             }
@@ -186,6 +182,7 @@ public class Player extends MovableDefaultActor {
             isMoving = true;
         } else if (direction.top && !direction.bot) {
             position.y += speed;
+            directionIndex = Direction.up;
             for (Checkbox cb : checkboxArray) {
                 cb.position.y += speed;
             }

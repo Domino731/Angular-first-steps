@@ -32,12 +32,12 @@ public class PlayerAnimations {
     public static final short[][][] weaponAnimations = WeaponAnimationConfig.animations;
     public static final byte[][][] toolAnimations = ToolAnimationConfig.animations;
     public short[][] bodyOffsets;
+    public byte hairBaseOffset = 13;
 
     public final byte weaponXOrigin = 16 / 2;
     public final byte weaponYOrigin = 16 / 2;
     public Integer[][] hairOffset;
     public Integer[][] shirtOffset;
-    boolean test = false;
 
     public PlayerAnimations(Player player) {
         this.player = player;
@@ -67,7 +67,7 @@ public class PlayerAnimations {
 
     public void running(SpriteBatch sb) {
         sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-        sb.draw(player.style.hairArray[0], finalPosition.x, finalPosition.y + bodyOffsets[player.actionIndex][player.aniIndex], PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(player.style.hairArray[player.getDirectionIndex()], finalPosition.x, finalPosition.y + bodyOffsets[player.actionIndex][player.aniIndex] - hairBaseOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
 //        sb.draw(style.hatsArray[PlayerConstants.hatTextureIndex], finalPosition.x + PlayerConstants.hairXOffset, (finalPosition.y + hairTextureYOffset) + PlayerConstants.hairYOffset, 20, 20);
         sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
 //        sb.draw(player.style.shirtsArray[player.hairTextureIndex], finalPosition.x + 4, finalPosition.y + 16 - shirtOffset[player.actionIndex][player.aniIndex] - 1, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
