@@ -34,6 +34,7 @@ public class PlayerAnimations {
     public static final byte[][][] toolAnimations = ToolAnimationConfig.animations;
     public short[][] bodyOffsets;
     public short[][] hatOffsets;
+    public short[][] shirtOffsets;
     public byte hairBaseOffset = 13;
 
     public final byte weaponXOrigin = 16 / 2;
@@ -51,6 +52,7 @@ public class PlayerAnimations {
         shirtOffset = CreateHairYOffset.create(player.playerTextures.pantsTextures);
         bodyOffsets = player.playerTextures.hairOffsets;
         hatOffsets = player.playerTextures.hatsOffsets;
+        shirtOffsets = player.playerTextures.shirtOffsets;
 
         System.out.println("bodyOffsets");
         System.out.println(Arrays.toString(bodyOffsets[PlayerTextures.STATE_RUNNING_RIGHT]));
@@ -73,6 +75,9 @@ public class PlayerAnimations {
         sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[player.getDirectionIndex()], finalPosition.x, finalPosition.y + bodyOffsets[player.actionIndex][player.aniIndex] - hairBaseOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
         sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + PlayerConstants.hairXOffset, finalPosition.y + hatOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
+        sb.draw(player.style.shirtsArray[player.getDirectionIndex()], finalPosition.x,
+                finalPosition.y + shirtOffsets[player.actionIndex][player.aniIndex]
+                , PlayerConstants.shirtDim.width,  PlayerConstants.shirtDim.height);
         sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
 //        sb.draw(player.style.shirtsArray[player.hairTextureIndex], finalPosition.x + 4, finalPosition.y + 16 - shirtOffset[player.actionIndex][player.aniIndex] - 1, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
         sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);

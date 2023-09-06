@@ -12,7 +12,7 @@ import static game.entities.player.animations.config.AniConfigConstants.spritesh
 import static game.entities.player.animations.config.AniConfigConstants.spritesheetRowsAmount;
 
 public class Offsets {
-    public static byte[][] tshirt;
+    public static byte[][] shirts = createTShirt();
 
 
     private static byte[][] createTShirt() {

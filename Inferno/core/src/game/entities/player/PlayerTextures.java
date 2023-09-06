@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import game.entities.player.animations.config.BodyOffsets;
 import game.entities.player.animations.config.HairOffset;
+import game.entities.player.animations.config.Offsets;
 import spritesManager.SpritesManager;
 import utils.Direction;
 import utils.EngineLog;
@@ -71,7 +72,7 @@ public class PlayerTextures {
     // offsets
     public short[][] hairOffsets;
     public short[][] hatsOffsets;
-
+    public short[][] shirtOffsets;
 
     public static byte hatSize = 20;
     private final int textureWidth = 16;
@@ -87,6 +88,7 @@ public class PlayerTextures {
         pantsTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
         hairOffsets = new short[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
         hatsOffsets = new short[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
+        shirtOffsets = new short[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
 
         readJson();
         loadTools();
@@ -365,6 +367,7 @@ public class PlayerTextures {
                 );
                 hairOffsets[state][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
                 hatsOffsets[state][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
+                shirtOffsets[state][i] =  (short) (32 - Offsets.shirts[cordY][cordX] - 19);
             }
             i++;
             if (i >= MAX_ANIMATION_FRAMES) {
@@ -420,6 +423,8 @@ public class PlayerTextures {
                 hairOffsets[stateRight][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
                 hatsOffsets[stateLeft][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
                 hatsOffsets[stateRight][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
+                shirtOffsets[stateLeft][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 19);
+                shirtOffsets[stateRight][i] = (short)(32 -Offsets.shirts[cordY][cordX] - 19);
             }
 
 
