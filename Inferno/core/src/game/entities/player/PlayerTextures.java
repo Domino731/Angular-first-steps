@@ -367,7 +367,7 @@ public class PlayerTextures {
                 );
                 hairOffsets[state][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
                 hatsOffsets[state][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
-                shirtOffsets[state][i] =  (short) (32 - Offsets.shirts[cordY][cordX] - 19);
+                shirtOffsets[state][i] =  (short)(32 -Offsets.shirts[cordY][cordX] - 8);
             }
             i++;
             if (i >= MAX_ANIMATION_FRAMES) {
@@ -423,8 +423,8 @@ public class PlayerTextures {
                 hairOffsets[stateRight][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
                 hatsOffsets[stateLeft][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
                 hatsOffsets[stateRight][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
-                shirtOffsets[stateLeft][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 19);
-                shirtOffsets[stateRight][i] = (short)(32 -Offsets.shirts[cordY][cordX] - 19);
+                shirtOffsets[stateLeft][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 8);
+                shirtOffsets[stateRight][i] = (short)(32 -Offsets.shirts[cordY][cordX] - 8);
             }
 
 

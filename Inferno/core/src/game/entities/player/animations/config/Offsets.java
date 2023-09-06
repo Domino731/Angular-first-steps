@@ -39,12 +39,12 @@ public class Offsets {
     private static JsonNode readJson() {
         JsonNode json = null;
         try {
-            FileHandle fileHandle = Gdx.files.internal(Urls.hairOffsets);
+            FileHandle fileHandle = Gdx.files.internal(Urls.shirtOffsets);
             if (fileHandle.exists()) {
                 json = Json.parse(fileHandle.readString());
             }
         } catch (IOException e) {
-            EngineLog.resourceError(Urls.hairOffsets);
+            EngineLog.resourceError(Urls.shirtOffsets);
         }
 
         return json;

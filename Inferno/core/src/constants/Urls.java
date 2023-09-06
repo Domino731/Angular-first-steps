@@ -12,4 +12,5 @@ public class Urls {
     public static final String seeds = "sprites/seeds.png";
     public static final String weaponsConfig = "config/items/tools/weapons.json";
     public static final String hairOffsets = "config/hairOffsets.json";
+    public static final String shirtOffsets = "config/baseShirtOffsets.json";
 }
