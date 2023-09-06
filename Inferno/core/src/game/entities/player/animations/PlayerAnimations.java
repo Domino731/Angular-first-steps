@@ -75,11 +75,10 @@ public class PlayerAnimations {
         sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[player.getDirectionIndex()], finalPosition.x, finalPosition.y + bodyOffsets[player.actionIndex][player.aniIndex] - hairBaseOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
         sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + PlayerConstants.hairXOffset, finalPosition.y + hatOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
+        sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
         sb.draw(player.style.shirtsArray[player.getDirectionIndex()], finalPosition.x + 4,
                 finalPosition.y + shirtOffsets[player.actionIndex][player.aniIndex]
-                , PlayerConstants.shirtDim.width,  PlayerConstants.shirtDim.height);
-        sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
-//        sb.draw(player.style.shirtsArray[player.hairTextureIndex], finalPosition.x + 4, finalPosition.y + 16 - shirtOffset[player.actionIndex][player.aniIndex] - 1, PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
+                , PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
         sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
     }
 
@@ -203,8 +202,7 @@ public class PlayerAnimations {
     }
 
     private void itemAnimation(SpriteBatch sb) {
-        sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-        sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
+        running(sb);
     }
 
     private void harvestAnimation(SpriteBatch sb, byte bodyTexturesIndex, byte directionIndex, TextureRegion weaponTexture) {
