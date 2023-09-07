@@ -2,6 +2,9 @@ package game.entities.player;
 
 import game.entities.player.inventory.InventoryItemGroups;
 import utils.Direction;
+import utils.vectors.DimensionCordVector;
+
+import java.util.ArrayList;
 
 import static game.entities.player.PlayerConstants.*;
 
@@ -99,6 +102,11 @@ public class Utils {
             default:
                 return Direction.down;
         }
+    }
 
+    public static ArrayList<DimensionCordVector> getCheckboxArray() {
+        ArrayList<DimensionCordVector> payload = new ArrayList<>();
+        payload.add(new DimensionCordVector(10, 5, 3, 0));
+        return payload;
     }
 }

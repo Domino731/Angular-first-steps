@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
 import engine.actors.utils.ActorDirection;
-import game.entities.player.PlayerTextures;
+import game.entities.player.playerTextures.PlayerTextures;
 import utils.TextureData;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;

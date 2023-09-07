@@ -1,4 +1,4 @@
-package game.entities.player;
+package game.entities.player.style.data;
 
 public enum HatsNames {
     TEST_1,

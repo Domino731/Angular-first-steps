@@ -1,4 +1,4 @@
-package game.entities.player;
+package game.entities.player.playerTextures;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -7,8 +7,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
+import game.entities.player.PlayerConstants;
 import game.entities.player.animations.config.BodyOffsets;
 import game.entities.player.animations.config.Offsets;
+import game.entities.player.style.data.HatsNames;
 import game.entities.player.style.data.PlayerHairsData;
 import game.entities.player.style.data.PlayerHatsData;
 import spritesManager.SpritesManager;

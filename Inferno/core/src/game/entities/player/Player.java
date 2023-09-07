@@ -10,6 +10,7 @@ import game.entities.player.animations.PlayerAnimations;
 import game.entities.player.animations.utils.AnimationAmount;
 import game.entities.player.inventory.InventoryItemGroups;
 import game.entities.player.inventory.PlayerInventory;
+import game.entities.player.playerTextures.PlayerTextures;
 import game.entities.player.style.PlayerStyle;
 import game.entities.player.style.data.PlayerShirtsData;
 import utils.Checkbox;
@@ -20,7 +21,7 @@ import utils.vectors.Vector;
 
 import static constants.Urls.SPRITE_HATS;
 import static game.entities.player.PlayerConstants.*;
-import static game.entities.player.PlayerTextures.idleActionByLastActionForItem;
+import static game.entities.player.playerTextures.PlayerTextures.idleActionByLastActionForItem;
 
 public class Player extends MovableDefaultActor {
     public PlayerStyle style = new PlayerStyle();

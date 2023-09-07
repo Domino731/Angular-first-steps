@@ -9,6 +9,7 @@ import utils.vectors.Vector;
 import java.util.ArrayList;
 
 import static constants.Urls.SPRITE_HATS;
+import static game.entities.player.Utils.getCheckboxArray;
 
 public class PlayerConstants {
     public static Vector<Integer> position = new Vector<>(100, 100);
@@ -64,14 +65,8 @@ public class PlayerConstants {
      */
     public static final byte[][] ANI_INDICES_BY_DIRECTION = createAniIndicesByDirection();
 
-
-    private static ArrayList<DimensionCordVector> getCheckboxArray() {
-        ArrayList<DimensionCordVector> payload = new ArrayList<>();
-        payload.add(new DimensionCordVector(10, 5, 3, 0));
-        return payload;
-    }
-
-
+    
+    // METHODS FOR CREATING CONSTANT
     private static byte[][] createAniIndicesByDirection() {
         // 4 - amount of directions - up, right, down, left
         // 6 - amount of available animations - idle, running, mine, harvest, idle with item, running with item...
