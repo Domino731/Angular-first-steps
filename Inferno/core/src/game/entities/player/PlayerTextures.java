@@ -25,9 +25,6 @@ import static game.entities.player.PlayerConstants.*;
 
 
 public class PlayerTextures {
-    public static final int MAX_ANIMATION_FRAMES = 8;
-    public static final byte ANIMATION_AMOUNT = 24;
-
     private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
     private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
     private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
@@ -54,12 +51,12 @@ public class PlayerTextures {
     public static final byte toolYOrigin = toolHeight / 2;
 
     public PlayerTextures() {
-        bodyTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
-        armsTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
-        pantsTextures = new TextureRegion[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
-        hairOffsets = new short[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
-        hatsOffsets = new short[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
-        shirtOffsets = new short[ANIMATION_AMOUNT][MAX_ANIMATION_FRAMES];
+        bodyTextures = new TextureRegion[ANI_AMOUNT][ANI_MAX_FRAMES];
+        armsTextures = new TextureRegion[ANI_AMOUNT][ANI_MAX_FRAMES];
+        pantsTextures = new TextureRegion[ANI_AMOUNT][ANI_MAX_FRAMES];
+        hairOffsets = new short[ANI_AMOUNT][ANI_MAX_FRAMES];
+        hatsOffsets = new short[ANI_AMOUNT][ANI_MAX_FRAMES];
+        shirtOffsets = new short[ANI_AMOUNT][ANI_MAX_FRAMES];
 
         readJson();
         loadTools();
@@ -339,7 +336,7 @@ public class PlayerTextures {
                 shirtOffsets[state][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 8);
             }
             i++;
-            if (i >= MAX_ANIMATION_FRAMES) {
+            if (i >= ANI_MAX_FRAMES) {
                 break;
             }
         }
@@ -398,7 +395,7 @@ public class PlayerTextures {
 
 
             i++;
-            if (i >= MAX_ANIMATION_FRAMES) {
+            if (i >= ANI_MAX_FRAMES) {
                 break;
             }
         }

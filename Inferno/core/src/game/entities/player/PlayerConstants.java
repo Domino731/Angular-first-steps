@@ -17,6 +17,10 @@ public class PlayerConstants {
     public static final DimensionVector<Byte> shirtDim = new DimensionVector<>((byte) 8, (byte) 8);
     public static final int[] skinColors = {-106001921, -529832449, 1795177215};
 
+    // ANIMATIONS GENERAL DATA
+    public static final int ANI_MAX_FRAMES = 8;
+    public static final byte ANI_AMOUNT = 24;
+
     // ANIMATION INDICES
 
     // IDLE

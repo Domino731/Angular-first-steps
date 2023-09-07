@@ -84,7 +84,7 @@ public class PlayerAnimations {
     }
 
     private void setAnimationDraws() {
-        AnimationDraw[] animations = new AnimationDraw[PlayerTextures.ANIMATION_AMOUNT];
+        AnimationDraw[] animations = new AnimationDraw[ANI_AMOUNT];
         // set easy animations by loop
         for (int i = 0; i <= 7; i++) {
             animations[i] = new AnimationDraw() {

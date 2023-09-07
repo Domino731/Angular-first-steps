@@ -3,7 +3,6 @@ package game.entities.player.style.data;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import game.entities.player.PlayerTextures;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -53,7 +52,7 @@ public class PlayerShirtsData {
 
     public TextureRegion[][] createShirtSleeves(TextureRegion[][] arms, TextureRegion shirtTxtRg) {
         setColorsBasedOnShirt(shirtTxtRg, false);
-        TextureRegion[][] newArms = new TextureRegion[PlayerTextures.ANIMATION_AMOUNT][PlayerTextures.MAX_ANIMATION_FRAMES];
+        TextureRegion[][] newArms = new TextureRegion[ANI_AMOUNT][ANI_MAX_FRAMES];
 
         for (int i = 0; i < arms.length; i++) {
             TextureRegion[] armsTxtRg = arms[i];
@@ -93,7 +92,7 @@ public class PlayerShirtsData {
 
     public TextureRegion[][] createPants(TextureRegion[][] pants, TextureRegion shirtTxtRg) {
         pantsColors = setPantsColorsBasedOnShirt(shirtTxtRg);
-        TextureRegion[][] newArms = new TextureRegion[PlayerTextures.ANIMATION_AMOUNT][PlayerTextures.MAX_ANIMATION_FRAMES];
+        TextureRegion[][] newArms = new TextureRegion[ANI_AMOUNT][ANI_MAX_FRAMES];
 
         for (int i = 0; i < pants.length; i++) {
             TextureRegion[] armsTxtRg = pants[i];
