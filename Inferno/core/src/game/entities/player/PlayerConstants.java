@@ -7,12 +7,12 @@ import utils.vectors.Vector;
 
 import java.util.ArrayList;
 
-import static constants.Urls.SRC_PLAYER_SPRITE;
+import static constants.Urls.SPRITE_HATS;
 
 public class PlayerConstants {
     public static Vector<Integer> position = new Vector<>(100, 100);
     public static ArrayList<DimensionCordVector> checkboxArray = getCheckboxArray();
-    public static final TextureData textureData = new TextureData((short) 9, (short) 6, (short) 64, (short) 40, SRC_PLAYER_SPRITE);
+    public static final TextureData textureData = new TextureData((short) 9, (short) 6, (short) 64, (short) 40, SPRITE_HATS);
     public static final DimensionVector<Integer> dim = new DimensionVector<>(64, 40);
     public static final byte hairXOffset = -2;
     public static final DimensionVector<Byte> shirtDim = new DimensionVector<>((byte) 8, (byte) 8);

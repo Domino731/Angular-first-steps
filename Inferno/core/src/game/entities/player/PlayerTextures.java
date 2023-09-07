@@ -21,16 +21,16 @@ import utils.vectors.Vector;
 
 import java.io.IOException;
 
-import static constants.Urls.SRC_PLAYER_SPRITE;
+import static constants.Urls.*;
 import static game.entities.player.PlayerConstants.*;
 
 
 public class PlayerTextures {
-    private static final Texture hairTexture = new Texture("sprites/style/hairs.png");
-    private static final Texture hatsTexture = new Texture("sprites/style/hats.png");
-    private static final Texture shirtsTexture = new Texture("sprites/style/shirts.png");
-    private static final Texture pantsTxt = new Texture("sprites/style/pants.png");
-    public static final Texture toolsTxt = new Texture("sprites/tools.png");
+    private static final Texture hairTexture = new Texture(SPRITE_HAIRS);
+    private static final Texture hatsTexture = new Texture(SPRITE_HATS);
+    private static final Texture shirtsTexture = new Texture(SPRITE_SHIRTS);
+    private static final Texture pantsTxt = new Texture(SPRITE_PANTS);
+    public static final Texture toolsTxt = new Texture(SPRITE_TOOLS);
 
     // textures
     public TextureRegion[][] bodyTextures;
