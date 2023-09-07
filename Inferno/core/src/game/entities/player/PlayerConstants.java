@@ -1,5 +1,6 @@
 package game.entities.player;
 
+import utils.Direction;
 import utils.TextureData;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
@@ -55,14 +56,32 @@ public class PlayerConstants {
     public static final byte ANI_RUNNING_ITEM_DOWN = 22;
     public static final byte ANI_RUNNING_ITEM_LEFT = 23;
 
-
     // ANIMATION ACTION CONSTANTS - when action need to trigger (not animation length)?
     public static final byte ANI_ACTION_MINE_ACTION = 5;
+
+    /**
+     * Array with animation indices sorted by direction
+     */
+    public static final byte[][] ANI_INDICES_BY_DIRECTION = createAniIndicesByDirection();
 
 
     private static ArrayList<DimensionCordVector> getCheckboxArray() {
         ArrayList<DimensionCordVector> payload = new ArrayList<>();
         payload.add(new DimensionCordVector(10, 5, 3, 0));
         return payload;
+    }
+
+
+    private static byte[][] createAniIndicesByDirection() {
+        // 4 - amount of directions - up, right, down, left
+        // 6 - amount of available animations - idle, running, mine, harvest, idle with item, running with item...
+        byte[][] data = new byte[4][6];
+
+        data[Direction.up] = new byte[]{ANI_IDLE_UP, ANI_RUNNING_UP, ANI_MINE_UP, ANI_HARVEST_UP, ANI_IDLE_ITEM_UP, ANI_RUNNING_ITEM_UP};
+        data[Direction.right] = new byte[]{ANI_IDLE_RIGHT, ANI_RUNNING_RIGHT, ANI_MINE_RIGHT, ANI_HARVEST_RIGHT, ANI_IDLE_ITEM_RIGHT, ANI_RUNNING_ITEM_RIGHT};
+        data[Direction.down] = new byte[]{ANI_IDLE_DOWN, ANI_RUNNING_DOWN, ANI_MINE_DOWN, ANI_HARVEST_DOWN, ANI_IDLE_ITEM_DOWN, ANI_RUNNING_ITEM_DOWN};
+        data[Direction.left] = new byte[]{ANI_IDLE_LEFT, ANI_RUNNING_LEFT, ANI_MINE_LEFT, ANI_HARVEST_LEFT, ANI_IDLE_ITEM_LEFT, ANI_RUNNING_ITEM_LEFT};
+
+        return data;
     }
 }
