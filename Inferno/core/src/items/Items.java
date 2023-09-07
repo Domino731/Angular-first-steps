@@ -25,7 +25,7 @@ public class Items {
     private static JsonNode readJson() {
         JsonNode json = null;
         try {
-            FileHandle fileHandle = Gdx.files.internal(Urls.toolsPickaxes);
+            FileHandle fileHandle = Gdx.files.internal(Urls.CONFIG_PICKAXES);
             if (fileHandle.exists()) {
                 json = Json.parse(fileHandle.readString());
             }

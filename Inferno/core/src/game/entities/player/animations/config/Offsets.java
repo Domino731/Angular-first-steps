@@ -1,4 +1,5 @@
 package game.entities.player.animations.config;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -39,12 +40,12 @@ public class Offsets {
     private static JsonNode readJson() {
         JsonNode json = null;
         try {
-            FileHandle fileHandle = Gdx.files.internal(Urls.shirtOffsets);
+            FileHandle fileHandle = Gdx.files.internal(Urls.CONFIG_BASE_SHIRT_OFFSETS);
             if (fileHandle.exists()) {
                 json = Json.parse(fileHandle.readString());
             }
         } catch (IOException e) {
-            EngineLog.resourceError(Urls.shirtOffsets);
+            EngineLog.resourceError(Urls.CONFIG_BASE_SHIRT_OFFSETS);
         }
 
         return json;

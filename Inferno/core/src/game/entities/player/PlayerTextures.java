@@ -205,7 +205,7 @@ public class PlayerTextures {
         if (fileHandle.exists()) {
             try {
                 JsonNode jsonNode = Json.parse(fileHandle.readString()).get("animations");
-                Texture texture = SpritesManager.loadSprite(SRC_PLAYER_SPRITE);
+                Texture texture = SpritesManager.loadSprite(SPRITE_PLAYER);
 
                 loadAnimationTextures(jsonNode.get("body"), bodyTextures, texture, true);
                 loadAnimationTextures(jsonNode.get("arms"), armsTextures, texture, false);

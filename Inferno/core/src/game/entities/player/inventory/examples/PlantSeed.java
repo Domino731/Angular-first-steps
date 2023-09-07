@@ -12,7 +12,7 @@ public class PlantSeed implements InventoryItemData {
     private final InventoryItemGroups group = InventoryItemGroups.seed;
 
     public PlantSeed() {
-        texture = new TextureRegion(new Texture(Urls.seeds));
+        texture = new TextureRegion(new Texture(Urls.SPRITE_SEEDS));
         textures = new TextureRegion[1];
         textures[0] = texture;
     }

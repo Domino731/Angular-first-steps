@@ -57,12 +57,12 @@ public class PlayerAnimations {
     }
 
     private TextureRegion loadWeaponTexture() {
-        Texture txt = new Texture(Urls.weapons);
+        Texture txt = new Texture(Urls.SPRITE_WEAPONS);
         return new TextureRegion(txt, 16 * 7, 16 * 5, 16, 16);
     }
 
     private TextureRegion loadWeaponTextureReversed() {
-        Texture txt = new Texture(Urls.weapons);
+        Texture txt = new Texture(Urls.SPRITE_WEAPONS);
         TextureRegion txtRg = new TextureRegion(txt, 16 * 7, 16 * 5, 16, 16);
         txtRg.flip(true, false);
         return txtRg;

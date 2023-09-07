@@ -17,13 +17,13 @@ public class Weapons {
     public static final byte size = 16;
 
     private static HashMap<String, Items.Config> items = new HashMap<>();
-    private static final Texture toolsTxt = new Texture(Urls.weapons);
+    private static final Texture toolsTxt = new Texture(Urls.SPRITE_WEAPONS);
     private static JsonNode data = readJson();
 
     private static JsonNode readJson() {
         JsonNode json = null;
         try {
-            FileHandle fileHandle = Gdx.files.internal(Urls.weaponsConfig);
+            FileHandle fileHandle = Gdx.files.internal(Urls.CONFIG_WEAPONS_CONFIG);
             if (fileHandle.exists()) {
                 json = Json.parse(fileHandle.readString());
             }
