@@ -21,6 +21,7 @@ import utils.vectors.Vector;
 
 import java.io.IOException;
 
+import static constants.Urls.SRC_PLAYER_SPRITE;
 import static game.entities.player.PlayerConstants.*;
 
 
@@ -204,7 +205,7 @@ public class PlayerTextures {
         if (fileHandle.exists()) {
             try {
                 JsonNode jsonNode = Json.parse(fileHandle.readString()).get("animations");
-                Texture texture = SpritesManager.loadSprite("sprites/entities/player_new_1.png");
+                Texture texture = SpritesManager.loadSprite(SRC_PLAYER_SPRITE);
 
                 loadAnimationTextures(jsonNode.get("body"), bodyTextures, texture, true);
                 loadAnimationTextures(jsonNode.get("arms"), armsTextures, texture, false);

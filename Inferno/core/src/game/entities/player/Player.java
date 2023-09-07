@@ -18,12 +18,12 @@ import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
+import static constants.Urls.SRC_PLAYER_SPRITE;
 import static game.entities.player.PlayerConstants.*;
 import static game.entities.player.PlayerTextures.idleActionByLastActionForItem;
 
 public class Player extends MovableDefaultActor {
     public PlayerStyle style = new PlayerStyle();
-    public int hairTextureIndex = 0;
     private PlayerShirtsData shirts;
     private boolean isStaticAction = false;
     // Action collision from ActorManager
@@ -35,7 +35,7 @@ public class Player extends MovableDefaultActor {
     private byte directionIndex = Direction.down;
 
     public Player(ActorsManager actorsManager) {
-        super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
+        super(5, 5, PlayerConstants.checkboxArray, SRC_PLAYER_SPRITE, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
         shirts = new PlayerShirtsData();
         this.actorsManager = actorsManager;
 //        playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
