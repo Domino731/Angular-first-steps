@@ -15,6 +15,7 @@ import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
+import static game.entities.player.PlayerConstants.*;
 import static game.entities.player.PlayerTextures.idleActionByLastActionForItem;
 
 public class Player extends MovableDefaultActor {
@@ -66,13 +67,13 @@ public class Player extends MovableDefaultActor {
         if (isSeed) {
             if (isMoving) {
                 if (direction.left) {
-                    actionIndex = PlayerTextures.ANI_RUNNING_ITEM_LEFT;
+                    actionIndex = ANI_RUNNING_ITEM_LEFT;
                 } else if (direction.right) {
-                    actionIndex = PlayerTextures.ANI_RUNNING_ITEM_RIGHT;
+                    actionIndex = ANI_RUNNING_ITEM_RIGHT;
                 } else if (direction.top) {
-                    actionIndex = PlayerTextures.ANI_RUNNING_ITEM_UP;
+                    actionIndex = ANI_RUNNING_ITEM_UP;
                 } else if (direction.bot) {
-                    actionIndex = PlayerTextures.ANI_RUNNING_ITEM_DOWN;
+                    actionIndex = ANI_RUNNING_ITEM_DOWN;
                 }
             } else {
                 actionIndex = idleActionByLastActionForItem(actionIndex);
@@ -82,13 +83,13 @@ public class Player extends MovableDefaultActor {
             if (isStaticAction) {
                 actionIndex = Utils.getHarvestWeedAniIndex(actionIndex, inventory.getCurrItemType(), isMoving, isSeed);
             } else if (direction.left) {
-                actionIndex = PlayerTextures.ANI_RUNNING_LEFT;
+                actionIndex = ANI_RUNNING_LEFT;
             } else if (direction.right) {
-                actionIndex = PlayerTextures.ANI_RUNNING_RIGHT;
+                actionIndex = ANI_RUNNING_RIGHT;
             } else if (direction.top) {
-                actionIndex = PlayerTextures.ANI_RUNNING_UP;
+                actionIndex = ANI_RUNNING_UP;
             } else if (direction.bot) {
-                actionIndex = PlayerTextures.ANI_RUNNING_DOWN;
+                actionIndex = ANI_RUNNING_DOWN;
             }
         } else {
             actionIndex = PlayerTextures.idleActionByLastAction(actionIndex);
@@ -116,7 +117,7 @@ public class Player extends MovableDefaultActor {
             if (aniIndex >= animationAmount.getAmount(actionIndex)) {
                 if (isStaticAction) {
                     isStaticAction = false;
-                    actionIndex = PlayerTextures.ANI_IDLE_RIGHT;
+                    actionIndex = ANI_IDLE_RIGHT;
                 }
                 aniIndex = 0;
             }
@@ -129,7 +130,7 @@ public class Player extends MovableDefaultActor {
     private void handleActions() {
         if (actorsManager.currentAction == null) return;
 
-        if (actionIndex == PlayerTextures.ANI_MINE_RIGHT && aniIndex >= PlayerConstants.ANI_CUT_TREE_LENGTH) {
+        if (actionIndex == ANI_MINE_RIGHT && aniIndex >= PlayerConstants.ANI_CUT_TREE_LENGTH) {
             actorsManager.currentAction.action();
         }
     }

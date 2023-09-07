@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import game.entities.player.animations.config.BodyOffsets;
-import game.entities.player.animations.config.HairOffset;
 import game.entities.player.animations.config.Offsets;
 import spritesManager.SpritesManager;
 import utils.Direction;
@@ -19,41 +18,11 @@ import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
 import java.io.IOException;
-import java.util.Arrays;
+
+import static game.entities.player.PlayerConstants.*;
 
 
 public class PlayerTextures {
-    // IDLE
-    public static final int ANI_IDLE_UP = 0;
-    public static final int ANI_IDLE_RIGHT = 1;
-    public static final int ANI_IDLE_DOWN = 2;
-    public static final int ANI_IDLE_LEFT = 3;
-    // RUNNING
-    public static final int ANI_RUNNING_UP = 4;
-    public static final int ANI_RUNNING_RIGHT = 5;
-    public static final int ANI_RUNNING_DOWN = 6;
-    public static final int ANI_RUNNING_LEFT = 7;
-    // HARVEST
-    public static final byte ANI_MINE_UP = 8;
-    public static final byte ANI_MINE_RIGHT = 9;
-    public static final byte ANI_MINE_LEFT = 10;
-    public static final byte ANI_MINE_DOWN = 11;
-    // HARVEST WEED
-    public static final byte ANI_HARVEST_UP = 12;
-    public static final byte ANI_HARVEST_RIGHT = 13;
-    public static final byte ANI_HARVEST_LEFT = 14;
-    public static final byte ANI_HARVEST_DOWN = 15;
-    // IDLE WITH ITEM
-    public static final byte ANI_IDLE_ITEM_UP = 16;
-    public static final byte ANI_IDLE_ITEM_RIGHT = 17;
-    public static final byte ANI_IDLE_ITEM_DOWN = 18;
-    public static final byte ANI_IDLE_ITEM_LEFT = 19;
-    // RUNNING WITH ITEM
-    public static final byte ANI_RUNNING_ITEM_UP = 20;
-    public static final byte ANI_RUNNING_ITEM_RIGHT = 21;
-    public static final byte ANI_RUNNING_ITEM_DOWN = 22;
-    public static final byte ANI_RUNNING_ITEM_LEFT = 23;
-
     public static final int MAX_ANIMATION_FRAMES = 8;
     public static final byte ANIMATION_AMOUNT = 24;
 
@@ -92,8 +61,6 @@ public class PlayerTextures {
 
         readJson();
         loadTools();
-
-        System.out.println(Arrays.deepToString(HairOffset.hairOffset));
     }
 
     private void loadTools() {
