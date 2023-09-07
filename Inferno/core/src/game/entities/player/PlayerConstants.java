@@ -14,21 +14,14 @@ public class PlayerConstants {
     public static final TextureData textureData = new TextureData((short) 9, (short) 6, (short) 64, (short) 40, textureSrc);
     public static final DimensionVector<Integer> dim = new DimensionVector<>(64, 40);
     public static final byte hairXOffset = -2;
-    public static final byte hairYOffset = 17;
-    public static byte hatTextureIndex = 2;
     public static final DimensionVector<Byte> shirtDim = new DimensionVector<>((byte) 8, (byte) 8);
     public static final int[] skinColors = {-106001921, -529832449, 1795177215};
-    public static final byte inventoryLevelLength = 10;
+
+    // ANIMATION INDICES
+
 
     // ANIMATION CONSTANTS - LENGTH
     public static final byte ANI_CUT_TREE_LENGTH = 5;
-
-
-    // UTILS
-
-    public static void setHatTextureIndex(byte value) {
-        hatTextureIndex = value;
-    }
 
     private static ArrayList<DimensionCordVector> getCheckboxArray() {
         ArrayList<DimensionCordVector> payload = new ArrayList<>();

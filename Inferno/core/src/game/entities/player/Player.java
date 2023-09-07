@@ -34,7 +34,7 @@ public class Player extends MovableDefaultActor {
         super(5, 5, PlayerConstants.checkboxArray, PlayerConstants.textureSrc, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
         shirts = new PlayerShirtsData();
         this.actorsManager = actorsManager;
-        playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
+//        playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
         playerTextures.pantsTextures = shirts.createPants(playerTextures.pantsTextures, style.shirtsArray[2]);
         setActionsCollisions();
         animations = new PlayerAnimations(this);

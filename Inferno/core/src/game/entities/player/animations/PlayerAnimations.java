@@ -226,6 +226,8 @@ public class PlayerAnimations {
         }
 
         sb.draw(bodyTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
+        sb.draw(player.style.hairArray[player.getDirectionIndex()], finalPosition.x, finalPosition.y + bodyOffsets[player.actionIndex][player.aniIndex] - hairBaseOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + PlayerConstants.hairXOffset, finalPosition.y + hatOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
         sb.draw(armsTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
 
         if (toolAnimations[directionIndex][player.aniIndex][zIndex] == 1) {

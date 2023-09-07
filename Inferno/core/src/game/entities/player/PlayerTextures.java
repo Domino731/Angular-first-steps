@@ -299,7 +299,7 @@ public class PlayerTextures {
             loadTexturesForAnimationState(textures, STATE_RUNNING_UP, runningUp, texture, loadPants);
         }
 
-        // HARVEST
+        // MINE
         if (harvestUp != null && harvestUp.isArray()) {
             loadTexturesForAnimationState(textures, STATE_MINE_UP, harvestUp, texture, loadPants);
         }
@@ -367,7 +367,7 @@ public class PlayerTextures {
                 );
                 hairOffsets[state][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
                 hatsOffsets[state][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
-                shirtOffsets[state][i] =  (short)(32 -Offsets.shirts[cordY][cordX] - 8);
+                shirtOffsets[state][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 8);
             }
             i++;
             if (i >= MAX_ANIMATION_FRAMES) {
@@ -424,7 +424,7 @@ public class PlayerTextures {
                 hatsOffsets[stateLeft][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
                 hatsOffsets[stateRight][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
                 shirtOffsets[stateLeft][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 8);
-                shirtOffsets[stateRight][i] = (short)(32 -Offsets.shirts[cordY][cordX] - 8);
+                shirtOffsets[stateRight][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 8);
             }
 
 
