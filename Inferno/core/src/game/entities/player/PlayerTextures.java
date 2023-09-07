@@ -24,35 +24,35 @@ import java.util.Arrays;
 
 public class PlayerTextures {
     // IDLE
-    public static final int STATE_IDLE_UP = 0;
-    public static final int STATE_IDLE_RIGHT = 1;
-    public static final int STATE_IDLE_DOWN = 2;
-    public static final int STATE_IDLE_LEFT = 3;
+    public static final int ANI_IDLE_UP = 0;
+    public static final int ANI_IDLE_RIGHT = 1;
+    public static final int ANI_IDLE_DOWN = 2;
+    public static final int ANI_IDLE_LEFT = 3;
     // RUNNING
-    public static final int STATE_RUNNING_UP = 4;
-    public static final int STATE_RUNNING_RIGHT = 5;
-    public static final int STATE_RUNNING_DOWN = 6;
-    public static final int STATE_RUNNING_LEFT = 7;
+    public static final int ANI_RUNNING_UP = 4;
+    public static final int ANI_RUNNING_RIGHT = 5;
+    public static final int ANI_RUNNING_DOWN = 6;
+    public static final int ANI_RUNNING_LEFT = 7;
     // HARVEST
-    public static final byte STATE_MINE_UP = 8;
-    public static final byte STATE_MINE_RIGHT = 9;
-    public static final byte STATE_MINE_LEFT = 10;
-    public static final byte STATE_MINE_DOWN = 11;
+    public static final byte ANI_MINE_UP = 8;
+    public static final byte ANI_MINE_RIGHT = 9;
+    public static final byte ANI_MINE_LEFT = 10;
+    public static final byte ANI_MINE_DOWN = 11;
     // HARVEST WEED
-    public static final byte STATE_HARVEST_UP = 12;
-    public static final byte STATE_HARVEST_RIGHT = 13;
-    public static final byte STATE_HARVEST_LEFT = 14;
-    public static final byte STATE_HARVEST_DOWN = 15;
+    public static final byte ANI_HARVEST_UP = 12;
+    public static final byte ANI_HARVEST_RIGHT = 13;
+    public static final byte ANI_HARVEST_LEFT = 14;
+    public static final byte ANI_HARVEST_DOWN = 15;
     // IDLE WITH ITEM
-    public static final byte STATE_IDLE_ITEM_UP = 16;
-    public static final byte STATE_IDLE_ITEM_RIGHT = 17;
-    public static final byte STATE_IDLE_ITEM_DOWN = 18;
-    public static final byte STATE_IDLE_ITEM_LEFT = 19;
+    public static final byte ANI_IDLE_ITEM_UP = 16;
+    public static final byte ANI_IDLE_ITEM_RIGHT = 17;
+    public static final byte ANI_IDLE_ITEM_DOWN = 18;
+    public static final byte ANI_IDLE_ITEM_LEFT = 19;
     // RUNNING WITH ITEM
-    public static final byte STATE_RUNNING_ITEM_UP = 20;
-    public static final byte STATE_RUNNING_ITEM_RIGHT = 21;
-    public static final byte STATE_RUNNING_ITEM_DOWN = 22;
-    public static final byte STATE_RUNNING_ITEM_LEFT = 23;
+    public static final byte ANI_RUNNING_ITEM_UP = 20;
+    public static final byte ANI_RUNNING_ITEM_RIGHT = 21;
+    public static final byte ANI_RUNNING_ITEM_DOWN = 22;
+    public static final byte ANI_RUNNING_ITEM_LEFT = 23;
 
     public static final int MAX_ANIMATION_FRAMES = 8;
     public static final byte ANIMATION_AMOUNT = 24;
@@ -186,50 +186,50 @@ public class PlayerTextures {
 
     public static int idleActionByLastAction(int playerAction) {
         switch (playerAction) {
-            case STATE_IDLE_UP:
-            case STATE_IDLE_RIGHT:
-            case STATE_IDLE_DOWN:
-            case STATE_IDLE_LEFT:
+            case ANI_IDLE_UP:
+            case ANI_IDLE_RIGHT:
+            case ANI_IDLE_DOWN:
+            case ANI_IDLE_LEFT:
                 return playerAction;
-            case STATE_RUNNING_UP:
-                return STATE_IDLE_UP;
-            case STATE_RUNNING_RIGHT:
-                return STATE_IDLE_RIGHT;
-            case STATE_RUNNING_DOWN:
-                return STATE_IDLE_DOWN;
-            case STATE_RUNNING_LEFT:
-                return STATE_IDLE_LEFT;
+            case ANI_RUNNING_UP:
+                return ANI_IDLE_UP;
+            case ANI_RUNNING_RIGHT:
+                return ANI_IDLE_RIGHT;
+            case ANI_RUNNING_DOWN:
+                return ANI_IDLE_DOWN;
+            case ANI_RUNNING_LEFT:
+                return ANI_IDLE_LEFT;
             default:
-                return STATE_IDLE_DOWN;
+                return ANI_IDLE_DOWN;
         }
     }
 
 
     public static int idleActionByLastActionForItem(int playerAction) {
         switch (playerAction) {
-            case STATE_RUNNING_UP:
-            case STATE_RUNNING_ITEM_UP:
-            case STATE_IDLE_UP:
-            case STATE_IDLE_ITEM_UP:
-                return STATE_IDLE_ITEM_UP;
-            case STATE_RUNNING_RIGHT:
-            case STATE_RUNNING_ITEM_RIGHT:
-            case STATE_IDLE_RIGHT:
-            case STATE_IDLE_ITEM_RIGHT:
-                return STATE_IDLE_ITEM_RIGHT;
-            case STATE_RUNNING_DOWN:
-            case STATE_RUNNING_ITEM_DOWN:
-            case STATE_IDLE_DOWN:
-            case STATE_IDLE_ITEM_DOWN:
-                return STATE_IDLE_ITEM_DOWN;
-            case STATE_RUNNING_LEFT:
-            case STATE_RUNNING_ITEM_LEFT:
-            case STATE_IDLE_LEFT:
-            case STATE_IDLE_ITEM_LEFT:
-                return STATE_IDLE_ITEM_LEFT;
+            case ANI_RUNNING_UP:
+            case ANI_RUNNING_ITEM_UP:
+            case ANI_IDLE_UP:
+            case ANI_IDLE_ITEM_UP:
+                return ANI_IDLE_ITEM_UP;
+            case ANI_RUNNING_RIGHT:
+            case ANI_RUNNING_ITEM_RIGHT:
+            case ANI_IDLE_RIGHT:
+            case ANI_IDLE_ITEM_RIGHT:
+                return ANI_IDLE_ITEM_RIGHT;
+            case ANI_RUNNING_DOWN:
+            case ANI_RUNNING_ITEM_DOWN:
+            case ANI_IDLE_DOWN:
+            case ANI_IDLE_ITEM_DOWN:
+                return ANI_IDLE_ITEM_DOWN;
+            case ANI_RUNNING_LEFT:
+            case ANI_RUNNING_ITEM_LEFT:
+            case ANI_IDLE_LEFT:
+            case ANI_IDLE_ITEM_LEFT:
+                return ANI_IDLE_ITEM_LEFT;
             default:
                 EngineLog.error("No match for player action in idleActionByLastActionForItem(), default value returned (STATE_IDLE_ITEM_DOWN)");
-                return STATE_IDLE_ITEM_DOWN;
+                return ANI_IDLE_ITEM_DOWN;
         }
     }
 
@@ -279,67 +279,67 @@ public class PlayerTextures {
 
         // IDLE
         if (idleUp != null && idleUp.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_IDLE_UP, idleUp, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_IDLE_UP, idleUp, texture, loadPants);
         }
         if (idleHorizontally != null && idleHorizontally.isArray()) {
-            loadHorizontallyTexturesForAnimationState(textures, STATE_IDLE_LEFT, STATE_IDLE_RIGHT, idleHorizontally, texture, loadPants);
+            loadHorizontallyTexturesForAnimationState(textures, ANI_IDLE_LEFT, ANI_IDLE_RIGHT, idleHorizontally, texture, loadPants);
         }
         if (idleDown != null && idleDown.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_IDLE_DOWN, idleDown, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_IDLE_DOWN, idleDown, texture, loadPants);
         }
 
         // RUNNING
         if (runningHorizontally != null && runningHorizontally.isArray()) {
-            loadHorizontallyTexturesForAnimationState(textures, STATE_RUNNING_LEFT, STATE_RUNNING_RIGHT, runningHorizontally, texture, loadPants);
+            loadHorizontallyTexturesForAnimationState(textures, ANI_RUNNING_LEFT, ANI_RUNNING_RIGHT, runningHorizontally, texture, loadPants);
         }
         if (runningDown != null && runningDown.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_RUNNING_DOWN, runningDown, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_RUNNING_DOWN, runningDown, texture, loadPants);
         }
         if (runningUp != null && runningUp.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_RUNNING_UP, runningUp, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_RUNNING_UP, runningUp, texture, loadPants);
         }
 
         // MINE
         if (harvestUp != null && harvestUp.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_MINE_UP, harvestUp, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_MINE_UP, harvestUp, texture, loadPants);
         }
         if (harvestHorizontally != null && harvestHorizontally.isArray()) {
-            loadHorizontallyTexturesForAnimationState(textures, STATE_MINE_LEFT, STATE_MINE_RIGHT, harvestHorizontally, texture, loadPants);
+            loadHorizontallyTexturesForAnimationState(textures, ANI_MINE_LEFT, ANI_MINE_RIGHT, harvestHorizontally, texture, loadPants);
         }
         if (mineResourceDown != null && mineResourceDown.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_MINE_DOWN, mineResourceDown, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_MINE_DOWN, mineResourceDown, texture, loadPants);
         }
 
         // HARVEST WEED
         if (collectWeedUp != null && collectWeedUp.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_HARVEST_UP, collectWeedUp, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_HARVEST_UP, collectWeedUp, texture, loadPants);
         }
         if (harvestHorizontally != null && harvestHorizontally.isArray()) {
-            loadHorizontallyTexturesForAnimationState(textures, STATE_HARVEST_LEFT, STATE_HARVEST_RIGHT, collectWeedHorizontally, texture, loadPants);
+            loadHorizontallyTexturesForAnimationState(textures, ANI_HARVEST_LEFT, ANI_HARVEST_RIGHT, collectWeedHorizontally, texture, loadPants);
         }
         if (collectWeedDown != null && collectWeedDown.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_HARVEST_DOWN, collectWeedDown, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_HARVEST_DOWN, collectWeedDown, texture, loadPants);
         }
 
         // IDLE WITH Item
         if (idleHoldItemUp != null && idleHoldItemUp.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_IDLE_ITEM_UP, idleHoldItemUp, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_IDLE_ITEM_UP, idleHoldItemUp, texture, loadPants);
         }
         if (idleHoldItemHorizontally != null && idleHoldItemHorizontally.isArray()) {
-            loadHorizontallyTexturesForAnimationState(textures, STATE_IDLE_ITEM_LEFT, STATE_IDLE_ITEM_RIGHT, idleHoldItemHorizontally, texture, loadPants);
+            loadHorizontallyTexturesForAnimationState(textures, ANI_IDLE_ITEM_LEFT, ANI_IDLE_ITEM_RIGHT, idleHoldItemHorizontally, texture, loadPants);
         }
         if (idleHoldItemDown != null && idleHoldItemDown.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_IDLE_ITEM_DOWN, idleHoldItemDown, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_IDLE_ITEM_DOWN, idleHoldItemDown, texture, loadPants);
         }
 
         if (runningHoldItemUp != null && runningHoldItemUp.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_RUNNING_ITEM_UP, runningHoldItemUp, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_RUNNING_ITEM_UP, runningHoldItemUp, texture, loadPants);
         }
         if (runningHoldItemHorizontally != null && runningHoldItemHorizontally.isArray()) {
-            loadHorizontallyTexturesForAnimationState(textures, STATE_RUNNING_ITEM_LEFT, STATE_RUNNING_ITEM_RIGHT, runningHoldItemHorizontally, texture, loadPants);
+            loadHorizontallyTexturesForAnimationState(textures, ANI_RUNNING_ITEM_LEFT, ANI_RUNNING_ITEM_RIGHT, runningHoldItemHorizontally, texture, loadPants);
         }
         if (runningHoldItemDown != null && runningHoldItemDown.isArray()) {
-            loadTexturesForAnimationState(textures, STATE_RUNNING_ITEM_DOWN, runningHoldItemDown, texture, loadPants);
+            loadTexturesForAnimationState(textures, ANI_RUNNING_ITEM_DOWN, runningHoldItemDown, texture, loadPants);
         }
     }
 

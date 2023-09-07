@@ -22,7 +22,7 @@ import static game.entities.player.animations.config.AniConfigConstants.*;
 public class PlayerAnimations {
     private Player player;
     private AnimationDraw[] animationDraws;
-    private byte animationIndex = PlayerTextures.STATE_IDLE_DOWN;
+    private byte animationIndex = PlayerTextures.ANI_IDLE_DOWN;
     private Vector<Integer> finalPosition;
     int actionIndex;
     int aniIndex;
@@ -55,7 +55,7 @@ public class PlayerAnimations {
         shirtOffsets = player.playerTextures.shirtOffsets;
 
         System.out.println("bodyOffsets");
-        System.out.println(Arrays.toString(bodyOffsets[PlayerTextures.STATE_RUNNING_RIGHT]));
+        System.out.println(Arrays.toString(bodyOffsets[PlayerTextures.ANI_RUNNING_RIGHT]));
         setAnimationDraws();
     }
 
@@ -98,100 +98,100 @@ public class PlayerAnimations {
             };
         }
         // HARVEST WEED
-        animations[PlayerTextures.STATE_HARVEST_UP] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_HARVEST_UP] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                harvestAnimation(sb, PlayerTextures.STATE_HARVEST_UP, Direction.up, weaponTexture);
+                harvestAnimation(sb, PlayerTextures.ANI_HARVEST_UP, Direction.up, weaponTexture);
             }
         };
-        animations[PlayerTextures.STATE_HARVEST_RIGHT] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_HARVEST_RIGHT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                harvestAnimation(sb, PlayerTextures.STATE_HARVEST_RIGHT, Direction.right, weaponTexture);
+                harvestAnimation(sb, PlayerTextures.ANI_HARVEST_RIGHT, Direction.right, weaponTexture);
             }
         };
-        animations[PlayerTextures.STATE_HARVEST_DOWN] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_HARVEST_DOWN] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                harvestAnimation(sb, PlayerTextures.STATE_HARVEST_DOWN, Direction.down, weaponTexture);
+                harvestAnimation(sb, PlayerTextures.ANI_HARVEST_DOWN, Direction.down, weaponTexture);
             }
         };
-        animations[PlayerTextures.STATE_HARVEST_LEFT] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_HARVEST_LEFT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                harvestAnimation(sb, PlayerTextures.STATE_HARVEST_LEFT, Direction.left, weaponTextureReversed);
+                harvestAnimation(sb, PlayerTextures.ANI_HARVEST_LEFT, Direction.left, weaponTextureReversed);
             }
         };
         // MINE RESOURCES
-        animations[PlayerTextures.STATE_MINE_UP] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_MINE_UP] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                mineAnimation(sb, PlayerTextures.STATE_MINE_UP, Direction.up);
+                mineAnimation(sb, PlayerTextures.ANI_MINE_UP, Direction.up);
             }
         };
-        animations[PlayerTextures.STATE_MINE_RIGHT] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_MINE_RIGHT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                mineAnimation(sb, PlayerTextures.STATE_MINE_RIGHT, Direction.right);
+                mineAnimation(sb, PlayerTextures.ANI_MINE_RIGHT, Direction.right);
             }
         };
-        animations[PlayerTextures.STATE_MINE_DOWN] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_MINE_DOWN] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                mineAnimation(sb, PlayerTextures.STATE_MINE_DOWN, Direction.down);
+                mineAnimation(sb, PlayerTextures.ANI_MINE_DOWN, Direction.down);
             }
         };
-        animations[PlayerTextures.STATE_MINE_LEFT] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_MINE_LEFT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
-                mineAnimation(sb, PlayerTextures.STATE_MINE_LEFT, Direction.left);
+                mineAnimation(sb, PlayerTextures.ANI_MINE_LEFT, Direction.left);
             }
         };
         // IDLE ITEM
-        animations[PlayerTextures.STATE_IDLE_ITEM_UP] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_IDLE_ITEM_UP] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
                 itemAnimation(sb);
             }
         };
-        animations[PlayerTextures.STATE_IDLE_ITEM_RIGHT] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_IDLE_ITEM_RIGHT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
                 itemAnimation(sb);
             }
         };
-        animations[PlayerTextures.STATE_IDLE_ITEM_DOWN] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_IDLE_ITEM_DOWN] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
                 itemAnimation(sb);
             }
         };
-        animations[PlayerTextures.STATE_IDLE_ITEM_LEFT] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_IDLE_ITEM_LEFT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
                 itemAnimation(sb);
             }
         };
         // RUNNING ITEM
-        animations[PlayerTextures.STATE_RUNNING_ITEM_UP] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_RUNNING_ITEM_UP] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
                 itemAnimation(sb);
             }
         };
-        animations[PlayerTextures.STATE_RUNNING_ITEM_RIGHT] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_RUNNING_ITEM_RIGHT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
                 itemAnimation(sb);
             }
         };
-        animations[PlayerTextures.STATE_RUNNING_ITEM_DOWN] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_RUNNING_ITEM_DOWN] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
                 itemAnimation(sb);
             }
         };
-        animations[PlayerTextures.STATE_RUNNING_ITEM_LEFT] = new AnimationDraw() {
+        animations[PlayerTextures.ANI_RUNNING_ITEM_LEFT] = new AnimationDraw() {
             @Override
             public void draw(SpriteBatch sb) {
                 itemAnimation(sb);
