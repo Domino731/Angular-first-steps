@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import game.entities.player.animations.config.BodyOffsets;
 import game.entities.player.animations.config.Offsets;
+import game.entities.player.style.data.PlayerHairsData;
+import game.entities.player.style.data.PlayerHatsData;
 import spritesManager.SpritesManager;
 import utils.Direction;
 import utils.EngineLog;

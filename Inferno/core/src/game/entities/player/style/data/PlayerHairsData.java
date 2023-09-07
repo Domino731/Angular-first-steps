@@ -1,4 +1,4 @@
-package game.entities.player;
+package game.entities.player.style.data;
 
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;

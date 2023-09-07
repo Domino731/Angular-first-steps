@@ -1,5 +1,6 @@
-package game.entities.player;
+package game.entities.player.style.data;
 
+import game.entities.player.HatsNames;
 import utils.vectors.Vector;
 
 import java.util.HashMap;

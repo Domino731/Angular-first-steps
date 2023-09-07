@@ -51,8 +51,8 @@ public class PlayerConstants {
     public static final byte ANI_RUNNING_ITEM_LEFT = 23;
 
 
-    // ANIMATION CONSTANTS - LENGTH
-    public static final byte ANI_CUT_TREE_LENGTH = 5;
+    // ANIMATION ACTION CONSTANTS - when action need to trigger (not animation length)?
+    public static final byte ANI_ACTION_MINE_ACTION = 5;
 
 
     private static ArrayList<DimensionCordVector> getCheckboxArray() {

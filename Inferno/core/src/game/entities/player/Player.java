@@ -9,6 +9,9 @@ import environment.resources.ResourceAction;
 import game.entities.player.animations.PlayerAnimations;
 import game.entities.player.animations.utils.AnimationAmount;
 import game.entities.player.inventory.InventoryItemGroups;
+import game.entities.player.inventory.PlayerInventory;
+import game.entities.player.style.PlayerStyle;
+import game.entities.player.style.data.PlayerShirtsData;
 import utils.Checkbox;
 import utils.Direction;
 import utils.vectors.DimensionCordVector;
@@ -130,7 +133,7 @@ public class Player extends MovableDefaultActor {
     private void handleActions() {
         if (actorsManager.currentAction == null) return;
 
-        if (actionIndex == ANI_MINE_RIGHT && aniIndex >= PlayerConstants.ANI_CUT_TREE_LENGTH) {
+        if (actionIndex == ANI_MINE_RIGHT && aniIndex >= PlayerConstants.ANI_ACTION_MINE_ACTION) {
             actorsManager.currentAction.action();
         }
     }
