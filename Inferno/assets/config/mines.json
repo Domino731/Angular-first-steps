@@ -1,12 +1,25 @@
 [
   {
+    "isBig": true,
     "id": "trunk_big",
     "name": "Tree Trunk Large",
     "cords": {
       "x": 0,
       "y": 156
     },
-    "isBig": true
+    "drop": [
+      {
+        "id": "wood",
+        "change": [
+          100,
+          100
+        ],
+        "amount": [
+          2,
+          3
+        ]
+      }
+    ]
   },
   {
     "id": "log_large",
@@ -15,7 +28,20 @@
       "x": 32,
       "y": 156
     },
-    "isBig": true
+    "isBig": true,
+    "drop": [
+      {
+        "id": "wood",
+        "change": [
+          100,
+          100
+        ],
+        "amount": [
+          2,
+          3
+        ]
+      }
+    ]
   },
   {
     "id": "volcano_rock_large",
@@ -24,7 +50,20 @@
       "x": 68,
       "y": 156
     },
-    "isBig": true
+    "isBig": true,
+    "drop": [
+      {
+        "id": "wood",
+        "change": [
+          100,
+          100
+        ],
+        "amount": [
+          2,
+          3
+        ]
+      }
+    ]
   },
   {
     "id": "coal_rock_large",
@@ -33,7 +72,20 @@
       "x": 100,
       "y": 156
     },
-    "isBig": true
+    "isBig": true,
+    "drop": [
+      {
+        "id": "wood",
+        "change": [
+          100,
+          100
+        ],
+        "amount": [
+          2,
+          3
+        ]
+      }
+    ]
   },
   {
     "id": "blue_gem_large",
@@ -42,7 +94,20 @@
       "x": 132,
       "y": 156
     },
-    "isBig": true
+    "isBig": true,
+    "drop": [
+      {
+        "id": "wood",
+        "change": [
+          100,
+          100
+        ],
+        "amount": [
+          2,
+          3
+        ]
+      }
+    ]
   },
   {
     "id": "blue_gem_active_large",
@@ -51,7 +116,20 @@
       "x": 164,
       "y": 156
     },
-    "isBig": true
+    "isBig": true,
+    "drop": [
+      {
+        "id": "wood",
+        "change": [
+          100,
+          100
+        ],
+        "amount": [
+          2,
+          3
+        ]
+      }
+    ]
   },
   {
     "id": "stone_large",
@@ -60,7 +138,20 @@
       "x": 196,
       "y": 156
     },
-    "isBig": true
+    "isBig": true,
+    "drop": [
+      {
+        "id": "wood",
+        "change": [
+          100,
+          100
+        ],
+        "amount": [
+          2,
+          3
+        ]
+      }
+    ]
   },
   {
     "id": "alien_stone_large",
@@ -69,6 +160,19 @@
       "x": 234,
       "y": 156
     },
-    "isBig": true
+    "isBig": true,
+    "drop": [
+      {
+        "id": "wood",
+        "change": [
+          100,
+          100
+        ],
+        "amount": [
+          2,
+          3
+        ]
+      }
+    ]
   }
 ]
