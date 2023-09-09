@@ -1,9 +1,63 @@
 [
   {
     "id": "trunk_big",
-    "name": "Large trunk",
+    "name": "Tree Trunk",
     "cords": {
       "x": 0,
+      "y": 156
+    },
+    "isBig": true
+  },
+  {
+    "id": "log_large",
+    "name": "Large Log",
+    "cords": {
+      "x": 32,
+      "y": 156
+    },
+    "isBig": true
+  },
+  {
+    "id": "Volcano_rock_large",
+    "name": "Volcano rock",
+    "cords": {
+      "x": 64,
+      "y": 156
+    },
+    "isBig": true
+  },
+  {
+    "id": "Coal_rock_large",
+    "name": "Coal rock",
+    "cords": {
+      "x": 96,
+      "y": 156
+    },
+    "isBig": true
+  },
+  {
+    "id": "blue_gem",
+    "name": "Blue Gem",
+    "cords": {
+      "x": 128,
+      "y": 156
+    },
+    "isBig": true
+  },
+  {
+    "id": "stone_large",
+    "name": "Stone Large",
+    "cords": {
+      "x": 160,
+      "y": 156
+    },
+    "isBig": true
+  },
+  {
+    "id": "alien_stone",
+    "name": "Alien Stone Large",
+    "cords": {
+      "x": 192,
       "y": 156
     },
     "isBig": true
