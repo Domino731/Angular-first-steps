@@ -1,7 +1,7 @@
 [
   {
     "id": "trunk_big",
-    "name": "Tree Trunk",
+    "name": "Tree Trunk Large",
     "cords": {
       "x": 0,
       "y": 156
@@ -18,10 +18,10 @@
     "isBig": true
   },
   {
-    "id": "Volcano_rock_large",
+    "id": "volcano_rock_large",
     "name": "Volcano rock",
     "cords": {
-      "x": 64,
+      "x": 67,
       "y": 156
     },
     "isBig": true

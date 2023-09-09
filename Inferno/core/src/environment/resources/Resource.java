@@ -16,7 +16,7 @@ public class Resource extends DefaultActor {
     private ResourcesConfig.Config config;
     private ActorsManager actorsManager;
 
-    public Resource(Vector<Integer> position, ActorsManager actorsManager) {
+    public Resource(String id, Vector<Integer> position, ActorsManager actorsManager) {
         super(
                 ActorTypes.STATIC,
                 new Vector<Integer>(position.x * 16, position.y * 16),
@@ -26,7 +26,7 @@ public class Resource extends DefaultActor {
                 new DimensionCordVector(32, 32, 0, 0)
         );
         this.actorsManager = actorsManager;
-        config = ResourcesConfig.get("trunk_big");
+        config = ResourcesConfig.get(id);
         hp = 100;
         setActionsCollisions();
     }

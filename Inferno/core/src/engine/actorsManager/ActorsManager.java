@@ -26,8 +26,12 @@ public class ActorsManager {
 
     public ActorsManager() {
         createPlayer();
-        Resource rsc = new Resource(new Vector<>(2, 2), this);
+        Resource rsc = new Resource("trunk_big", new Vector<>(2, 2), this);
         addActor(rsc);
+        Resource rsc2 = new Resource("log_large", new Vector<>(2, 6), this);
+        addActor(rsc2);
+        Resource rsc3 = new Resource("volcano_rock_large", new Vector<>(6, 2), this);
+        addActor(rsc3);
     }
 
 
