@@ -22,4 +22,5 @@ public class Urls {
     public static final String TXT_INVENTORY_ACTIVE_SLOT = "inventory/slotActive.png";
     public static final String SPRITE_WEAPONS = "sprites/weapons.png";
     public static final String SPRITE_SEEDS = "sprites/seeds.png";
+    public static final String MINES = "sprites/mines.png";
 }

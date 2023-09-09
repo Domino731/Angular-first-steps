@@ -35,11 +35,9 @@ public class Resource extends DefaultActor {
     @Override
     public void draw(SpriteBatch sb) {
         sb.draw(config.txt, position.x, position.y);
-        sb.draw(ResourceTextures.txtTest, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
+//        sb.draw(ResourceTextures.txtTest, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
     }
 
-
-    // initialize methods
     private void setActionsCollisions() {
         final Resource resource = this;
 

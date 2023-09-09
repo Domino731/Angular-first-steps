@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
+import engine.Textures;
 import utils.EngineLog;
 import utils.Json;
 import utils.vectors.DimensionVector;
@@ -22,7 +23,7 @@ public class ResourcesConfig {
         public TextureRegion txt;
 
         Config(Vector<Integer> offset, DimensionVector<Byte> dim) {
-            txt = new TextureRegion(ResourceTextures.txt, offset.x, offset.y, dim.width, dim.height);
+            txt = new TextureRegion(Textures.minesTxt, offset.x, offset.y, dim.width, dim.height);
         }
     }
 
