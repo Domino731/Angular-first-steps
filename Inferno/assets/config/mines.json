@@ -19,7 +19,8 @@
           3
         ]
       }
-    ]
+    ],
+    "action": "cut_tree"
   },
   {
     "is_big": true,
@@ -41,7 +42,8 @@
           3
         ]
       }
-    ]
+    ],
+    "action": "cut_tree"
   },
   {
     "is_big": true,
@@ -63,7 +65,8 @@
           3
         ]
       }
-    ]
+    ],
+    "action": "mine"
   },
   {
     "is_big": true,
@@ -85,7 +88,8 @@
           3
         ]
       }
-    ]
+    ],
+    "action": "mine"
   },
   {
     "is_big": true,
@@ -107,7 +111,8 @@
           3
         ]
       }
-    ]
+    ],
+    "action": "mine"
   },
   {
     "is_big": true,
@@ -129,7 +134,8 @@
           3
         ]
       }
-    ]
+    ],
+    "action": "mine"
   },
   {
     "is_big": true,
@@ -151,7 +157,8 @@
           3
         ]
       }
-    ]
+    ],
+    "action": "mine"
   },
   {
     "is_big": true,
@@ -173,6 +180,7 @@
           3
         ]
       }
-    ]
+    ],
+    "action": "mine"
   }
 ]
