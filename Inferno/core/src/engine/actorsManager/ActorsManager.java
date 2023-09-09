@@ -32,6 +32,8 @@ public class ActorsManager {
         addActor(rsc2);
         Resource rsc3 = new Resource("volcano_rock_large", new Vector<>(6, 2), this);
         addActor(rsc3);
+        Resource rsc4 = new Resource("coal_rock_large", new Vector<>(6, 6), this);
+        addActor(rsc4);
     }
 
 

@@ -21,16 +21,16 @@
     "id": "volcano_rock_large",
     "name": "Volcano rock",
     "cords": {
-      "x": 67,
+      "x": 68,
       "y": 156
     },
     "isBig": true
   },
   {
-    "id": "Coal_rock_large",
+    "id": "coal_rock_large",
     "name": "Coal rock",
     "cords": {
-      "x": 96,
+      "x": 100,
       "y": 156
     },
     "isBig": true
