@@ -1,6 +1,6 @@
 [
   {
-    "isBig": true,
+    "is_big": true,
     "id": "trunk_big",
     "name": "Tree Trunk Large",
     "cords": {
@@ -22,13 +22,13 @@
     ]
   },
   {
+    "is_big": true,
     "id": "log_large",
     "name": "Large Log",
     "cords": {
       "x": 32,
       "y": 156
     },
-    "isBig": true,
     "drop": [
       {
         "id": "wood",
@@ -44,13 +44,13 @@
     ]
   },
   {
+    "is_big": true,
     "id": "volcano_rock_large",
     "name": "Volcano rock",
     "cords": {
       "x": 68,
       "y": 156
     },
-    "isBig": true,
     "drop": [
       {
         "id": "wood",
@@ -66,13 +66,13 @@
     ]
   },
   {
+    "is_big": true,
     "id": "coal_rock_large",
     "name": "Coal rock",
     "cords": {
       "x": 100,
       "y": 156
     },
-    "isBig": true,
     "drop": [
       {
         "id": "wood",
@@ -88,13 +88,13 @@
     ]
   },
   {
+    "is_big": true,
     "id": "blue_gem_large",
     "name": "Blue Gem",
     "cords": {
       "x": 132,
       "y": 156
     },
-    "isBig": true,
     "drop": [
       {
         "id": "wood",
@@ -110,13 +110,13 @@
     ]
   },
   {
+    "is_big": true,
     "id": "blue_gem_active_large",
     "name": "Blue Gem Active",
     "cords": {
       "x": 164,
       "y": 156
     },
-    "isBig": true,
     "drop": [
       {
         "id": "wood",
@@ -132,13 +132,13 @@
     ]
   },
   {
+    "is_big": true,
     "id": "stone_large",
     "name": "Stone",
     "cords": {
       "x": 196,
       "y": 156
     },
-    "isBig": true,
     "drop": [
       {
         "id": "wood",
@@ -154,13 +154,13 @@
     ]
   },
   {
+    "is_big": true,
     "id": "alien_stone_large",
     "name": "Alien stone",
     "cords": {
       "x": 234,
       "y": 156
     },
-    "isBig": true,
     "drop": [
       {
         "id": "wood",

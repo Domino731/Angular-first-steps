@@ -63,7 +63,7 @@ public class ResourcesConfig {
         }
         JsonNode resourceConfig = getResourceConfig(id);
         Vector<Integer> offset = new Vector<Integer>(resourceConfig.get("cords").get("x").intValue(), resourceConfig.get("cords").get("y").intValue());
-        Boolean isBig = resourceConfig.get("isBig").asBoolean();
+        boolean isBig = resourceConfig.get("is_big").asBoolean();
         byte width = 16;
         byte height = 16;
         if (isBig) {
