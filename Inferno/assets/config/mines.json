@@ -36,7 +36,7 @@
     "isBig": true
   },
   {
-    "id": "blue_gem",
+    "id": "blue_gem_large",
     "name": "Blue Gem",
     "cords": {
       "x": 132,
@@ -45,19 +45,28 @@
     "isBig": true
   },
   {
-    "id": "stone_large",
-    "name": "Stone Large",
+    "id": "blue_gem_active_large",
+    "name": "Blue Gem Active",
     "cords": {
-      "x": 160,
+      "x": 164,
       "y": 156
     },
     "isBig": true
   },
   {
-    "id": "alien_stone",
-    "name": "Alien Stone Large",
+    "id": "stone_large",
+    "name": "Stone",
     "cords": {
-      "x": 192,
+      "x": 196,
+      "y": 156
+    },
+    "isBig": true
+  },
+  {
+    "id": "alien_stone_large",
+    "name": "Alien stone",
+    "cords": {
+      "x": 234,
       "y": 156
     },
     "isBig": true
