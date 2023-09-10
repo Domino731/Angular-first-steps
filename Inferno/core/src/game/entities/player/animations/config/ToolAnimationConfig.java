@@ -5,7 +5,6 @@ import utils.Direction;
 import static game.entities.player.animations.config.AniConfigConstants.*;
 
 public class ToolAnimationConfig {
-    public static final byte[][] rightAxeAnimation = createRightAxeAnimation();
     public static final byte[][][] animations = createToolAnimationArray();
     // Array config
     public static final byte aniAmount = 4;
