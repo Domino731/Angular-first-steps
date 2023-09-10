@@ -135,7 +135,7 @@ public class Player extends MovableDefaultActor {
      * Trigger the specific action when action end
      */
     private void handleActions() {
-        if (actorsManager.currentAction == null) return;
+        if (actorsManager.currentAction == null || !isStaticAction) return;
 
         if (getIsActionByAniIndex(currItemActionType, aniIndex)) {
             actorsManager.currentAction.action();
