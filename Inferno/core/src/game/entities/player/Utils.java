@@ -117,9 +117,6 @@ public class Utils {
         }
 
         byte targetAniIndex = fireActionIndices.get(actionType);
-        System.out.println("playerAniIndex: ");
-        System.out.println(playerAniIndex);
-        System.out.println(targetAniIndex);
         return targetAniIndex == playerAniIndex;
     }
 }

@@ -9,7 +9,7 @@ public class ToolAnimationConfig {
     public static final byte[][][] animations = createToolAnimationArray();
     // Array config
     public static final byte aniAmount = 4;
-    public static final byte aniLength = 5;
+    public static final byte aniLength = 6;
     public static final byte aniDataLength = 5;
 
     private static byte[][] createUpAxeAnimation() {
@@ -44,6 +44,12 @@ public class ToolAnimationConfig {
         payload[4][rotateIndex] = 0;
         payload[4][txtIndex] = 1;
         payload[4][zIndex] = 0;
+
+        payload[5][xIndex] = 0;
+        payload[5][yIndex] = 1;
+        payload[5][rotateIndex] = 0;
+        payload[5][txtIndex] = 1;
+        payload[5][zIndex] = 0;
 
         return payload;
     }
