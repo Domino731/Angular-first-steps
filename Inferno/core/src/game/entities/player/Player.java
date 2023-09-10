@@ -21,6 +21,7 @@ import utils.vectors.Vector;
 
 import static constants.Urls.SPRITE_HATS;
 import static game.entities.player.PlayerConstants.*;
+import static game.entities.player.Utils.getActionIndexByLastAction;
 import static game.entities.player.Utils.getIsActionByAniIndex;
 import static game.entities.player.playerTextures.PlayerTextures.idleActionByLastActionForItem;
 
@@ -124,7 +125,7 @@ public class Player extends MovableDefaultActor {
             if (aniIndex >= animationAmount.getAmount(actionIndex)) {
                 if (isStaticAction) {
                     isStaticAction = false;
-                    actionIndex = ANI_IDLE_RIGHT;
+                    actionIndex = getActionIndexByLastAction(actionIndex);
                 }
                 aniIndex = 0;
             }

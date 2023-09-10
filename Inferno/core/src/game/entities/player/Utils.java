@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import static game.entities.player.PlayerConstants.*;
 
 public class Utils {
-    public static byte getDirectionByLastAction(int actionIndex) {
+    public static byte getDirectionIndexByLastAction(int actionIndex) {
         switch (actionIndex) {
             case ANI_HARVEST_LEFT:
             case ANI_IDLE_LEFT:
@@ -45,8 +45,25 @@ public class Utils {
         }
     }
 
+    public static byte getActionIndexByLastAction(int actionIndex) {
+        byte directionIndex = getDirectionIndexByLastAction(actionIndex);
+
+        switch (directionIndex) {
+            case Direction.up:
+                return ANI_IDLE_UP;
+            case Direction.right:
+                return ANI_IDLE_RIGHT;
+            case Direction.down:
+                return ANI_IDLE_DOWN;
+            case Direction.left:
+                return ANI_IDLE_LEFT;
+            default:
+                return ANI_IDLE_UP;
+        }
+    }
+
     public static byte getHarvestWeedAniIndex(int actionIndex, InventoryItemGroups inventoryItemType, boolean isMoving, boolean isSeed) {
-        byte direction = getDirectionByLastAction(actionIndex);
+        byte direction = getDirectionIndexByLastAction(actionIndex);
 
         if (isSeed) {
             if (isMoving) {
