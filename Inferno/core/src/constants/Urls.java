@@ -5,7 +5,8 @@ package constants;
  */
 public class Urls {
     // CONFIGS
-    public static final String CONFIG_WEAPONS_CONFIG = "config/items/tools/weapons.json";
+    public static final String CONFIG_WEAPONS = "config/items/tools/weapons.json";
+    public static final String CONFIG_RESOURCE_ITEMS = "config/items/resources.json";
     public static final String CONFIG_BASE_HAIR_OFFSETS = "config/hairOffsets.json";
     public static final String CONFIG_BASE_SHIRT_OFFSETS = "config/baseShirtOffsets.json";
     public static final String CONFIG_PICKAXES = "config/items/tools/pickaxes.json";
@@ -22,5 +23,6 @@ public class Urls {
     public static final String TXT_INVENTORY_ACTIVE_SLOT = "inventory/slotActive.png";
     public static final String SPRITE_WEAPONS = "sprites/weapons.png";
     public static final String SPRITE_SEEDS = "sprites/seeds.png";
-    public static final String MINES = "sprites/mines.png";
+    public static final String SPRITE_MINES = "sprites/mines.png";
+    public static final String SPRITE_DEBRIS = "sprites/debris";
 }

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "wood",
+    "name": "Wood",
+    "base_value": 4,
+    "sprite_name": "debris",
+    "sprite_cords": {
+      "x": 0,
+      "y": 0
+    }
+  }
+]

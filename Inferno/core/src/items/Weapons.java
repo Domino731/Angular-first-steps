@@ -23,7 +23,7 @@ public class Weapons {
     private static JsonNode readJson() {
         JsonNode json = null;
         try {
-            FileHandle fileHandle = Gdx.files.internal(Urls.CONFIG_WEAPONS_CONFIG);
+            FileHandle fileHandle = Gdx.files.internal(Urls.CONFIG_WEAPONS);
             if (fileHandle.exists()) {
                 json = Json.parse(fileHandle.readString());
             }
