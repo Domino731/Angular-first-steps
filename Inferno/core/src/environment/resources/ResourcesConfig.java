@@ -5,6 +5,8 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import engine.Textures;
+import engine.actionCollision.ActionCollisionUtils;
+import engine.actionCollision.ActionTypes;
 import utils.EngineLog;
 import utils.Json;
 import utils.vectors.DimensionVector;
@@ -21,9 +23,15 @@ public class ResourcesConfig {
 
     public static class Config {
         public TextureRegion txt;
+        private ActionTypes actionType;
 
-        Config(Vector<Integer> offset, DimensionVector<Byte> dim) {
+        Config(Vector<Integer> offset, DimensionVector<Byte> dim, ActionTypes actionType) {
             txt = new TextureRegion(Textures.minesTxt, offset.x, offset.y, dim.width, dim.height);
+            this.actionType = actionType;
+        }
+
+        public ActionTypes getActionType() {
+            return actionType;
         }
     }
 
@@ -72,7 +80,8 @@ public class ResourcesConfig {
         }
 
         DimensionVector<Byte> dim = new DimensionVector<>(width, height);
-        resources.put(resourceConfig.get("id").asText(), new Config(offset, dim));
+        ActionTypes actionType = ActionCollisionUtils.getActionTypeFromJson(resourceConfig.get("action").asText());
+        resources.put(resourceConfig.get("id").asText(), new Config(offset, dim, actionType));
 
         return resources.get(id);
     }

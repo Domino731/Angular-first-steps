@@ -2,7 +2,6 @@ package environment.resources;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.actionCollision.ActionCollision;
-import engine.actionCollision.ActionTypes;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
 import engine.actorsManager.ActorsManager;
@@ -43,7 +42,7 @@ public class Resource extends DefaultActor {
 
         actionCollisions.add(
                 new ActionCollision(
-                        ActionTypes.MINE_RESOURCE,
+                        config.getActionType(),
                         id,
                         new Vector<>(position.x - 5, position.y - 5),
                         new DimensionVector<>(40, 40),

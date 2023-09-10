@@ -1,5 +1,6 @@
 package game.entities.player;
 
+import engine.actionCollision.ActionTypes;
 import game.entities.player.inventory.InventoryItemGroups;
 import utils.Direction;
 import utils.vectors.DimensionCordVector;
@@ -108,5 +109,17 @@ public class Utils {
         ArrayList<DimensionCordVector> payload = new ArrayList<>();
         payload.add(new DimensionCordVector(10, 5, 3, 0));
         return payload;
+    }
+
+    public static boolean getIsActionByAniIndex(ActionTypes actionType, int playerAniIndex) {
+        if (actionType == null) {
+            return false;
+        }
+
+        byte targetAniIndex = fireActionIndices.get(actionType);
+        System.out.println("playerAniIndex: ");
+        System.out.println(playerAniIndex);
+        System.out.println(targetAniIndex);
+        return targetAniIndex == playerAniIndex;
     }
 }

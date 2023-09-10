@@ -2,6 +2,7 @@ package game.entities.player.inventory;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import engine.actionCollision.ActionTypes;
 import game.entities.player.inventory.examples.PlantSeed;
 import game.entities.player.inventory.examples.Weapon;
 
@@ -63,6 +64,10 @@ public class PlayerInventory {
 
     public InventoryItemGroups getCurrItemType() {
         return currentItem.getType();
+    }
+
+    public ActionTypes getCurrItemActionType() {
+        return ActionTypes.CUT_TREE;
     }
 
     public void draw() {

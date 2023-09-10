@@ -21,6 +21,7 @@ import utils.vectors.Vector;
 
 import static constants.Urls.SPRITE_HATS;
 import static game.entities.player.PlayerConstants.*;
+import static game.entities.player.Utils.getIsActionByAniIndex;
 import static game.entities.player.playerTextures.PlayerTextures.idleActionByLastActionForItem;
 
 public class Player extends MovableDefaultActor {
@@ -34,6 +35,7 @@ public class Player extends MovableDefaultActor {
     private boolean isSeed = false;
     private AnimationAmount animationAmount;
     private byte directionIndex = Direction.down;
+    private ActionTypes currItemActionType = null;
 
     public Player(ActorsManager actorsManager) {
         super(5, 5, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -44,6 +46,7 @@ public class Player extends MovableDefaultActor {
         setActionsCollisions();
         animations = new PlayerAnimations(this);
         animationAmount = new AnimationAmount(playerTextures.bodyTextures);
+        changeInventorySlot((byte) 1);
     }
 
     public void startStaticAction() {
@@ -134,7 +137,7 @@ public class Player extends MovableDefaultActor {
     private void handleActions() {
         if (actorsManager.currentAction == null) return;
 
-        if (actionIndex == ANI_MINE_RIGHT && aniIndex >= PlayerConstants.ANI_ACTION_MINE_ACTION) {
+        if (getIsActionByAniIndex(currItemActionType, aniIndex)) {
             actorsManager.currentAction.action();
         }
     }
@@ -218,5 +221,6 @@ public class Player extends MovableDefaultActor {
     public void changeInventorySlot(byte slot) {
         inventory.changeCurrentSlot(slot);
         isSeed = inventory.getCurrItemType() == InventoryItemGroups.seed;
+        currItemActionType = inventory.getCurrItemActionType();
     }
 }

@@ -1,5 +1,6 @@
 package game.entities.player;
 
+import engine.actionCollision.ActionTypes;
 import utils.Direction;
 import utils.TextureData;
 import utils.vectors.DimensionCordVector;
@@ -7,6 +8,7 @@ import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static constants.Urls.SPRITE_HATS;
 import static game.entities.player.Utils.getCheckboxArray;
@@ -60,13 +62,15 @@ public class PlayerConstants {
     // ANIMATION ACTION CONSTANTS - when action need to trigger (not animation length)?
     public static final byte ANI_ACTION_MINE_ACTION = 5;
 
-    /**
-     * Array with animation indices sorted by direction
-     */
+    public static final HashMap<ActionTypes, Byte> fireActionIndices = createFireActionIndices();
+
+    //  Array with animation indices sorted by direction
     public static final byte[][] ANI_INDICES_BY_DIRECTION = createAniIndicesByDirection();
 
-    
-    // METHODS FOR CREATING CONSTANT
+    ////////////////////////////////////////
+    //// METHODS FOR CREATING CONSTANTS ////
+    ////////////////////////////////////////
+
     private static byte[][] createAniIndicesByDirection() {
         // 4 - amount of directions - up, right, down, left
         // 6 - amount of available animations - idle, running, mine, harvest, idle with item, running with item...
@@ -79,4 +83,14 @@ public class PlayerConstants {
 
         return data;
     }
+
+    private static HashMap<ActionTypes, Byte> createFireActionIndices() {
+        HashMap<ActionTypes, Byte> data = new HashMap<>();
+
+        data.put(ActionTypes.CUT_TREE, ANI_ACTION_MINE_ACTION);
+
+        return data;
+    }
+
+
 }
