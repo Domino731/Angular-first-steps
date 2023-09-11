@@ -11,6 +11,8 @@ import utils.vectors.Vector;
 
 import java.util.ArrayList;
 
+import static engine.Textures.woodTxtRg;
+
 public class Resource extends DefaultActor {
     private ResourcesConfig.Config config;
     private ActorsManager actorsManager;
@@ -18,7 +20,7 @@ public class Resource extends DefaultActor {
     public Resource(String id, Vector<Integer> position, ActorsManager actorsManager) {
         super(
                 ActorTypes.STATIC,
-                new Vector<Integer>(position.x * 16, position.y * 16),
+                new Vector<>(position.x * 16, position.y * 16),
                 "sprites/trees/oak_spring.png",
                 new DimensionVector<Integer>(20, 20),
                 new ArrayList<DimensionCordVector>(),
@@ -34,7 +36,8 @@ public class Resource extends DefaultActor {
     @Override
     public void draw(SpriteBatch sb) {
         sb.draw(config.txt, position.x, position.y);
-//        sb.draw(ResourceTextures.txtTest, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
+        sb.draw(woodTxtRg, position.x, position.y);
+
     }
 
     private void setActionsCollisions() {

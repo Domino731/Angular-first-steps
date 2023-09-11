@@ -24,5 +24,5 @@ public class Urls {
     public static final String SPRITE_WEAPONS = "sprites/weapons.png";
     public static final String SPRITE_SEEDS = "sprites/seeds.png";
     public static final String SPRITE_MINES = "sprites/mines.png";
-    public static final String SPRITE_DEBRIS = "sprites/debris";
+    public static final String SPRITE_DEBRIS = "sprites/debris.png";
 }
