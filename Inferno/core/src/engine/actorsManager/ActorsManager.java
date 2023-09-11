@@ -73,7 +73,7 @@ public class ActorsManager {
         }
     }
 
-    public void update() {
+    public void update(double delta) {
         sortCheckboxesByPosition();
         player.setIsCollision(false);
         player.updatePos();
@@ -108,7 +108,7 @@ public class ActorsManager {
 
         for (DefaultActor actor : allActors
         ) {
-            actor.update();
+            actor.update(delta);
         }
     }
 

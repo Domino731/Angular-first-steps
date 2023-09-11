@@ -46,13 +46,12 @@ public class Resource extends DefaultActor {
 
     private void drawResource(SpriteBatch sb) {
         sb.draw(config.txt, position.x, position.y);
-        sb.draw(woodTxtRg, position.x, position.y);
     }
 
     @Override
-    public void update() {
+    public void update(double delta) {
         for (GroundItem item : items) {
-            item.update();
+            item.update(delta);
         }
     }
 

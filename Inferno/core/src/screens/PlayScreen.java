@@ -37,17 +37,17 @@ public class PlayScreen implements Screen {
 
     }
 
-    private void update() {
+    private void update(float delta) {
         ScreenUtils.clear(0, 0, 0, 1);
         Vector<Integer> position = player.getPosition();
         camera.position.set(position.x, position.y, 0);
         camera.update();
-        actorsManager.update();
+        actorsManager.update(delta);
     }
 
     @Override
     public void render(float delta) {
-        update();
+        update(delta);
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
         levelManager.render(game.batch);

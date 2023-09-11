@@ -59,7 +59,7 @@ public class Player extends MovableDefaultActor {
     }
 
     @Override
-    public void update() {
+    public void update(double delta) {
         if (!isCollision) {
             finalPosition.x = position.x;
             finalPosition.y = position.y;

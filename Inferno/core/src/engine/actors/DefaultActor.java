@@ -68,6 +68,9 @@ public abstract class DefaultActor {
     public void update() {
     }
 
+    public void update(double delta) {
+    }
+
     // getters
     public Vector<Integer> getPosition() {
         return position;
