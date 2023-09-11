@@ -41,11 +41,19 @@ public class Resource extends DefaultActor {
                 drawResource(sb);
             }
         };
+
     }
 
     private void drawResource(SpriteBatch sb) {
         sb.draw(config.txt, position.x, position.y);
         sb.draw(woodTxtRg, position.x, position.y);
+    }
+
+    @Override
+    public void update() {
+        for (GroundItem item : items) {
+            item.update();
+        }
     }
 
     private void drawItems(SpriteBatch sb) {

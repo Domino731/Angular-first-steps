@@ -106,7 +106,10 @@ public class ActorsManager {
         }
 
 
-        player.update();
+        for (DefaultActor actor : allActors
+        ) {
+            actor.update();
+        }
     }
 
     public void sortCheckboxesByPosition() {

@@ -58,6 +58,7 @@ public class Player extends MovableDefaultActor {
         isStaticAction = true;
     }
 
+    @Override
     public void update() {
         if (!isCollision) {
             finalPosition.x = position.x;

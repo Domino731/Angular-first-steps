@@ -65,6 +65,9 @@ public abstract class DefaultActor {
         return actionCollisions;
     }
 
+    public void update() {
+    }
+
     // getters
     public Vector<Integer> getPosition() {
         return position;
