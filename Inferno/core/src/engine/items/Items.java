@@ -13,12 +13,26 @@ public class Items {
     private static HashMap<String, Config> data = createData();
 
     public static class Config {
-        private TextureRegion txt;
-        private String id;
-        private String name;
+        private final TextureRegion txt;
+        private final String id;
+        private final String name;
 
         public Config(String id, TextureRegion txt, String name) {
+            this.id = id;
+            this.txt = txt;
+            this.name = name;
+        }
 
+        public String getName() {
+            return name;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public TextureRegion getTxt() {
+            return txt;
         }
     }
 
@@ -45,7 +59,7 @@ public class Items {
     }
 
     private static TextureRegion createTxt(String itemSpriteSheet, int x, int y) {
-        return new TextureRegion(Textures.debrisTxt, x, y);
+        return new TextureRegion(Textures.debrisTxt, x, y, 16, 16);
     }
 
 }

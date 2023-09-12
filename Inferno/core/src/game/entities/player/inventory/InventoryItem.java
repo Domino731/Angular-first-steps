@@ -37,6 +37,17 @@ public class InventoryItem extends Actor {
         setHeight(48);
     }
 
+    public InventoryItem(engine.items.Items.Config config) {
+        txt = config.getTxt();
+        downTextures = new TextureRegion[0];
+        upTextures = new TextureRegion[0];
+        rightTxt = new TextureRegion();
+        leftTxt = new TextureRegion();
+        group = InventoryItemGroups.tool;
+        setWidth(48);
+        setHeight(48);
+    }
+
     public InventoryItemGroups getType() {
         return group;
     }

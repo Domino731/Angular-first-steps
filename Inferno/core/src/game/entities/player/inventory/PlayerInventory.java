@@ -49,9 +49,28 @@ public class PlayerInventory {
         }
     }
 
+    private Byte findFirstEmptySlotIndex() {
+        Byte payload = null;
+        for (int i = 0; i < inventoryItems.length; i++) {
+            if (inventoryItems[i] == null) {
+                payload = (byte) i;
+                break;
+            }
+        }
+        return payload;
+    }
+
     public void addItem(String itemId, byte amount) {
-        System.out.println(Items.getData(itemId));
-        System.out.println("ITEM ADDED TO PLAYER INVENTORY");
+        Byte emptySlotIndex = findFirstEmptySlotIndex();
+        emptySlotIndex = 4;
+        if (emptySlotIndex == null) {
+            System.out.println("There is no empty slot in player inventory");
+            return;
+        }
+        inventoryItems[emptySlotIndex] = new InventoryItem(Items.getData(itemId));
+        inventoryItems[emptySlotIndex].setPosition(emptySlotIndex * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
+        stage.addActor(inventoryItems[emptySlotIndex]);
+
     }
 
     public void changeCurrentSlot(byte slot) {
