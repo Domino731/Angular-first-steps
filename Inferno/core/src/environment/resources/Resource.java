@@ -6,6 +6,7 @@ import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
 import engine.actors.groundItem.GroundItem;
 import engine.actorsManager.ActorsManager;
+import engine.utils.Action;
 import engine.utils.Draw;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
@@ -21,6 +22,7 @@ public class Resource extends DefaultActor {
     private ArrayList<GroundItem> items = new ArrayList<>();
     private Draw draw;
     private boolean isDestroyed = false;
+    private ArrayList<ActionCollision> itemsCollisions = new ArrayList<>();
 
     public Resource(String id, final Vector<Integer> position, ActorsManager actorsManager) {
         super(
@@ -73,13 +75,26 @@ public class Resource extends DefaultActor {
             return;
         }
         isDestroyed = true;
-        items.add(new GroundItem(position.x, position.y, woodTxtRg));
-        actorsManager.addGroundItem(items.get(0).getActionCollision());
+        items.add(new GroundItem(position.x, position.y, woodTxtRg, createItemActionCollision()));
+        for (GroundItem item : items) {
+            itemsCollisions.add(item.getActionCollision());
+        }
+
+        actorsManager.addGroundItems(itemsCollisions);
 
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
                 drawItems(sb);
+            }
+        };
+    }
+
+    private Action createItemActionCollision() {
+        return new Action() {
+            @Override
+            public void action() {
+                System.out.println("ACTION");
             }
         };
     }
@@ -97,7 +112,7 @@ public class Resource extends DefaultActor {
                         new ResourceAction() {
                             @Override
                             public void action() {
-//                                actorsManager.removeActor(resource);
+                                actorsManager.removeResourceObjectItems(resource);
                                 showGroundItems();
                             }
                         }

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.ActionTypes;
+import engine.utils.Action;
 import environment.resources.ResourceAction;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
@@ -14,10 +15,10 @@ public class GroundItem {
     private boolean isAvailableToPick = false;
     private ActionCollision actionCollision;
 
-    public GroundItem(int positionX, int positionY, TextureRegion txt) {
+    public GroundItem(int positionX, int positionY, TextureRegion txt, Action action) {
         position = new Vector<>(positionX, positionY);
         this.txt = txt;
-        actionCollision = createActionCollision();
+        actionCollision = createActionCollision(action);
     }
 
     public void update(double deltaTime) {
@@ -28,7 +29,7 @@ public class GroundItem {
         sb.draw(txt, position.x, position.y, GroundItemConstants.size, GroundItemConstants.size);
     }
 
-    private ActionCollision createActionCollision() {
+    private ActionCollision createActionCollision(final Action action) {
         return new ActionCollision(
                 ActionTypes.ACTION_AREA,
                 "",
@@ -38,7 +39,7 @@ public class GroundItem {
                 new ResourceAction() {
                     @Override
                     public void action() {
-                        System.out.println("ITEM ON COLLISION");
+                        action.action();
                     }
                 }
         );

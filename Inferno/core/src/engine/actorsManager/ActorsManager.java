@@ -112,7 +112,7 @@ public class ActorsManager {
             }
         }
 
-        
+
         for (DefaultActor actor : allActors
         ) {
             actor.update(delta);
@@ -139,6 +139,12 @@ public class ActorsManager {
         this.groundItems.add(groundItems);
     }
 
+    public void removeResourceObjectItems(Resource rsc) {
+        checkboxes.remove(rsc.getGroundCheckbox());
+        groundCheckboxes.remove(rsc.getGroundCheckbox());
+        actionCollisions.removeAll(rsc.getActionCollisions());
+        currentAction = null;
+    }
 
     public static boolean checkCollision(Checkbox checkbox1, Checkbox checkbox2) {
         // Calculate the coordinates of the bounding boxes

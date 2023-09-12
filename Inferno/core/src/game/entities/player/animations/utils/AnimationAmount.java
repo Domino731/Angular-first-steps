@@ -31,8 +31,6 @@ public class AnimationAmount {
     }
 
     public int getAmount(int playerIndex) {
-        System.out.println("getAmount");
-        System.out.println(animations[8][0]);
         return animations[playerIndex][0];
     }
 
