@@ -6,7 +6,7 @@ package constants;
 public class Urls {
     // CONFIGS
     public static final String CONFIG_WEAPONS = "config/items/tools/weapons.json";
-    public static final String CONFIG_RESOURCE_ITEMS = "config/items/resources.json";
+    public static final String CONFIG_RESOURCE_ITEMS = "config/resources.json";
     public static final String CONFIG_BASE_HAIR_OFFSETS = "config/hairOffsets.json";
     public static final String CONFIG_BASE_SHIRT_OFFSETS = "config/baseShirtOffsets.json";
     public static final String CONFIG_PICKAXES = "config/items/tools/pickaxes.json";

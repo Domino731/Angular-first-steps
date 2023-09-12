@@ -3,6 +3,7 @@ package game.entities.player.inventory;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import engine.actionCollision.ActionTypes;
+import engine.items.Items;
 import game.entities.player.inventory.examples.PlantSeed;
 import game.entities.player.inventory.examples.Weapon;
 
@@ -18,7 +19,7 @@ public class PlayerInventory {
         createInventorySlots();
         createInventoryItems();
         changeCurrentSlot((byte) 3);
-
+        addItem("wood", (byte) 1);
     }
 
     // TODO: only for test purposes
@@ -49,6 +50,7 @@ public class PlayerInventory {
     }
 
     public void addItem(String itemId, byte amount) {
+        System.out.println(Items.getData(itemId));
         System.out.println("ITEM ADDED TO PLAYER INVENTORY");
     }
 

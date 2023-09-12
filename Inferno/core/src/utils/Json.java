@@ -1,6 +1,8 @@
 package utils;
 
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -59,5 +61,19 @@ public class Json {
      */
     public static <A> A fromJson(JsonNode node, Class<A> clazz) throws JsonProcessingException {
         return objectMapper.treeToValue(node, clazz);
+    }
+
+    public static JsonNode readFile(String src) {
+        JsonNode json = null;
+        try {
+            FileHandle fileHandle = Gdx.files.internal(src);
+            if (fileHandle.exists()) {
+                json = Json.parse(fileHandle.readString());
+            }
+        } catch (IOException e) {
+            EngineLog.resourceError(src);
+        }
+
+        return json;
     }
 }
