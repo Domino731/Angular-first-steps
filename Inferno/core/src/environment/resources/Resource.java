@@ -20,6 +20,7 @@ public class Resource extends DefaultActor {
     private ActorsManager actorsManager;
     private ArrayList<GroundItem> items = new ArrayList<>();
     private Draw draw;
+    private boolean isDestroyed = false;
 
     public Resource(String id, final Vector<Integer> position, ActorsManager actorsManager) {
         super(
@@ -68,7 +69,13 @@ public class Resource extends DefaultActor {
     }
 
     private void showGroundItems() {
+        if (isDestroyed) {
+            return;
+        }
+        isDestroyed = true;
         items.add(new GroundItem(position.x, position.y, woodTxtRg));
+        actorsManager.addGroundItem(items.get(0).getActionCollision());
+
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {

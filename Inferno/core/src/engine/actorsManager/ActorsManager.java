@@ -1,7 +1,6 @@
 package engine.actorsManager;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import engine.actionCollision.ActionCollision;
 import engine.actors.DefaultActor;
 import environment.resources.Resource;
@@ -19,6 +18,7 @@ public class ActorsManager {
     private ArrayList<Checkbox> checkboxes = new ArrayList<>();
     private ArrayList<Checkbox> groundCheckboxes = new ArrayList<>();
     private ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
+    private ArrayList<ActionCollision> groundItems = new ArrayList<>();
 
     public Player player;
 
@@ -105,7 +105,14 @@ public class ActorsManager {
             }
         }
 
+        for (int i = 0; i < groundItems.size(); i++) {
+            ActionCollision checkbox = groundItems.get(i);
+            if (checkCollision(checkbox, player.getActionCollisions().get(0))) {
+                System.out.println("ACTION");
+            }
+        }
 
+        
         for (DefaultActor actor : allActors
         ) {
             actor.update(delta);
@@ -124,34 +131,12 @@ public class ActorsManager {
         Collections.sort(allActors, checkboxComparator);
     }
 
-    public void renderCheckboxes(ShapeRenderer sr) {
-//        for (Checkbox cb : checkboxes) {
-//            sr.begin(ShapeRenderer.ShapeType.Line);
-//            sr.setColor(1, 0, 0, 1); // Red color
-//            sr.rect(cb.position.x, cb.position.y, cb.dim.width, cb.dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
-//            sr.end();
-//        }
-//        for (Checkbox cb : checkboxes) {
-//            sr.begin(ShapeRenderer.ShapeType.Line);
-//            sr.setColor(1, 0, 0, 1); // Red color
-//            sr.rect(cb.position.x, cb.position.y, cb.dim.width, cb.dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
-//            sr.end();
-//        }
-//        for (Checkbox cb : groundCheckboxes) {
-//            sr.begin(ShapeRenderer.ShapeType.Line);
-//            sr.setColor(0, 0, 1, 1); // Red color
-//            sr.rect(cb.position.x, cb.position.y, cb.dim.width, cb.dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
-//            sr.end();
-//        }
-//        sr.begin(ShapeRenderer.ShapeType.Line);
-//        sr.setColor(0, 0, 1, 1); // Red color
-//        sr.rect(player.getCheckboxArray().get(0).position.x, player.getCheckboxArray().get(0).position.y, player.getCheckboxArray().get(0).dim.width, player.getCheckboxArray().get(0).dim.height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
-//        sr.end();
-//        Vector<Integer> position = player.getFinalPosition();
-//        sr.begin(ShapeRenderer.ShapeType.Line);
-//        sr.setColor(0, 0, 1, 1); // Red color
-//        sr.rect(position.x, position.y, player.getDim().width, player.getDim().height); // Draw the border of a rectangle at (100, 100) with width 200 and height 100
-//        sr.end();
+    public void addGroundItems(ArrayList<ActionCollision> groundItems) {
+        this.groundItems.addAll(groundItems);
+    }
+
+    public void addGroundItem(ActionCollision groundItems) {
+        this.groundItems.add(groundItems);
     }
 
 

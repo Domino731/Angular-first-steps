@@ -2,56 +2,51 @@ package engine.actors.groundItem;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import engine.actionCollision.ActionCollision;
+import engine.actionCollision.ActionTypes;
+import environment.resources.ResourceAction;
+import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
 public class GroundItem {
     private Vector<Integer> position;
     private TextureRegion txt;
-    private int positionIndex = 0;
     private boolean isAvailableToPick = false;
-    private int x; // Współrzędna X przedmiotu
-    private int y; // Współrzędna Y przedmiotu
-    private double vx; // Prędkość X przedmiotu
-    private double vy; // Prędkość Y przedmiotu
-    private double gravity; // Siła grawitacji działająca na przedmiot
-    private boolean isOnGround; // Flaga określająca, czy przedmiot znajduje się na ziemi
+    private ActionCollision actionCollision;
 
     public GroundItem(int positionX, int positionY, TextureRegion txt) {
         position = new Vector<>(positionX, positionY);
         this.txt = txt;
-        // f(x) = x2
-
-        // NEW
-        this.x = positionX;
-        this.y = positionY;
-        this.vx = 0; // Przyjmujemy, że początkowa prędkość X wynosi 0
-        this.vy = 30;
-        this.gravity = 5.0;
-        this.isOnGround = false;
+        actionCollision = createActionCollision();
     }
 
     public void update(double deltaTime) {
-        updatePosition(deltaTime);
+
     }
 
     public void draw(SpriteBatch sb) {
-        System.out.println(x);
-        System.out.println(y);
-        sb.draw(txt, x, y, GroundItemConstants.size, GroundItemConstants.size);
+        sb.draw(txt, position.x, position.y, GroundItemConstants.size, GroundItemConstants.size);
+    }
+
+    private ActionCollision createActionCollision() {
+        return new ActionCollision(
+                ActionTypes.ACTION_AREA,
+                "",
+                new Vector<>(position.x, position.y),
+                new DimensionVector<>(16, 16),
+                new Vector<>(0, 0),
+                new ResourceAction() {
+                    @Override
+                    public void action() {
+                        System.out.println("ITEM ON COLLISION");
+                    }
+                }
+        );
     }
 
 
-    public void updatePosition(double deltaTime) {
-        if (!isOnGround) {
-            vy += gravity * deltaTime;
-            x += vx * deltaTime;
-            y += vy * deltaTime;
-
-            if (y <= 0) {
-                y = 0;
-                isOnGround = true;
-                vy = 0;
-            }
-        }
+    // GETTERS //
+    public ActionCollision getActionCollision() {
+        return actionCollision;
     }
 }
