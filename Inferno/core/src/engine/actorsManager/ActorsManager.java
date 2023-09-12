@@ -108,7 +108,7 @@ public class ActorsManager {
         for (int i = 0; i < groundItems.size(); i++) {
             ActionCollision checkbox = groundItems.get(i);
             if (checkCollision(checkbox, player.getActionCollisions().get(0))) {
-                System.out.println("ACTION");
+                checkbox.action();
             }
         }
 
@@ -143,6 +143,15 @@ public class ActorsManager {
         checkboxes.remove(rsc.getGroundCheckbox());
         groundCheckboxes.remove(rsc.getGroundCheckbox());
         actionCollisions.removeAll(rsc.getActionCollisions());
+        currentAction = null;
+    }
+
+    public void removeResourceObject(Resource rsc) {
+        allActors.remove(rsc);
+        checkboxes.remove(rsc.getGroundCheckbox());
+        groundCheckboxes.remove(rsc.getGroundCheckbox());
+        actionCollisions.removeAll(rsc.getActionCollisions());
+        groundItems.removeAll(rsc.getItemsCollisions());
         currentAction = null;
     }
 

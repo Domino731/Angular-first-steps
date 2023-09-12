@@ -64,6 +64,9 @@ public class Resource extends DefaultActor {
         }
     }
 
+    public ArrayList<ActionCollision> getItemsCollisions() {
+        return itemsCollisions;
+    }
 
     @Override
     public void draw(SpriteBatch sb) {
@@ -90,11 +93,15 @@ public class Resource extends DefaultActor {
         };
     }
 
+    private void removeResource() {
+        actorsManager.removeResourceObject(this);
+    }
+
     private Action createItemActionCollision() {
         return new Action() {
             @Override
             public void action() {
-                System.out.println("ACTION");
+                removeResource();
             }
         };
     }
