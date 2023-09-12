@@ -18,6 +18,7 @@ public class PlayerInventory {
         createInventorySlots();
         createInventoryItems();
         changeCurrentSlot((byte) 3);
+
     }
 
     // TODO: only for test purposes
@@ -35,7 +36,8 @@ public class PlayerInventory {
             stage.addActor(inventoryItems[i]);
         }
 
-
+        stage.getRoot().removeActor(inventoryItems[4]);
+        inventoryItems[4] = null;
     }
 
     private void createInventorySlots() {
@@ -44,6 +46,10 @@ public class PlayerInventory {
             inventorySlots[i].setPosition(i * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
             stage.addActor(inventorySlots[i]);
         }
+    }
+
+    public void addItem(String itemId, byte amount) {
+        System.out.println("ITEM ADDED TO PLAYER INVENTORY");
     }
 
     public void changeCurrentSlot(byte slot) {

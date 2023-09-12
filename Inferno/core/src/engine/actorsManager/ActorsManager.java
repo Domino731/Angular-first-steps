@@ -155,6 +155,10 @@ public class ActorsManager {
         currentAction = null;
     }
 
+    public void addItemToPlayerInventory(String itemId, byte amount) {
+        player.inventory.addItem(itemId, amount);
+    }
+
     public static boolean checkCollision(Checkbox checkbox1, Checkbox checkbox2) {
         // Calculate the coordinates of the bounding boxes
         int x1 = checkbox1.position.x;

@@ -101,6 +101,7 @@ public class Resource extends DefaultActor {
         return new Action() {
             @Override
             public void action() {
+                actorsManager.addItemToPlayerInventory("wood", (byte) 1);
                 removeResource();
             }
         };
