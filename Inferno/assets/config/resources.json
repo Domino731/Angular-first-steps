@@ -160,13 +160,63 @@
     }
   },
   {
-    "id": "emerald",
+    "id": "fairy_stone",
     "name": "Fairy Stone",
     "base_value": 250,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 192,
-      "y": 32
+      "x": 16,
+      "y": 80
+    }
+  },
+  {
+    "id": "fire_opal",
+    "name": "Fire opal",
+    "base_value": 350,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 208,
+      "y": 80
+    }
+  },
+  {
+    "id": "fire_quartz",
+    "name": "Fire quartz",
+    "base_value": 550,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 380,
+      "y": 0
+    }
+  },
+  {
+    "id": "fluorapatite",
+    "name": "Fluorapatite",
+    "base_value": 200,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 240,
+      "y": 128
+    }
+  },
+  {
+    "id": "frozen_geode",
+    "name": "Frozen Geode",
+    "base_value": 125,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 128,
+      "y": 48
+    }
+  },
+  {
+    "id": "frozen_tear",
+    "name": "frozen_tear",
+    "base_value": 112,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 368,
+      "y": 0
     }
   }
 ]
