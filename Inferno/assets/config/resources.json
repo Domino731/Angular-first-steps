@@ -118,5 +118,35 @@
       "x": 224,
       "y": 64
     }
+  },
+  {
+    "id": "diamond",
+    "name": "Diamond",
+    "base_value": 1125,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 96,
+      "y": 80
+    }
+  },
+  {
+    "id": "dolomite",
+    "name": "Dolomite",
+    "base_value": 1125,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 240,
+      "y": 48
+    }
+  },
+  {
+    "id": "dolomite",
+    "name": "Dolomite",
+    "base_value": 1125,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 240,
+      "y": 48
+    }
   }
 ]
