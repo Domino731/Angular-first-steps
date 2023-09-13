@@ -68,5 +68,45 @@
       "x": 224,
       "y": 32
     }
+  },
+  {
+    "id": "baryte",
+    "name": "Baryte",
+    "base_value": 50,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 192,
+      "y": 48
+    }
+  },
+  {
+    "id": "basalt",
+    "name": "Basalt",
+    "base_value": 25,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 288,
+      "y": 64
+    }
+  },
+  {
+    "id": "bixite",
+    "name": "Bixite",
+    "base_value": 25,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 176,
+      "y": 48
+    }
+  },
+  {
+    "id": "bixite",
+    "name": "Bixite",
+    "base_value": 25,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 176,
+      "y": 48
+    }
   }
 ]
