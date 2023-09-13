@@ -230,12 +230,22 @@
     }
   },
   {
-    "id": "ghost_crystal",
-    "name": "Ghost crystal",
-    "base_value": 200,
+    "id": "helvite",
+    "name": "Helvite",
+    "base_value": 450,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 144,
+      "x": 304,
+      "y": 48
+    }
+  },
+  {
+    "id": "hematite",
+    "name": "Hematite",
+    "base_value": 150,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 336,
       "y": 64
     }
   }
