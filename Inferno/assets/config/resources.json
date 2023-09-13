@@ -140,13 +140,33 @@
     }
   },
   {
-    "id": "dolomite",
-    "name": "Dolomite",
-    "base_value": 1125,
+    "id": "earth_crystal",
+    "name": "Earth Crystal",
+    "base_value": 50,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 240,
-      "y": 48
+      "x": 320,
+      "y": 32
+    }
+  },
+  {
+    "id": "emerald",
+    "name": "Emerald",
+    "base_value": 250,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 192,
+      "y": 32
+    }
+  },
+  {
+    "id": "emerald",
+    "name": "Fairy Stone",
+    "base_value": 250,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 192,
+      "y": 32
     }
   }
 ]
