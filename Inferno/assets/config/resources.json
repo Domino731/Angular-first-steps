@@ -450,13 +450,33 @@
     }
   },
   {
-    "id": "Pyrite",
-    "name": "Pyrite",
-    "base_value": 120,
+    "id": "quartz",
+    "name": "Quartz",
+    "base_value": 25,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 112,
-      "y": 64
+      "x": 96,
+      "y": 80
+    }
+  },
+  {
+    "id": "ruby",
+    "name": "Ruby",
+    "base_value": 250,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 256,
+      "y": 32
+    }
+  },
+  {
+    "id": "ruby",
+    "name": "Ruby",
+    "base_value": 250,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 256,
+      "y": 32
     }
   }
 ]
