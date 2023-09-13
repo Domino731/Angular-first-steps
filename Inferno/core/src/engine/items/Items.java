@@ -3,10 +3,11 @@ package engine.items;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import constants.Urls;
-import engine.Textures;
 import utils.Json;
 
 import java.util.HashMap;
+
+import static engine.items.Utils.getItemTextureBySrc;
 
 public class Items {
     private static JsonNode configFileResources = Json.readFile(Urls.CONFIG_RESOURCE_ITEMS);
@@ -36,6 +37,10 @@ public class Items {
         }
     }
 
+    public static HashMap<String, Config> getMap() {
+        return data;
+    }
+
     public static Config getData(String itemId) {
         return data.get(itemId);
     }
@@ -59,7 +64,7 @@ public class Items {
     }
 
     private static TextureRegion createTxt(String itemSpriteSheet, int x, int y) {
-        return new TextureRegion(Textures.debrisTxt, x, y, 16, 16);
+        return new TextureRegion(getItemTextureBySrc(itemSpriteSheet), x, y, 16, 16);
     }
 
 }

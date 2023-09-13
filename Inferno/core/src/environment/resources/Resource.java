@@ -8,6 +8,7 @@ import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
 import engine.actors.groundItem.GroundItem;
 import engine.actorsManager.ActorsManager;
+import engine.items.Items;
 import engine.utils.Action;
 import engine.utils.Draw;
 import utils.vectors.DimensionCordVector;
@@ -47,7 +48,7 @@ public class Resource extends DefaultActor {
                 drawResource(sb);
             }
         };
-        testTxt = new TextureRegion(Textures.debrisTxt, 17, 256, 16, 16);
+        testTxt = Items.getData("wood").getTxt();
     }
 
     private void drawResource(SpriteBatch sb) {
