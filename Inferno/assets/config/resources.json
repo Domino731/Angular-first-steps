@@ -470,13 +470,43 @@
     }
   },
   {
-    "id": "ruby",
-    "name": "Ruby",
-    "base_value": 250,
+    "id": "sandstone",
+    "name": "Sandstone",
+    "base_value": 60,
     "sprite_name": "mines",
     "sprite_cords": {
       "x": 256,
-      "y": 32
+      "y": 64
+    }
+  },
+  {
+    "id": "slate",
+    "name": "Slate",
+    "base_value": 85,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 0,
+      "y": 80
+    }
+  },
+  {
+    "id": "Soapstone",
+    "name": "Soapstone",
+    "base_value": 120,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 320,
+      "y": 64
+    }
+  },
+  {
+    "id": "star_shards",
+    "name": "Star Shards",
+    "base_value": 500,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 256,
+      "y": 80
     }
   }
 ]
