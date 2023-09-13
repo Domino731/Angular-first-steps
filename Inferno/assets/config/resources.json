@@ -211,12 +211,32 @@
   },
   {
     "id": "frozen_tear",
-    "name": "frozen_tear",
+    "name": "Frozen tear",
     "base_value": 112,
     "sprite_name": "mines",
     "sprite_cords": {
       "x": 368,
       "y": 0
+    }
+  },
+  {
+    "id": "ghost_crystal",
+    "name": "Ghost crystal",
+    "base_value": 200,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 144,
+      "y": 64
+    }
+  },
+  {
+    "id": "ghost_crystal",
+    "name": "Ghost crystal",
+    "base_value": 200,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 144,
+      "y": 64
     }
   }
 ]
