@@ -100,13 +100,23 @@
     }
   },
   {
-    "id": "bixite",
-    "name": "Bixite",
-    "base_value": 25,
+    "id": "calcite",
+    "name": "Calcite",
+    "base_value": 75,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 176,
+      "x": 224,
       "y": 48
+    }
+  },
+  {
+    "id": "celestine",
+    "name": "Celestine",
+    "base_value": 360,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 224,
+      "y": 64
     }
   }
 ]
