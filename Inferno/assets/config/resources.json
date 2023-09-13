@@ -288,5 +288,15 @@
       "x": 176,
       "y": 64
     }
+  },
+  {
+    "id": "kyanite",
+    "name": "Kyanite",
+    "base_value": 0,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 352,
+      "y": 48
+    }
   }
 ]
