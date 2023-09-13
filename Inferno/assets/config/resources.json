@@ -490,7 +490,7 @@
     }
   },
   {
-    "id": "Soapstone",
+    "id": "soapstone",
     "name": "Soapstone",
     "base_value": 120,
     "sprite_name": "mines",
@@ -506,6 +506,46 @@
     "sprite_name": "mines",
     "sprite_cords": {
       "x": 256,
+      "y": 80
+    }
+  },
+  {
+    "id": "Thunder_egg",
+    "name": "Thunder Egg",
+    "base_value": 100,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 96,
+      "y": 64
+    }
+  },
+  {
+    "id": "tigerseye",
+    "name": "Tigerseye",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 160,
+      "y": 64
+    }
+  },
+  {
+    "id": "tigerseye",
+    "name": "Tiger's eye",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 160,
+      "y": 64
+    }
+  },
+  {
+    "id": "topaz",
+    "name": "Topaz",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 64,
       "y": 80
     }
   }
