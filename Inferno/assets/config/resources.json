@@ -378,5 +378,45 @@
       "x": 16,
       "y": 64
     }
+  },
+  {
+    "id": "ocean_stone",
+    "name": "Ocean stone",
+    "base_value": 200,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 128,
+      "y": 64
+    }
+  },
+  {
+    "id": "omni_geode",
+    "name": "Omni Geode",
+    "base_value": 25,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 48,
+      "y": 128
+    }
+  },
+  {
+    "id": "opal",
+    "name": "Opal",
+    "base_value": 150,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 192,
+      "y": 64
+    }
+  },
+  {
+    "id": "orpiment",
+    "name": "Orpiment",
+    "base_value": 80,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 64,
+      "y": 64
+    }
   }
 ]
