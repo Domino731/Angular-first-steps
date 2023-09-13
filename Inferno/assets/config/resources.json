@@ -290,13 +290,93 @@
     }
   },
   {
-    "id": "kyanite",
-    "name": "Kyanite",
-    "base_value": 0,
+    "id": "lemon_Stone",
+    "name": "Lemon Stone",
+    "base_value": 200,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 32,
+      "y": 64
+    }
+  },
+  {
+    "id": "limestone",
+    "name": "Limestone",
+    "base_value": 15,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 304,
+      "y": 64
+    }
+  },
+  {
+    "id": "lunarite",
+    "name": "Lunarite",
+    "base_value": 200,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 368,
+      "y": 48
+    }
+  },
+  {
+    "id": "magma_Geode",
+    "name": "Magma Geode",
+    "base_value": 200,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 144,
+      "y": 48
+    }
+  },
+  {
+    "id": "malachite",
+    "name": "Malachite",
+    "base_value": 100,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 0,
+      "y": 64
+    }
+  },
+  {
+    "id": "marble",
+    "name": "Marble",
+    "base_value": 110,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 240,
+      "y": 64
+    }
+  },
+  {
+    "id": "mudstone",
+    "name": "Mudstone",
+    "base_value": 25,
     "sprite_name": "mines",
     "sprite_cords": {
       "x": 352,
-      "y": 48
+      "y": 64
+    }
+  },
+  {
+    "id": "nekoite",
+    "name": "Nekoite",
+    "base_value": 80,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 48,
+      "y": 64
+    }
+  },
+  {
+    "id": "neptunite",
+    "name": "Neptunite",
+    "base_value": 400,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 16,
+      "y": 64
     }
   }
 ]
