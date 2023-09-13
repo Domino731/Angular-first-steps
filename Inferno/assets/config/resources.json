@@ -418,5 +418,45 @@
       "x": 64,
       "y": 64
     }
+  },
+  {
+    "id": "petrified_slime",
+    "name": "Petrified Slime",
+    "base_value": 120,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 80,
+      "y": 64
+    }
+  },
+  {
+    "id": "prismatic_shard",
+    "name": "Prismatic Shard",
+    "base_value": 2000,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 80,
+      "y": 80
+    }
+  },
+  {
+    "id": "Pyrite",
+    "name": "Pyrite",
+    "base_value": 120,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 112,
+      "y": 64
+    }
+  },
+  {
+    "id": "Pyrite",
+    "name": "Pyrite",
+    "base_value": 120,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 112,
+      "y": 64
+    }
   }
 ]
