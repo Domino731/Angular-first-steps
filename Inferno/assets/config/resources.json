@@ -2,11 +2,21 @@
   {
     "id": "wood",
     "name": "Wood",
-    "base_value": 4,
+    "base_value": 2,
     "sprite_name": "debris",
     "sprite_cords": {
       "x": 16,
-      "y": 270
+      "y": 272
+    }
+  },
+  {
+    "id": "stone",
+    "name": "Stone",
+    "base_value": 3,
+    "sprite_name": "debris",
+    "sprite_cords": {
+      "x": 15,
+      "y": 256
     }
   }
 ]

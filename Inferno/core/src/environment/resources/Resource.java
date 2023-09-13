@@ -1,6 +1,8 @@
 package environment.resources;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import engine.Textures;
 import engine.actionCollision.ActionCollision;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
@@ -23,6 +25,7 @@ public class Resource extends DefaultActor {
     private Draw draw;
     private boolean isDestroyed = false;
     private ArrayList<ActionCollision> itemsCollisions = new ArrayList<>();
+    private TextureRegion testTxt;
 
     public Resource(String id, final Vector<Integer> position, ActorsManager actorsManager) {
         super(
@@ -44,11 +47,13 @@ public class Resource extends DefaultActor {
                 drawResource(sb);
             }
         };
-
+        testTxt = new TextureRegion(Textures.debrisTxt, 17, 256, 16, 16);
     }
 
     private void drawResource(SpriteBatch sb) {
-        sb.draw(config.txt, position.x, position.y);
+//        sb.draw(config.txt, position.x, position.y);
+        sb.draw(Textures.checkbox, position.x, position.y, 16, 16);
+        sb.draw(testTxt, position.x, position.y);
     }
 
     @Override
