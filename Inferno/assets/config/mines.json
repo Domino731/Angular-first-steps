@@ -20,7 +20,8 @@
         ]
       }
     ],
-    "action": "cut_tree"
+    "action": "cut_tree",
+    "exp": 10
   },
   {
     "is_big": true,
@@ -66,7 +67,8 @@
         ]
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "exp": 10
   },
   {
     "is_big": true,
@@ -89,7 +91,8 @@
         ]
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "exp": 20
   },
   {
     "is_big": true,
@@ -135,7 +138,8 @@
         ]
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "exp": 100
   },
   {
     "is_big": true,
@@ -158,7 +162,8 @@
         ]
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "exp": 5
   },
   {
     "is_big": true,
@@ -181,6 +186,205 @@
         ]
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "exp": 120
+  },
+  {
+    "id": "amethyst_ore",
+    "name": "Amethyst ore",
+    "exp": 16,
+    "cords": {
+      "x": 96,
+      "y": 0
+    }
+  },
+  {
+    "id": "aquamarine_ore",
+    "name": "Aquamarine ore",
+    "exp": 40,
+    "cords": {
+      "x": 192,
+      "y": 0
+    }
+  },
+  {
+    "id": "copper_ore",
+    "name": "Copper ore",
+    "exp": 5,
+    "cords": {
+      "x": 128,
+      "y": 0
+    }
+  },
+  {
+    "id": "diamond_ore",
+    "name": "Diamond ore",
+    "exp": 150,
+    "cords": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": "emerald_ore",
+    "name": "Emerald ore",
+    "exp": 80,
+    "cords": {
+      "x": 160,
+      "y": 0
+    }
+  },
+  {
+    "id": "gem_ore",
+    "name": "Gem ore",
+    "exp": 70,
+    "cords": {
+      "x": 320,
+      "y": 0
+    }
+  },
+  {
+    "id": "gold_ore",
+    "name": "Gold ore",
+    "exp": 18,
+    "cords": {
+      "x":128,
+      "y": 0
+    }
+  },
+  {
+    "id": "iridium_ore",
+    "name": "Iridium ore",
+    "exp": 50,
+    "cords": {
+      "x": 96,
+      "y": 0
+    }
+  },
+  {
+    "id": "iron_ore",
+    "name": "Iron ore",
+    "exp": 12,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "jade_ore",
+    "name": "Jade ore",
+    "exp": 40,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "mystic_stone",
+    "name": "Mystic stone",
+    "exp": 50,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "ruby_ore",
+    "name": "Ruby ore",
+    "exp": 80,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "topaz_ore",
+    "name": "Topaz ore",
+    "exp": 16,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "geode_ore",
+    "name": "Geode ore",
+    "exp": 8,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "frozen_geode_ore",
+    "name": "Frozen Geode Ore",
+    "exp": 16,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "magma_geode_ore",
+    "name": "Magma Geode ore",
+    "exp": 32,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "bone_ore",
+    "name": "Bone ore",
+    "exp": 6,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "cinder_shard_ore",
+    "name": "Cinder Shard Ore",
+    "exp": 12,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "clay_ore",
+    "name": "Clay ore",
+    "exp": 6,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "omni_geode_ore",
+    "name": "Omni geode ore",
+    "exp": 64,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "radioactive_ore",
+    "name": "Radioactive ore",
+    "exp": 18,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
+  },
+  {
+    "id": "mussel_ore",
+    "name": "Mussel ore",
+    "exp": 5,
+    "cords": {
+      "x": 0,
+      "y": 112
+    }
   }
 ]

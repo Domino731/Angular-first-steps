@@ -60,16 +60,6 @@
     }
   },
   {
-    "id": "aquamarine",
-    "name": "Aquamarine",
-    "base_value": 100,
-    "sprite_name": "mines",
-    "sprite_cords": {
-      "x": 224,
-      "y": 32
-    }
-  },
-  {
     "id": "baryte",
     "name": "Baryte",
     "base_value": 50,
@@ -507,7 +497,16 @@
     "sprite_cords": {
       "x": 256,
       "y": 80
-    }
+    },
+    "sources": [
+      {
+        "id": "frozen_geode",
+        "amount": [1, 2]
+      },
+      {
+        "id": "omni_geode"
+      }
+    ]
   },
   {
     "id": "Thunder_egg",
@@ -547,6 +546,17 @@
     "sprite_cords": {
       "x": 64,
       "y": 80
+    }
+  },
+
+  {
+    "id": "geode",
+    "name": "Geode",
+    "base_value": 50,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 0,
+      "y": 0
     }
   }
 ]
