@@ -196,7 +196,10 @@
     "cords": {
       "x": 96,
       "y": 0
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "aquamarine_ore",
@@ -205,7 +208,10 @@
     "cords": {
       "x": 192,
       "y": 0
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "copper_ore",
@@ -214,7 +220,10 @@
     "cords": {
       "x": 128,
       "y": 0
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "diamond_ore",
@@ -223,7 +232,10 @@
     "cords": {
       "x": 0,
       "y": 0
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "emerald_ore",
@@ -232,7 +244,10 @@
     "cords": {
       "x": 160,
       "y": 0
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "gem_ore",
@@ -241,7 +256,10 @@
     "cords": {
       "x": 320,
       "y": 0
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "gold_ore",
@@ -250,7 +268,10 @@
     "cords": {
       "x":128,
       "y": 0
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "iridium_ore",
@@ -259,7 +280,10 @@
     "cords": {
       "x": 96,
       "y": 0
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "iron_ore",
@@ -268,7 +292,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "jade_ore",
@@ -277,7 +304,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "mystic_stone",
@@ -286,7 +316,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "ruby_ore",
@@ -295,7 +328,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "topaz_ore",
@@ -304,7 +340,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "geode_ore",
@@ -313,7 +352,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "frozen_geode_ore",
@@ -322,7 +364,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "magma_geode_ore",
@@ -331,7 +376,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "bone_ore",
@@ -340,7 +388,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "cinder_shard_ore",
@@ -349,7 +400,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "clay_ore",
@@ -358,7 +412,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "omni_geode_ore",
@@ -367,7 +424,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "radioactive_ore",
@@ -376,7 +436,10 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   },
   {
     "id": "mussel_ore",
@@ -385,6 +448,9 @@
     "cords": {
       "x": 0,
       "y": 112
-    }
+    },
+    "isBig": false,
+    "drop": [],
+    "action": "mine"
   }
 ]
