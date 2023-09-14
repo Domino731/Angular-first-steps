@@ -2,7 +2,6 @@ package environment.resources;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import engine.Textures;
 import engine.actionCollision.ActionCollision;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
@@ -18,6 +17,7 @@ import utils.vectors.Vector;
 import java.util.ArrayList;
 
 import static engine.Textures.woodTxtRg;
+import static engine.utils.PositionUtils.convertTilePosition;
 
 public class Resource extends DefaultActor {
     private ResourcesConfig.Config config;
@@ -31,7 +31,7 @@ public class Resource extends DefaultActor {
     public Resource(String id, final Vector<Integer> position, ActorsManager actorsManager) {
         super(
                 ActorTypes.STATIC,
-                new Vector<>(position.x * 16, position.y * 16),
+                convertTilePosition(position),
                 "sprites/trees/oak_spring.png",
                 new DimensionVector<Integer>(20, 20),
                 new ArrayList<DimensionCordVector>(),
@@ -53,8 +53,8 @@ public class Resource extends DefaultActor {
 
     private void drawResource(SpriteBatch sb) {
         sb.draw(config.txt, position.x, position.y);
-        sb.draw(Textures.checkbox, position.x, position.y, 16, 16);
-        sb.draw(testTxt, position.x, position.y);
+//        sb.draw(Textures.checkbox, position.x, position.y, 16, 16);
+//        sb.draw(testTxt, position.x, position.y);
     }
 
     @Override
