@@ -24,14 +24,20 @@ public class ResourcesConfig {
     public static class Config {
         public TextureRegion txt;
         private ActionTypes actionType;
+        private boolean isBig;
 
-        Config(Vector<Integer> offset, DimensionVector<Byte> dim, ActionTypes actionType) {
+        Config(Vector<Integer> offset, DimensionVector<Byte> dim, ActionTypes actionType, boolean isBig) {
             txt = new TextureRegion(Textures.minesTxt, offset.x, offset.y, dim.width, dim.height);
             this.actionType = actionType;
+            this.isBig = isBig;
         }
 
         public ActionTypes getActionType() {
             return actionType;
+        }
+
+        public boolean getIsBig() {
+            return isBig;
         }
     }
 
@@ -81,7 +87,7 @@ public class ResourcesConfig {
 
         DimensionVector<Byte> dim = new DimensionVector<>(width, height);
         ActionTypes actionType = ActionCollisionUtils.getActionTypeFromJson(resourceConfig.get("action").asText());
-        resources.put(resourceConfig.get("id").asText(), new Config(offset, dim, actionType));
+        resources.put(resourceConfig.get("id").asText(), new Config(offset, dim, actionType, isBig));
 
         return resources.get(id);
     }

@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 import static engine.Textures.woodTxtRg;
 import static engine.utils.PositionUtils.convertTilePosition;
+import static environment.resources.ResourceUtils.getDimCordVectorBySize;
 
 public class Resource extends DefaultActor {
     private ResourcesConfig.Config config;
@@ -39,16 +40,24 @@ public class Resource extends DefaultActor {
         );
         this.actorsManager = actorsManager;
         config = ResourcesConfig.get(id);
+        setGroundCheckboxByResSize();
         hp = 100;
         setActionsCollisions();
+        setDraw();
+        testTxt = Items.getData("wood").getTxt();
+    }
 
+    private void setGroundCheckboxByResSize() {
+        setGroundCheckbox(getDimCordVectorBySize(config.getIsBig()));
+    }
+
+    private void setDraw() {
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
                 drawResource(sb);
             }
         };
-        testTxt = Items.getData("wood").getTxt();
     }
 
     private void drawResource(SpriteBatch sb) {

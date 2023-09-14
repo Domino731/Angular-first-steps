@@ -44,6 +44,10 @@ public abstract class DefaultActor {
         this.groundCheckbox = new Checkbox(id, new Vector<>(position.x + dimCordVector.x, position.y + dimCordVector.y), new DimensionVector<>(dimCordVector.width, dimCordVector.height));
     }
 
+    protected void setGroundCheckbox(DimensionCordVector vector) {
+        this.groundCheckbox = new Checkbox(id, new Vector<>(position.x + vector.x, position.y + vector.y), new DimensionVector<>(vector.width, vector.height));
+    }
+
     private ArrayList<Checkbox> createCheckboxList(ArrayList<DimensionCordVector> arrayList) {
         ArrayList<Checkbox> payload = new ArrayList<>();
         for (DimensionCordVector vector : arrayList) {
