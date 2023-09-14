@@ -28,20 +28,20 @@ public class ActorsManager {
         createPlayer();
         Resource rsc = new Resource("trunk_big", new Vector<>(2, 2), this);
         addActor(rsc);
-        Resource rsc2 = new Resource("log_large", new Vector<>(2, 6), this);
+        Resource rsc2 = new Resource("amethyst_ore", new Vector<>(2, 6), this);
         addActor(rsc2);
-        Resource rsc3 = new Resource("volcano_rock_large", new Vector<>(6, 2), this);
-        addActor(rsc3);
-        Resource rsc4 = new Resource("coal_rock_large", new Vector<>(6, 6), this);
-        addActor(rsc4);
-        Resource rsc5 = new Resource("blue_gem_large", new Vector<>(10, 2), this);
-        addActor(rsc5);
-        Resource rsc6 = new Resource("blue_gem_active_large", new Vector<>(10, 6), this);
-        addActor(rsc6);
-        Resource rsc7 = new Resource("stone_large", new Vector<>(14, 2), this);
-        addActor(rsc7);
-        Resource rsc8 = new Resource("alien_stone_large", new Vector<>(14, 6), this);
-        addActor(rsc8);
+//        Resource rsc3 = new Resource("volcano_rock_large", new Vector<>(6, 2), this);
+//        addActor(rsc3);
+//        Resource rsc4 = new Resource("coal_rock_large", new Vector<>(6, 6), this);
+//        addActor(rsc4);
+//        Resource rsc5 = new Resource("blue_gem_large", new Vector<>(10, 2), this);
+//        addActor(rsc5);
+//        Resource rsc6 = new Resource("blue_gem_active_large", new Vector<>(10, 6), this);
+//        addActor(rsc6);
+//        Resource rsc7 = new Resource("stone_large", new Vector<>(14, 2), this);
+//        addActor(rsc7);
+//        Resource rsc8 = new Resource("alien_stone_large", new Vector<>(14, 6), this);
+//        addActor(rsc8);
     }
 
 

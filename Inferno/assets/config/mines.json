@@ -197,7 +197,7 @@
       "x": 96,
       "y": 0
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -209,7 +209,7 @@
       "x": 192,
       "y": 0
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -221,7 +221,7 @@
       "x": 128,
       "y": 0
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -233,7 +233,7 @@
       "x": 0,
       "y": 0
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -245,7 +245,7 @@
       "x": 160,
       "y": 0
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -257,7 +257,7 @@
       "x": 320,
       "y": 0
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -269,7 +269,7 @@
       "x":128,
       "y": 0
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -281,7 +281,7 @@
       "x": 96,
       "y": 0
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -293,7 +293,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -305,7 +305,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -317,7 +317,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -329,7 +329,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -341,7 +341,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -353,7 +353,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -365,7 +365,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -377,7 +377,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -389,7 +389,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -401,7 +401,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -413,7 +413,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -425,7 +425,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -437,7 +437,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   },
@@ -449,7 +449,7 @@
       "x": 0,
       "y": 112
     },
-    "isBig": false,
+    "is_big": false,
     "drop": [],
     "action": "mine"
   }
