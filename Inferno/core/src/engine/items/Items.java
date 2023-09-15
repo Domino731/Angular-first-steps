@@ -1,15 +1,33 @@
 package engine.items;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import constants.Urls;
 import utils.Json;
+import utils.vectors.Vector;
 
 import java.util.HashMap;
 
 import static engine.items.Utils.getItemTextureBySrc;
+import static engine.utils.PositionUtils.convertTilePosition;
 
 public class Items {
+    // TODO: only for tests - remove this class later
+    public static class Render {
+        public Vector<Integer> position;
+        public TextureRegion txt;
+
+        public Render(String id, int posX, int posY, TextureRegion txt) {
+            this.position = convertTilePosition(posX, posY);
+            this.txt = getData(id).getTxt();
+        }
+
+        public void draw(SpriteBatch sb) {
+            sb.draw(txt, position.x, position.y, 16, 16);
+        }
+    }
+
     private static JsonNode configFileResources = Json.readFile(Urls.CONFIG_RESOURCE_ITEMS);
     private static HashMap<String, Config> data = createData();
 

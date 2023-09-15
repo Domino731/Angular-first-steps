@@ -206,7 +206,7 @@
     "name": "Aquamarine ore",
     "exp": 40,
     "cords": {
-      "x": 192,
+      "x": 193,
       "y": 0
     },
     "is_big": false,
@@ -218,8 +218,8 @@
     "name": "Copper ore",
     "exp": 5,
     "cords": {
-      "x": 128,
-      "y": 0
+      "x": 160,
+      "y": 105
     },
     "is_big": false,
     "drop": [],
@@ -230,7 +230,7 @@
     "name": "Diamond ore",
     "exp": 150,
     "cords": {
-      "x": 0,
+      "x": 1,
       "y": 0
     },
     "is_big": false,
@@ -242,7 +242,7 @@
     "name": "Emerald ore",
     "exp": 80,
     "cords": {
-      "x": 160,
+      "x": 162,
       "y": 0
     },
     "is_big": false,
@@ -255,7 +255,7 @@
     "exp": 70,
     "cords": {
       "x": 320,
-      "y": 0
+      "y": 16
     },
     "is_big": false,
     "drop": [],
@@ -266,8 +266,8 @@
     "name": "Gold ore",
     "exp": 18,
     "cords": {
-      "x":128,
-      "y": 0
+      "x": 192,
+      "y": 106
     },
     "is_big": false,
     "drop": [],
@@ -278,8 +278,8 @@
     "name": "Iridium ore",
     "exp": 50,
     "cords": {
-      "x": 96,
-      "y": 0
+      "x": 208,
+      "y": 106
     },
     "is_big": false,
     "drop": [],
@@ -290,8 +290,8 @@
     "name": "Iron ore",
     "exp": 12,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 176,
+      "y": 105
     },
     "is_big": false,
     "drop": [],
@@ -302,8 +302,8 @@
     "name": "Jade ore",
     "exp": 40,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 66,
+      "y": 0
     },
     "is_big": false,
     "drop": [],
@@ -314,8 +314,8 @@
     "name": "Mystic stone",
     "exp": 50,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 352,
+      "y": 16
     },
     "is_big": false,
     "drop": [],
@@ -326,8 +326,8 @@
     "name": "Ruby ore",
     "exp": 80,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 33,
+      "y": 0
     },
     "is_big": false,
     "drop": [],
@@ -338,8 +338,8 @@
     "name": "Topaz ore",
     "exp": 16,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 129,
+      "y": 0
     },
     "is_big": false,
     "drop": [],
@@ -350,8 +350,8 @@
     "name": "Geode ore",
     "exp": 8,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 63,
+      "y": 49
     },
     "is_big": false,
     "drop": [],
@@ -362,8 +362,8 @@
     "name": "Frozen Geode Ore",
     "exp": 16,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 79,
+      "y": 49
     },
     "is_big": false,
     "drop": [],
@@ -374,8 +374,8 @@
     "name": "Magma Geode ore",
     "exp": 32,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 95,
+      "y": 49
     },
     "is_big": false,
     "drop": [],
@@ -386,8 +386,8 @@
     "name": "Bone ore",
     "exp": 6,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 319,
+      "y": 84
     },
     "is_big": false,
     "drop": [],
@@ -398,8 +398,8 @@
     "name": "Cinder Shard Ore",
     "exp": 12,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 186,
+      "y": 83
     },
     "is_big": false,
     "drop": [],
@@ -410,8 +410,8 @@
     "name": "Clay ore",
     "exp": 6,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 351,
+      "y": 86
     },
     "is_big": false,
     "drop": [],
@@ -422,8 +422,8 @@
     "name": "Omni geode ore",
     "exp": 64,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 367,
+      "y": 84
     },
     "is_big": false,
     "drop": [],
@@ -434,8 +434,8 @@
     "name": "Radioactive ore",
     "exp": 18,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 244,
+      "y": 2
     },
     "is_big": false,
     "drop": [],
@@ -446,8 +446,8 @@
     "name": "Mussel ore",
     "exp": 5,
     "cords": {
-      "x": 0,
-      "y": 112
+      "x": 224,
+      "y": 0
     },
     "is_big": false,
     "drop": [],
