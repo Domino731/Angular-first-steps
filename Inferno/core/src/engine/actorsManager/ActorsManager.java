@@ -76,7 +76,59 @@ public class ActorsManager {
         Resource rsc23 = new Resource("mussel_ore", new Vector<>(10, 3), this);
         addActor(rsc23);
 
-
+        itemsList.add(new Items.Render("wood", 2, 10));
+        itemsList.add(new Items.Render("stone", 4, 10));
+        itemsList.add(new Items.Render("aerinite", 6, 10));
+        itemsList.add(new Items.Render("alamite", 8, 10));
+        itemsList.add(new Items.Render("amethyst", 10, 10));
+        itemsList.add(new Items.Render("aquamarine", 12, 10));
+        itemsList.add(new Items.Render("baryte", 2, 12));
+        itemsList.add(new Items.Render("basalt", 4, 12));
+        itemsList.add(new Items.Render("bixite", 6, 12));
+        itemsList.add(new Items.Render("calcite", 8, 12));
+        itemsList.add(new Items.Render("celestine", 10, 12));
+        itemsList.add(new Items.Render("diamond", 12, 12));
+        itemsList.add(new Items.Render("dolomite", 2, 14));
+        itemsList.add(new Items.Render("earth_crystal", 4, 14));
+        itemsList.add(new Items.Render("emerald", 6, 14));
+        itemsList.add(new Items.Render("fairy_stone", 8, 14));
+        itemsList.add(new Items.Render("fire_opal", 10, 14));
+        itemsList.add(new Items.Render("fire_quartz", 12, 14));
+        itemsList.add(new Items.Render("fluorapatite", 2, 16));
+        itemsList.add(new Items.Render("frozen_geode", 4, 16));
+        itemsList.add(new Items.Render("frozen_tear", 6, 16));
+        itemsList.add(new Items.Render("ghost_crystal", 8, 16));
+        itemsList.add(new Items.Render("helvite", 10, 16));
+        itemsList.add(new Items.Render("hematite", 12, 16));
+        itemsList.add(new Items.Render("jade", 2, 18));
+        itemsList.add(new Items.Render("jagoite", 4, 18));
+        itemsList.add(new Items.Render("jamborite", 6, 18));
+        itemsList.add(new Items.Render("jasper", 8, 18));
+        itemsList.add(new Items.Render("lemon_stone", 10, 18));
+        itemsList.add(new Items.Render("limestone", 12, 18));
+        itemsList.add(new Items.Render("lunarite", 2, 20));
+        itemsList.add(new Items.Render("magma_geode", 4, 20));
+        itemsList.add(new Items.Render("malachite", 6, 20));
+        itemsList.add(new Items.Render("marble", 8, 20));
+        itemsList.add(new Items.Render("mudstone", 10, 20));
+        itemsList.add(new Items.Render("nekoite", 12, 20));
+        itemsList.add(new Items.Render("neptunite", 2, 22));
+        itemsList.add(new Items.Render("ocean_stone", 2, 22));
+        itemsList.add(new Items.Render("omni_geode", 4, 22));
+        itemsList.add(new Items.Render("opal", 6, 22));
+        itemsList.add(new Items.Render("orpiment", 8, 22));
+        itemsList.add(new Items.Render("petrified_slime", 10, 22));
+        itemsList.add(new Items.Render("prismatic_shard", 12, 22));
+        itemsList.add(new Items.Render("pyrite", 2, 24));
+        itemsList.add(new Items.Render("quartz", 4, 24));
+        itemsList.add(new Items.Render("ruby", 6, 24));
+        itemsList.add(new Items.Render("sandstone", 8, 24));
+        itemsList.add(new Items.Render("slate", 10, 24));
+        itemsList.add(new Items.Render("soapstone", 12, 24));
+        itemsList.add(new Items.Render("star_shards", 2, 26));
+        itemsList.add(new Items.Render("thunder_egg", 4, 26));
+        itemsList.add(new Items.Render("tiger_eye", 6, 26));
+        itemsList.add(new Items.Render("topaz", 8, 26));
     }
 
 
@@ -105,6 +157,11 @@ public class ActorsManager {
     public void draw(SpriteBatch sb) {
         for (DefaultActor actor : allActors) {
             actor.draw(sb);
+        }
+        // TODO remove later
+        for (Items.Render render: itemsList
+        ) {
+            render.draw(sb);
         }
     }
 

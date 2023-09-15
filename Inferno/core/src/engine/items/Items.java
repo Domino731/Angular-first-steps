@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import constants.Urls;
+import engine.Textures;
 import utils.Json;
 import utils.vectors.Vector;
 
@@ -18,12 +19,13 @@ public class Items {
         public Vector<Integer> position;
         public TextureRegion txt;
 
-        public Render(String id, int posX, int posY, TextureRegion txt) {
+        public Render(String id, int posX, int posY) {
             this.position = convertTilePosition(posX, posY);
             this.txt = getData(id).getTxt();
         }
 
         public void draw(SpriteBatch sb) {
+            sb.draw(Textures.slotTxt, position.x, position.y, 16, 16);
             sb.draw(txt, position.x, position.y, 16, 16);
         }
     }
