@@ -47,10 +47,6 @@ public class Resource extends DefaultActor {
         testTxt = Items.getData("wood").getTxt();
     }
 
-    private void setGroundCheckboxByResSize() {
-        setGroundCheckbox(getDimCordVectorBySize(config.getIsBig()));
-    }
-
     private void setDraw() {
         draw = new Draw() {
             @Override
@@ -121,6 +117,11 @@ public class Resource extends DefaultActor {
             }
         };
     }
+
+    private void setGroundCheckboxByResSize() {
+        setGroundCheckbox(getDimCordVectorBySize(config.getIsBig()));
+    }
+
 
     private void setActionsCollisions() {
         final Resource resource = this;
