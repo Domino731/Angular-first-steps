@@ -39,7 +39,7 @@ public class Player extends MovableDefaultActor {
     private ActionTypes currItemActionType = null;
 
     public Player(ActorsManager actorsManager) {
-        super(10, 28, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
+        super(4, 5, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
         shirts = new PlayerShirtsData();
         this.actorsManager = actorsManager;
 //        playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);

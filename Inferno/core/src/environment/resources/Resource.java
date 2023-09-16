@@ -8,6 +8,7 @@ import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
 import engine.actors.groundItem.GroundItem;
 import engine.actorsManager.ActorsManager;
+import engine.items.DropItemData;
 import engine.items.Items;
 import engine.utils.Action;
 import engine.utils.Draw;
@@ -29,7 +30,7 @@ public class Resource extends DefaultActor {
     private boolean isDestroyed = false;
     private ArrayList<ActionCollision> itemsCollisions = new ArrayList<>();
     private TextureRegion testTxt;
-
+    private ArrayList<DropItemData> drop;
     public Resource(String id, final Vector<Integer> position, ActorsManager actorsManager) {
         super(
                 ActorTypes.STATIC,
@@ -46,6 +47,7 @@ public class Resource extends DefaultActor {
         setActionsCollisions();
         setDraw();
         testTxt = Items.getData("wood").getTxt();
+        showGroundItemsTest();
     }
 
     private void setDraw() {
@@ -61,6 +63,11 @@ public class Resource extends DefaultActor {
         sb.draw(Textures.frameTxt, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
         sb.draw(Textures.slotTxt, position.x, position.y, 16,16);
         sb.draw(config.txt, position.x, position.y);
+        int i = 0;
+        for (DropItemData itemData: drop) {
+            i++;
+            sb.draw(itemData.getTxt(), position.x + (i * 16), position.y);
+        }
 //        sb.draw(Textures.checkbox, position.x, position.y, 16, 16);
 //        sb.draw(testTxt, position.x, position.y);
     }
@@ -86,6 +93,12 @@ public class Resource extends DefaultActor {
     public void draw(SpriteBatch sb) {
         draw.draw(sb);
     }
+
+    // TODO test purpose only, remove later
+    private void showGroundItemsTest() {
+         drop = config.getDrop();
+    }
+
 
     private void showGroundItems() {
         if (isDestroyed) {

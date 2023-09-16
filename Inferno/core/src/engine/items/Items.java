@@ -33,6 +33,7 @@ public class Items {
     private static JsonNode configFileResources = Json.readFile(Urls.CONFIG_RESOURCE_ITEMS);
     private static HashMap<String, Config> data = createData();
 
+
     public static class Config {
         private final TextureRegion txt;
         private final String id;
