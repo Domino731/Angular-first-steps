@@ -495,7 +495,7 @@
     "base_value": 500,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 266,
+      "x": 33,
       "y": 82
     },
     "sources": [
@@ -541,14 +541,20 @@
 
 
 
+
+
+
+
+
+
   {
     "id": "copper_ore",
     "name": "Copper ore",
     "base_value": 275,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 66,
-      "y": 81
+      "x": 48,
+      "y": 108
     }
   },
   {
@@ -557,8 +563,8 @@
     "base_value": 275,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 66,
-      "y": 81
+      "x": 94,
+      "y": 107
     }
   },
   {
@@ -567,8 +573,8 @@
     "base_value": 275,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 66,
-      "y": 81
+      "x": 126,
+      "y": 107
     }
   },
   {
@@ -577,8 +583,8 @@
     "base_value": 275,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 66,
-      "y": 81
+      "x": 64,
+      "y": 109
     }
   },
   {
@@ -587,8 +593,8 @@
     "base_value": 275,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 66,
-      "y": 81
+      "x": 112,
+      "y": 51
     }
   },
   {
@@ -597,8 +603,8 @@
     "base_value": 275,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 66,
-      "y": 81
+      "x": 372,
+      "y": 32
     }
   },
   {
@@ -607,8 +613,8 @@
     "base_value": 275,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 66,
-      "y": 81
+      "x": 266,
+      "y": 83
     }
   },
   {
@@ -617,8 +623,8 @@
     "base_value": 275,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 66,
-      "y": 81
+      "x": 41,
+      "y": 130
     }
   },
   {
@@ -627,8 +633,8 @@
     "base_value": 275,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 66,
-      "y": 81
+      "x": 329,
+      "y": 108
     }
   },
   {
@@ -637,8 +643,8 @@
     "base_value": 275,
     "sprite_name": "mines",
     "sprite_cords": {
-      "x": 66,
-      "y": 81
+      "x": 79,
+      "y": 108
     }
   }
 ]

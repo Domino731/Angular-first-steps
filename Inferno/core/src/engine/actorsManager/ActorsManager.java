@@ -129,6 +129,16 @@ public class ActorsManager {
         itemsList.add(new Items.Render("thunder_egg", 4, 26));
         itemsList.add(new Items.Render("tiger_eye", 6, 26));
         itemsList.add(new Items.Render("topaz", 8, 26));
+        itemsList.add(new Items.Render("copper_ore", 10, 26));
+        itemsList.add(new Items.Render("gold_ore", 12, 26));
+        itemsList.add(new Items.Render("iridium_ore", 2, 28));
+        itemsList.add(new Items.Render("iron_ore", 4, 28));
+        itemsList.add(new Items.Render("geode", 6, 28));
+        itemsList.add(new Items.Render("bone_fragment", 8, 28));
+        itemsList.add(new Items.Render("cinder_shards", 10, 28));
+        itemsList.add(new Items.Render("clay", 12, 28));
+        itemsList.add(new Items.Render("radioactive_ore", 2, 30));
+        itemsList.add(new Items.Render("mussel", 4, 30));
     }
 
 
