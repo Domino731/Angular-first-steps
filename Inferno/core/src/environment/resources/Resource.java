@@ -2,6 +2,7 @@ package environment.resources;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import engine.Textures;
 import engine.actionCollision.ActionCollision;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 
 import static engine.Textures.woodTxtRg;
 import static engine.utils.PositionUtils.convertTilePosition;
-import static environment.resources.ResourceUtils.getDimCordVectorBySize;
+import static environment.resources.ResourceUtils.*;
 
 public class Resource extends DefaultActor {
     private ResourcesConfig.Config config;
@@ -57,6 +58,8 @@ public class Resource extends DefaultActor {
     }
 
     private void drawResource(SpriteBatch sb) {
+        sb.draw(Textures.frameTxt, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
+        sb.draw(Textures.slotTxt, position.x, position.y, 32,32);
         sb.draw(config.txt, position.x, position.y);
 //        sb.draw(Textures.checkbox, position.x, position.y, 16, 16);
 //        sb.draw(testTxt, position.x, position.y);
@@ -130,8 +133,8 @@ public class Resource extends DefaultActor {
                 new ActionCollision(
                         config.getActionType(),
                         id,
-                        new Vector<>(position.x - 5, position.y - 5),
-                        new DimensionVector<>(40, 40),
+                        getPositionForActionCollision(config.getIsBig(), position),
+                        getDimensionVectorForActionCollision(config.getIsBig()),
                         new Vector<>(0, 0),
                         new ResourceAction() {
                             @Override
