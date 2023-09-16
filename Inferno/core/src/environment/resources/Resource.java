@@ -36,7 +36,7 @@ public class Resource extends DefaultActor {
                 ActorTypes.STATIC,
                 convertTilePosition(position),
                 "sprites/trees/oak_spring.png",
-                new DimensionVector<Integer>(20, 20),
+                new DimensionVector<>(20, 20),
                 new ArrayList<DimensionCordVector>(),
                 new DimensionCordVector(32, 32, 0, 0)
         );

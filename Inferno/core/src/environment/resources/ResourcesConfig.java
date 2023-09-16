@@ -80,6 +80,10 @@ public class ResourcesConfig {
             }
         }
 
+        if(payload == null) {
+            System.out.println(id);
+            return json.get(1);
+        }
         return payload;
     }
 
