@@ -497,16 +497,7 @@
     "sprite_cords": {
       "x": 33,
       "y": 82
-    },
-    "sources": [
-      {
-        "id": "frozen_geode",
-        "amount": [1, 2]
-      },
-      {
-        "id": "omni_geode"
-      }
-    ]
+    }
   },
   {
     "id": "thunder_egg",

@@ -10,7 +10,7 @@
     "drop": [
       {
         "id": "wood",
-        "change": [
+        "chance": [
           100,
           100
         ],
@@ -34,7 +34,7 @@
     "drop": [
       {
         "id": "wood",
-        "change": [
+        "chance": [
           100,
           100
         ],
@@ -57,7 +57,7 @@
     "drop": [
       {
         "id": "wood",
-        "change": [
+        "chance": [
           100,
           100
         ],
@@ -81,7 +81,7 @@
     "drop": [
       {
         "id": "wood",
-        "change": [
+        "chance": [
           100,
           100
         ],
@@ -105,7 +105,7 @@
     "drop": [
       {
         "id": "wood",
-        "change": [
+        "chance": [
           100,
           100
         ],
@@ -128,7 +128,7 @@
     "drop": [
       {
         "id": "wood",
-        "change": [
+        "chance": [
           100,
           100
         ],
@@ -152,7 +152,7 @@
     "drop": [
       {
         "id": "wood",
-        "change": [
+        "chance": [
           100,
           100
         ],
@@ -176,7 +176,7 @@
     "drop": [
       {
         "id": "wood",
-        "change": [
+        "chance": [
           100,
           100
         ],
@@ -201,7 +201,7 @@
     "drop": [{
       "id": "amethyst",
       "amount": 1,
-      "change": 100
+      "chance": 100
     }],
     "action": "mine"
   },
@@ -217,7 +217,7 @@
     "drop": [{
       "id": "aquamarine",
       "amount": 1,
-      "change": 100
+      "chance": 100
     }],
     "action": "mine"
   },
@@ -232,8 +232,8 @@
     "is_big": false,
     "drop": [{
       "id": "copper_ore",
-      "amount": [1],
-      "change": 100
+      "amount": 1,
+      "chance": 100
     }],
     "action": "mine"
   },
@@ -248,8 +248,8 @@
     "is_big": false,
     "drop": [{
       "id": "diamond",
-      "amount": [1],
-      "change": 100
+      "amount": 1,
+      "chance": 100
     }],
     "action": "mine"
   },
@@ -264,8 +264,8 @@
     "is_big": false,
     "drop": [{
       "id": "emerald",
-      "amount": [1],
-      "change": 100
+      "amount": 1,
+      "chance": 100
     }],
     "action": "mine"
   },
@@ -280,36 +280,36 @@
     "is_big": false,
     "drop": [{
       "id": "amethyst",
-      "amount": [1],
+      "amount": 1,
       "chance": 30
     }, {
         "id": "aquamarine",
-        "amount": [1],
+        "amount": 1,
       "chance": 50
       },
       {
         "id": "diamond",
-        "amount": [1],
+        "amount": 1,
         "chance": 0.03
       },
       {
         "id": "emerald",
-        "amount": [1],
+        "amount": 1,
         "chance": 3
       },
       {
         "id": "jade",
-        "amount": [1],
+        "amount": 1,
         "chance": 5
       },
       {
         "id": "ruby",
-        "amount": [1],
+        "amount": 1,
         "chance": 5
       },
       {
         "id": "topaz",
-        "amount": [1],
+        "amount": 1,
         "chance": 5
       }
     ],
@@ -342,12 +342,12 @@
     "is_big": false,
     "drop": [{
       "id": "iridium_ore",
-      "amount": [1],
+      "amount": 1,
       "chance": 100
     },
       {
         "id": "prismatic_shard",
-        "amount": [1],
+        "amount": 1,
         "chance": 4
       }
     ],
@@ -364,7 +364,7 @@
     "is_big": false,
     "drop": [{
       "id": "iron_ore",
-      "amount": [1],
+      "amount": 1,
       "chance": 100
     }],
     "action": "mine"
@@ -380,7 +380,7 @@
     "is_big": false,
     "drop": [{
       "id": "jade",
-      "amount": [1],
+      "amount": 1,
       "chance": 100
     }],
     "action": "mine"
@@ -407,7 +407,7 @@
       },
       {
         "id": "prismatic_shard",
-        "amount": [1],
+        "amount": 1,
         "chance": 25
       }
     ],
@@ -424,7 +424,7 @@
     "is_big": false,
     "drop": [      {
       "id": "ruby",
-      "amount": [1],
+      "amount": 1,
       "chance": 100
     }
     ],
@@ -441,7 +441,7 @@
     "is_big": false,
     "drop": [      {
       "id": "topaz",
-      "amount": [1],
+      "amount": 1,
       "chance": 100
     }
     ],
