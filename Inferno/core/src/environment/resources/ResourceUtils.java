@@ -17,13 +17,13 @@ public class ResourceUtils {
         if(isResourceBig) {
             return new DimensionVector<>(38, 38);
         }
-        return new DimensionVector<>(16, 16);
+        return new DimensionVector<>(21, 21);
     }
 
     public static Vector<Integer> getPositionForActionCollision(boolean isResourceBig, Vector<Integer> resourcePosition) {
         if(isResourceBig) {
             return new Vector<>(resourcePosition.x - 3, resourcePosition.y -3);
         }
-        return new Vector<>(resourcePosition.x - 3, resourcePosition.y -3);
+        return new Vector<>(resourcePosition.x - 2, resourcePosition.y - 2);
     }
 }

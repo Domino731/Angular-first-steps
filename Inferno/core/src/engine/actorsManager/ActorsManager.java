@@ -31,8 +31,8 @@ public class ActorsManager {
         createPlayer();
         Resource rsc = new Resource("trunk_big", new Vector<>(2, 2), this);
         addActor(rsc);
-//        Resource rsc2 = new Resource("amethyst_ore", new Vector<>(2, 6), this);
-//        addActor(rsc2);
+        Resource rsc2 = new Resource("amethyst_ore", new Vector<>(2, 6), this);
+        addActor(rsc2);
 //        Resource rsc3 = new Resource("aquamarine_ore", new Vector<>(4, 6), this);
 //        addActor(rsc3);
 //        Resource rsc4 = new Resource("copper_ore", new Vector<>(6, 6), this);

@@ -59,7 +59,7 @@ public class Resource extends DefaultActor {
 
     private void drawResource(SpriteBatch sb) {
         sb.draw(Textures.frameTxt, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
-        sb.draw(Textures.slotTxt, position.x, position.y, 32,32);
+        sb.draw(Textures.slotTxt, position.x, position.y, 16,16);
         sb.draw(config.txt, position.x, position.y);
 //        sb.draw(Textures.checkbox, position.x, position.y, 16, 16);
 //        sb.draw(testTxt, position.x, position.y);
