@@ -198,7 +198,11 @@
       "y": 0
     },
     "is_big": false,
-    "drop": [],
+    "drop": [{
+      "id": "amethyst",
+      "amount": 1,
+      "change": 100
+    }],
     "action": "mine"
   },
   {
@@ -210,19 +214,27 @@
       "y": 0
     },
     "is_big": false,
-    "drop": [],
+    "drop": [{
+      "id": "aquamarine",
+      "amount": 1,
+      "change": 100
+    }],
     "action": "mine"
   },
   {
-    "id": "copper_ore",
-    "name": "Copper ore",
+    "id": "copper_node",
+    "name": "Copper Node",
     "exp": 5,
     "cords": {
       "x": 160,
       "y": 105
     },
     "is_big": false,
-    "drop": [],
+    "drop": [{
+      "id": "copper_ore",
+      "amount": [1],
+      "change": 100
+    }],
     "action": "mine"
   },
   {
@@ -234,7 +246,11 @@
       "y": 0
     },
     "is_big": false,
-    "drop": [],
+    "drop": [{
+      "id": "diamond",
+      "amount": [1],
+      "change": 100
+    }],
     "action": "mine"
   },
   {
@@ -246,7 +262,11 @@
       "y": 0
     },
     "is_big": false,
-    "drop": [],
+    "drop": [{
+      "id": "emerald",
+      "amount": [1],
+      "change": 100
+    }],
     "action": "mine"
   },
   {
@@ -258,55 +278,111 @@
       "y": 16
     },
     "is_big": false,
-    "drop": [],
+    "drop": [{
+      "id": "amethyst",
+      "amount": [1],
+      "chance": 30
+    }, {
+        "id": "aquamarine",
+        "amount": [1],
+      "chance": 50
+      },
+      {
+        "id": "diamond",
+        "amount": [1],
+        "chance": 0.03
+      },
+      {
+        "id": "emerald",
+        "amount": [1],
+        "chance": 3
+      },
+      {
+        "id": "jade",
+        "amount": [1],
+        "chance": 5
+      },
+      {
+        "id": "ruby",
+        "amount": [1],
+        "chance": 5
+      },
+      {
+        "id": "topaz",
+        "amount": [1],
+        "chance": 5
+      }
+    ],
     "action": "mine"
   },
   {
-    "id": "gold_ore",
-    "name": "Gold ore",
+    "id": "gold_node",
+    "name": "Gold Node",
     "exp": 18,
     "cords": {
       "x": 192,
       "y": 106
     },
     "is_big": false,
-    "drop": [],
+    "drop": [{
+      "id": "gold_ore",
+      "amount": [1, 2],
+      "chance": 100
+    }],
     "action": "mine"
   },
   {
-    "id": "iridium_ore",
-    "name": "Iridium ore",
+    "id": "iridium_node",
+    "name": "Iridium Node",
     "exp": 50,
     "cords": {
       "x": 208,
       "y": 106
     },
     "is_big": false,
-    "drop": [],
+    "drop": [{
+      "id": "iridium_ore",
+      "amount": [1],
+      "chance": 100
+    },
+      {
+        "id": "prismatic_shard",
+        "amount": [1],
+        "chance": 4
+      }
+    ],
     "action": "mine"
   },
   {
-    "id": "iron_ore",
-    "name": "Iron ore",
+    "id": "iron_node",
+    "name": "Iron Node",
     "exp": 12,
     "cords": {
       "x": 176,
       "y": 105
     },
     "is_big": false,
-    "drop": [],
+    "drop": [{
+      "id": "iron_ore",
+      "amount": [1],
+      "chance": 100
+    }],
     "action": "mine"
   },
   {
-    "id": "jade_ore",
-    "name": "Jade ore",
+    "id": "jade_node",
+    "name": "Jade Node",
     "exp": 40,
     "cords": {
       "x": 66,
       "y": 0
     },
     "is_big": false,
-    "drop": [],
+    "drop": [{
+      "id": "jade",
+      "amount": [1],
+      "chance": 100
+    }],
     "action": "mine"
   },
   {
@@ -318,7 +394,23 @@
       "y": 16
     },
     "is_big": false,
-    "drop": [],
+    "drop": [
+      {
+        "id": "iridium_ore",
+        "amount": [1, 3],
+        "chance": 100
+      },
+      {
+        "id": "gold_ore",
+        "amount": [1, 4],
+        "chance": 100
+      },
+      {
+        "id": "prismatic_shard",
+        "amount": [1],
+        "chance": 25
+      }
+    ],
     "action": "mine"
   },
   {
@@ -330,7 +422,12 @@
       "y": 0
     },
     "is_big": false,
-    "drop": [],
+    "drop": [      {
+      "id": "ruby",
+      "amount": [1],
+      "chance": 100
+    }
+    ],
     "action": "mine"
   },
   {
@@ -342,23 +439,33 @@
       "y": 0
     },
     "is_big": false,
-    "drop": [],
+    "drop": [      {
+      "id": "topaz",
+      "amount": [1],
+      "chance": 100
+    }
+    ],
     "action": "mine"
   },
   {
-    "id": "geode_ore",
-    "name": "Geode ore",
+    "id": "geode_node",
+    "name": "Geode Node",
     "exp": 8,
     "cords": {
       "x": 63,
       "y": 49
     },
     "is_big": false,
-    "drop": [],
+    "drop": [      {
+      "id": "geode",
+      "amount": 1,
+      "chance": 100
+    }
+    ],
     "action": "mine"
   },
   {
-    "id": "frozen_geode_ore",
+    "id": "frozen_geode_node",
     "name": "Frozen Geode Ore",
     "exp": 16,
     "cords": {
@@ -366,23 +473,31 @@
       "y": 49
     },
     "is_big": false,
-    "drop": [],
+    "drop": [      {
+      "id": "frozen_geode",
+      "amount": 1,
+      "chance": 100
+    }],
     "action": "mine"
   },
   {
-    "id": "magma_geode_ore",
+    "id": "magma_geode_node",
     "name": "Magma Geode ore",
     "exp": 32,
     "cords": {
       "x": 95,
       "y": 49
     },
+    "drop": [      {
+      "id": "magma_geode",
+      "amount": 1,
+      "chance": 100
+    }],
     "is_big": false,
-    "drop": [],
     "action": "mine"
   },
   {
-    "id": "bone_ore",
+    "id": "bone_node",
     "name": "Bone ore",
     "exp": 6,
     "cords": {
@@ -390,11 +505,15 @@
       "y": 84
     },
     "is_big": false,
-    "drop": [],
+    "drop": [      {
+      "id": "bone_fragment",
+      "amount": 1,
+      "chance": 100
+    }],
     "action": "mine"
   },
   {
-    "id": "cinder_shard_ore",
+    "id": "cinder_shard_node",
     "name": "Cinder Shard Ore",
     "exp": 12,
     "cords": {
@@ -402,11 +521,15 @@
       "y": 83
     },
     "is_big": false,
-    "drop": [],
+    "drop": [      {
+      "id": "cinder_shards",
+      "amount": 1,
+      "chance": 100
+    }],
     "action": "mine"
   },
   {
-    "id": "clay_ore",
+    "id": "clay_node",
     "name": "Clay ore",
     "exp": 6,
     "cords": {
@@ -414,11 +537,15 @@
       "y": 86
     },
     "is_big": false,
-    "drop": [],
+    "drop": [    {
+      "id": "clay",
+      "amount": 1,
+      "chance": 100
+    }],
     "action": "mine"
   },
   {
-    "id": "omni_geode_ore",
+    "id": "omni_geode_node",
     "name": "Omni geode ore",
     "exp": 64,
     "cords": {
@@ -426,11 +553,15 @@
       "y": 84
     },
     "is_big": false,
-    "drop": [],
+    "drop": [    {
+      "id": "omni_geode",
+      "amount": 1,
+      "chance": 100
+    }],
     "action": "mine"
   },
   {
-    "id": "radioactive_ore",
+    "id": "radioactive_node",
     "name": "Radioactive ore",
     "exp": 18,
     "cords": {
@@ -438,11 +569,15 @@
       "y": 2
     },
     "is_big": false,
-    "drop": [],
+    "drop": [    {
+      "id": "radioactive_ore",
+      "amount": 1,
+      "chance": 100
+    }],
     "action": "mine"
   },
   {
-    "id": "mussel_ore",
+    "id": "mussel_node",
     "name": "Mussel ore",
     "exp": 5,
     "cords": {
@@ -450,7 +585,11 @@
       "y": 0
     },
     "is_big": false,
-    "drop": [],
+    "drop": [    {
+      "id": "mussel",
+      "amount": 1,
+      "chance": 100
+    }],
     "action": "mine"
   }
 ]

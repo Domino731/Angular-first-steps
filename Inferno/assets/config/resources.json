@@ -537,5 +537,108 @@
       "x": 66,
       "y": 81
     }
+  },
+
+
+
+  {
+    "id": "copper_ore",
+    "name": "Copper ore",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 66,
+      "y": 81
+    }
+  },
+  {
+    "id": "gold_ore",
+    "name": "Gold Ore",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 66,
+      "y": 81
+    }
+  },
+  {
+    "id": "iridium_ore",
+    "name": "Iridium Ore",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 66,
+      "y": 81
+    }
+  },
+  {
+    "id": "iron_ore",
+    "name": "Iron Ore",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 66,
+      "y": 81
+    }
+  },
+  {
+    "id": "geode",
+    "name": "Geode",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 66,
+      "y": 81
+    }
+  },
+  {
+    "id": "bone_fragment",
+    "name": "Bone Fragment",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 66,
+      "y": 81
+    }
+  },
+  {
+    "id": "cinder_shards",
+    "name": "Cinder Shards",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 66,
+      "y": 81
+    }
+  },
+  {
+    "id": "clay",
+    "name": "Clay",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 66,
+      "y": 81
+    }
+  },
+  {
+    "id": "radioactive_ore",
+    "name": "Radioactive ore",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 66,
+      "y": 81
+    }
+  },
+  {
+    "id": "mussel",
+    "name": "Mussel",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 66,
+      "y": 81
+    }
   }
 ]

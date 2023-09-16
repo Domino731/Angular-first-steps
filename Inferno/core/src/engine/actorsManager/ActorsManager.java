@@ -29,13 +29,13 @@ public class ActorsManager {
     public ActorsManager() {
         // TODO: spawdzic czy jak dwa obiekty sa w tym samym miejscu to czy nie blokuje player'a
         createPlayer();
-        Resource rsc = new Resource("trunk_big", new Vector<>(2, 2), this);
-        addActor(rsc);
+//        Resource rsc = new Resource("trunk_big", new Vector<>(2, 2), this);
+//        addActor(rsc);
         Resource rsc2 = new Resource("amethyst_ore", new Vector<>(2, 6), this);
         addActor(rsc2);
 //        Resource rsc3 = new Resource("aquamarine_ore", new Vector<>(4, 6), this);
 //        addActor(rsc3);
-//        Resource rsc4 = new Resource("copper_ore", new Vector<>(6, 6), this);
+//        Resource rsc4 = new Resource("copper_node", new Vector<>(6, 6), this);
 //        addActor(rsc4);
 //        Resource rsc5 = new Resource("diamond_ore", new Vector<>(8, 6), this);
 //        addActor(rsc5);
@@ -43,13 +43,13 @@ public class ActorsManager {
 //        addActor(rsc6);
 //        Resource rsc7 = new Resource("gem_ore", new Vector<>(12, 6), this);
 //        addActor(rsc7);
-//        Resource rsc8 = new Resource("gold_ore", new Vector<>(2, 8), this);
+//        Resource rsc8 = new Resource("gold_node", new Vector<>(2, 8), this);
 //        addActor(rsc8);
-//        Resource rsc9 = new Resource("iridium_ore", new Vector<>(4, 8), this);
+//        Resource rsc9 = new Resource("iridium_node", new Vector<>(4, 8), this);
 //        addActor(rsc9);
-//        Resource rsc10 = new Resource("iron_ore", new Vector<>(6, 8), this);
+//        Resource rsc10 = new Resource("iron_node", new Vector<>(6, 8), this);
 //        addActor(rsc10);
-//        Resource rsc11 = new Resource("jade_ore", new Vector<>(8, 8), this);
+//        Resource rsc11 = new Resource("jade_node", new Vector<>(8, 8), this);
 //        addActor(rsc11);
 //        Resource rsc12 = new Resource("mystic_stone", new Vector<>(10, 8), this);
 //        addActor(rsc12);
@@ -57,23 +57,23 @@ public class ActorsManager {
 //        addActor(rsc13);
 //        Resource rsc14 = new Resource("topaz_ore", new Vector<>(2, 1), this);
 //        addActor(rsc14);
-//        Resource rsc15 = new Resource("geode_ore", new Vector<>(4, 1), this);
+//        Resource rsc15 = new Resource("geode_node", new Vector<>(4, 1), this);
 //        addActor(rsc15);
-//        Resource rsc16 = new Resource("frozen_geode_ore", new Vector<>(6, 1), this);
+//        Resource rsc16 = new Resource("frozen_geode_node", new Vector<>(6, 1), this);
 //        addActor(rsc16);
-//        Resource rsc17 = new Resource("magma_geode_ore", new Vector<>(8, 1), this);
+//        Resource rsc17 = new Resource("magma_geode_node", new Vector<>(8, 1), this);
 //        addActor(rsc17);
 //        Resource rsc18 = new Resource("bone_ore", new Vector<>(10, 1), this);
 //        addActor(rsc18);
-//        Resource rsc19 = new Resource("cinder_shard_ore", new Vector<>(12, 1), this);
+//        Resource rsc19 = new Resource("cinder_shard_node", new Vector<>(12, 1), this);
 //        addActor(rsc19);
 //        Resource rsc20 = new Resource("clay_ore", new Vector<>(14, 1), this);
 //        addActor(rsc20);
-//        Resource rsc21 = new Resource("omni_geode_ore", new Vector<>(6, 3), this);
+//        Resource rsc21 = new Resource("omni_geode_node", new Vector<>(6, 3), this);
 //        addActor(rsc21);
-//        Resource rsc22 = new Resource("radioactive_ore", new Vector<>(8, 3), this);
+//        Resource rsc22 = new Resource("radioactive_node", new Vector<>(8, 3), this);
 //        addActor(rsc22);
-//        Resource rsc23 = new Resource("mussel_ore", new Vector<>(10, 3), this);
+//        Resource rsc23 = new Resource("mussel_node", new Vector<>(10, 3), this);
 //        addActor(rsc23);
 
         itemsList.add(new Items.Render("wood", 2, 10));
