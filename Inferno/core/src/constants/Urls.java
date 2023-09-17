@@ -10,7 +10,7 @@ public class Urls {
     public static final String CONFIG_BASE_HAIR_OFFSETS = "config/hairOffsets.json";
     public static final String CONFIG_BASE_SHIRT_OFFSETS = "config/baseShirtOffsets.json";
     public static final String CONFIG_PICKAXES = "config/items/tools/pickaxes.json";
-
+    public static final String CONFIG_FONTS_4 = "config/fonts4.json";
     // SPRITES
     public static final String SPRITE_HAIRS = "sprites/style/hairs.png";
     public static final String SPRITE_HATS = "sprites/style/hats.png";

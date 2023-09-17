@@ -26,7 +26,7 @@ public class GroundItem {
     }
 
     public void draw(SpriteBatch sb) {
-        sb.draw(txt, position.x, position.y, GroundItemConstants.size, GroundItemConstants.size);
+        sb.draw(txt, position.x, position.y, GroundItemConstants.renderSize, GroundItemConstants.renderSize);
     }
 
     private ActionCollision createActionCollision(final Action action) {
@@ -34,7 +34,7 @@ public class GroundItem {
                 ActionTypes.ACTION_AREA,
                 "",
                 new Vector<>(position.x, position.y),
-                new DimensionVector<>(16, 16),
+                new DimensionVector<>((int) GroundItemConstants.renderSize, (int)  GroundItemConstants.renderSize),
                 new Vector<>(0, 0),
                 new ResourceAction() {
                     @Override
