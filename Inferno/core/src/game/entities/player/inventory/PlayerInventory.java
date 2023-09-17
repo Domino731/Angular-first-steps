@@ -7,6 +7,8 @@ import engine.items.Items;
 import game.entities.player.inventory.examples.PlantSeed;
 import game.entities.player.inventory.examples.Weapon;
 
+import java.util.Objects;
+
 public class PlayerInventory {
     private Stage stage;
     private InventorySlot[] inventorySlots = new InventorySlot[InventoryConstants.inventoryLength];
@@ -22,21 +24,21 @@ public class PlayerInventory {
         addItem("wood", (byte) 1);
     }
 
+
+
+    // TODO: only for test purposes
+
     // TODO: only for test purposes
     private void createInventoryItems() {
-        for (int i = 0; i < InventoryConstants.inventoryLength; i++) {
-
-            if (i == 7) {
-                inventoryItems[i] = new InventoryItem(new Weapon());
-            } else if (i == 6) {
-                inventoryItems[i] = new InventoryItem(new PlantSeed());
-            } else {
-                inventoryItems[i] = new InventoryItem("stone_pickaxe");
-            }
-            inventoryItems[i].setPosition(i * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
-            stage.addActor(inventoryItems[i]);
-        }
-
+        inventoryItems[0] = new InventoryItem(new Weapon());
+        inventoryItems[0].setPosition(0 * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
+        stage.addActor(inventoryItems[0]);
+        inventoryItems[1] = new InventoryItem(new PlantSeed());
+        inventoryItems[1].setPosition(InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
+        stage.addActor(inventoryItems[1]);
+        inventoryItems[2] = new InventoryItem("stone_pickaxe");
+        inventoryItems[2].setPosition(2 * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
+        stage.addActor(inventoryItems[2]);
         stage.getRoot().removeActor(inventoryItems[4]);
         inventoryItems[4] = null;
     }
@@ -62,9 +64,16 @@ public class PlayerInventory {
 
     public void addItem(String itemId, byte amount) {
         Byte emptySlotIndex = findFirstEmptySlotIndex();
-        emptySlotIndex = 4;
         if (emptySlotIndex == null) {
             System.out.println("There is no empty slot in player inventory");
+            return;
+        }
+
+        byte inventoryItemIndex = getInventoryItemIndex(itemId);
+
+        if(inventoryItemIndex != -1) {
+            byte currentItemAmount = inventoryItems[inventoryItemIndex].getAmount();
+            inventoryItems[inventoryItemIndex].setAmount((byte) (currentItemAmount + amount));
             return;
         }
         inventoryItems[emptySlotIndex] = new InventoryItem(Items.getData(itemId));
@@ -72,6 +81,18 @@ public class PlayerInventory {
         stage.addActor(inventoryItems[emptySlotIndex]);
 
     }
+
+     public byte getInventoryItemIndex(String itemId) {
+        byte index = -1;
+
+         for (int i = 0; i < inventoryItems.length - 1; i++) {
+             if(inventoryItems[i] != null && Objects.equals(inventoryItems[i].getId(), itemId)){
+                 index = (byte) i;
+             }
+         }
+
+        return index;
+     }
 
     public void changeCurrentSlot(byte slot) {
         currentSlot = slot;

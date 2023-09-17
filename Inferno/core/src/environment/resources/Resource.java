@@ -104,14 +104,22 @@ public class Resource extends DefaultActor {
         if (isDestroyed) {
             return;
         }
-        isDestroyed = true;
+
         items.add(new GroundItem(position.x, position.y, woodTxtRg, createItemActionCollision()));
         for (GroundItem item : items) {
             itemsCollisions.add(item.getActionCollision());
         }
-
         actorsManager.addGroundItems(itemsCollisions);
 
+        setIsDestroyed(true);
+        setGroundItemsDraw();
+    }
+
+    private void setIsDestroyed(boolean isDestroyed) {
+        this.isDestroyed = isDestroyed;
+    }
+
+    private void setGroundItemsDraw() {
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {

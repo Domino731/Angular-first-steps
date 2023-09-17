@@ -32,5 +32,8 @@ public class Weapon implements InventoryItemData {
         return type;
     }
 
-
+    @Override
+    public String getId(){
+        return "SEED";
+    }
 }

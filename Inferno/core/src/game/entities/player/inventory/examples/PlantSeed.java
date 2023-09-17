@@ -31,4 +31,9 @@ public class PlantSeed implements InventoryItemData {
     public InventoryItemGroups getGroup() {
         return group;
     }
+
+    @Override
+    public String getId(){
+        return "SEED";
+    }
 }

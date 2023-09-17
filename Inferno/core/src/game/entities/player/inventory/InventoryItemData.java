@@ -8,4 +8,6 @@ public interface InventoryItemData {
     TextureRegion getInventoryTxt();
 
     InventoryItemGroups getGroup();
+
+    String getId();
 }
