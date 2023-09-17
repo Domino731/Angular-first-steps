@@ -1,8 +1,6 @@
 package environment.resources;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import engine.Textures;
 import engine.actionCollision.ActionCollision;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
@@ -18,7 +16,6 @@ import utils.vectors.Vector;
 
 import java.util.ArrayList;
 
-import static engine.Textures.woodTxtRg;
 import static engine.utils.PositionUtils.convertTilePosition;
 import static environment.resources.ResourceUtils.*;
 
@@ -29,8 +26,7 @@ public class Resource extends DefaultActor {
     private Draw draw;
     private boolean isDestroyed = false;
     private ArrayList<ActionCollision> itemsCollisions = new ArrayList<>();
-    private TextureRegion testTxt;
-    private ArrayList<DropItemData> drop;
+
     public Resource(String id, final Vector<Integer> position, ActorsManager actorsManager) {
         super(
                 ActorTypes.STATIC,
@@ -46,8 +42,6 @@ public class Resource extends DefaultActor {
         hp = 100;
         setActionsCollisions();
         setDraw();
-        testTxt = Items.getData("wood").getTxt();
-        showGroundItemsTest();
     }
 
     private void setDraw() {
@@ -60,16 +54,7 @@ public class Resource extends DefaultActor {
     }
 
     private void drawResource(SpriteBatch sb) {
-        sb.draw(Textures.frameTxt, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
-        sb.draw(Textures.slotTxt, position.x, position.y, 16,16);
         sb.draw(config.txt, position.x, position.y);
-        int i = 0;
-        for (DropItemData itemData: drop) {
-            i++;
-            sb.draw(itemData.getTxt(), position.x + (i * 16), position.y);
-        }
-//        sb.draw(Textures.checkbox, position.x, position.y, 16, 16);
-//        sb.draw(testTxt, position.x, position.y);
     }
 
     @Override
@@ -94,21 +79,21 @@ public class Resource extends DefaultActor {
         draw.draw(sb);
     }
 
-    // TODO test purpose only, remove later
-    private void showGroundItemsTest() {
-         drop = config.getDrop();
-    }
-
-
     private void showGroundItems() {
         if (isDestroyed) {
             return;
         }
 
-        items.add(new GroundItem(position.x, position.y, woodTxtRg, createItemActionCollision()));
+        for (DropItemData data: config.getDrop() ) {
+            String itemId = data.getItemId();
+            items.add(new GroundItem(position.x, position.y, Items.getData(itemId).getTxt(), createItemActionCollision(itemId)));
+        }
+
+
         for (GroundItem item : items) {
             itemsCollisions.add(item.getActionCollision());
         }
+
         actorsManager.addGroundItems(itemsCollisions);
 
         setIsDestroyed(true);
@@ -132,11 +117,11 @@ public class Resource extends DefaultActor {
         actorsManager.removeResourceObject(this);
     }
 
-    private Action createItemActionCollision() {
+    private Action createItemActionCollision(final String itemId) {
         return new Action() {
             @Override
             public void action() {
-                actorsManager.addItemToPlayerInventory("wood", (byte) 1);
+                actorsManager.addItemToPlayerInventory(itemId, (byte) 1);
                 removeResource();
             }
         };
