@@ -11,6 +11,8 @@ public class Urls {
     public static final String CONFIG_BASE_SHIRT_OFFSETS = "config/baseShirtOffsets.json";
     public static final String CONFIG_PICKAXES = "config/items/tools/pickaxes.json";
     public static final String CONFIG_FONTS_4 = "config/fonts4.json";
+    public static final String CONFIG_FONTS_1 = "config/fonts1.json";
+
     // SPRITES
     public static final String SPRITE_HAIRS = "sprites/style/hairs.png";
     public static final String SPRITE_HATS = "sprites/style/hats.png";
@@ -27,4 +29,10 @@ public class Urls {
     public static final String SPRITE_DEBRIS = "sprites/debris.png";
     public static final String TXT_FRAME = "sprites/frame.png";
     public static final String TXT_FONTS = "sprites/fonts.png";
+    public static final String TXT_BLACK_BOX = "sprites/utils/black.png";
+    public static final String TXT_INVENTORY_FRAME_LANE = "inventory/lane-top.png";
+    public static final String TXT_INVENTORY_FRAME_LANE_RIGHT = "inventory/lane-right.png";
+    public static final String TXT_INVENTORY_FRAME_LANE_BOTTOM = "inventory/lane-bottom.png";
+    public static final String TXT_INVENTORY_FRAME_LANE_LEFT = "inventory/lane-left.png";
+    public static final String TXT_INVENTORY_FRAME_CORNER = "inventory/corner.png";
 }

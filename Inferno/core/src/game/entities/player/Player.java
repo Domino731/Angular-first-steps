@@ -51,6 +51,11 @@ public class Player extends MovableDefaultActor {
     }
 
     public void startStaticAction() {
+        InventoryItemGroups currentItemType = inventory.getCurrItemType();
+        if(currentItemType == null) {
+            return;
+        }
+
         if (inventory.getCurrItemType() == InventoryItemGroups.seed) {
             isSeed = true;
             return;

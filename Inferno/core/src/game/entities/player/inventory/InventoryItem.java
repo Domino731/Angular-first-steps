@@ -14,7 +14,7 @@ public class InventoryItem extends Actor {
     public TextureRegion leftTxt;
     private InventoryItemGroups group;
     private String id;
-    private byte amount;
+    public InventorySlotData slotData = new InventorySlotData();
 
     // TODO: remove this constructor
     public InventoryItem(String itemId) {
@@ -25,7 +25,7 @@ public class InventoryItem extends Actor {
         rightTxt = Items.get(itemId).rightTxt;
         leftTxt = Items.get(itemId).leftTxt;
         group = InventoryItemGroups.tool;
-        amount = 1;
+        slotData.setAmount((byte) 1);
         setWidth(48);
         setHeight(48);
     }
@@ -38,7 +38,7 @@ public class InventoryItem extends Actor {
         rightTxt = item.getInventoryTxt();
         leftTxt = item.getInventoryTxt();
         group = item.getGroup();
-        amount = 1;
+        slotData.setAmount((byte) 1);
         setWidth(48);
         setHeight(48);
     }
@@ -51,7 +51,7 @@ public class InventoryItem extends Actor {
         rightTxt = new TextureRegion();
         leftTxt = new TextureRegion();
         group = InventoryItemGroups.tool;
-        amount = 1;
+        slotData.setAmount((byte) 1);
         setWidth(48);
         setHeight(48);
     }
@@ -65,11 +65,11 @@ public class InventoryItem extends Actor {
     }
 
     public void setAmount(byte amount) {
-        this.amount = amount;
+        slotData.setAmount(amount);
     }
 
     public byte getAmount() {
-        return amount;
+        return slotData.getAmount();
     }
 
     @Override

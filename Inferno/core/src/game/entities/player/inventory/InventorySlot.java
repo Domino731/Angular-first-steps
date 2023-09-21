@@ -13,6 +13,7 @@ public class InventorySlot extends Actor {
         setHeight(slotTexture.getRegionHeight());
     }
 
+
     public void markSlot(boolean mark) {
         if (!mark) {
             slotTexture = Textures.slotTxt;

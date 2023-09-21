@@ -4,9 +4,10 @@ import com.badlogic.gdx.Gdx;
 
 public class InventoryConstants {
     public static final byte inventoryLength = 10;
-    public static final byte slotSize = 60;
-    public static final byte inventorySlotsYOffset = 20;
-    public static final int inventorySlotsXOffset = getXOffset();
+    public static final byte slotSize = 50;
+    public static final byte inventorySlotsYOffset = 30;
+    public static final int inventorySlotsXOffset = getXOffset() + 10;
+    public static final int inventorySlotBarXOffset = getXOffset();
 
     public static short getInventoryBarWidth() {
         return inventoryLength * slotSize;

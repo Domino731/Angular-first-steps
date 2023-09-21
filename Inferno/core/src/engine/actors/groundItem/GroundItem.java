@@ -21,6 +21,15 @@ public class GroundItem {
         actionCollision = createActionCollision(action);
     }
 
+    public GroundItem(int positionX, int positionY, TextureRegion txt) {
+        position = new Vector<>(positionX, positionY);
+        this.txt = txt;
+    }
+
+    public void setActionCollision(Action action) {
+        actionCollision = createActionCollision(action);
+    }
+
     public void update(double deltaTime) {
 
     }

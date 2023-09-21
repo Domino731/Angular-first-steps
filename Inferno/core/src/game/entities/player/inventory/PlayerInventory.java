@@ -15,27 +15,31 @@ public class PlayerInventory {
     private InventoryItem[] inventoryItems = new InventoryItem[InventoryConstants.inventoryLength];
     private byte currentSlot;
     public InventoryItem currentItem;
+    private  InventoryBottomBar bottomBar = new InventoryBottomBar();
 
     public PlayerInventory() {
         stage = new Stage(new ScreenViewport());
+        stage.addActor(bottomBar);
         createInventorySlots();
         createInventoryItems();
         changeCurrentSlot((byte) 3);
         addItem("wood", (byte) 1);
+
     }
-
-
-
-    // TODO: only for test purposes
 
     // TODO: only for test purposes
     private void createInventoryItems() {
         inventoryItems[0] = new InventoryItem(new Weapon());
         inventoryItems[0].setPosition(0 * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
+        inventoryItems[0].slotData.setPosition(0 * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
+        inventoryItems[0].slotData.setAmount((byte) 12);
         stage.addActor(inventoryItems[0]);
+        stage.addActor(inventoryItems[0].slotData);
+
         inventoryItems[1] = new InventoryItem(new PlantSeed());
         inventoryItems[1].setPosition(InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
         stage.addActor(inventoryItems[1]);
+
         inventoryItems[2] = new InventoryItem("stone_pickaxe");
         inventoryItems[2].setPosition(2 * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
         stage.addActor(inventoryItems[2]);
@@ -78,7 +82,9 @@ public class PlayerInventory {
         }
         inventoryItems[emptySlotIndex] = new InventoryItem(Items.getData(itemId));
         inventoryItems[emptySlotIndex].setPosition(emptySlotIndex * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
+        inventoryItems[emptySlotIndex].slotData.setPosition(emptySlotIndex * InventoryConstants.slotSize + InventoryConstants.inventorySlotsXOffset, InventoryConstants.inventorySlotsYOffset);
         stage.addActor(inventoryItems[emptySlotIndex]);
+        stage.addActor(inventoryItems[emptySlotIndex].slotData);
 
     }
 
@@ -111,6 +117,9 @@ public class PlayerInventory {
     }
 
     public InventoryItemGroups getCurrItemType() {
+        if(currentItem == null) {
+            return null;
+        }
         return currentItem.getType();
     }
 

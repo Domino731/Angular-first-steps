@@ -202,7 +202,13 @@
       "id": "amethyst",
       "amount": 1,
       "chance": 100
-    }],
+    },
+      {
+        "id": "sandstone",
+        "amount": 1,
+        "chance": 100
+      }
+    ],
     "action": "mine"
   },
   {

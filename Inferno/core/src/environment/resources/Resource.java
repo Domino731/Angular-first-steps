@@ -79,14 +79,35 @@ public class Resource extends DefaultActor {
         draw.draw(sb);
     }
 
+    private void findGroundItem(String id) {
+        GroundItem payload = null;
+        for (GroundItem groundItem: items) {
+
+        }
+    }
+
+    private Action createItemActionCollision(final String itemId) {
+        return new Action() {
+            @Override
+            public void action() {
+                actorsManager.addItemToPlayerInventory(itemId, (byte) 1);
+                removeResource();
+            }
+        };
+    }
+
     private void showGroundItems() {
         if (isDestroyed) {
             return;
         }
 
+        int i = 0;
         for (DropItemData data: config.getDrop() ) {
             String itemId = data.getItemId();
-            items.add(new GroundItem(position.x, position.y, Items.getData(itemId).getTxt(), createItemActionCollision(itemId)));
+            i++;
+            GroundItem groundItem = new GroundItem(position.x + (i * 8), position.y, Items.getData(itemId).getTxt());
+            groundItem.setActionCollision(createItemActionCollision(itemId));
+            items.add(groundItem);
         }
 
 
@@ -115,16 +136,6 @@ public class Resource extends DefaultActor {
 
     private void removeResource() {
         actorsManager.removeResourceObject(this);
-    }
-
-    private Action createItemActionCollision(final String itemId) {
-        return new Action() {
-            @Override
-            public void action() {
-                actorsManager.addItemToPlayerInventory(itemId, (byte) 1);
-                removeResource();
-            }
-        };
     }
 
     private void setGroundCheckboxByResSize() {
