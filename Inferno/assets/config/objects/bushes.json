@@ -58,5 +58,50 @@
     "drop": [],
     "action": "cut_tree",
     "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 32,
+    "height": 35,
+    "spriteName": "bushes",
+    "id": "bush_5",
+    "name": "Bush 5",
+    "cords": {
+      "x": 0,
+      "y": 58
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 32,
+    "height": 35,
+    "spriteName": "bushes",
+    "id": "bush_6",
+    "name": "Bush 6",
+    "cords": {
+      "x": 32,
+      "y": 58
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 32,
+    "height": 35,
+    "spriteName": "bushes",
+    "id": "bush_7",
+    "name": "Bush 7",
+    "cords": {
+      "x": 64,
+      "y": 58
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
   }
 ]
