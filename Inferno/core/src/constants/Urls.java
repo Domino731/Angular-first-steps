@@ -5,6 +5,8 @@ package constants;
  */
 public class Urls {
     // CONFIGS
+    public static final String CONFIG_MINES = "config/objects/mines.json";
+    ;
     public static final String CONFIG_WEAPONS = "config/items/tools/weapons.json";
     public static final String CONFIG_RESOURCE_ITEMS = "config/resources.json";
     public static final String CONFIG_RESOURCE_BUSHES = "config/objects/bushes.json";

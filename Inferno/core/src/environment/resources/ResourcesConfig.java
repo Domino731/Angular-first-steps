@@ -24,7 +24,7 @@ import java.util.Objects;
 
 public class ResourcesConfig {
 
-    private static final JsonNode minesConfig = readJson(ResourceConstants.RES_CONFIG_SRC);
+    private static final JsonNode minesConfig = readJson(Urls.CONFIG_MINES);
     private static final JsonNode bushesConfig = readJson(Urls.CONFIG_RESOURCE_BUSHES);
 
     private static final HashMap<String, Config> resources = new HashMap<>();

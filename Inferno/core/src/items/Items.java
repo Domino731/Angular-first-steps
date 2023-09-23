@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import constants.Urls;
-import environment.resources.ResourceConstants;
 import game.entities.player.playerTextures.PlayerTextures;
 import utils.Direction;
 import utils.EngineLog;
@@ -30,7 +29,7 @@ public class Items {
                 json = Json.parse(fileHandle.readString());
             }
         } catch (IOException e) {
-            EngineLog.resourceError(ResourceConstants.RES_CONFIG_SRC);
+            EngineLog.resourceError(Urls.CONFIG_MINES);
         }
 
         return json;
