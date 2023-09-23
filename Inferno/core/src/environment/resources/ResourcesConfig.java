@@ -32,13 +32,11 @@ public class ResourcesConfig {
     public static class Config {
         public final TextureRegion txt;
         private final ActionTypes actionType;
-        private final boolean isBig;
         private final ArrayList<DropItemData> drop;
 
-        public Config(Texture txt, Vector<Integer> offset, DimensionVector<Byte> dim, ActionTypes actionType, boolean isBig, ArrayList<DropItemData> drop) {
+        public Config(Texture txt, Vector<Integer> offset, DimensionVector<Byte> dim, ActionTypes actionType, ArrayList<DropItemData> drop) {
             this.txt = new TextureRegion(txt, offset.x, offset.y, dim.width, dim.height);
             this.actionType = actionType;
-            this.isBig = isBig;
             this.drop = drop;
         }
 
@@ -51,7 +49,7 @@ public class ResourcesConfig {
         }
 
         public boolean getIsBig() {
-            return isBig;
+            return false;
         }
     }
 
@@ -103,19 +101,13 @@ public class ResourcesConfig {
         JsonNode dropData = resourceConfig.get("drop");
 
         Vector<Integer> offset = new Vector<>(resourceConfig.get("cords").get("x").intValue(), resourceConfig.get("cords").get("y").intValue());
-        boolean isBig = resourceConfig.get("is_big").asBoolean();
 
-        byte width = isBig ? (byte) 32 : (byte) 16;
-        byte height = isBig ? (byte) 32 : (byte) 16;
+        byte width = (byte) resourceConfig.get("width").asInt();
+        byte height = (byte) resourceConfig.get("height").asInt();
 
         Texture texture = Textures.minesTxt;
 
-        if(resourceConfig.get("width") != null) {
-            width = (byte) resourceConfig.get("width").asInt();
-            height = (byte) resourceConfig.get("height").asInt();
-        }
-
-        if(resourceConfig.get("spriteName") != null && Objects.equals(resourceConfig.get("spriteName").asText(), "bushes")) {
+        if (resourceConfig.get("spriteName") != null && Objects.equals(resourceConfig.get("spriteName").asText(), "bushes")) {
             System.out.println(resourceConfig.get("spriteName"));
             texture = Textures.bushesTxt;
         }
@@ -133,7 +125,7 @@ public class ResourcesConfig {
             }
         }
 
-        resources.put(resourceConfig.get("id").asText(), new Config(texture, offset, dim, actionType, isBig, drop));
+        resources.put(resourceConfig.get("id").asText(), new Config(texture, offset, dim, actionType, drop));
 
         return resources.get(id);
     }
