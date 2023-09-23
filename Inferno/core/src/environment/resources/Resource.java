@@ -1,6 +1,7 @@
 package environment.resources;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import engine.Textures;
 import engine.actionCollision.ActionCollision;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
@@ -55,6 +56,7 @@ public class Resource extends DefaultActor {
     }
 
     private void drawResource(SpriteBatch sb) {
+        sb.draw(Textures.checkbox, position.x, position.y, config.txt.getRegionWidth(), config.txt.getRegionHeight());
         sb.draw(config.txt, position.x, position.y);
     }
 

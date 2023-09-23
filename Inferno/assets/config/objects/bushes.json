@@ -168,7 +168,7 @@
   {
     "is_big": false,
     "width": 48,
-    "height": 48,
+    "height": 46,
     "spriteName": "bushes",
     "id": "bush_12",
     "name": "Bush 12",
@@ -183,13 +183,163 @@
   {
     "is_big": false,
     "width": 48,
-    "height": 48,
+    "height": 46,
     "spriteName": "bushes",
     "id": "bush_13",
     "name": "Bush 13",
     "cords": {
       "x": 48,
       "y": 132
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 48,
+    "height": 46,
+    "spriteName": "bushes",
+    "id": "bush_14",
+    "name": "Bush 14",
+    "cords": {
+      "x": 0,
+      "y": 177
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 48,
+    "height": 46,
+    "spriteName": "bushes",
+    "id": "bush_15",
+    "name": "Bush 15",
+    "cords": {
+      "x": 48,
+      "y": 177
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 16,
+    "height": 27,
+    "spriteName": "bushes",
+    "id": "bush_16",
+    "name": "Bush 16",
+    "cords": {
+      "x": 0,
+      "y": 229
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 16,
+    "height": 22,
+    "spriteName": "bushes",
+    "id": "bush_17",
+    "name": "Bush 17",
+    "cords": {
+      "x": 16,
+      "y": 235
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 16,
+    "height": 27,
+    "spriteName": "bushes",
+    "id": "bush_18",
+    "name": "Bush 18",
+    "cords": {
+      "x": 64,
+      "y": 229
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 16,
+    "height": 22,
+    "spriteName": "bushes",
+    "id": "bush_19",
+    "name": "Bush 19",
+    "cords": {
+      "x": 80,
+      "y": 235
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 16,
+    "height": 27,
+    "spriteName": "bushes",
+    "id": "bush_20",
+    "name": "Bush 20",
+    "cords": {
+      "x": 96,
+      "y": 229
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 16,
+    "height": 22,
+    "spriteName": "bushes",
+    "id": "bush_21",
+    "name": "Bush 21",
+    "cords": {
+      "x": 112,
+      "y": 235
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 32,
+    "height": 32,
+    "spriteName": "bushes",
+    "id": "bush_22",
+    "name": "Bush 22",
+    "cords": {
+      "x": 0,
+      "y": 320
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 32,
+    "height": 32,
+    "spriteName": "bushes",
+    "id": "bush_23",
+    "name": "Bush 23",
+    "cords": {
+      "x": 32,
+      "y": 320
     },
     "drop": [],
     "action": "cut_tree",
