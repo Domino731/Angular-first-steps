@@ -5,8 +5,8 @@ import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
 public class ResourceUtils {
-    public static DimensionCordVector getDimCordVectorBySize(String isResourceBig) {
-        switch (isResourceBig) {
+    public static DimensionCordVector getDimCordVectorBySize(String groundCheckboxId) {
+        switch (groundCheckboxId) {
             case "1":
                 return new DimensionCordVector(16, 16, 0, 0);
             case "2":
@@ -19,17 +19,30 @@ public class ResourceUtils {
     }
 
 
-    public static DimensionVector<Integer> getDimensionVectorForActionCollision(boolean isResourceBig) {
-        if (isResourceBig) {
-            return new DimensionVector<>(38, 38);
+    public static DimensionVector<Integer> getDimensionVectorForActionCollision(String actionCollisionId) {
+        switch (actionCollisionId) {
+            case "1":
+                return new DimensionVector<>(20, 20);
+            case "2":
+                return new DimensionVector<>(36, 36);
+            case "3":
+                return new DimensionVector<>(48, 48);
+            default:
+                return new DimensionVector<>(0, 0);
         }
-        return new DimensionVector<>(21, 21);
     }
 
-    public static Vector<Integer> getPositionForActionCollision(boolean isResourceBig, Vector<Integer> resourcePosition) {
-        if (isResourceBig) {
-            return new Vector<>(resourcePosition.x - 3, resourcePosition.y - 3);
+    public static Vector<Integer> getPositionForActionCollision(String actionCollisionId, Vector<Integer> position) {
+        switch (actionCollisionId) {
+            case "1":
+                return new Vector<>(position.x - 2, position.y - 2);
+            case "2":
+                return new Vector<>(position.x - 2, position.y - 2);
+            case "3":
+                return new Vector<>(position.x, position.y);
+            default:
+                return new Vector<>(position.x, position.y);
         }
-        return new Vector<>(resourcePosition.x - 2, resourcePosition.y - 2);
+
     }
 }

@@ -154,8 +154,8 @@ public class Resource extends DefaultActor {
                 new ActionCollision(
                         config.getActionType(),
                         id,
-                        getPositionForActionCollision(config.getIsBig(), position),
-                        getDimensionVectorForActionCollision(config.getIsBig()),
+                        getPositionForActionCollision(config.getActionCollisionId(), position),
+                        getDimensionVectorForActionCollision(config.getActionCollisionId()),
                         new Vector<>(0, 0),
                         new ResourceAction() {
                             @Override
