@@ -12,7 +12,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "is_big": false,
@@ -27,7 +28,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "is_big": false,
@@ -42,7 +44,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "is_big": false,
@@ -57,7 +60,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "is_big": false,
@@ -72,7 +76,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "is_big": false,
@@ -87,7 +92,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "is_big": false,
@@ -102,7 +108,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "is_big": false,
@@ -117,7 +124,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "is_big": false,
@@ -132,7 +140,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "is_big": false,
@@ -147,7 +156,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "is_big": false,
@@ -162,9 +172,9 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
-
   {
     "is_big": false,
     "width": 48,
@@ -178,7 +188,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "3"
   },
   {
     "is_big": false,
@@ -193,7 +204,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "3"
   },
   {
     "is_big": false,
@@ -208,7 +220,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "3"
   },
   {
     "is_big": false,
@@ -223,7 +236,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "3"
   },
   {
     "is_big": false,
@@ -238,7 +252,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "1"
   },
   {
     "is_big": false,
@@ -253,7 +268,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "1"
   },
   {
     "is_big": false,
@@ -268,7 +284,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "1"
   },
   {
     "is_big": false,
@@ -283,7 +300,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "1"
   },
   {
     "is_big": false,
@@ -298,7 +316,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "1"
   },
   {
     "is_big": false,
@@ -313,7 +332,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "1"
   },
   {
     "is_big": false,
@@ -328,7 +348,8 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "1"
   },
   {
     "is_big": false,
@@ -343,6 +364,7 @@
     },
     "drop": [],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "1"
   }
 ]

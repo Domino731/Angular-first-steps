@@ -33,11 +33,13 @@ public class ResourcesConfig {
         public final TextureRegion txt;
         private final ActionTypes actionType;
         private final ArrayList<DropItemData> drop;
+        private final String groundCheckboxId;
 
-        public Config(Texture txt, Vector<Integer> offset, DimensionVector<Byte> dim, ActionTypes actionType, ArrayList<DropItemData> drop) {
+        public Config(Texture txt, Vector<Integer> offset, DimensionVector<Byte> dim, ActionTypes actionType, ArrayList<DropItemData> drop, String groundCheckboxId) {
             this.txt = new TextureRegion(txt, offset.x, offset.y, dim.width, dim.height);
             this.actionType = actionType;
             this.drop = drop;
+            this.groundCheckboxId = groundCheckboxId;
         }
 
         public ActionTypes getActionType() {
@@ -50,6 +52,10 @@ public class ResourcesConfig {
 
         public boolean getIsBig() {
             return false;
+        }
+
+        public String getGroundCheckboxId() {
+            return groundCheckboxId;
         }
     }
 
@@ -116,7 +122,7 @@ public class ResourcesConfig {
         DimensionVector<Byte> dim = new DimensionVector<>(width, height);
         ActionTypes actionType = ActionCollisionUtils.getActionTypeFromJson(resourceConfig.get("action").asText());
         ArrayList<DropItemData> drop = new ArrayList<>();
-
+        String groundCheckboxId = resourceConfig.get("groundCheckboxId").asText();
         if (dropData.isArray()) {
             for (JsonNode node : dropData) {
                 String itemId = node.get("id").asText();
@@ -125,7 +131,7 @@ public class ResourcesConfig {
             }
         }
 
-        resources.put(resourceConfig.get("id").asText(), new Config(texture, offset, dim, actionType, drop));
+        resources.put(resourceConfig.get("id").asText(), new Config(texture, offset, dim, actionType, drop, groundCheckboxId));
 
         return resources.get(id);
     }

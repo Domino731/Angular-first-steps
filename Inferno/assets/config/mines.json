@@ -22,7 +22,8 @@
       }
     ],
     "action": "cut_tree",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "width": 32,
@@ -71,7 +72,8 @@
       }
     ],
     "action": "mine",
-    "exp": 10
+    "exp": 10,
+    "groundCheckboxId": "2"
   },
   {
     "width": 32,
@@ -96,7 +98,8 @@
       }
     ],
     "action": "mine",
-    "exp": 20
+    "exp": 20,
+    "groundCheckboxId": "2"
   },
   {
     "width": 32,
@@ -145,7 +148,8 @@
       }
     ],
     "action": "mine",
-    "exp": 100
+    "exp": 100,
+    "groundCheckboxId": "2"
   },
   {
     "width": 32,
@@ -170,7 +174,8 @@
       }
     ],
     "action": "mine",
-    "exp": 5
+    "exp": 5,
+    "groundCheckboxId": "2"
   },
   {
     "width": 32,
@@ -195,7 +200,8 @@
       }
     ],
     "action": "mine",
-    "exp": 120
+    "exp": 120,
+    "groundCheckboxId": "2"
   },
   {
     "id": "amethyst_ore",
@@ -219,7 +225,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "aquamarine_ore",
@@ -238,7 +245,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "copper_node",
@@ -257,7 +265,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "diamond_ore",
@@ -276,7 +285,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "emerald_ore",
@@ -295,7 +305,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "gem_ore",
@@ -344,7 +355,8 @@
         "chance": 5
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "gold_node",
@@ -366,7 +378,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "iridium_node",
@@ -390,7 +403,8 @@
         "chance": 4
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "iron_node",
@@ -409,7 +423,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "jade_node",
@@ -428,7 +443,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "mystic_stone",
@@ -463,7 +479,8 @@
         "chance": 25
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "ruby_ore",
@@ -482,7 +499,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "topaz_ore",
@@ -501,7 +519,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "geode_node",
@@ -520,7 +539,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "frozen_geode_node",
@@ -539,7 +559,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "magma_geode_node",
@@ -558,7 +579,8 @@
     ],
     "width": 16,
     "height": 16,
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "bone_node",
@@ -577,7 +599,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "cinder_shard_node",
@@ -596,7 +619,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "clay_node",
@@ -615,7 +639,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "omni_geode_node",
@@ -634,7 +659,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "radioactive_node",
@@ -653,7 +679,8 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   },
   {
     "id": "mussel_node",
@@ -672,6 +699,7 @@
         "chance": 100
       }
     ],
-    "action": "mine"
+    "action": "mine",
+    "groundCheckboxId": "1"
   }
 ]

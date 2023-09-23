@@ -56,7 +56,7 @@ public class Resource extends DefaultActor {
     }
 
     private void drawResource(SpriteBatch sb) {
-        sb.draw(Textures.checkbox, position.x, position.y, config.txt.getRegionWidth(), config.txt.getRegionHeight());
+        sb.draw(Textures.frameTxt, position.x, position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
         sb.draw(config.txt, position.x, position.y);
     }
 
@@ -90,7 +90,7 @@ public class Resource extends DefaultActor {
                 actorsManager.addItemToPlayerInventory(itemId, (byte) 1);
                 actorsManager.removeGroundItem(groundItem);
                 items.remove(groundItem);
-                if(items.size() == 0) {
+                if (items.size() == 0) {
                     EngineLog.print("Resource removed");
                     removeResource();
                 }
@@ -104,7 +104,7 @@ public class Resource extends DefaultActor {
         }
 
         int i = 0;
-        for (DropItemData data: config.getDrop() ) {
+        for (DropItemData data : config.getDrop()) {
             String itemId = data.getItemId();
             i++;
             GroundItem groundItem = new GroundItem(position.x + (i * 8), position.y, Items.getData(itemId).getTxt());
@@ -141,7 +141,7 @@ public class Resource extends DefaultActor {
     }
 
     private void setGroundCheckboxByResSize() {
-        setGroundCheckbox(getDimCordVectorBySize(config.getIsBig()));
+        setGroundCheckbox(getDimCordVectorBySize(config.getGroundCheckboxId()));
     }
 
 
