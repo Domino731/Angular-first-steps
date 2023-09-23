@@ -163,5 +163,36 @@
     "drop": [],
     "action": "cut_tree",
     "exp": 10
+  },
+
+  {
+    "is_big": false,
+    "width": 48,
+    "height": 48,
+    "spriteName": "bushes",
+    "id": "bush_12",
+    "name": "Bush 12",
+    "cords": {
+      "x": 0,
+      "y": 132
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 48,
+    "height": 48,
+    "spriteName": "bushes",
+    "id": "bush_13",
+    "name": "Bush 13",
+    "cords": {
+      "x": 48,
+      "y": 132
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
   }
 ]
