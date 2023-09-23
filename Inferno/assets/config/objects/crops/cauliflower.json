@@ -1,0 +1,50 @@
+{
+  "id": "cauliflower",
+  "seed_id": "cauliflower_seed",
+  "name": "Cauliflower",
+  "description": "Valuable, but slow-growing. Despite its pale color, the florets are packed with nutrients.",
+  "stages": [
+    {
+      "stage": 1,
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 48
+    },
+    {
+      "stage": 2,
+      "width": 16,
+      "height": 16,
+      "x": 16,
+      "y": 48
+    },
+    {
+      "stage": 3,
+      "width": 16,
+      "height": 16,
+      "x": 32,
+      "y": 48
+    },
+    {
+      "stage": 4,
+      "width": 16,
+      "height": 16,
+      "x": 48,
+      "y": 48
+    },
+    {
+      "stage": 5,
+      "width": 16,
+      "height": 16,
+      "x": 64,
+      "y": 48
+    },
+    {
+      "stage": 6,
+      "width": 16,
+      "height": 16,
+      "x": 64,
+      "y": 48
+    }
+  ]
+}
