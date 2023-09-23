@@ -7,6 +7,7 @@ import constants.Urls;
 public class Textures {
     public static final Texture minesTxt = new Texture(Urls.SPRITE_MINES);
     public static final Texture debrisTxt = new Texture(Urls.SPRITE_DEBRIS);
+    public static final Texture bushesTxt = new Texture(Urls.SPRITE_BUSHES);
     public static final Texture checkbox = new Texture(Urls.TXT_INVENTORY_SLOT);
     public static final Texture frameTxt = new Texture(Urls.TXT_FRAME);
     public static final Texture fontsTxt = new Texture(Urls.TXT_FONTS);

@@ -8,6 +8,9 @@ public class Utils {
         if ("debris".equals(src)) {
             return Textures.debrisTxt;
         }
+        else if ("bushes".equals(src)) {
+            return Textures.bushesTxt;
+        }
         return Textures.minesTxt;
     }
 }

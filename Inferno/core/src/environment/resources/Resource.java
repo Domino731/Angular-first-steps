@@ -80,12 +80,6 @@ public class Resource extends DefaultActor {
         draw.draw(sb);
     }
 
-    private void findGroundItem(String id) {
-        GroundItem payload = null;
-        for (GroundItem groundItem: items) {
-
-        }
-    }
 
     private Action createItemActionCollision(final String itemId, final GroundItem groundItem) {
         return new Action() {

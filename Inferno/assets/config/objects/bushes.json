@@ -1,0 +1,62 @@
+[
+  {
+    "is_big": false,
+    "width": 32,
+    "height": 34,
+    "spriteName": "bushes",
+    "id": "bush_1",
+    "name": "Bush 1",
+    "cords": {
+      "x": 0,
+      "y": 10
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 32,
+    "height": 34,
+    "spriteName": "bushes",
+    "id": "bush_2",
+    "name": "Bush 2",
+    "cords": {
+      "x": 32,
+      "y": 10
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 32,
+    "height": 41,
+    "spriteName": "bushes",
+    "id": "bush_3",
+    "name": "Bush 3",
+    "cords": {
+      "x": 64,
+      "y": 7
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  },
+  {
+    "is_big": false,
+    "width": 32,
+    "height": 41,
+    "spriteName": "bushes",
+    "id": "bush_4",
+    "name": "Bush 4",
+    "cords": {
+      "x": 96,
+      "y": 7
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10
+  }
+]

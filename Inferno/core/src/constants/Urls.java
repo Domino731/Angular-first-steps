@@ -7,12 +7,12 @@ public class Urls {
     // CONFIGS
     public static final String CONFIG_WEAPONS = "config/items/tools/weapons.json";
     public static final String CONFIG_RESOURCE_ITEMS = "config/resources.json";
+    public static final String CONFIG_RESOURCE_BUSHES = "config/objects/bushes.json";
     public static final String CONFIG_BASE_HAIR_OFFSETS = "config/hairOffsets.json";
     public static final String CONFIG_BASE_SHIRT_OFFSETS = "config/baseShirtOffsets.json";
     public static final String CONFIG_PICKAXES = "config/items/tools/pickaxes.json";
     public static final String CONFIG_FONTS_4 = "config/fonts4.json";
     public static final String CONFIG_FONTS_1 = "config/fonts1.json";
-
     // SPRITES
     public static final String SPRITE_HAIRS = "sprites/style/hairs.png";
     public static final String SPRITE_HATS = "sprites/style/hats.png";
@@ -27,6 +27,7 @@ public class Urls {
     public static final String SPRITE_SEEDS = "sprites/seeds.png";
     public static final String SPRITE_MINES = "sprites/mines.png";
     public static final String SPRITE_DEBRIS = "sprites/debris.png";
+    public static final String SPRITE_BUSHES = "sprites/environment/bushes.png";
     public static final String TXT_FRAME = "sprites/frame.png";
     public static final String TXT_FONTS = "sprites/fonts.png";
     public static final String TXT_BLACK_BOX = "sprites/utils/black.png";
