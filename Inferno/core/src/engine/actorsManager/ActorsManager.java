@@ -3,6 +3,7 @@ package engine.actorsManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.actionCollision.ActionCollision;
 import engine.actors.DefaultActor;
+import engine.actors.groundItem.GroundItem;
 import engine.items.Items;
 import environment.resources.Resource;
 import game.entities.player.Player;
@@ -235,6 +236,10 @@ public class ActorsManager {
 
     public void addGroundItems(ArrayList<ActionCollision> groundItems) {
         this.groundItems.addAll(groundItems);
+    }
+
+    public void removeGroundItem(GroundItem groundItem) {
+        this.groundItems.remove(groundItem.getActionCollision());
     }
 
     public void addGroundItem(ActionCollision groundItems) {

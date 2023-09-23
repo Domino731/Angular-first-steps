@@ -1,42 +1,28 @@
 package environment.resources;
 
+import com.badlogic.gdx.math.Vector2;
+
 public class ParabolicMotion {
-    private float initialX; // Początkowa pozycja X
-    private float initialY; // Początkowa pozycja Y
-    private float initialVelocity; // Początkowa prędkość początkowa
-    private float angle; // Kąt wyrzutu w radianach
-    private float gravity; // Przyspieszenie grawitacyjne
-
-    private float time = 0; // Aktualny czas
-    private float maxX; // Maksymalna odległość na osi X
-    private float maxY; // Maksymalna wysokość
-
+    public float currentX = 0;
+    public float currentY = 0;
+    private Vector2 itemPosition;
+    private Vector2 itemVelocity;
+    private float gravity;
     public ParabolicMotion(float initialX, float initialY, float initialVelocity, float angle, float gravity) {
-        this.initialX = initialX;
-        this.initialY = initialY;
-        this.initialVelocity = initialVelocity;
-        this.angle = angle;
-        this.gravity = gravity;
-
-        // Oblicz maksymalną odległość na osi X i maksymalną wysokość
-        maxX = (initialVelocity * initialVelocity * Math.sin(2 * angle)) / gravity;
-        maxY = (initialVelocity * initialVelocity * Math.sin(angle) * Math.sin(angle)) / (2 * gravity);
+        // Initialize item properties
+        itemPosition = new Vector2(initialX, initialY); // Starting point A
+        itemVelocity = new Vector2((float) 2, (float) 3); // Initial velocity (adjust as needed)
     }
 
     public void update(float deltaTime) {
-        // Aktualizuj czas
-        time += deltaTime;
-
-        // Oblicz pozycję X i Y na podstawie równań ruchu
-        float currentX = initialX + (initialVelocity * Math.cos(angle) * time);
-        float currentY = initialY + (initialVelocity * Math.sin(angle) * time) - (0.5f * gravity * time * time);
-
-        // Jeśli obiekt upadł już na ziemię, zatrzymaj aktualizację
-        if (currentY <= 0) {
-            time = 0; // Zresetuj czas
-            currentY = 0; // Ustal pozycję Y na ziemi
-        }
+        // Update item position based on velocity and gravity
+        itemPosition.x += itemVelocity.x * deltaTime;
+        itemPosition.y += itemVelocity.y * deltaTime;
+        itemVelocity.y -= gravity * deltaTime;
+        currentX = itemPosition.x;
+        currentY = itemPosition.y;
     }
+
 }
 
 

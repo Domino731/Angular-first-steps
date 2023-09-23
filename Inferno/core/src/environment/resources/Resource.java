@@ -10,6 +10,7 @@ import engine.items.DropItemData;
 import engine.items.Items;
 import engine.utils.Action;
 import engine.utils.Draw;
+import utils.EngineLog;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
@@ -86,12 +87,17 @@ public class Resource extends DefaultActor {
         }
     }
 
-    private Action createItemActionCollision(final String itemId) {
+    private Action createItemActionCollision(final String itemId, final GroundItem groundItem) {
         return new Action() {
             @Override
             public void action() {
                 actorsManager.addItemToPlayerInventory(itemId, (byte) 1);
-                removeResource();
+                actorsManager.removeGroundItem(groundItem);
+                items.remove(groundItem);
+                if(items.size() == 0) {
+                    EngineLog.print("Resource removed");
+                    removeResource();
+                }
             }
         };
     }
@@ -106,7 +112,7 @@ public class Resource extends DefaultActor {
             String itemId = data.getItemId();
             i++;
             GroundItem groundItem = new GroundItem(position.x + (i * 8), position.y, Items.getData(itemId).getTxt());
-            groundItem.setActionCollision(createItemActionCollision(itemId));
+            groundItem.setActionCollision(createItemActionCollision(itemId, groundItem));
             items.add(groundItem);
         }
 

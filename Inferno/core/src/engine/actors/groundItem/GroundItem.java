@@ -31,8 +31,6 @@ public class GroundItem {
     }
 
     public void update(double deltaTime) {
-
-//      System.out.println(deltaTime);
     }
 
     public void draw(SpriteBatch sb) {
