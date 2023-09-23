@@ -48,6 +48,14 @@ public class ActorsManager {
         addActor(rsc8);
         Resource rsc9 = new Resource("bush_7", new Vector<>(4, 0), this);
         addActor(rsc9);
+        Resource rsc10 = new Resource("bush_8", new Vector<>(6, 0), this);
+        addActor(rsc10);
+        Resource rsc11 = new Resource("bush_9", new Vector<>(8, 0), this);
+        addActor(rsc11);
+        Resource rsc12 = new Resource("bush_10", new Vector<>(10, 0), this);
+        addActor(rsc12);
+        Resource rsc13 = new Resource("bush_11", new Vector<>(12, 0), this);
+        addActor(rsc13);
 //        Resource rsc3 = new Resource("aquamarine_ore", new Vector<>(4, 6), this);
 //        addActor(rsc3);
 //        Resource rsc4 = new Resource("copper_node", new Vector<>(6, 6), this);
