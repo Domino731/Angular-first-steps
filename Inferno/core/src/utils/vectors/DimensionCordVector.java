@@ -12,4 +12,11 @@ public class DimensionCordVector {
         this.x = x;
         this.y = y;
     }
+
+    public DimensionCordVector(int size, int x, int y) {
+        this.width = size;
+        this.height = size;
+        this.x = x;
+        this.y = y;
+    }
 }

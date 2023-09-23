@@ -8,4 +8,9 @@ public class DimensionVector<T> {
         this.width = width;
         this.height = height;
     }
+
+    public DimensionVector(T size) {
+        this.width = size;
+        this.height = size;
+    }
 }

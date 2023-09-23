@@ -8,13 +8,13 @@ public class ResourceUtils {
     public static DimensionCordVector getDimCordVectorBySize(String groundCheckboxId) {
         switch (groundCheckboxId) {
             case "1":
-                return new DimensionCordVector(16, 16, 0, 0);
+                return new DimensionCordVector(16, 0, 0);
             case "2":
-                return new DimensionCordVector(32, 32, 0, 0);
+                return new DimensionCordVector(32, 0, 0);
             case "3":
-                return new DimensionCordVector(48, 48, 0, 0);
+                return new DimensionCordVector(48, 0, 0);
             default:
-                return new DimensionCordVector(16, 16, 0, 0);
+                return new DimensionCordVector(16, 0, 0);
         }
     }
 
@@ -22,13 +22,13 @@ public class ResourceUtils {
     public static DimensionVector<Integer> getDimensionVectorForActionCollision(String actionCollisionId) {
         switch (actionCollisionId) {
             case "1":
-                return new DimensionVector<>(20, 20);
+                return new DimensionVector<>(20);
             case "2":
-                return new DimensionVector<>(36, 36);
+                return new DimensionVector<>(36);
             case "3":
-                return new DimensionVector<>(48, 48);
+                return new DimensionVector<>(48);
             default:
-                return new DimensionVector<>(0, 0);
+                return new DimensionVector<>(0);
         }
     }
 
