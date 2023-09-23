@@ -23,7 +23,8 @@
     ],
     "action": "cut_tree",
     "exp": 10,
-    "groundCheckboxId": "2"
+    "groundCheckboxId": "2",
+    "actionCollisionId": "2"
   },
   {
     "width": 32,
@@ -73,7 +74,8 @@
     ],
     "action": "mine",
     "exp": 10,
-    "groundCheckboxId": "2"
+    "groundCheckboxId": "2",
+    "actionCollisionId": "2"
   },
   {
     "width": 32,
@@ -99,7 +101,8 @@
     ],
     "action": "mine",
     "exp": 20,
-    "groundCheckboxId": "2"
+    "groundCheckboxId": "2",
+    "actionCollisionId": "2"
   },
   {
     "width": 32,
@@ -149,7 +152,8 @@
     ],
     "action": "mine",
     "exp": 100,
-    "groundCheckboxId": "2"
+    "groundCheckboxId": "2",
+    "actionCollisionId": "2"
   },
   {
     "width": 32,
@@ -175,7 +179,8 @@
     ],
     "action": "mine",
     "exp": 5,
-    "groundCheckboxId": "2"
+    "groundCheckboxId": "2",
+    "actionCollisionId": "2"
   },
   {
     "width": 32,
@@ -201,7 +206,8 @@
     ],
     "action": "mine",
     "exp": 120,
-    "groundCheckboxId": "2"
+    "groundCheckboxId": "2",
+    "actionCollisionId": "2"
   },
   {
     "id": "amethyst_ore",
@@ -226,7 +232,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "aquamarine_ore",
@@ -246,7 +253,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "copper_node",
@@ -266,7 +274,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "diamond_ore",
@@ -286,7 +295,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "emerald_ore",
@@ -306,7 +316,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "gem_ore",
@@ -356,7 +367,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "gold_node",
@@ -379,7 +391,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "iridium_node",
@@ -404,7 +417,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "iron_node",
@@ -424,7 +438,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "jade_node",
@@ -444,7 +459,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "mystic_stone",
@@ -480,7 +496,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "ruby_ore",
@@ -500,7 +517,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "topaz_ore",
@@ -520,7 +538,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "geode_node",
@@ -540,7 +559,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "frozen_geode_node",
@@ -560,7 +580,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "magma_geode_node",
@@ -580,7 +601,8 @@
     "width": 16,
     "height": 16,
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "bone_node",
@@ -600,7 +622,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "cinder_shard_node",
@@ -620,7 +643,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "clay_node",
@@ -640,7 +664,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "omni_geode_node",
@@ -660,7 +685,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "radioactive_node",
@@ -680,7 +706,8 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   },
   {
     "id": "mussel_node",
@@ -700,6 +727,7 @@
       }
     ],
     "action": "mine",
-    "groundCheckboxId": "1"
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
   }
 ]

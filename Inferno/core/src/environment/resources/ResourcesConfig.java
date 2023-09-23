@@ -34,12 +34,14 @@ public class ResourcesConfig {
         private final ActionTypes actionType;
         private final ArrayList<DropItemData> drop;
         private final String groundCheckboxId;
+        private final String actionCollisionId;
 
-        public Config(Texture txt, Vector<Integer> offset, DimensionVector<Byte> dim, ActionTypes actionType, ArrayList<DropItemData> drop, String groundCheckboxId) {
+        public Config(Texture txt, Vector<Integer> offset, DimensionVector<Byte> dim, ActionTypes actionType, ArrayList<DropItemData> drop, String groundCheckboxId, String actionCollisionId) {
             this.txt = new TextureRegion(txt, offset.x, offset.y, dim.width, dim.height);
             this.actionType = actionType;
             this.drop = drop;
             this.groundCheckboxId = groundCheckboxId;
+            this.actionCollisionId = actionCollisionId;
         }
 
         public ActionTypes getActionType() {
@@ -56,6 +58,10 @@ public class ResourcesConfig {
 
         public String getGroundCheckboxId() {
             return groundCheckboxId;
+        }
+
+        public String getActionCollisionId() {
+            return actionCollisionId;
         }
     }
 
@@ -123,6 +129,7 @@ public class ResourcesConfig {
         ActionTypes actionType = ActionCollisionUtils.getActionTypeFromJson(resourceConfig.get("action").asText());
         ArrayList<DropItemData> drop = new ArrayList<>();
         String groundCheckboxId = resourceConfig.get("groundCheckboxId").asText();
+        String actionCollisionId = resourceConfig.get("actionCollisionId").asText();
         if (dropData.isArray()) {
             for (JsonNode node : dropData) {
                 String itemId = node.get("id").asText();
@@ -131,7 +138,7 @@ public class ResourcesConfig {
             }
         }
 
-        resources.put(resourceConfig.get("id").asText(), new Config(texture, offset, dim, actionType, drop, groundCheckboxId));
+        resources.put(resourceConfig.get("id").asText(), new Config(texture, offset, dim, actionType, drop, groundCheckboxId, actionCollisionId));
 
         return resources.get(id);
     }

@@ -41,8 +41,9 @@ public class Resource extends DefaultActor {
         this.actorsManager = actorsManager;
         config = ResourcesConfig.get(id);
         setGroundCheckboxByResSize();
-        hp = 100;
         setActionsCollisions();
+        hp = 100;
+
         setDraw();
     }
 
@@ -56,8 +57,9 @@ public class Resource extends DefaultActor {
     }
 
     private void drawResource(SpriteBatch sb) {
-        sb.draw(Textures.frameTxt, position.x, position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
+        sb.draw(Textures.checkbox, position.x, position.y, config.txt.getRegionWidth(), config.txt.getRegionHeight());
         sb.draw(config.txt, position.x, position.y);
+        sb.draw(Textures.frameTxt, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
     }
 
     @Override
