@@ -14,7 +14,7 @@ import static utils.TxtUtils.getPixmapFromTextureRegion;
 
 public class Fonts {
     private static final JsonNode configNode = Json.readFile(Urls.CONFIG_FONTS_4);
-    private static final JsonNode configNode1 = Json.readFile(Urls.CONFIG_FONTS_1);
+    private static final JsonNode configNode1 = Json.readFile(Urls.CONFIG_TREE_MAPLE);
     private static final HashMap<String, Config> data = createFonts();
     private static final HashMap<String, Config> data1Black = new HashMap<>();
     private static final HashMap<String, Config> data1 = createFonts1();
@@ -38,15 +38,19 @@ public class Fonts {
         public String getId() {
             return id;
         }
+
         public TextureRegion getTxt() {
             return txt;
         }
+
         public TextureRegion getBlackTxt() {
             return blackTxt;
         }
+
         public byte getWidth() {
             return width;
         }
+
         public byte getHeight() {
             return height;
         }
@@ -55,15 +59,15 @@ public class Fonts {
     private static HashMap<String, Config> createFonts() {
         HashMap<String, Config> fonts = new HashMap<>();
 
-        if(configNode.isArray()) {
-            for (JsonNode node: configNode) {
-               int x = node.get("x").asInt();
-               int y= node.get("y").asInt();
-               byte width = (byte) node.get("width").asInt();
-               byte height = (byte) node.get("height").asInt();
-               String id = node.get("letter").asText();
-               TextureRegion  txt = createTexture(x,y,width,height);
-               fonts.put(id, new Config(id, txt, txt, width, height));
+        if (configNode.isArray()) {
+            for (JsonNode node : configNode) {
+                int x = node.get("x").asInt();
+                int y = node.get("y").asInt();
+                byte width = (byte) node.get("width").asInt();
+                byte height = (byte) node.get("height").asInt();
+                String id = node.get("letter").asText();
+                TextureRegion txt = createTexture(x, y, width, height);
+                fonts.put(id, new Config(id, txt, txt, width, height));
             }
         }
 
@@ -73,14 +77,14 @@ public class Fonts {
     private static HashMap<String, Config> createFonts1() {
         HashMap<String, Config> fonts = new HashMap<>();
 
-        if(configNode.isArray()) {
-            for (JsonNode node: configNode1) {
+        if (configNode.isArray()) {
+            for (JsonNode node : configNode1) {
                 int x = node.get("x").asInt();
-                int y= node.get("y").asInt();
+                int y = node.get("y").asInt();
                 byte width = (byte) node.get("width").asInt();
                 byte height = (byte) node.get("height").asInt();
                 String id = node.get("letter").asText();
-                TextureRegion  txt = createTexture(x,y,width,height);
+                TextureRegion txt = createTexture(x, y, width, height);
                 TextureRegion blackTxt = paintLetter(txt);
                 fonts.put(id, new Config(id, txt, blackTxt, width, height));
             }
@@ -89,7 +93,7 @@ public class Fonts {
         return fonts;
     }
 
-    private static TextureRegion createTexture(int x, int y, int width, int height ) {
+    private static TextureRegion createTexture(int x, int y, int width, int height) {
         return new TextureRegion(Textures.fontsTxt, x, y, width, height);
     }
 
@@ -101,10 +105,9 @@ public class Fonts {
             for (int y = 0; y < pixmap.getHeight(); y++) {
                 int color = pixmap.getPixel(x, y);
 
-                if(color == -1 || color == -171) {
+                if (color == -1 || color == -171) {
                     pixmap.drawPixel(x, y, 255);
-                }
-                else {
+                } else {
                     pixmap.drawPixel(x, y, -1);
                 }
             }
@@ -114,7 +117,7 @@ public class Fonts {
         for (int y = 0; y < pixmap.getHeight(); y++) {
             int firstBlackPixelIndex = -1;
             for (int x = 0; x < pixmap.getWidth(); x++) {
-                if(pixmap.getPixel(x,y) == 255 && firstBlackPixelIndex == -1) {
+                if (pixmap.getPixel(x, y) == 255 && firstBlackPixelIndex == -1) {
                     firstBlackPixelIndex = x;
                     break;
                 }
@@ -125,7 +128,7 @@ public class Fonts {
 
             int lastBlackPixelIndex = -1;
             for (int x = pixmap.getWidth() - 1; x >= 0; x--) {
-                if(pixmap.getPixel(x,y) == 255 && lastBlackPixelIndex == -1) {
+                if (pixmap.getPixel(x, y) == 255 && lastBlackPixelIndex == -1) {
                     lastBlackPixelIndex = x + 1;
                     break;
                 }
@@ -142,7 +145,6 @@ public class Fonts {
         Pixmap newPixmap = getPixmapFromTextureRegion(new TextureRegion(newTxt));
 
 //        pixmap.dispose();
-
 
 
         return new TextureRegion(newTxt);

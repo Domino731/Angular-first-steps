@@ -1,0 +1,112 @@
+package environment.trees;
+
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.fasterxml.jackson.databind.JsonNode;
+import constants.Urls;
+import engine.Textures;
+import utils.Json;
+
+import java.util.HashMap;
+
+public class TreesConfig {
+    private HashMap<String, Config> trees = getTreesData();
+
+    public static final class Stage {
+        private final byte stage;
+        private final TextureRegion txt;
+        private final byte width;
+        private final byte height;
+
+        public Stage(byte stage, TextureRegion txt, byte width, byte height) {
+            this.stage = stage;
+            this.width = width;
+            this.height = height;
+            this.txt = txt;
+        }
+
+        public byte getStage() {
+            return stage;
+        }
+
+        public TextureRegion getTxt() {
+            return txt;
+        }
+
+        public byte getWidth() {
+            return width;
+        }
+
+        public byte getHeight() {
+            return height;
+        }
+
+    }
+
+    public static final class Config {
+        private final String id;
+        private final String name;
+        private final Stage[] stages;
+
+        public Config(String id, String name, Stage[] stages) {
+            this.id = id;
+            this.name = name;
+            this.stages = stages;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public Stage[] getStages() {
+            return stages;
+        }
+    }
+
+
+    private static HashMap<String, Config> getTreesData() {
+        HashMap<String, Config> payload = new HashMap<>();
+
+        Config maple = readConfig(Urls.CONFIG_TREE_MAPLE);
+        payload.put(maple.getId(), maple);
+
+        return payload;
+    }
+
+
+    private static Config readConfig(String url) {
+        JsonNode jsonNode = Json.readFile(url);
+        String id = jsonNode.get("id").asText();
+        String name = jsonNode.get("name").asText();
+        JsonNode stages = jsonNode.get("stages");
+
+        return new Config(id, name, createTreeStages(stages));
+    }
+
+    private static Stage[] createTreeStages(JsonNode stages) {
+        byte stagesAmount = (byte) (stages.isArray() ? stages.size() : 1);
+        Stage[] payload = new Stage[stagesAmount];
+
+        int i = 0;
+        for (JsonNode node : stages) {
+            byte width = (byte) node.get("width").asInt();
+            byte height = (byte) node.get("height").asInt();
+            int x = (byte) node.get("x").asInt();
+            int y = (byte) node.get("y").asInt();
+            TextureRegion txt = createTreeTexture(x, y, width, height);
+            payload[i] = new Stage((byte) i, txt, width, height);
+            i++;
+        }
+
+        return payload;
+    }
+
+    private static TextureRegion createTreeTexture(int x, int y, int width, int height) {
+        return new TextureRegion(Textures.treesSprite, x, y, width, height);
+    }
+
+
+}

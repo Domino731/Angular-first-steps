@@ -14,6 +14,8 @@ public class Urls {
     public static final String CONFIG_PICKAXES = "config/items/tools/pickaxes.json";
     public static final String CONFIG_FONTS_4 = "config/fonts4.json";
     public static final String CONFIG_FONTS_1 = "config/fonts1.json";
+    public static final String CONFIG_TREE_MAPLE = "config/objects/trees/maple.json";
+
     // SPRITES
     public static final String SPRITE_HAIRS = "sprites/style/hairs.png";
     public static final String SPRITE_HATS = "sprites/style/hats.png";
@@ -37,4 +39,5 @@ public class Urls {
     public static final String TXT_INVENTORY_FRAME_LANE_BOTTOM = "sprites/inventory/lane-bottom.png";
     public static final String TXT_INVENTORY_FRAME_LANE_LEFT = "sprites/inventory/lane-left.png";
     public static final String TXT_INVENTORY_FRAME_CORNER = "sprites/inventory/corner.png";
+    public static final String TXT_TRESS = "sprites/environment/trees.png";
 }
