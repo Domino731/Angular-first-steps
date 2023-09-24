@@ -56,6 +56,7 @@ public class PlayScreen implements Screen {
 
 
         player.inventory.draw();
+        actorsManager.drawClock();
     }
 
 

@@ -8,6 +8,7 @@ import engine.items.Items;
 import environment.resources.Resource;
 import environment.trees.Tree;
 import game.entities.player.Player;
+import hud.clock.Clock;
 import utils.Checkbox;
 import utils.vectors.Vector;
 
@@ -24,6 +25,7 @@ public class ActorsManager {
     private final ArrayList<ActionCollision> groundItems = new ArrayList<>();
     private final ArrayList<Items.Render> itemsList = new ArrayList<>();
     private final GameTime gameTime = new GameTime();
+    private final Clock clock = new Clock();
 
     public Player player;
 
@@ -206,6 +208,10 @@ public class ActorsManager {
 //        itemsList.add(new Items.Render("mussel", 4, 30));
     }
 
+    public void drawClock() {
+        clock.draw();
+    }
+
 
     private void createPlayer() {
         player = new Player(this);
@@ -242,6 +248,8 @@ public class ActorsManager {
 
     public void update(float delta) {
         gameTime.update(delta);
+        clock.setTime(gameTime.getDays(), gameTime.getHours(), gameTime.getMinutes());
+
         sortCheckboxesByPosition();
         player.setIsCollision(false);
         player.updatePos();

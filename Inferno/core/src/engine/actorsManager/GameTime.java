@@ -1,28 +1,28 @@
 package engine.actorsManager;
 
 public class GameTime {
-    private int days;
-    private int hours;
-    private int minutes;
-
-    private final int minutesPerSecond = 40;
+    private int days = 0;
+    private int hours = 0;
+    private int minutes = 0;
+    private float seconds = 0;
 
     public void update(float deltaTime) {
-        // Update time based on delta time
-        minutes = (int) (minutes + (deltaTime * minutesPerSecond));
-        System.out.println(deltaTime);
-        if (minutes >= 60) {
-            minutes -= 60;
-            hours++;
+        // Update time here
+        seconds += deltaTime;
+        System.out.println(seconds);
+        // Handle time overflow (e.g., when seconds reach 60, increment minutes)
+        if (seconds >= 60) {
+            seconds -= 60;
+            minutes += 1;
+            if (minutes >= 60) {
+                minutes -= 60;
+                hours += 1;
+                if (hours >= 24) {
+                    hours -= 24;
+                    days += 1;
+                }
+            }
         }
-        if (hours >= 24) {
-            hours -= 24;
-            days++;
-        }
-        System.out.println("DAY: " + days);
-        System.out.println("HOURS: " + hours);
-        System.out.println("MINUTES: " + minutes);
-        System.out.println("----------------------------");
     }
 
     public int getDays() {
@@ -37,8 +37,8 @@ public class GameTime {
         return minutes;
     }
 
-    public int getMinutesPerSecond() {
-        return minutesPerSecond;
-    }
+//    public int getSeconds() {
+//        return seconds;
+//    }
 
 }
