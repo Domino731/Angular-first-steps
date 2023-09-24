@@ -94,8 +94,8 @@ public class TreesConfig {
         for (JsonNode node : stages) {
             byte width = (byte) node.get("width").asInt();
             byte height = (byte) node.get("height").asInt();
-            int x = (byte) node.get("x").asInt();
-            int y = (byte) node.get("y").asInt();
+            int x = node.get("x").asInt();
+            int y = node.get("y").asInt();
             TextureRegion txt = createTreeTexture(x, y, width, height);
             payload[i] = new Stage((byte) i, txt, width, height);
             i++;
@@ -105,6 +105,10 @@ public class TreesConfig {
     }
 
     private static TextureRegion createTreeTexture(int x, int y, int width, int height) {
+        System.out.println(x);
+        System.out.print(y);
+        System.out.print(width);
+        System.out.print(height);
         return new TextureRegion(Textures.treesSprite, x, y, width, height);
     }
 

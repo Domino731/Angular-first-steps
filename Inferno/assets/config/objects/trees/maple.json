@@ -3,40 +3,34 @@
   "name": "Maple",
   "stages": [
     {
-      "width": 20,
-      "height": 20,
-      "x": 0,
-      "y": 0
+      "width": 16,
+      "height": 16,
+      "x": 49,
+      "y": 143
     },
     {
-      "width": 20,
-      "height": 20,
-      "x": 0,
-      "y": 0
+      "width": 16,
+      "height": 16,
+      "x": 17,
+      "y": 143
     },
     {
-      "width": 20,
-      "height": 20,
-      "x": 0,
-      "y": 0
+      "width": 16,
+      "height": 16,
+      "x": 34,
+      "y": 143
     },
     {
-      "width": 20,
-      "height": 20,
-      "x": 0,
-      "y": 0
+      "width": 16,
+      "height": 32,
+      "x": 17,
+      "y": 112
     },
     {
-      "width": 20,
-      "height": 20,
-      "x": 0,
-      "y": 0
-    },
-    {
-      "width": 20,
-      "height": 20,
-      "x": 0,
-      "y": 0
+      "width": 48,
+      "height": 96,
+      "x": 17,
+      "y": 15
     }
   ]
 }
