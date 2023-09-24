@@ -17,12 +17,13 @@ import java.util.Comparator;
 
 
 public class ActorsManager {
-    private ArrayList<DefaultActor> allActors = new ArrayList<>();
-    private ArrayList<Checkbox> checkboxes = new ArrayList<>();
-    private ArrayList<Checkbox> groundCheckboxes = new ArrayList<>();
-    private ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
-    private ArrayList<ActionCollision> groundItems = new ArrayList<>();
-    private ArrayList<Items.Render> itemsList = new ArrayList<>();
+    private final ArrayList<DefaultActor> allActors = new ArrayList<>();
+    private final ArrayList<Checkbox> checkboxes = new ArrayList<>();
+    private final ArrayList<Checkbox> groundCheckboxes = new ArrayList<>();
+    private final ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
+    private final ArrayList<ActionCollision> groundItems = new ArrayList<>();
+    private final ArrayList<Items.Render> itemsList = new ArrayList<>();
+    private final GameTime gameTime = new GameTime();
 
     public Player player;
 
@@ -239,7 +240,8 @@ public class ActorsManager {
         }
     }
 
-    public void update(double delta) {
+    public void update(float delta) {
+        gameTime.update(delta);
         sortCheckboxesByPosition();
         player.setIsCollision(false);
         player.updatePos();

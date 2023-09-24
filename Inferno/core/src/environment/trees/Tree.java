@@ -18,6 +18,7 @@ public class Tree extends DefaultActor {
     private final TreesConfig.Stage secondStage;
     private final TreesConfig.Stage thirdStage;
     private final TreesConfig.Stage fourthStage;
+    private final TreesConfig.Stage finalStage;
     private Draw draw;
 
 
@@ -35,6 +36,7 @@ public class Tree extends DefaultActor {
         secondStage = config.getStages()[1];
         thirdStage = config.getStages()[2];
         fourthStage = config.getStages()[3];
+        finalStage = config.getStages()[4];
         setDraw();
     }
 
@@ -53,6 +55,9 @@ public class Tree extends DefaultActor {
                 sb.draw(secondStage.getTxt(), position.x + 16, position.y, firstStage.getTxt().getRegionWidth(), firstStage.getTxt().getRegionHeight());
                 sb.draw(thirdStage.getTxt(), position.x + 32, position.y, thirdStage.getTxt().getRegionWidth(), thirdStage.getTxt().getRegionHeight());
                 sb.draw(fourthStage.getTxt(), position.x + 48, position.y, fourthStage.getTxt().getRegionWidth(), fourthStage.getTxt().getRegionHeight());
+                sb.draw(config.getTrunkTxt(), position.x + 80, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
+                sb.draw(finalStage.getTxt(), position.x + 64, position.y, finalStage.getTxt().getRegionWidth(), finalStage.getTxt().getRegionHeight());
+         
             }
         };
     }
