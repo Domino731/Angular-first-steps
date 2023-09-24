@@ -21,5 +21,5 @@ public class Textures {
     public static final Texture hudFrameLaneBottom = new Texture(Urls.TXT_INVENTORY_FRAME_LANE_BOTTOM);
     public static final Texture hudFrameLaneLeft = new Texture(Urls.TXT_INVENTORY_FRAME_LANE_LEFT);
     public static final Texture hudFrameCorner = new Texture(Urls.TXT_INVENTORY_FRAME_CORNER);
-    public static final Texture treesSprite = new Texture(Urls.TXT_INVENTORY_FRAME_CORNER);
+    public static final Texture treesSprite = new Texture(Urls.TXT_TRESS);
 }

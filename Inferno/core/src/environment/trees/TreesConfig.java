@@ -9,7 +9,7 @@ import utils.Json;
 import java.util.HashMap;
 
 public class TreesConfig {
-    private HashMap<String, Config> trees = getTreesData();
+    private static HashMap<String, Config> trees = getTreesData();
 
     public static final class Stage {
         private final byte stage;
@@ -109,4 +109,7 @@ public class TreesConfig {
     }
 
 
+    public static Config getTreeConfig(String treeId) {
+        return trees.get(treeId);
+    }
 }

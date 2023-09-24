@@ -6,6 +6,7 @@ import engine.actors.DefaultActor;
 import engine.actors.groundItem.GroundItem;
 import engine.items.Items;
 import environment.resources.Resource;
+import environment.trees.Tree;
 import game.entities.player.Player;
 import utils.Checkbox;
 import utils.vectors.Vector;
@@ -30,6 +31,8 @@ public class ActorsManager {
     public ActorsManager() {
         // TODO: spawdzic czy jak dwa obiekty sa w tym samym miejscu to czy nie blokuje player'a
         createPlayer();
+        Tree tree1 = new Tree("maple", new Vector<>(2, 10));
+        addActor(tree1);
         Resource rsc = new Resource("trunk_big", new Vector<>(2, 2), this);
         addActor(rsc);
         Resource rsc2 = new Resource("amethyst_ore", new Vector<>(4, 2), this);

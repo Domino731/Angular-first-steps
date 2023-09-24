@@ -14,7 +14,7 @@ import static utils.TxtUtils.getPixmapFromTextureRegion;
 
 public class Fonts {
     private static final JsonNode configNode = Json.readFile(Urls.CONFIG_FONTS_4);
-    private static final JsonNode configNode1 = Json.readFile(Urls.CONFIG_TREE_MAPLE);
+    private static final JsonNode configNode1 = Json.readFile(Urls.CONFIG_FONTS_1);
     private static final HashMap<String, Config> data = createFonts();
     private static final HashMap<String, Config> data1Black = new HashMap<>();
     private static final HashMap<String, Config> data1 = createFonts1();
