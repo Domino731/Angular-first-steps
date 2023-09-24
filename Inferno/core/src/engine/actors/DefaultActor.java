@@ -40,7 +40,10 @@ public abstract class DefaultActor {
         this.position = position;
         this.checkboxArray = createCheckboxList(arrayList);
         this.dim = dim;
-        this.texture = SpritesManager.loadSprite(texturePath);
+        if (texturePath != null) {
+            this.texture = SpritesManager.loadSprite(texturePath);
+        }
+
         this.groundCheckbox = new Checkbox(id, new Vector<>(position.x + dimCordVector.x, position.y + dimCordVector.y), new DimensionVector<>(dimCordVector.width, dimCordVector.height));
     }
 

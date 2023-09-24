@@ -6,7 +6,6 @@ package constants;
 public class Urls {
     // CONFIGS
     public static final String CONFIG_MINES = "config/objects/mines.json";
-    ;
     public static final String CONFIG_WEAPONS = "config/items/tools/weapons.json";
     public static final String CONFIG_RESOURCE_ITEMS = "config/resources.json";
     public static final String CONFIG_RESOURCE_BUSHES = "config/objects/bushes.json";
@@ -20,22 +19,22 @@ public class Urls {
     public static final String SPRITE_HATS = "sprites/style/hats.png";
     public static final String SPRITE_SHIRTS = "sprites/style/shirts.png";
     public static final String SPRITE_PANTS = "sprites/style/pants.png";
-    public static final String SPRITE_TOOLS = "sprites/tools.png";
+    public static final String SPRITE_TOOLS = "sprites/items/tools.png";
     public static final String SPRITE_PLAYER = "sprites/entities/player.png";
-    public static final String TEXTURE_CHECKBOX = "checkbox.png";
-    public static final String TXT_INVENTORY_SLOT = "inventory/slot.png";
-    public static final String TXT_INVENTORY_ACTIVE_SLOT = "inventory/slotActive.png";
-    public static final String SPRITE_WEAPONS = "sprites/weapons.png";
-    public static final String SPRITE_SEEDS = "sprites/seeds.png";
-    public static final String SPRITE_MINES = "sprites/mines.png";
-    public static final String SPRITE_DEBRIS = "sprites/debris.png";
+    public static final String TEXTURE_CHECKBOX = "sprites/utils/checkbox.png";
+    public static final String TXT_INVENTORY_SLOT = "sprites/inventory/slot.png";
+    public static final String TXT_INVENTORY_ACTIVE_SLOT = "sprites/inventory/slotActive.png";
+    public static final String SPRITE_WEAPONS = "sprites/items/weapons.png";
+    public static final String SPRITE_SEEDS = "sprites/other/seeds.png";
+    public static final String SPRITE_MINES = "sprites/environment/mines.png";
+    public static final String SPRITE_DEBRIS = "sprites/environment/debris.png";
     public static final String SPRITE_BUSHES = "sprites/environment/bushes.png";
-    public static final String TXT_FRAME = "sprites/frame.png";
-    public static final String TXT_FONTS = "sprites/fonts.png";
+    public static final String TXT_FRAME = "sprites/utils/frame.png";
+    public static final String TXT_FONTS = "sprites/fonts/fonts.png";
     public static final String TXT_BLACK_BOX = "sprites/utils/black.png";
-    public static final String TXT_INVENTORY_FRAME_LANE = "inventory/lane-top.png";
-    public static final String TXT_INVENTORY_FRAME_LANE_RIGHT = "inventory/lane-right.png";
-    public static final String TXT_INVENTORY_FRAME_LANE_BOTTOM = "inventory/lane-bottom.png";
-    public static final String TXT_INVENTORY_FRAME_LANE_LEFT = "inventory/lane-left.png";
-    public static final String TXT_INVENTORY_FRAME_CORNER = "inventory/corner.png";
+    public static final String TXT_INVENTORY_FRAME_LANE = "sprites/inventory/lane-top.png";
+    public static final String TXT_INVENTORY_FRAME_LANE_RIGHT = "sprites/inventory/lane-right.png";
+    public static final String TXT_INVENTORY_FRAME_LANE_BOTTOM = "sprites/inventory/lane-bottom.png";
+    public static final String TXT_INVENTORY_FRAME_LANE_LEFT = "sprites/inventory/lane-left.png";
+    public static final String TXT_INVENTORY_FRAME_CORNER = "sprites/inventory/corner.png";
 }

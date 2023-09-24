@@ -10,8 +10,6 @@ import levelManager.LevelManager;
 import screens.PlayScreen;
 import spritesManager.SpritesManager;
 
-// TODO:
-// 1. Add cloud after pickaxe, axe animation
 public class MyGdxGame extends Game {
     public SpriteBatch batch;
     public ShapeRenderer sr;
@@ -26,7 +24,6 @@ public class MyGdxGame extends Game {
     public void create() {
         batch = new SpriteBatch();
         sr = new ShapeRenderer();
-        img = new Texture("badlogic.jpg");
         mapLoader = new TmxMapLoader();
         levelManager = new LevelManager();
         customTexture = SpritesManager.test();
