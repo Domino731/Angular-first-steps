@@ -1,6 +1,10 @@
 {
   "id": "maple",
   "name": "Maple",
+  "trunkX": 49,
+  "trunkY": 123,
+  "trunkWidth": 16,
+  "trunkHeight": 21,
   "stages": [
     {
       "width": 16,

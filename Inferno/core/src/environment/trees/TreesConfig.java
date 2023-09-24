@@ -47,10 +47,13 @@ public class TreesConfig {
         private final String name;
         private final Stage[] stages;
 
-        public Config(String id, String name, Stage[] stages) {
+        private final TextureRegion trunkTxt;
+
+        public Config(String id, String name, Stage[] stages, TextureRegion trunkTxt) {
             this.id = id;
             this.name = name;
             this.stages = stages;
+            this.trunkTxt = trunkTxt;
         }
 
         public String getId() {
@@ -63,6 +66,10 @@ public class TreesConfig {
 
         public Stage[] getStages() {
             return stages;
+        }
+
+        public TextureRegion getTrunkTxt() {
+            return trunkTxt;
         }
     }
 
@@ -82,8 +89,13 @@ public class TreesConfig {
         String id = jsonNode.get("id").asText();
         String name = jsonNode.get("name").asText();
         JsonNode stages = jsonNode.get("stages");
+        int trunkX = jsonNode.get("trunkX").asInt();
+        int trunkY = jsonNode.get("trunkY").asInt();
+        byte trunkWidth = (byte) jsonNode.get("trunkWidth").asInt();
+        byte trunkHeight = (byte) jsonNode.get("trunkHeight").asInt();
+        TextureRegion trunkTxt = createTreeTexture(trunkX, trunkY, trunkWidth, trunkHeight);
 
-        return new Config(id, name, createTreeStages(stages));
+        return new Config(id, name, createTreeStages(stages), trunkTxt);
     }
 
     private static Stage[] createTreeStages(JsonNode stages) {
