@@ -5,17 +5,18 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+// TODO: temporary class, add styles later
 public class Clock extends Stage {
     private final Time time = new Time();
-    BitmapFont font = new BitmapFont(); //or use alex answer to use custom font
+    // TODO: move up to actorsManager or PlayScreen class
+    BitmapFont font = new BitmapFont();
 
     public Clock() {
         addActor(time);
     }
 
     public class Time extends Actor {
-        private String hourDigits = "";
-        private String minuteDigits = "";
+        private String timeString = "";
 
         public Time() {
             setX(0);
@@ -23,14 +24,12 @@ public class Clock extends Stage {
         }
 
         public void setTime(int days, int hours, int minutes) {
-            minuteDigits = Integer.toString(minutes);
-            hourDigits = Integer.toString(hours);
+            timeString = String.format("%02d:%02d:%02d", days, hours, minutes);
         }
 
         @Override
         public void draw(Batch batch, float parentAlpha) {
-            font.draw(batch, hourDigits, 30, 30);
-            font.draw(batch, minuteDigits, 60, 30);
+            font.draw(batch, timeString, 30, 30);
         }
     }
 

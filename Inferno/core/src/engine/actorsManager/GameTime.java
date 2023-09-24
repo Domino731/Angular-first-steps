@@ -9,7 +9,6 @@ public class GameTime {
     public void update(float deltaTime) {
         // Update time here
         seconds += deltaTime;
-        System.out.println(seconds);
         // Handle time overflow (e.g., when seconds reach 60, increment minutes)
         if (seconds >= 60) {
             seconds -= 60;
@@ -36,9 +35,4 @@ public class GameTime {
     public int getMinutes() {
         return minutes;
     }
-
-//    public int getSeconds() {
-//        return seconds;
-//    }
-
 }
