@@ -3,6 +3,7 @@ package engine.actors;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.actionCollision.ActionCollision;
+import engine.actionCollision.actorsManager.GameTime;
 import engine.actors.constants.ActorTypes;
 import spritesManager.SpritesManager;
 import utils.Checkbox;
@@ -75,7 +76,7 @@ public abstract class DefaultActor {
     public void update() {
     }
 
-    public void update(double delta) {
+    public void update(double delta, GameTime gameTime) {
     }
 
     // getters

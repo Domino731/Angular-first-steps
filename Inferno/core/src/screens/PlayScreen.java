@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.MyGdxGame;
-import engine.actorsManager.ActorsManager;
+import engine.actionCollision.actorsManager.ActorsManager;
 import game.entities.player.Player;
 import inputs.GameInputProcessor;
 import levelManager.LevelManager;

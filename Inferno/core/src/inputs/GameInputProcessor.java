@@ -2,7 +2,7 @@ package inputs;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
-import engine.actorsManager.ActorsManager;
+import engine.actionCollision.actorsManager.ActorsManager;
 import game.entities.player.Player;
 
 public class GameInputProcessor implements InputProcessor {

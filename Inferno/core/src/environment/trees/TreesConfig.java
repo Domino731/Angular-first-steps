@@ -16,12 +16,14 @@ public class TreesConfig {
         private final TextureRegion txt;
         private final byte width;
         private final byte height;
+        private final int nextStage;
 
-        public Stage(byte stage, TextureRegion txt, byte width, byte height) {
+        public Stage(byte stage, TextureRegion txt, byte width, byte height, int nextStage) {
             this.stage = stage;
             this.width = width;
             this.height = height;
             this.txt = txt;
+            this.nextStage = nextStage;
         }
 
         public byte getStage() {
@@ -40,12 +42,16 @@ public class TreesConfig {
             return height;
         }
 
+        public int getNextStage() {
+            return nextStage;
+        }
     }
 
     public static final class Config {
         private final String id;
         private final String name;
         private final Stage[] stages;
+
 
         private final TextureRegion trunkTxt;
 
@@ -109,7 +115,8 @@ public class TreesConfig {
             int x = node.get("x").asInt();
             int y = node.get("y").asInt();
             TextureRegion txt = createTreeTexture(x, y, width, height);
-            payload[i] = new Stage((byte) i, txt, width, height);
+            int nextStage = node.get("next_stage").asInt();
+            payload[i] = new Stage((byte) i, txt, width, height, nextStage);
             i++;
         }
 

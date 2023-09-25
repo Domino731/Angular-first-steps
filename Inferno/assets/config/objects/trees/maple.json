@@ -10,31 +10,36 @@
       "width": 16,
       "height": 16,
       "x": 49,
-      "y": 143
+      "y": 143,
+      "next_stage": 3
     },
     {
       "width": 16,
       "height": 16,
       "x": 17,
-      "y": 143
+      "y": 143,
+      "next_stage": 3
     },
     {
       "width": 16,
       "height": 16,
       "x": 34,
-      "y": 143
+      "y": 143,
+      "next_stage": 3
     },
     {
       "width": 16,
       "height": 32,
       "x": 17,
-      "y": 112
+      "y": 112,
+      "next_stage": 3
     },
     {
       "width": 48,
       "height": 96,
       "x": 17,
-      "y": 17
+      "y": 17,
+      "next_stage": 0
     }
   ]
 }

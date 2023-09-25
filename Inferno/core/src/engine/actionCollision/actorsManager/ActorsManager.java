@@ -1,4 +1,4 @@
-package engine.actorsManager;
+package engine.actionCollision.actorsManager;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.actionCollision.ActionCollision;
@@ -291,7 +291,7 @@ public class ActorsManager {
 
         for (DefaultActor actor : allActors
         ) {
-            actor.update(delta);
+            actor.update(delta, gameTime);
         }
     }
 

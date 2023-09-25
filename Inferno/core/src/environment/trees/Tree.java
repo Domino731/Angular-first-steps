@@ -1,9 +1,11 @@
 package environment.trees;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import engine.actionCollision.actorsManager.GameTime;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
 import engine.utils.Draw;
+import engine.utils.Update;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
@@ -20,7 +22,9 @@ public class Tree extends DefaultActor {
     private final TreesConfig.Stage fourthStage;
     private final TreesConfig.Stage finalStage;
     private Draw draw;
-
+    private TreesConfig.Stage currentStage;
+    private Update update;
+    private int stageMinutes = 0;
 
     public Tree(String treeId, final Vector<Integer> position) {
         super(
@@ -37,16 +41,30 @@ public class Tree extends DefaultActor {
         thirdStage = config.getStages()[2];
         fourthStage = config.getStages()[3];
         finalStage = config.getStages()[4];
+        currentStage = config.getStages()[0];
         setDraw();
+        setUpdate(0);
     }
 
     @Override
     public void draw(SpriteBatch sb) {
-
         draw.draw(sb);
     }
 
+    private void setUpdate(int stageIndex) {
+        if (stageIndex >= config.getStages().length) {
+            return;
+        }
+        update = new Update() {
+            @Override
+            public void update(float delta, GameTime gameTime) {
+                stageMinutes = gameTime.getMinutes();
+            }
+        };
+    }
+
     private void setDraw() {
+        // ONLY FOR TEST PURPOSES - DISPLAY ALL TREE STAGES
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
@@ -57,7 +75,7 @@ public class Tree extends DefaultActor {
                 sb.draw(fourthStage.getTxt(), position.x + 48, position.y, fourthStage.getTxt().getRegionWidth(), fourthStage.getTxt().getRegionHeight());
                 sb.draw(config.getTrunkTxt(), position.x + 80, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
                 sb.draw(finalStage.getTxt(), position.x + 64, position.y, finalStage.getTxt().getRegionWidth(), finalStage.getTxt().getRegionHeight());
-         
+
             }
         };
     }

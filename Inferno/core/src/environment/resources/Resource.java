@@ -3,10 +3,11 @@ package environment.resources;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.Textures;
 import engine.actionCollision.ActionCollision;
+import engine.actionCollision.actorsManager.ActorsManager;
+import engine.actionCollision.actorsManager.GameTime;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
 import engine.actors.groundItem.GroundItem;
-import engine.actorsManager.ActorsManager;
 import engine.items.DropItemData;
 import engine.items.Items;
 import engine.utils.Action;
@@ -63,7 +64,7 @@ public class Resource extends DefaultActor {
     }
 
     @Override
-    public void update(double delta) {
+    public void update(double delta, GameTime dateTime) {
         for (GroundItem item : items) {
             item.update(delta);
         }

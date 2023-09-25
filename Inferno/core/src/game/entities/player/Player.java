@@ -3,8 +3,9 @@ package game.entities.player;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.ActionTypes;
+import engine.actionCollision.actorsManager.ActorsManager;
+import engine.actionCollision.actorsManager.GameTime;
 import engine.actors.movableDefaultActor.MovableDefaultActor;
-import engine.actorsManager.ActorsManager;
 import environment.resources.ResourceAction;
 import game.entities.player.animations.PlayerAnimations;
 import game.entities.player.animations.utils.AnimationAmount;
@@ -64,7 +65,7 @@ public class Player extends MovableDefaultActor {
     }
 
     @Override
-    public void update(double delta) {
+    public void update(double delta, GameTime gameTime) {
         if (!isCollision) {
             finalPosition.x = position.x;
             finalPosition.y = position.y;
