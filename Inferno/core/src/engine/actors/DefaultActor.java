@@ -76,7 +76,7 @@ public abstract class DefaultActor {
     public void update() {
     }
 
-    public void update(double delta, GameTime gameTime) {
+    public void update(float delta, GameTime gameTime) {
     }
 
     // getters

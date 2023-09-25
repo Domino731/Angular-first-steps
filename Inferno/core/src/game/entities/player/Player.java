@@ -65,7 +65,7 @@ public class Player extends MovableDefaultActor {
     }
 
     @Override
-    public void update(double delta, GameTime gameTime) {
+    public void update(float delta, GameTime gameTime) {
         if (!isCollision) {
             finalPosition.x = position.x;
             finalPosition.y = position.y;

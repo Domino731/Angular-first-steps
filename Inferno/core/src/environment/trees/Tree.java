@@ -25,6 +25,7 @@ public class Tree extends DefaultActor {
     private TreesConfig.Stage currentStage;
     private Update update;
     private int stageMinutes = 0;
+    private int nextStageMinutes = 3;
 
     public Tree(String treeId, final Vector<Integer> position) {
         super(
@@ -51,6 +52,11 @@ public class Tree extends DefaultActor {
         draw.draw(sb);
     }
 
+    @Override
+    public void update(float delta, GameTime gameTime) {
+        update.update(delta, gameTime);
+    }
+
     private void setUpdate(int stageIndex) {
         if (stageIndex >= config.getStages().length) {
             return;
@@ -59,6 +65,9 @@ public class Tree extends DefaultActor {
             @Override
             public void update(float delta, GameTime gameTime) {
                 stageMinutes = gameTime.getMinutes();
+                if (stageMinutes >= nextStageMinutes) {
+                    currentStage = config.getStages()[1];
+                }
             }
         };
     }
@@ -68,6 +77,7 @@ public class Tree extends DefaultActor {
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
+                sb.draw(currentStage.getTxt(), position.x - 16, position.y + 32, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
                 sb.draw(config.getTrunkTxt(), position.x - 16, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
                 sb.draw(firstStage.getTxt(), position.x, position.y, firstStage.getTxt().getRegionWidth(), firstStage.getTxt().getRegionHeight());
                 sb.draw(secondStage.getTxt(), position.x + 16, position.y, firstStage.getTxt().getRegionWidth(), firstStage.getTxt().getRegionHeight());

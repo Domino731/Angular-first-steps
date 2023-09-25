@@ -64,7 +64,7 @@ public class Resource extends DefaultActor {
     }
 
     @Override
-    public void update(double delta, GameTime dateTime) {
+    public void update(float delta, GameTime dateTime) {
         for (GroundItem item : items) {
             item.update(delta);
         }
