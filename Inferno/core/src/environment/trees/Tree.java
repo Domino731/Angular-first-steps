@@ -71,9 +71,9 @@ public class Tree extends DefaultActor {
                         return;
                     }
                     currentIndex++;
-                    nextStageMinutes += 3;
-                    setUpdate(currentIndex);
                     currentStage = config.getStages()[currentIndex];
+                    nextStageMinutes += currentStage.getNextStage();
+                    setUpdate(currentIndex);
                 }
             }
         };
