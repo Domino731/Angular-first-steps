@@ -26,6 +26,7 @@ public class Tree extends DefaultActor {
     private Update update;
     private int stageMinutes = 0;
     private int nextStageMinutes = 3;
+    private byte currentIndex = 0;
 
     public Tree(String treeId, final Vector<Integer> position) {
         super(
@@ -44,7 +45,38 @@ public class Tree extends DefaultActor {
         finalStage = config.getStages()[4];
         currentStage = config.getStages()[0];
         setDraw();
-        setUpdate(0);
+        setUpdate(currentIndex);
+    }
+
+    private void clearUpdate() {
+        update = new Update() {
+            @Override
+            public void update(float delta, GameTime gameTime) {
+            }
+        };
+    }
+
+    private void setUpdate(int stageIndex) {
+        if (stageIndex >= config.getStages().length) {
+            return;
+        }
+        update = new Update() {
+            @Override
+            public void update(float delta, GameTime gameTime) {
+                stageMinutes = gameTime.getMinutes();
+                System.out.print("update");
+                if (stageMinutes >= nextStageMinutes) {
+                    if (currentIndex == config.getStages().length - 1) {
+                        clearUpdate();
+                        return;
+                    }
+                    currentIndex++;
+                    nextStageMinutes += 3;
+                    setUpdate(currentIndex);
+                    currentStage = config.getStages()[currentIndex];
+                }
+            }
+        };
     }
 
     @Override
@@ -57,20 +89,6 @@ public class Tree extends DefaultActor {
         update.update(delta, gameTime);
     }
 
-    private void setUpdate(int stageIndex) {
-        if (stageIndex >= config.getStages().length) {
-            return;
-        }
-        update = new Update() {
-            @Override
-            public void update(float delta, GameTime gameTime) {
-                stageMinutes = gameTime.getMinutes();
-                if (stageMinutes >= nextStageMinutes) {
-                    currentStage = config.getStages()[1];
-                }
-            }
-        };
-    }
 
     private void setDraw() {
         // ONLY FOR TEST PURPOSES - DISPLAY ALL TREE STAGES
