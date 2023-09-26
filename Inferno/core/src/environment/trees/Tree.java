@@ -45,8 +45,8 @@ public class Tree extends DefaultActor {
         finalStage = config.getStages()[4];
         currentStage = config.getStages()[0];
         setUpdate(currentIndex);
-
         setStageDraw();
+        setTreeGroundCheckbox();
     }
 
     private void clearUpdate() {
@@ -109,6 +109,11 @@ public class Tree extends DefaultActor {
                 sb.draw(currentStage.getTxt(), position.x - 16, position.y, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
             }
         };
+    }
+
+    public void setTreeGroundCheckbox() {
+        DimensionCordVector groundCheckbox = new DimensionCordVector(16, 0, 0);
+        setGroundCheckbox(groundCheckbox);
     }
 
 //    private void setDraw() {
