@@ -52,7 +52,6 @@ public class TreesConfig {
         private final String name;
         private final Stage[] stages;
 
-
         private final TextureRegion trunkTxt;
 
         public Config(String id, String name, Stage[] stages, TextureRegion trunkTxt) {

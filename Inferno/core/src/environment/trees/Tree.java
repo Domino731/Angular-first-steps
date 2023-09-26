@@ -44,8 +44,9 @@ public class Tree extends DefaultActor {
         fourthStage = config.getStages()[3];
         finalStage = config.getStages()[4];
         currentStage = config.getStages()[0];
-        setDraw();
         setUpdate(currentIndex);
+
+        setStageDraw();
     }
 
     private void clearUpdate() {
@@ -68,6 +69,7 @@ public class Tree extends DefaultActor {
                 if (stageMinutes >= nextStageMinutes) {
                     if (currentIndex == config.getStages().length - 1) {
                         clearUpdate();
+                        setFinalStageDraw();
                         return;
                     }
                     currentIndex++;
@@ -90,21 +92,40 @@ public class Tree extends DefaultActor {
     }
 
 
-    private void setDraw() {
-        // ONLY FOR TEST PURPOSES - DISPLAY ALL TREE STAGES
+    private void setStageDraw() {
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
-                sb.draw(currentStage.getTxt(), position.x - 16, position.y + 32, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
-                sb.draw(config.getTrunkTxt(), position.x - 16, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
-                sb.draw(firstStage.getTxt(), position.x, position.y, firstStage.getTxt().getRegionWidth(), firstStage.getTxt().getRegionHeight());
-                sb.draw(secondStage.getTxt(), position.x + 16, position.y, firstStage.getTxt().getRegionWidth(), firstStage.getTxt().getRegionHeight());
-                sb.draw(thirdStage.getTxt(), position.x + 32, position.y, thirdStage.getTxt().getRegionWidth(), thirdStage.getTxt().getRegionHeight());
-                sb.draw(fourthStage.getTxt(), position.x + 48, position.y, fourthStage.getTxt().getRegionWidth(), fourthStage.getTxt().getRegionHeight());
-                sb.draw(config.getTrunkTxt(), position.x + 80, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
-                sb.draw(finalStage.getTxt(), position.x + 64, position.y, finalStage.getTxt().getRegionWidth(), finalStage.getTxt().getRegionHeight());
-
+                sb.draw(currentStage.getTxt(), position.x, position.y, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
             }
         };
     }
+
+    private void setFinalStageDraw() {
+        draw = new Draw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                sb.draw(config.getTrunkTxt(), position.x, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
+                sb.draw(currentStage.getTxt(), position.x - 16, position.y, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
+            }
+        };
+    }
+
+//    private void setDraw() {
+//        // ONLY FOR TEST PURPOSES - DISPLAY ALL TREE STAGES
+//        draw = new Draw() {
+//            @Override
+//            public void draw(SpriteBatch sb) {
+//                sb.draw(currentStage.getTxt(), position.x - 16, position.y + 32, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
+//                sb.draw(config.getTrunkTxt(), position.x - 16, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
+//                sb.draw(firstStage.getTxt(), position.x, position.y, firstStage.getTxt().getRegionWidth(), firstStage.getTxt().getRegionHeight());
+//                sb.draw(secondStage.getTxt(), position.x + 16, position.y, firstStage.getTxt().getRegionWidth(), firstStage.getTxt().getRegionHeight());
+//                sb.draw(thirdStage.getTxt(), position.x + 32, position.y, thirdStage.getTxt().getRegionWidth(), thirdStage.getTxt().getRegionHeight());
+//                sb.draw(fourthStage.getTxt(), position.x + 48, position.y, fourthStage.getTxt().getRegionWidth(), fourthStage.getTxt().getRegionHeight());
+//                sb.draw(config.getTrunkTxt(), position.x + 80, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
+//                sb.draw(finalStage.getTxt(), position.x + 64, position.y, finalStage.getTxt().getRegionWidth(), finalStage.getTxt().getRegionHeight());
+//
+//            }
+//        };
+//    }
 }
