@@ -51,7 +51,7 @@ public class Tree extends DefaultActor {
         currentStage = config.getStages()[0];
         setUpdate(currentIndex);
         setStageDraw();
-        currentStage = config.getStages()[0];
+        currentStage = config.getStages()[2];
         setTreeGroundCheckbox();
         setActionCollision();
     }

@@ -29,25 +29,23 @@ public class TreeUtils {
 
     public static ActionCollision getActionCollision(String actionCollisionId, Vector<Integer> actorPosition, String actorId, ResourceAction action) {
         // TODO later: maybe tile size for action collisions?
-//        DimensionVector<Integer> dimensionVector = getDimensionVectorForActionCollision(actionCollisionId);
-//        Vector<Integer> position = getPositionForActionCollision(actionCollisionId, actorPosition);
-        DimensionVector<Integer> dimensionVector = new DimensionVector<>(16);
-        Vector<Integer> position = new Vector<>(actorPosition.x, actorPosition.y);
+        DimensionVector<Integer> dimensionVector = getDimensionVectorForActionCollision(actionCollisionId);
+        Vector<Integer> position = getPositionForActionCollision(actionCollisionId, actorPosition);
         return new ActionCollision(ActionTypes.CUT_TREE, actorId, position, dimensionVector, new Vector<>(0, 0), action);
     }
 
     public static DimensionVector<Integer> getDimensionVectorForActionCollision(String actionCollisionId) {
         switch (actionCollisionId) {
             case "1":
-                return new DimensionVector<>(20);
+                return new DimensionVector<>(10);
             case "2":
-                return new DimensionVector<>(36);
+                return new DimensionVector<>(13);
             case "3":
-                return new DimensionVector<>(48);
+                return new DimensionVector<>(16);
             case "4":
-                return new DimensionVector<>(48);
+                return new DimensionVector<>(14);
             case "5":
-                return new DimensionVector<>(48);
+                return new DimensionVector<>(18);
             default:
                 return new DimensionVector<>(0);
         }
@@ -56,13 +54,13 @@ public class TreeUtils {
     public static Vector<Integer> getPositionForActionCollision(String actionCollisionId, Vector<Integer> position) {
         switch (actionCollisionId) {
             case "1":
-                return new Vector<>(position.x - 2, position.y - 2);
+                return new Vector<>(position.x + 4, position.y + 2);
             case "2":
-                return new Vector<>(position.x - 2, position.y - 2);
+                return new Vector<>(position.x + 2, position.y + 2);
             case "3":
                 return new Vector<>(position.x, position.y);
             case "4":
-                return new Vector<>(position.x - 2, position.y - 2);
+                return new Vector<>(position.x, position.y);
             case "5":
                 return new Vector<>(position.x, position.y);
             default:
