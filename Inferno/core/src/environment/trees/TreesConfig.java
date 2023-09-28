@@ -6,7 +6,6 @@ import constants.Urls;
 import engine.Textures;
 import utils.Json;
 import utils.vectors.DimensionCordVector;
-import utils.vectors.Vector;
 
 import java.util.HashMap;
 
@@ -50,8 +49,8 @@ public class TreesConfig {
             return nextStage;
         }
 
-        public DimensionCordVector getGroundCheckbox(Vector<Integer> position) {
-            return TreeUtils.getGroundCheckboxById(groundCheckboxId, position);
+        public DimensionCordVector getGroundCheckbox() {
+            return TreeUtils.getGroundCheckboxById(groundCheckboxId);
         }
 
     }

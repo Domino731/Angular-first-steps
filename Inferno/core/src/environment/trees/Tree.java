@@ -2,6 +2,7 @@ package environment.trees;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.Textures;
+import engine.actionCollision.actorsManager.ActorsManager;
 import engine.actionCollision.actorsManager.GameTime;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
@@ -28,8 +29,9 @@ public class Tree extends DefaultActor {
     private int stageMinutes = 0;
     private int nextStageMinutes = 3;
     private byte currentIndex = 0;
+    private final ActorsManager actorsManager;
 
-    public Tree(String treeId, final Vector<Integer> position) {
+    public Tree(String treeId, final Vector<Integer> position, ActorsManager actorsManager) {
         super(
                 ActorTypes.STATIC,
                 convertTilePosition(position),
@@ -38,6 +40,7 @@ public class Tree extends DefaultActor {
                 new ArrayList<DimensionCordVector>(),
                 new DimensionCordVector(32, 32, 0, 0)
         );
+        this.actorsManager = actorsManager;
         config = TreesConfig.getTreeConfig(treeId);
         firstStage = config.getStages()[0];
         secondStage = config.getStages()[1];
@@ -47,8 +50,7 @@ public class Tree extends DefaultActor {
         currentStage = config.getStages()[0];
         setUpdate(currentIndex);
         setStageDraw();
-        currentStage = finalStage;
-        setFinalStageDraw();
+        currentStage = config.getStages()[1];
         setTreeGroundCheckbox();
     }
 
@@ -67,19 +69,20 @@ public class Tree extends DefaultActor {
         update = new Update() {
             @Override
             public void update(float delta, GameTime gameTime) {
-//                stageMinutes = gameTime.getMinutes();
-//                System.out.print("update");
-//                if (stageMinutes >= nextStageMinutes) {
-//                    if (currentIndex == config.getStages().length - 1) {
-//                        clearUpdate();
-//                        setFinalStageDraw();
-//                        return;
-//                    }
-//                    currentIndex++;
-//                    currentStage = config.getStages()[currentIndex];
-//                    nextStageMinutes += currentStage.getNextStage();
-//                    setUpdate(currentIndex);
-//                }
+                stageMinutes = gameTime.getMinutes();
+                if (stageMinutes >= nextStageMinutes) {
+                    if (currentIndex == config.getStages().length - 1) {
+                        clearUpdate();
+                        setFinalStageDraw();
+                        setTreeGroundCheckboxByStage();
+                        return;
+                    }
+                    currentIndex++;
+                    currentStage = config.getStages()[currentIndex];
+                    nextStageMinutes += currentStage.getNextStage();
+                    setUpdate(currentIndex);
+                    setTreeGroundCheckboxByStage();
+                }
             }
         };
     }
@@ -99,7 +102,7 @@ public class Tree extends DefaultActor {
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
-                sb.draw(Textures.checkbox, position.x + 1, position.y + 1, 13, 10);
+                sb.draw(Textures.checkbox, groundCheckbox.position.x, groundCheckbox.position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
                 sb.draw(currentStage.getTxt(), position.x, position.y, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
             }
         };
@@ -109,15 +112,21 @@ public class Tree extends DefaultActor {
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
-                sb.draw(Textures.checkbox, position.x, position.y, 16, 16);
+                sb.draw(Textures.checkbox, groundCheckbox.position.x, groundCheckbox.position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
                 sb.draw(config.getTrunkTxt(), position.x, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
                 sb.draw(currentStage.getTxt(), position.x - 16, position.y, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
             }
         };
     }
 
+    public void setTreeGroundCheckboxByStage() {
+        actorsManager.removeGroundCheckbox(groundCheckbox);
+        setGroundCheckbox(currentStage.getGroundCheckbox());
+        actorsManager.addGroundCheckbox(groundCheckbox);
+    }
+
     public void setTreeGroundCheckbox() {
-        setGroundCheckbox(currentStage.getGroundCheckbox(position));
+        setGroundCheckbox(currentStage.getGroundCheckbox());
     }
 
 //    private void setDraw() {

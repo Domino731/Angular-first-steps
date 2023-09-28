@@ -34,7 +34,7 @@ public class ActorsManager {
     public ActorsManager() {
         // TODO: spawdzic czy jak dwa obiekty sa w tym samym miejscu to czy nie blokuje player'a
         createPlayer();
-        Tree tree1 = new Tree("maple", new Vector<>(2, 10));
+        Tree tree1 = new Tree("maple", new Vector<>(4, 12), this);
         addActor(tree1);
         Resource rsc = new Resource("trunk_big", new Vector<>(2, 2), this);
         addActor(rsc);
@@ -260,6 +260,8 @@ public class ActorsManager {
             for (int j = i + 1; j < checkboxes.size(); j++) {
                 Checkbox checkbox2 = checkboxes.get(j);
                 if (checkCollision(checkbox1, checkbox2)) {
+                    System.out.println(checkbox1.dim.height);
+                    System.out.println(checkbox1.dim.width);
                     player.setIsCollision(true);
                     player.resetPosition();
                 }
@@ -317,6 +319,23 @@ public class ActorsManager {
 
     public void addGroundItem(ActionCollision groundItems) {
         this.groundItems.add(groundItems);
+    }
+
+    public void removeGroundCheckbox(Checkbox checkbox) {
+        System.out.println("REMOVED CHECKBXED");
+        groundCheckboxes.remove(checkbox);
+        checkboxes.remove(checkbox);
+    }
+
+    public void addGroundCheckbox(Checkbox checkbox) {
+        if (!groundCheckboxes.contains(checkbox)) {
+            System.out.print("CHECKBOX ADDED");
+            System.out.print(checkbox.dim.height);
+            System.out.print("X: " + checkbox.position.x);
+            System.out.print("Y: " + checkbox.position.y);
+            groundCheckboxes.add(checkbox);
+            checkboxes.add(checkbox);
+        }
     }
 
     public void removeResourceObjectItems(Resource rsc) {
