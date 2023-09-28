@@ -11,35 +11,40 @@
       "height": 16,
       "x": 49,
       "y": 143,
-      "next_stage": 3
+      "next_stage": 3,
+      "groundCheckboxId": "1"
     },
     {
       "width": 16,
       "height": 16,
       "x": 17,
       "y": 143,
-      "next_stage": 3
+      "next_stage": 3,
+      "groundCheckboxId": "2"
     },
     {
       "width": 16,
       "height": 16,
       "x": 34,
       "y": 143,
-      "next_stage": 3
+      "next_stage": 3,
+      "groundCheckboxId": "3"
     },
     {
       "width": 16,
       "height": 32,
       "x": 17,
       "y": 112,
-      "next_stage": 3
+      "next_stage": 3,
+      "groundCheckboxId": "4"
     },
     {
       "width": 48,
       "height": 96,
       "x": 17,
       "y": 16,
-      "next_stage": 0
+      "next_stage": 0,
+      "groundCheckboxId": "5"
     }
   ]
 }
