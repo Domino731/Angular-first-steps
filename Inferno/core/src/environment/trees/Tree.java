@@ -1,6 +1,7 @@
 package environment.trees;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import engine.Textures;
 import engine.actionCollision.actorsManager.GameTime;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
@@ -46,6 +47,8 @@ public class Tree extends DefaultActor {
         currentStage = config.getStages()[0];
         setUpdate(currentIndex);
         setStageDraw();
+        currentStage = finalStage;
+        setFinalStageDraw();
         setTreeGroundCheckbox();
     }
 
@@ -64,19 +67,19 @@ public class Tree extends DefaultActor {
         update = new Update() {
             @Override
             public void update(float delta, GameTime gameTime) {
-                stageMinutes = gameTime.getMinutes();
-                System.out.print("update");
-                if (stageMinutes >= nextStageMinutes) {
-                    if (currentIndex == config.getStages().length - 1) {
-                        clearUpdate();
-                        setFinalStageDraw();
-                        return;
-                    }
-                    currentIndex++;
-                    currentStage = config.getStages()[currentIndex];
-                    nextStageMinutes += currentStage.getNextStage();
-                    setUpdate(currentIndex);
-                }
+//                stageMinutes = gameTime.getMinutes();
+//                System.out.print("update");
+//                if (stageMinutes >= nextStageMinutes) {
+//                    if (currentIndex == config.getStages().length - 1) {
+//                        clearUpdate();
+//                        setFinalStageDraw();
+//                        return;
+//                    }
+//                    currentIndex++;
+//                    currentStage = config.getStages()[currentIndex];
+//                    nextStageMinutes += currentStage.getNextStage();
+//                    setUpdate(currentIndex);
+//                }
             }
         };
     }
@@ -96,6 +99,7 @@ public class Tree extends DefaultActor {
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
+                sb.draw(Textures.checkbox, position.x + 1, position.y + 1, 13, 10);
                 sb.draw(currentStage.getTxt(), position.x, position.y, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
             }
         };
@@ -105,6 +109,7 @@ public class Tree extends DefaultActor {
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
+                sb.draw(Textures.checkbox, position.x, position.y, 16, 16);
                 sb.draw(config.getTrunkTxt(), position.x, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
                 sb.draw(currentStage.getTxt(), position.x - 16, position.y, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
             }
@@ -112,8 +117,7 @@ public class Tree extends DefaultActor {
     }
 
     public void setTreeGroundCheckbox() {
-        DimensionCordVector groundCheckbox = new DimensionCordVector(16, 0, 0);
-        setGroundCheckbox(groundCheckbox);
+        setGroundCheckbox(currentStage.getGroundCheckbox(position));
     }
 
 //    private void setDraw() {

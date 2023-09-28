@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import constants.Urls;
 import engine.Textures;
 import utils.Json;
+import utils.vectors.DimensionCordVector;
+import utils.vectors.Vector;
 
 import java.util.HashMap;
 
@@ -17,13 +19,15 @@ public class TreesConfig {
         private final byte width;
         private final byte height;
         private final int nextStage;
+        private final String groundCheckboxId;
 
-        public Stage(byte stage, TextureRegion txt, byte width, byte height, int nextStage) {
+        public Stage(byte stage, TextureRegion txt, byte width, byte height, int nextStage, String groundCheckboxId) {
             this.stage = stage;
             this.width = width;
             this.height = height;
             this.txt = txt;
             this.nextStage = nextStage;
+            this.groundCheckboxId = groundCheckboxId;
         }
 
         public byte getStage() {
@@ -45,6 +49,11 @@ public class TreesConfig {
         public int getNextStage() {
             return nextStage;
         }
+
+        public DimensionCordVector getGroundCheckbox(Vector<Integer> position) {
+            return TreeUtils.getGroundCheckboxById(groundCheckboxId, position);
+        }
+
     }
 
     public static final class Config {
@@ -115,7 +124,8 @@ public class TreesConfig {
             int y = node.get("y").asInt();
             TextureRegion txt = createTreeTexture(x, y, width, height);
             int nextStage = node.get("next_stage").asInt();
-            payload[i] = new Stage((byte) i, txt, width, height, nextStage);
+            String groundCheckboxId = node.get("groundCheckboxId").asText();
+            payload[i] = new Stage((byte) i, txt, width, height, nextStage, groundCheckboxId);
             i++;
         }
 
