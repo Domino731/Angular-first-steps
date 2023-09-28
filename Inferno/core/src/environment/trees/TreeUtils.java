@@ -28,9 +28,11 @@ public class TreeUtils {
     }
 
     public static ActionCollision getActionCollision(String actionCollisionId, Vector<Integer> actorPosition, String actorId, ResourceAction action) {
-        DimensionVector<Integer> dimensionVector = getDimensionVectorForActionCollision(actionCollisionId);
-        Vector<Integer> position = getPositionForActionCollision(actionCollisionId, actorPosition);
-
+        // TODO later: maybe tile size for action collisions?
+//        DimensionVector<Integer> dimensionVector = getDimensionVectorForActionCollision(actionCollisionId);
+//        Vector<Integer> position = getPositionForActionCollision(actionCollisionId, actorPosition);
+        DimensionVector<Integer> dimensionVector = new DimensionVector<>(16);
+        Vector<Integer> position = new Vector<>(actorPosition.x, actorPosition.y);
         return new ActionCollision(ActionTypes.CUT_TREE, actorId, position, dimensionVector, new Vector<>(0, 0), action);
     }
 
