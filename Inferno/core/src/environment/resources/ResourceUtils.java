@@ -43,6 +43,5 @@ public class ResourceUtils {
             default:
                 return new Vector<>(position.x, position.y);
         }
-
     }
 }

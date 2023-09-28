@@ -19,14 +19,16 @@ public class TreesConfig {
         private final byte height;
         private final int nextStage;
         private final String groundCheckboxId;
+        private final String actionCollisionId;
 
-        public Stage(byte stage, TextureRegion txt, byte width, byte height, int nextStage, String groundCheckboxId) {
+        public Stage(byte stage, TextureRegion txt, byte width, byte height, int nextStage, String groundCheckboxId, String actionCollisionId) {
             this.stage = stage;
             this.width = width;
             this.height = height;
             this.txt = txt;
             this.nextStage = nextStage;
             this.groundCheckboxId = groundCheckboxId;
+            this.actionCollisionId = actionCollisionId;
         }
 
         public byte getStage() {
@@ -51,6 +53,10 @@ public class TreesConfig {
 
         public DimensionCordVector getGroundCheckbox() {
             return TreeUtils.getGroundCheckboxById(groundCheckboxId);
+        }
+
+        public String getActionCollisionId() {
+            return actionCollisionId;
         }
 
     }
@@ -124,7 +130,9 @@ public class TreesConfig {
             TextureRegion txt = createTreeTexture(x, y, width, height);
             int nextStage = node.get("next_stage").asInt();
             String groundCheckboxId = node.get("groundCheckboxId").asText();
-            payload[i] = new Stage((byte) i, txt, width, height, nextStage, groundCheckboxId);
+            String actionCollisionId = node.get("actionCollisionId").asText();
+
+            payload[i] = new Stage((byte) i, txt, width, height, nextStage, groundCheckboxId, actionCollisionId);
             i++;
         }
 

@@ -8,6 +8,7 @@ import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
 import engine.utils.Draw;
 import engine.utils.Update;
+import environment.resources.ResourceAction;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
@@ -50,8 +51,9 @@ public class Tree extends DefaultActor {
         currentStage = config.getStages()[0];
         setUpdate(currentIndex);
         setStageDraw();
-        currentStage = config.getStages()[1];
+        currentStage = config.getStages()[0];
         setTreeGroundCheckbox();
+        setActionCollision();
     }
 
     private void clearUpdate() {
@@ -69,20 +71,20 @@ public class Tree extends DefaultActor {
         update = new Update() {
             @Override
             public void update(float delta, GameTime gameTime) {
-                stageMinutes = gameTime.getMinutes();
-                if (stageMinutes >= nextStageMinutes) {
-                    if (currentIndex == config.getStages().length - 1) {
-                        clearUpdate();
-                        setFinalStageDraw();
-                        setTreeGroundCheckboxByStage();
-                        return;
-                    }
-                    currentIndex++;
-                    currentStage = config.getStages()[currentIndex];
-                    nextStageMinutes += currentStage.getNextStage();
-                    setUpdate(currentIndex);
-                    setTreeGroundCheckboxByStage();
-                }
+//                stageMinutes = gameTime.getMinutes();
+//                if (stageMinutes >= nextStageMinutes) {
+//                    if (currentIndex == config.getStages().length - 1) {
+//                        clearUpdate();
+//                        setFinalStageDraw();
+//                        setTreeGroundCheckboxByStage();
+//                        return;
+//                    }
+//                    currentIndex++;
+//                    currentStage = config.getStages()[currentIndex];
+//                    nextStageMinutes += currentStage.getNextStage();
+//                    setUpdate(currentIndex);
+//                    setTreeGroundCheckboxByStage();
+//                }
             }
         };
     }
@@ -102,7 +104,7 @@ public class Tree extends DefaultActor {
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
-                sb.draw(Textures.checkbox, groundCheckbox.position.x, groundCheckbox.position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
+                sb.draw(Textures.checkbox, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
                 sb.draw(currentStage.getTxt(), position.x, position.y, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
             }
         };
@@ -129,6 +131,17 @@ public class Tree extends DefaultActor {
         setGroundCheckbox(currentStage.getGroundCheckbox());
     }
 
+
+    public void setActionCollision() {
+        ResourceAction resourceAction = new ResourceAction() {
+            @Override
+            public void action() {
+                System.out.println("TEST");
+            }
+        };
+
+        actionCollisions.add(TreeUtils.getActionCollision(currentStage.getActionCollisionId(), position, id, resourceAction));
+    }
 //    private void setDraw() {
 //        // ONLY FOR TEST PURPOSES - DISPLAY ALL TREE STAGES
 //        draw = new Draw() {

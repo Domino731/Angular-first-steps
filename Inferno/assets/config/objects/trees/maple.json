@@ -12,7 +12,8 @@
       "x": 49,
       "y": 143,
       "next_stage": 3,
-      "groundCheckboxId": "1"
+      "groundCheckboxId": "1",
+      "actionCollisionId": "1"
     },
     {
       "width": 16,
@@ -20,7 +21,8 @@
       "x": 17,
       "y": 143,
       "next_stage": 3,
-      "groundCheckboxId": "2"
+      "groundCheckboxId": "2",
+      "actionCollisionId": "2"
     },
     {
       "width": 16,
@@ -28,7 +30,8 @@
       "x": 34,
       "y": 143,
       "next_stage": 3,
-      "groundCheckboxId": "3"
+      "groundCheckboxId": "3",
+      "actionCollisionId": "3"
     },
     {
       "width": 16,
@@ -36,7 +39,8 @@
       "x": 17,
       "y": 112,
       "next_stage": 3,
-      "groundCheckboxId": "4"
+      "groundCheckboxId": "4",
+      "actionCollisionId": "4"
     },
     {
       "width": 48,
@@ -44,7 +48,8 @@
       "x": 17,
       "y": 16,
       "next_stage": 0,
-      "groundCheckboxId": "5"
+      "groundCheckboxId": "5",
+      "actionCollisionId": "5"
     }
   ]
 }
