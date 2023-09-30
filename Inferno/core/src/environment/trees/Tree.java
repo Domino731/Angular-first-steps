@@ -171,6 +171,8 @@ public class Tree extends DefaultActor {
         int i = 0;
         for (DropItemData data : currentStage.getDrop()) {
             String itemId = data.getItemId();
+            System.out.print("ITEM ID: ");
+            System.out.print(itemId);
             i++;
             GroundItem groundItem = new GroundItem(position.x + (i * 8), position.y, Items.getData(itemId).getTxt());
             groundItem.setActionCollision(createItemActionCollision(itemId, groundItem));
