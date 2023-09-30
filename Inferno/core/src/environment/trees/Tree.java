@@ -210,6 +210,7 @@ public class Tree extends DefaultActor {
             @Override
             public void action() {
                 actorsManager.removeTreeObjectItems(tree);
+                showGroundItems();
             }
         };
 

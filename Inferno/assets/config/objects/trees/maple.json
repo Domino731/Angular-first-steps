@@ -15,6 +15,14 @@
       "groundCheckboxId": "1",
       "actionCollisionId": "1",
       "drop": [
+        {
+          "id": "maple_tree_seed",
+          "chance": [
+            50,
+            100
+          ],
+          "amount": 1
+        }
       ]
     },
     {
@@ -26,6 +34,14 @@
       "groundCheckboxId": "2",
       "actionCollisionId": "2",
       "drop": [
+        {
+          "id": "maple_tree_seed",
+          "chance": [
+            50,
+            100
+          ],
+          "amount": 1
+        }
       ]
     },
     {
@@ -37,6 +53,11 @@
       "groundCheckboxId": "3",
       "actionCollisionId": "3",
       "drop": [
+        {
+          "id": "maple_tree_seed",
+          "chance": 100,
+          "amount": 1
+        }
       ]
     },
     {
@@ -48,6 +69,11 @@
       "groundCheckboxId": "4",
       "actionCollisionId": "4",
       "drop": [
+        {
+          "id": "maple_tree_seed",
+          "chance": 100,
+          "amount": 2
+        }
       ]
     },
     {
@@ -59,6 +85,11 @@
       "groundCheckboxId": "5",
       "actionCollisionId": "5",
       "drop": [
+        {
+          "id": "maple_tree_seed",
+          "chance": 100,
+          "amount": 2
+        }
       ]
     }
   ]

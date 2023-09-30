@@ -529,15 +529,6 @@
       "y": 81
     }
   },
-
-
-
-
-
-
-
-
-
   {
     "id": "copper_ore",
     "name": "Copper ore",
@@ -631,6 +622,16 @@
   {
     "id": "mussel",
     "name": "Mussel",
+    "base_value": 275,
+    "sprite_name": "mines",
+    "sprite_cords": {
+      "x": 79,
+      "y": 108
+    }
+  },
+  {
+    "id": "maple_tree_seed",
+    "name": "Maple seed",
     "base_value": 275,
     "sprite_name": "mines",
     "sprite_cords": {
