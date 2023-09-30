@@ -4,9 +4,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import constants.Urls;
 import engine.Textures;
+import engine.items.DropItemData;
+import engine.items.Items;
 import utils.Json;
 import utils.vectors.DimensionCordVector;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TreesConfig {
@@ -20,8 +23,9 @@ public class TreesConfig {
         private final int nextStage;
         private final String groundCheckboxId;
         private final String actionCollisionId;
+        private final ArrayList<DropItemData> drop;
 
-        public Stage(byte stage, TextureRegion txt, byte width, byte height, int nextStage, String groundCheckboxId, String actionCollisionId) {
+        public Stage(byte stage, TextureRegion txt, byte width, byte height, int nextStage, String groundCheckboxId, String actionCollisionId, ArrayList<DropItemData> drop) {
             this.stage = stage;
             this.width = width;
             this.height = height;
@@ -29,6 +33,7 @@ public class TreesConfig {
             this.nextStage = nextStage;
             this.groundCheckboxId = groundCheckboxId;
             this.actionCollisionId = actionCollisionId;
+            this.drop = drop;
         }
 
         public byte getStage() {
@@ -57,6 +62,10 @@ public class TreesConfig {
 
         public String getActionCollisionId() {
             return actionCollisionId;
+        }
+
+        public ArrayList<DropItemData> getDrop() {
+            return drop;
         }
 
     }
@@ -131,8 +140,19 @@ public class TreesConfig {
             int nextStage = node.get("next_stage").asInt();
             String groundCheckboxId = node.get("groundCheckboxId").asText();
             String actionCollisionId = node.get("actionCollisionId").asText();
+            JsonNode dropData = node.get("drop");
 
-            payload[i] = new Stage((byte) i, txt, width, height, nextStage, groundCheckboxId, actionCollisionId);
+            ArrayList<DropItemData> drop = new ArrayList<>();
+            if (dropData.isArray()) {
+                for (JsonNode dropNode : dropData) {
+                    String itemId = dropNode.get("id").asText();
+                    TextureRegion itemTexture = Items.getData(itemId).getTxt();
+                    drop.add(new DropItemData(itemId, itemTexture));
+                }
+            }
+
+
+            payload[i] = new Stage((byte) i, txt, width, height, nextStage, groundCheckboxId, actionCollisionId, drop);
             i++;
         }
 

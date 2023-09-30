@@ -2,13 +2,19 @@ package environment.trees;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.Textures;
+import engine.actionCollision.ActionCollision;
 import engine.actionCollision.actorsManager.ActorsManager;
 import engine.actionCollision.actorsManager.GameTime;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
+import engine.actors.groundItem.GroundItem;
+import engine.items.DropItemData;
+import engine.items.Items;
+import engine.utils.Action;
 import engine.utils.Draw;
 import engine.utils.Update;
 import environment.resources.ResourceAction;
+import utils.EngineLog;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
@@ -31,6 +37,9 @@ public class Tree extends DefaultActor {
     private int nextStageMinutes = 3;
     private byte currentIndex = 0;
     private final ActorsManager actorsManager;
+    private boolean isDestroyed = false;
+    private ArrayList<GroundItem> items = new ArrayList<>();
+    private ArrayList<ActionCollision> itemsCollisions = new ArrayList<>();
 
     public Tree(String treeId, final Vector<Integer> position, ActorsManager actorsManager) {
         super(
@@ -131,12 +140,76 @@ public class Tree extends DefaultActor {
         setGroundCheckbox(currentStage.getGroundCheckbox());
     }
 
+    private void removeResource() {
+        actorsManager.removeTreeObject(this);
+    }
+
+    private Action createItemActionCollision(final String itemId, final GroundItem groundItem) {
+        return new Action() {
+            @Override
+            public void action() {
+                actorsManager.addItemToPlayerInventory(itemId, (byte) 1);
+                actorsManager.removeGroundItem(groundItem);
+                items.remove(groundItem);
+                if (items.size() == 0) {
+                    EngineLog.print("Resource removed");
+                    removeResource();
+                }
+            }
+        };
+    }
+
+    public ArrayList<ActionCollision> getItemsCollisions() {
+        return itemsCollisions;
+    }
+
+    private void showGroundItems() {
+        if (isDestroyed) {
+            return;
+        }
+
+        int i = 0;
+        for (DropItemData data : currentStage.getDrop()) {
+            String itemId = data.getItemId();
+            i++;
+            GroundItem groundItem = new GroundItem(position.x + (i * 8), position.y, Items.getData(itemId).getTxt());
+            groundItem.setActionCollision(createItemActionCollision(itemId, groundItem));
+            items.add(groundItem);
+        }
+
+
+        for (GroundItem item : items) {
+            itemsCollisions.add(item.getActionCollision());
+        }
+
+        actorsManager.addGroundItems(itemsCollisions);
+
+        isDestroyed = true;
+        setGroundItemsDraw();
+    }
+
+    private void drawItems(SpriteBatch sb) {
+        for (GroundItem item : items) {
+            item.draw(sb);
+        }
+    }
+
+    private void setGroundItemsDraw() {
+        draw = new Draw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                drawItems(sb);
+            }
+        };
+    }
 
     public void setActionCollision() {
+        final Tree tree = this;
+
         ResourceAction resourceAction = new ResourceAction() {
             @Override
             public void action() {
-                System.out.println("TEST");
+                actorsManager.removeTreeObjectItems(tree);
             }
         };
 

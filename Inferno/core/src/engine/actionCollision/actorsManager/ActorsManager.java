@@ -338,10 +338,28 @@ public class ActorsManager {
         }
     }
 
+    // TODO merge
     public void removeResourceObjectItems(Resource rsc) {
         checkboxes.remove(rsc.getGroundCheckbox());
         groundCheckboxes.remove(rsc.getGroundCheckbox());
         actionCollisions.removeAll(rsc.getActionCollisions());
+        currentAction = null;
+    }
+
+    public void removeTreeObjectItems(Tree rsc) {
+        checkboxes.remove(rsc.getGroundCheckbox());
+        groundCheckboxes.remove(rsc.getGroundCheckbox());
+        actionCollisions.removeAll(rsc.getActionCollisions());
+        currentAction = null;
+    }
+
+    // TODO merge
+    public void removeTreeObject(Tree rsc) {
+        allActors.remove(rsc);
+        checkboxes.remove(rsc.getGroundCheckbox());
+        groundCheckboxes.remove(rsc.getGroundCheckbox());
+        actionCollisions.removeAll(rsc.getActionCollisions());
+        groundItems.removeAll(rsc.getItemsCollisions());
         currentAction = null;
     }
 
