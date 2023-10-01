@@ -38,7 +38,7 @@ public class ActorsManager {
         createPlayer();
         Tree tree1 = new Tree("oak", new Vector<>(4, 12), this);
         addActor(tree1);
-        Tree tree2 = new Tree("pine", new Vector<>(4, 10), this);
+        Tree tree2 = new Tree("mahogany", new Vector<>(4, 10), this);
         addActor(tree2);
         Resource rsc = new Resource("trunk_big", new Vector<>(2, 2), this);
         addActor(rsc);
