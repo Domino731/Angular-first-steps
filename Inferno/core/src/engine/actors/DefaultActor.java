@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.actorsManager.GameTime;
+import engine.actionCollision.actorsManager.GameTimeNewMinute;
 import engine.actors.constants.ActorTypes;
 import spritesManager.SpritesManager;
 import utils.Checkbox;
@@ -24,6 +25,7 @@ public abstract class DefaultActor {
     protected DimensionVector<Integer> dim;
     protected ArrayList<ActionCollision> actionCollisions = new ArrayList<>();
     protected int hp = 0;
+    private ArrayList<GameTimeNewMinute> minuteActions = new ArrayList<>();
 
     protected final String id = StringUtils.generateRandomId();
 
@@ -46,6 +48,14 @@ public abstract class DefaultActor {
         }
 
         this.groundCheckbox = new Checkbox(id, new Vector<>(position.x + dimCordVector.x, position.y + dimCordVector.y), new DimensionVector<>(dimCordVector.width, dimCordVector.height));
+    }
+
+    protected void addMinuteAction(GameTimeNewMinute gameTimeNewMinute) {
+        minuteActions.add(gameTimeNewMinute);
+    }
+
+    public ArrayList<GameTimeNewMinute> getMinuteActions() {
+        return minuteActions;
     }
 
     protected void setGroundCheckbox(DimensionCordVector vector) {

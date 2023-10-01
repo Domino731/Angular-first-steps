@@ -54,6 +54,7 @@ public class ActorsManager {
         addActor(rsc7);
         Resource rsc8 = new Resource("bush_17", new Vector<>(14, 5), this);
         addActor(rsc8);
+        setGameTimeMinuteAction();
 //        Resource rsc3 = new Resource("bush_1", new Vector<>(4, 6), this);
 //        addActor(rsc3);
 //        Resource rsc4 = new Resource("bush_2", new Vector<>(6, 6), this);
@@ -208,6 +209,12 @@ public class ActorsManager {
 //        itemsList.add(new Items.Render("clay", 12, 28));
 //        itemsList.add(new Items.Render("radioactive_ore", 2, 30));
 //        itemsList.add(new Items.Render("mussel", 4, 30));
+    }
+
+    private void setGameTimeMinuteAction() {
+        for (DefaultActor actor : allActors) {
+            gameTime.addNewMinuteActions(actor.getMinuteActions());
+        }
     }
 
     public void drawClock() {
