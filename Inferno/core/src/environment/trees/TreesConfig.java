@@ -115,6 +115,10 @@ public class TreesConfig {
         payload.put(mahagony.getId(), mahagony);
         Config mushroom = readConfig(Urls.CONFIG_TREE_MUSHROOM);
         payload.put(mushroom.getId(), mushroom);
+        Config palmSmall = readConfig(Urls.CONFIG_TREE_PALM_SMALL);
+        payload.put(palmSmall.getId(), palmSmall);
+        Config palmMedium = readConfig(Urls.CONFIG_TREE_PALM_MEDIUM);
+        payload.put(palmMedium.getId(), palmMedium);
         return payload;
     }
 

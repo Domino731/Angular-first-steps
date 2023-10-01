@@ -19,7 +19,8 @@ public class Urls {
     public static final String CONFIG_TREE_PINE = "config/objects/trees/pine.json";
     public static final String CONFIG_TREE_MAHOGANY = "config/objects/trees/mahogany.json";
     public static final String CONFIG_TREE_MUSHROOM = "config/objects/trees/mushroom.json";
-    public static final String CONFIG_TREE_PALM = "config/objects/trees/palm.json";
+    public static final String CONFIG_TREE_PALM_SMALL = "config/objects/trees/palm-small.json";
+    public static final String CONFIG_TREE_PALM_MEDIUM = "config/objects/trees/palm-medium.json";
     // SPRITES
     public static final String SPRITE_HAIRS = "sprites/style/hairs.png";
     public static final String SPRITE_HATS = "sprites/style/hats.png";
