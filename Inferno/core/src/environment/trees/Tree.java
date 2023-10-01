@@ -36,13 +36,14 @@ public class Tree extends DefaultActor {
     private Draw draw;
     private TreesConfig.Stage currentStage;
     private Update update;
-    private int stageMinutes = 0;
+    private int stageMinutes = 1000;
     private int nextStageMinutes = 3;
     private byte currentIndex = 0;
     private final ActorsManager actorsManager;
     private boolean isDestroyed = false;
     private ArrayList<GroundItem> items = new ArrayList<>();
     private ArrayList<ActionCollision> itemsCollisions = new ArrayList<>();
+    private boolean isCollisionWithNextStage = false;
 
     public Tree(String treeId, final Vector<Integer> position, ActorsManager actorsManager) {
         super(
@@ -63,6 +64,7 @@ public class Tree extends DefaultActor {
         setUpdate(currentIndex);
         setStageDraw();
         currentStage = config.getStages()[0];
+        stageMinutes = config.getStages()[0].getNextStage();
         setTreeGroundCheckbox();
         setActionCollision();
         setMinuteActions();
@@ -77,25 +79,22 @@ public class Tree extends DefaultActor {
     }
 
     private void setUpdate(int stageIndex) {
+        // TODO: move to GameTime handlers
         if (stageIndex >= config.getStages().length) {
             return;
         }
         update = new Update() {
             @Override
             public void update(float delta, GameTime gameTime) {
-                stageMinutes = gameTime.getMinutesAbsolute();
-                if (stageMinutes >= nextStageMinutes) {
-
+                if (stageMinutes == 0) {
                     if (currentIndex != config.getStages().length - 1) {
                         TreesConfig.Stage nextStage = config.getStages()[currentIndex + 1];
                         Checkbox nextStageChekbox = getGroundCheckboxTest(nextStage.getGroundCheckbox());
-                        boolean isCollisionWithNextStage = ActorsUtils.checkCollision(nextStageChekbox, actorsManager.getPlayerCheckboxArray().get(0));
+                        isCollisionWithNextStage = ActorsUtils.checkCollision(nextStageChekbox, actorsManager.getPlayerCheckboxArray().get(0));
                         if (isCollisionWithNextStage) {
                             return;
                         }
                     }
-
-
                     if (currentIndex == config.getStages().length - 1) {
                         clearUpdate();
                         setFinalStageDraw();
@@ -105,7 +104,7 @@ public class Tree extends DefaultActor {
 
                     currentIndex++;
                     currentStage = config.getStages()[currentIndex];
-                    nextStageMinutes += currentStage.getNextStage();
+                    stageMinutes = currentStage.getNextStage();
                     setUpdate(currentIndex);
                     setTreeGroundCheckboxByStage();
                 }
@@ -239,7 +238,9 @@ public class Tree extends DefaultActor {
         GameTimeNewMinute gameTimeNewMinute = new GameTimeNewMinute() {
             @Override
             public void action(int minute, int minuteAbsolute) {
-                System.out.print("NEW MINUTE");
+                if (!isCollisionWithNextStage) {
+                    stageMinutes--;
+                }
             }
         };
 
