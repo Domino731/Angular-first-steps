@@ -113,6 +113,8 @@ public class TreesConfig {
         payload.put(pine.getId(), pine);
         Config mahagony = readConfig(Urls.CONFIG_TREE_MAHOGANY);
         payload.put(mahagony.getId(), mahagony);
+        Config mushroom = readConfig(Urls.CONFIG_TREE_MUSHROOM);
+        payload.put(mushroom.getId(), mushroom);
         return payload;
     }
 
