@@ -260,8 +260,6 @@ public class ActorsManager {
             for (int j = i + 1; j < checkboxes.size(); j++) {
                 Checkbox checkbox2 = checkboxes.get(j);
                 if (checkCollision(checkbox1, checkbox2)) {
-                    System.out.println(checkbox1.dim.height);
-                    System.out.println(checkbox1.dim.width);
                     player.setIsCollision(true);
                     player.resetPosition();
                 }
