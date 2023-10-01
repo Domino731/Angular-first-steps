@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.Textures;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.actorsManager.ActorsManager;
+import engine.actionCollision.actorsManager.ActorsUtils;
 import engine.actionCollision.actorsManager.GameTime;
 import engine.actors.DefaultActor;
 import engine.actors.constants.ActorTypes;
@@ -14,6 +15,7 @@ import engine.utils.Action;
 import engine.utils.Draw;
 import engine.utils.Update;
 import environment.resources.ResourceAction;
+import utils.Checkbox;
 import utils.EngineLog;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
@@ -57,7 +59,6 @@ public class Tree extends DefaultActor {
         thirdStage = config.getStages()[2];
         fourthStage = config.getStages()[3];
         finalStage = config.getStages()[4];
-        currentStage = config.getStages()[0];
         setUpdate(currentIndex);
         setStageDraw();
         currentStage = config.getStages()[0];
@@ -88,6 +89,12 @@ public class Tree extends DefaultActor {
                         setTreeGroundCheckboxByStage();
                         return;
                     }
+                    TreesConfig.Stage nextStage = config.getStages()[currentIndex + 1];
+                    Checkbox nextStageChekbox = getGroundCheckboxTest(nextStage.getGroundCheckbox());
+                    if (ActorsUtils.checkCollision(nextStageChekbox, actorsManager.getPlayerCheckboxArray().get(0))) {
+                        System.out.print("TESTTESTTEST");
+                    }
+
                     currentIndex++;
                     currentStage = config.getStages()[currentIndex];
                     nextStageMinutes += currentStage.getNextStage();
@@ -134,8 +141,6 @@ public class Tree extends DefaultActor {
     public void setTreeGroundCheckboxByStage() {
         actorsManager.removeGroundCheckbox(groundCheckbox);
         setGroundCheckbox(currentStage.getGroundCheckbox());
-        System.out.println(groundCheckbox.dim.width);
-        System.out.println(groundCheckbox.dim.height);
         actorsManager.addGroundCheckbox(groundCheckbox);
     }
 

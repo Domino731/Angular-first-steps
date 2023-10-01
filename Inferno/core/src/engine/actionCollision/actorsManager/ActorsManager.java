@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import static engine.actionCollision.actorsManager.ActorsUtils.checkCollision;
+
 
 public class ActorsManager {
     private final ArrayList<DefaultActor> allActors = new ArrayList<>();
@@ -220,6 +222,10 @@ public class ActorsManager {
         groundCheckboxes.add(player.getGroundCheckbox());
     }
 
+    public ArrayList<Checkbox> getPlayerCheckboxArray() {
+        return player.getCheckboxArray();
+    }
+
     private void addActor(DefaultActor actor) {
         allActors.add(actor);
         checkboxes.add(actor.getGroundCheckbox());
@@ -320,17 +326,12 @@ public class ActorsManager {
     }
 
     public void removeGroundCheckbox(Checkbox checkbox) {
-        System.out.println("REMOVED CHECKBXED");
         groundCheckboxes.remove(checkbox);
         checkboxes.remove(checkbox);
     }
 
     public void addGroundCheckbox(Checkbox checkbox) {
         if (!groundCheckboxes.contains(checkbox)) {
-            System.out.print("CHECKBOX ADDED");
-            System.out.print(checkbox.dim.height);
-            System.out.print("X: " + checkbox.position.x);
-            System.out.print("Y: " + checkbox.position.y);
             groundCheckboxes.add(checkbox);
             checkboxes.add(checkbox);
         }
@@ -372,21 +373,5 @@ public class ActorsManager {
 
     public void addItemToPlayerInventory(String itemId, byte amount) {
         player.inventory.addItem(itemId, amount);
-    }
-
-    public static boolean checkCollision(Checkbox checkbox1, Checkbox checkbox2) {
-        // Calculate the coordinates of the bounding boxes
-        int x1 = checkbox1.position.x;
-        int y1 = checkbox1.position.y;
-        int width1 = checkbox1.dim.width;
-        int height1 = checkbox1.dim.height;
-        int x2 = checkbox2.position.x;
-        int y2 = checkbox2.position.y;
-        int width2 = checkbox2.dim.width;
-        int height2 = checkbox2.dim.height;
-        if (x1 < x2 + width2 && x1 + width1 > x2 && y1 < y2 + height2 && y1 + height1 > y2) {
-            return true;
-        }
-        return false;
     }
 }
