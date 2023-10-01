@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import engine.Textures;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.actorsManager.ActorsManager;
-import engine.actionCollision.actorsManager.ActorsUtils;
 import engine.actionCollision.actorsManager.GameTime;
 import engine.actionCollision.actorsManager.GameTimeNewMinute;
 import engine.actors.DefaultActor;
@@ -16,7 +15,6 @@ import engine.utils.Action;
 import engine.utils.Draw;
 import engine.utils.Update;
 import environment.resources.ResourceAction;
-import utils.Checkbox;
 import utils.EngineLog;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
@@ -62,7 +60,8 @@ public class Tree extends DefaultActor {
         fourthStage = config.getStages()[3];
         finalStage = config.getStages()[4];
         setUpdate(currentIndex);
-        setStageDraw();
+        setDraw();
+//        setStageDraw();
         currentStage = config.getStages()[0];
         stageMinutes = config.getStages()[0].getNextStage();
         setTreeGroundCheckbox();
@@ -86,28 +85,28 @@ public class Tree extends DefaultActor {
         update = new Update() {
             @Override
             public void update(float delta, GameTime gameTime) {
-                if (stageMinutes == 0) {
-                    if (currentIndex != config.getStages().length - 1) {
-                        TreesConfig.Stage nextStage = config.getStages()[currentIndex + 1];
-                        Checkbox nextStageChekbox = getGroundCheckboxTest(nextStage.getGroundCheckbox());
-                        isCollisionWithNextStage = ActorsUtils.checkCollision(nextStageChekbox, actorsManager.getPlayerCheckboxArray().get(0));
-                        if (isCollisionWithNextStage) {
-                            return;
-                        }
-                    }
-                    if (currentIndex == config.getStages().length - 1) {
-                        clearUpdate();
-                        setFinalStageDraw();
-                        setTreeGroundCheckboxByStage();
-                        return;
-                    }
-
-                    currentIndex++;
-                    currentStage = config.getStages()[currentIndex];
-                    stageMinutes = currentStage.getNextStage();
-                    setUpdate(currentIndex);
-                    setTreeGroundCheckboxByStage();
-                }
+//                if (stageMinutes == 0) {
+//                    if (currentIndex != config.getStages().length - 1) {
+//                        TreesConfig.Stage nextStage = config.getStages()[currentIndex + 1];
+//                        Checkbox nextStageChekbox = getGroundCheckboxTest(nextStage.getGroundCheckbox());
+//                        isCollisionWithNextStage = ActorsUtils.checkCollision(nextStageChekbox, actorsManager.getPlayerCheckboxArray().get(0));
+//                        if (isCollisionWithNextStage) {
+//                            return;
+//                        }
+//                    }
+//                    if (currentIndex == config.getStages().length - 1) {
+//                        clearUpdate();
+//                        setFinalStageDraw();
+//                        setTreeGroundCheckboxByStage();
+//                        return;
+//                    }
+//
+//                    currentIndex++;
+//                    currentStage = config.getStages()[currentIndex];
+//                    stageMinutes = currentStage.getNextStage();
+//                    setUpdate(currentIndex);
+//                    setTreeGroundCheckboxByStage();
+//                }
             }
         };
     }
@@ -247,21 +246,23 @@ public class Tree extends DefaultActor {
         addMinuteAction(gameTimeNewMinute);
     }
 
-//    private void setDraw() {
-//        // ONLY FOR TEST PURPOSES - DISPLAY ALL TREE STAGES
-//        draw = new Draw() {
-//            @Override
-//            public void draw(SpriteBatch sb) {
-//                sb.draw(currentStage.getTxt(), position.x - 16, position.y + 32, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
-//                sb.draw(config.getTrunkTxt(), position.x - 16, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
-//                sb.draw(firstStage.getTxt(), position.x, position.y, firstStage.getTxt().getRegionWidth(), firstStage.getTxt().getRegionHeight());
-//                sb.draw(secondStage.getTxt(), position.x + 16, position.y, firstStage.getTxt().getRegionWidth(), firstStage.getTxt().getRegionHeight());
-//                sb.draw(thirdStage.getTxt(), position.x + 32, position.y, thirdStage.getTxt().getRegionWidth(), thirdStage.getTxt().getRegionHeight());
-//                sb.draw(fourthStage.getTxt(), position.x + 48, position.y, fourthStage.getTxt().getRegionWidth(), fourthStage.getTxt().getRegionHeight());
-//                sb.draw(config.getTrunkTxt(), position.x + 80, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
-//                sb.draw(finalStage.getTxt(), position.x + 64, position.y, finalStage.getTxt().getRegionWidth(), finalStage.getTxt().getRegionHeight());
-//
-//            }
-//        };
-//    }
+    private void setDraw() {
+        // ONLY FOR TEST PURPOSES - DISPLAY ALL TREE STAGES
+        draw = new Draw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                sb.draw(currentStage.getTxt(), position.x - 16, position.y + 32, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
+                sb.draw(config.getTrunkTxt(), position.x - 16, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
+
+                sb.draw(firstStage.getTxt(), position.x, position.y, firstStage.getTxt().getRegionWidth(), firstStage.getTxt().getRegionHeight());
+
+                sb.draw(secondStage.getTxt(), position.x + 16, position.y, firstStage.getTxt().getRegionWidth(), firstStage.getTxt().getRegionHeight());
+                sb.draw(thirdStage.getTxt(), position.x + 32, position.y, thirdStage.getTxt().getRegionWidth(), thirdStage.getTxt().getRegionHeight());
+                sb.draw(fourthStage.getTxt(), position.x + 48, position.y, fourthStage.getTxt().getRegionWidth(), fourthStage.getTxt().getRegionHeight());
+                sb.draw(config.getTrunkTxt(), position.x + 80, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
+                sb.draw(finalStage.getTxt(), position.x + 64, position.y, finalStage.getTxt().getRegionWidth(), finalStage.getTxt().getRegionHeight());
+
+            }
+        };
+    }
 }

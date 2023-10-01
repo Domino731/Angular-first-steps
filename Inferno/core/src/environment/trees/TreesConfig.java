@@ -105,6 +105,8 @@ public class TreesConfig {
     private static HashMap<String, Config> getTreesData() {
         HashMap<String, Config> payload = new HashMap<>();
 
+        Config oak = readConfig(Urls.CONFIG_TREE_OAK);
+        payload.put(oak.getId(), oak);
         Config maple = readConfig(Urls.CONFIG_TREE_MAPLE);
         payload.put(maple.getId(), maple);
 

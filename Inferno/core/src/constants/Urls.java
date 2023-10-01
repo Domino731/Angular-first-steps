@@ -14,6 +14,7 @@ public class Urls {
     public static final String CONFIG_PICKAXES = "config/items/tools/pickaxes.json";
     public static final String CONFIG_FONTS_4 = "config/fonts4.json";
     public static final String CONFIG_FONTS_1 = "config/fonts1.json";
+    public static final String CONFIG_TREE_OAK = "config/objects/trees/oak.json";
     public static final String CONFIG_TREE_MAPLE = "config/objects/trees/maple.json";
 
     // SPRITES

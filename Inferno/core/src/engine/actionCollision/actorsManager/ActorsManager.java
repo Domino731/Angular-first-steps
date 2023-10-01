@@ -36,8 +36,10 @@ public class ActorsManager {
     public ActorsManager() {
         // TODO: spawdzic czy jak dwa obiekty sa w tym samym miejscu to czy nie blokuje player'a
         createPlayer();
-        Tree tree1 = new Tree("maple", new Vector<>(4, 12), this);
-        addActor(tree1);
+//        Tree tree1 = new Tree("oak", new Vector<>(4, 12), this);
+//        addActor(tree1);
+        Tree tree2 = new Tree("maple", new Vector<>(4, 10), this);
+        addActor(tree2);
         Resource rsc = new Resource("trunk_big", new Vector<>(2, 2), this);
         addActor(rsc);
         Resource rsc2 = new Resource("amethyst_ore", new Vector<>(4, 2), this);
