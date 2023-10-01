@@ -109,7 +109,8 @@ public class TreesConfig {
         payload.put(oak.getId(), oak);
         Config maple = readConfig(Urls.CONFIG_TREE_MAPLE);
         payload.put(maple.getId(), maple);
-
+        Config pine = readConfig(Urls.CONFIG_TREE_PINE);
+        payload.put(pine.getId(), pine);
         return payload;
     }
 
