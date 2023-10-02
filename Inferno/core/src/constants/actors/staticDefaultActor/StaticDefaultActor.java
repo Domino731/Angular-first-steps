@@ -15,7 +15,8 @@ public class StaticDefaultActor extends DefaultActor {
     public StaticDefaultActor(String id, Vector<Integer> position) {
         super(ActorTypes.STATIC, convertTilePosition(position));
         config = StaticDefaultActorConfig.getData(id);
-        setActorGroundCheckbox();
+//        setActorGroundCheckbox();
+        setGroundCheckbox(config.getGroundDimensionVector());
     }
 
     private void setActorGroundCheckbox() {
@@ -26,5 +27,6 @@ public class StaticDefaultActor extends DefaultActor {
     public void draw(SpriteBatch sb) {
         sb.draw(Textures.checkbox, position.x, position.y, config.getTxt().getRegionWidth(), config.getTxt().getRegionHeight());
         sb.draw(config.getTxt(), position.x, position.y);
+        sb.draw(Textures.frameTxt, groundCheckbox.position.x, groundCheckbox.position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
     }
 }
