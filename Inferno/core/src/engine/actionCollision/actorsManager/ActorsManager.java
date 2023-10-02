@@ -3,6 +3,7 @@ package engine.actionCollision.actorsManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
 import constants.actors.groundItem.GroundItem;
+import constants.actors.staticDefaultActor.StaticDefaultActor;
 import engine.actionCollision.ActionCollision;
 import engine.items.Items;
 import environment.resources.Resource;
@@ -36,10 +37,12 @@ public class ActorsManager {
     public ActorsManager() {
         // TODO: spawdzic czy jak dwa obiekty sa w tym samym miejscu to czy nie blokuje player'a
         createPlayer();
-        Tree tree1 = new Tree("oak", new Vector<>(4, 12), this);
-        addActor(tree1);
-        Tree tree2 = new Tree("palm_medium", new Vector<>(4, 10), this);
-        addActor(tree2);
+//        Tree tree1 = new Tree("oak", new Vector<>(4, 12), this);
+//        addActor(tree1);
+//        Tree tree2 = new Tree("palm_medium", new Vector<>(4, 10), this);
+//        addActor(tree2);
+        StaticDefaultActor actor1 = new StaticDefaultActor("big_tree_1_spring", new Vector<>(4, 9));
+        addActor(actor1);
         Resource rsc = new Resource("trunk_big", new Vector<>(2, 2), this);
         addActor(rsc);
         Resource rsc2 = new Resource("amethyst_ore", new Vector<>(4, 2), this);

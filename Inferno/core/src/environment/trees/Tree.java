@@ -7,6 +7,7 @@ import constants.actors.groundItem.GroundItem;
 import engine.Textures;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.actorsManager.ActorsManager;
+import engine.actionCollision.actorsManager.ActorsUtils;
 import engine.actionCollision.actorsManager.GameTime;
 import engine.actionCollision.actorsManager.GameTimeNewMinute;
 import engine.items.DropItemData;
@@ -15,6 +16,7 @@ import engine.utils.Action;
 import engine.utils.Draw;
 import engine.utils.Update;
 import environment.resources.ResourceAction;
+import utils.Checkbox;
 import utils.EngineLog;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
@@ -85,28 +87,28 @@ public class Tree extends DefaultActor {
         update = new Update() {
             @Override
             public void update(float delta, GameTime gameTime) {
-//                if (stageMinutes == 0) {
-//                    if (currentIndex != config.getStages().length - 1) {
-//                        TreesConfig.Stage nextStage = config.getStages()[currentIndex + 1];
-//                        Checkbox nextStageChekbox = getGroundCheckboxTest(nextStage.getGroundCheckbox());
-//                        isCollisionWithNextStage = ActorsUtils.checkCollision(nextStageChekbox, actorsManager.getPlayerCheckboxArray().get(0));
-//                        if (isCollisionWithNextStage) {
-//                            return;
-//                        }
-//                    }
-//                    if (currentIndex == config.getStages().length - 1) {
-//                        clearUpdate();
-//                        setFinalStageDraw();
-//                        setTreeGroundCheckboxByStage();
-//                        return;
-//                    }
-//
-//                    currentIndex++;
-//                    currentStage = config.getStages()[currentIndex];
-//                    stageMinutes = currentStage.getNextStage();
-//                    setUpdate(currentIndex);
-//                    setTreeGroundCheckboxByStage();
-//                }
+                if (stageMinutes == 0) {
+                    if (currentIndex != config.getStages().length - 1) {
+                        TreesConfig.Stage nextStage = config.getStages()[currentIndex + 1];
+                        Checkbox nextStageChekbox = getGroundCheckboxTest(nextStage.getGroundCheckbox());
+                        isCollisionWithNextStage = ActorsUtils.checkCollision(nextStageChekbox, actorsManager.getPlayerCheckboxArray().get(0));
+                        if (isCollisionWithNextStage) {
+                            return;
+                        }
+                    }
+                    if (currentIndex == config.getStages().length - 1) {
+                        clearUpdate();
+                        setFinalStageDraw();
+                        setTreeGroundCheckboxByStage();
+                        return;
+                    }
+
+                    currentIndex++;
+                    currentStage = config.getStages()[currentIndex];
+                    stageMinutes = currentStage.getNextStage();
+                    setUpdate(currentIndex);
+                    setTreeGroundCheckboxByStage();
+                }
             }
         };
     }

@@ -10,7 +10,7 @@ import java.util.HashMap;
 import static utils.Json.readFile;
 
 public class StaticDefaultActorConfig {
-    private static HashMap<String, Config> data = getData();
+    private static final HashMap<String, Config> data = getData();
 
     public static final class Config {
         private final String id;
@@ -40,15 +40,15 @@ public class StaticDefaultActorConfig {
         HashMap<String, Config> payload = new HashMap<>();
 
         JsonNode treesJson = readFile(Urls.CONFIG_STATIC_TREES);
-
+        System.out.print(treesJson);
         if (treesJson.isArray()) {
             for (JsonNode node : treesJson) {
                 String id = node.get("id").asText();
                 String name = node.get("name").asText();
                 int width = node.get("width").asInt();
                 int height = node.get("height").asInt();
-                int x = node.get("x").asInt();
-                int y = node.get("y").asInt();
+                int x = node.get("cords").get("x").asInt();
+                int y = node.get("cords").get("y").asInt();
                 TextureRegion txt = createTexture(x, y, width, height);
                 Config config = new Config(id, name, txt);
                 payload.put(id, config);

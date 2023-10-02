@@ -3,14 +3,17 @@
     "id": "big_tree_1_spring",
     "name": "Big tree 1 spring",
     "sprite": "trees",
-    "width": 32,
-    "height": 34,
-    "cords": {
-      "x": 0,
-      "y": 10
-    },
+    "width": 64,
+    "height": 112,
     "groundCheckbox": {
+      "width": 30,
+      "height": 30,
+      "x": 30,
+      "y": 30
+    },
+    "cords": {
+      "x": 286,
+      "y": 0
     }
-  },
-  0
+  }
 ]
