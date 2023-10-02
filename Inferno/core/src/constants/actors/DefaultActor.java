@@ -50,6 +50,10 @@ public abstract class DefaultActor {
         this.groundCheckbox = new Checkbox(id, new Vector<>(position.x + dimCordVector.x, position.y + dimCordVector.y), new DimensionVector<>(dimCordVector.width, dimCordVector.height));
     }
 
+    public void setDim(DimensionVector<Integer> dim) {
+        this.dim = new DimensionVector<>(dim.width, dim.height);
+    }
+
     public DefaultActor(ActorTypes actorType, Vector<Integer> position) {
         this.actorType = actorType;
         this.position = position;

@@ -10,7 +10,7 @@ import java.util.HashMap;
 import static utils.Json.readFile;
 
 public class StaticDefaultActorConfig {
-    private HashMap<String, Config> data = getData();
+    private static HashMap<String, Config> data = getData();
 
     public static final class Config {
         private final String id;
@@ -63,7 +63,7 @@ public class StaticDefaultActorConfig {
     }
 
 
-    public Config getData(String id) {
+    public static Config getData(String id) {
         return data.get(id);
     }
 }
