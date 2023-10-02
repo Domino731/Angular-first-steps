@@ -1,4 +1,4 @@
-package engine.actors.utils;
+package constants.actors.utils;
 
 public class ActorDirection {
     public boolean left = false;

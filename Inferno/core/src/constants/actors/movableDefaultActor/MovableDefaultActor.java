@@ -1,9 +1,9 @@
-package engine.actors.movableDefaultActor;
+package constants.actors.movableDefaultActor;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import engine.actors.DefaultActor;
-import engine.actors.constants.ActorTypes;
-import engine.actors.utils.ActorDirection;
+import constants.actors.DefaultActor;
+import constants.actors.constants.ActorTypes;
+import constants.actors.utils.ActorDirection;
 import game.entities.player.playerTextures.PlayerTextures;
 import utils.TextureData;
 import utils.vectors.DimensionCordVector;

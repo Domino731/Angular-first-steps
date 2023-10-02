@@ -1,4 +1,4 @@
-package engine.actors.groundItem;
+package constants.actors.groundItem;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -42,7 +42,7 @@ public class GroundItem {
                 ActionTypes.ACTION_AREA,
                 "",
                 new Vector<>(position.x, position.y),
-                new DimensionVector<>((int) GroundItemConstants.renderSize, (int)  GroundItemConstants.renderSize),
+                new DimensionVector<>((int) GroundItemConstants.renderSize, (int) GroundItemConstants.renderSize),
                 new Vector<>(0, 0),
                 new ResourceAction() {
                     @Override

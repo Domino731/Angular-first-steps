@@ -21,6 +21,7 @@ public class Urls {
     public static final String CONFIG_TREE_MUSHROOM = "config/objects/trees/mushroom.json";
     public static final String CONFIG_TREE_PALM_SMALL = "config/objects/trees/palm-small.json";
     public static final String CONFIG_TREE_PALM_MEDIUM = "config/objects/trees/palm-medium.json";
+    public static final String CONFIG_STATIC_TREES = "config/staticObjects/trees.json";
     // SPRITES
     public static final String SPRITE_HAIRS = "sprites/style/hairs.png";
     public static final String SPRITE_HATS = "sprites/style/hats.png";

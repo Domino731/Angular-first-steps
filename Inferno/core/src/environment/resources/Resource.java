@@ -1,13 +1,13 @@
 package environment.resources;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import constants.actors.DefaultActor;
+import constants.actors.constants.ActorTypes;
+import constants.actors.groundItem.GroundItem;
 import engine.Textures;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.actorsManager.ActorsManager;
 import engine.actionCollision.actorsManager.GameTime;
-import engine.actors.DefaultActor;
-import engine.actors.constants.ActorTypes;
-import engine.actors.groundItem.GroundItem;
 import engine.items.DropItemData;
 import engine.items.Items;
 import engine.utils.Action;

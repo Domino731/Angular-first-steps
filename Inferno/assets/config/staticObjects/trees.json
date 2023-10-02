@@ -1,0 +1,16 @@
+[
+  {
+    "id": "big_tree_1_spring",
+    "name": "Big tree 1 spring",
+    "sprite": "trees",
+    "width": 32,
+    "height": 34,
+    "cords": {
+      "x": 0,
+      "y": 10
+    },
+    "groundCheckbox": {
+    }
+  },
+  0
+]

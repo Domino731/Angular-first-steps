@@ -1,7 +1,7 @@
-package engine.actors.staticDefaultActor;
+package constants.actors.staticDefaultActor;
 
-import engine.actors.DefaultActor;
-import engine.actors.constants.ActorTypes;
+import constants.actors.DefaultActor;
+import constants.actors.constants.ActorTypes;
 import utils.vectors.Vector;
 
 public class StaticDefaultActor extends DefaultActor {

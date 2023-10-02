@@ -1,11 +1,11 @@
-package engine.actors;
+package constants.actors;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import constants.actors.constants.ActorTypes;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.actorsManager.GameTime;
 import engine.actionCollision.actorsManager.GameTimeNewMinute;
-import engine.actors.constants.ActorTypes;
 import spritesManager.SpritesManager;
 import utils.Checkbox;
 import utils.strings.StringUtils;

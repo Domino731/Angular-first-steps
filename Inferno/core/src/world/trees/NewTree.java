@@ -2,8 +2,8 @@ package world.trees;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import engine.actors.DefaultActor;
-import engine.actors.constants.ActorTypes;
+import constants.actors.DefaultActor;
+import constants.actors.constants.ActorTypes;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;

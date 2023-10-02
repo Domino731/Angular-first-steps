@@ -1,4 +1,4 @@
-package engine.actors.utils;
+package constants.actors.utils;
 
 public class ActorDrop {
     private String itemId;

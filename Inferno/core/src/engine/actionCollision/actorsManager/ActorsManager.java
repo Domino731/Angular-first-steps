@@ -1,9 +1,9 @@
 package engine.actionCollision.actorsManager;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import constants.actors.DefaultActor;
+import constants.actors.groundItem.GroundItem;
 import engine.actionCollision.ActionCollision;
-import engine.actors.DefaultActor;
-import engine.actors.groundItem.GroundItem;
 import engine.items.Items;
 import environment.resources.Resource;
 import environment.trees.Tree;
