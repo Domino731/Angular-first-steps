@@ -12,8 +12,6 @@
       "x": 429,
       "y": 648,
       "next_stage": 3,
-      "groundCheckboxId": "1",
-      "actionCollisionId": "1",
       "drop": [
         {
           "id": "maple_tree_seed",
@@ -24,13 +22,13 @@
           "amount": 1
         }
       ],
-      "groundCollision": {
+      "ground_collision": {
         "x": 5,
         "y": 3,
         "width": 8,
         "height": 7
       },
-      "actionCollision": {
+      "action_collision": {
         "x": 4,
         "y": 2,
         "width": 10,
@@ -43,8 +41,6 @@
       "x": 491,
       "y": 648,
       "next_stage": 3,
-      "groundCheckboxId": "2",
-      "actionCollisionId": "2",
       "drop": [
         {
           "id": "maple_tree_seed",
@@ -55,13 +51,13 @@
           "amount": 1
         }
       ],
-      "groundCollision": {
+      "ground_collision": {
         "x": 3,
         "y": 3,
         "width": 11,
         "height": 12
       },
-      "actionCollision": {
+      "action_collision": {
         "x": 2,
         "y": 2,
         "width": 13,
@@ -74,8 +70,6 @@
       "x": 413,
       "y": 648,
       "next_stage": 3,
-      "groundCheckboxId": "3",
-      "actionCollisionId": "3",
       "drop": [
         {
           "id": "maple_tree_seed",
@@ -83,13 +77,13 @@
           "amount": 1
         }
       ],
-      "groundCollision": {
+      "ground_collision": {
         "x": 1,
         "y": 1,
         "width": 14,
         "height": 15
       },
-      "actionCollision": {
+      "action_collision": {
         "x": 0,
         "y": 0,
         "width": 16,
@@ -102,8 +96,6 @@
       "x": 396,
       "y": 616,
       "next_stage": 3,
-      "groundCheckboxId": "4",
-      "actionCollisionId": "4",
       "drop": [
         {
           "id": "maple_tree_seed",
@@ -119,13 +111,13 @@
           ]
         }
       ],
-      "groundCollision": {
+      "ground_collision": {
         "x": 1,
         "y": 1,
         "width": 13,
         "height": 16
       },
-      "actionCollision": {
+      "action_collision": {
         "x": 0,
         "y": 0,
         "width": 14,
@@ -138,8 +130,6 @@
       "x": 395,
       "y": 522,
       "next_stage": 0,
-      "groundCheckboxId": "5",
-      "actionCollisionId": "5",
       "drop": [
         {
           "id": "maple_tree_seed",
@@ -155,13 +145,13 @@
           ]
         }
       ],
-      "groundCollision": {
+      "ground_collision": {
         "x": 0,
         "y": 0,
         "width": 16,
         "height": 16
       },
-      "actionCollision": {
+      "action_collision": {
         "x": 0,
         "y": 0,
         "width": 18,
