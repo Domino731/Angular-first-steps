@@ -1,9 +1,14 @@
 package constants.actors.EnvironmentActor;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import engine.actionCollision.ActionCollision;
+import engine.actionCollision.ActionTypes;
 import engine.items.DropItemData;
+import environment.resources.ResourceAction;
 import utils.CollisionData;
 import utils.vectors.DimensionCordVector;
+import utils.vectors.DimensionVector;
+import utils.vectors.Vector;
 
 import java.util.ArrayList;
 
@@ -49,6 +54,11 @@ public class EnvironmentActorConfig {
             return new DimensionCordVector(groundCollision);
         }
 
+        public ActionCollision getActionCollision(ResourceAction rscAction, String actorId, Vector<Integer> actorPosition) {
+            Vector<Integer> position = new Vector<>(groundCollision.x + actorPosition.x, groundCollision.y + actorPosition.y);
+            DimensionVector<Integer> dimension = new DimensionVector<Integer>((int) actionCollision.width, (int) actionCollision.height);
+            return new ActionCollision(ActionTypes.CUT_TREE, actorId, position, dimension, new Vector<>(0, 0), rscAction);
+        }
 
         public int getNextStage() {
             return nextStage;
