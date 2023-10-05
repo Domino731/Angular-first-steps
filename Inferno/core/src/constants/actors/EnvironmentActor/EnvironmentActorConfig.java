@@ -2,6 +2,8 @@ package constants.actors.EnvironmentActor;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.items.DropItemData;
+import utils.CollisionData;
+import utils.vectors.DimensionCordVector;
 
 import java.util.ArrayList;
 
@@ -12,23 +14,19 @@ public class EnvironmentActorConfig {
         private final byte width;
         private final byte height;
         private final int nextStage;
-        private final String groundCheckboxId;
-        private final String actionCollisionId;
-        private final short actionWidth;
-        private final short actionHeight;
-        private final short actionX;
-        private final short actionY;
+        private final CollisionData actionCollision;
+        private final CollisionData groundCollision;
         private final ArrayList<DropItemData> drop;
 
-        public Stage(byte stage, TextureRegion txt, byte width, byte height, int nextStage, String groundCheckboxId, String actionCollisionId, ArrayList<DropItemData> drop) {
+        public Stage(byte stage, TextureRegion txt, byte width, byte height, int nextStage, CollisionData actionCollision, CollisionData groundCollision, ArrayList<DropItemData> drop) {
             this.stage = stage;
             this.width = width;
             this.height = height;
             this.txt = txt;
             this.nextStage = nextStage;
-            this.groundCheckboxId = groundCheckboxId;
-            this.actionCollisionId = actionCollisionId;
             this.drop = drop;
+            this.actionCollision = actionCollision;
+            this.groundCollision = groundCollision;
         }
 
         public byte getStage() {
@@ -47,9 +45,19 @@ public class EnvironmentActorConfig {
             return height;
         }
 
+        public DimensionCordVector getGroundCollision() {
+            return new DimensionCordVector(groundCollision);
+        }
+
+
         public int getNextStage() {
             return nextStage;
         }
+
+        private ArrayList<DropItemData> getDrop() {
+            return drop;
+        }
+
     }
 
     public class Config {
