@@ -14,6 +14,10 @@ public class EnvironmentActorConfig {
         private final int nextStage;
         private final String groundCheckboxId;
         private final String actionCollisionId;
+        private final short actionWidth;
+        private final short actionHeight;
+        private final short actionX;
+        private final short actionY;
         private final ArrayList<DropItemData> drop;
 
         public Stage(byte stage, TextureRegion txt, byte width, byte height, int nextStage, String groundCheckboxId, String actionCollisionId, ArrayList<DropItemData> drop) {
