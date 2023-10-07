@@ -49,6 +49,7 @@ public class EnvironmentActor extends DefaultActor {
         setTreeGroundCheckbox();
         setActionCollision();
         setMinuteActions();
+        setStageDraw();
     }
 
     public void setTreeGroundCheckbox() {
@@ -148,7 +149,12 @@ public class EnvironmentActor extends DefaultActor {
         addMinuteAction(gameTimeNewMinute);
     }
 
+    @Override
+    public void update(float delta, GameTime gameTime) {
+        update.update(delta, gameTime);
+    }
 
+    
     private void setUpdate(int stageIndex) {
         // TODO: move to GameTime handlers
         if (stageIndex >= config.getStages().length) {
