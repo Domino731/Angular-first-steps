@@ -22,6 +22,17 @@ public class Urls {
     public static final String CONFIG_TREE_PALM_SMALL = "config/objects/trees/palm-small.json";
     public static final String CONFIG_TREE_PALM_MEDIUM = "config/objects/trees/palm-medium.json";
     public static final String CONFIG_STATIC_TREES = "config/staticObjects/trees.json";
+
+
+    public static final String CONFIG_TREE_OAK_NEW = "config/objects/newTrees/oak.json";
+    public static final String CONFIG_TREE_MAPLE_NEW = "config/objects/newTrees/maple.json";
+    public static final String CONFIG_TREE_PINE_NEW = "config/objects/newTrees/pine.json";
+    public static final String CONFIG_TREE_MAHOGANY_NEW = "config/objects/newTrees/mahogany.json";
+    public static final String CONFIG_TREE_MUSHROOM_NEW = "config/objects/newTrees/mushroom.json";
+    public static final String CONFIG_TREE_PALM_SMALL_NEW = "config/objects/newTrees/palm-small.json";
+    public static final String CONFIG_TREE_PALM_MEDIUM_NEW = "config/objects/newTrees/palm-medium.json";
+    public static final String CONFIG_STATIC_TREES_NEW = "config/staticObjects/newTrees.json";
+
     // SPRITES
     public static final String SPRITE_HAIRS = "sprites/style/hairs.png";
     public static final String SPRITE_HATS = "sprites/style/hats.png";

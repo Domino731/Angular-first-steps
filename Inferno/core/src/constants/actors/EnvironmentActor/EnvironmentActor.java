@@ -10,6 +10,7 @@ import utils.vectors.Vector;
 
 import java.util.ArrayList;
 
+import static constants.actors.EnvironmentActor.EnvironmentActorConfig.getEnvironmentActorConfig;
 import static engine.utils.PositionUtils.convertTilePosition;
 
 public class EnvironmentActor extends DefaultActor {
@@ -19,10 +20,12 @@ public class EnvironmentActor extends DefaultActor {
     private ArrayList<GroundItem> items = new ArrayList<>();
     private ArrayList<ActionCollision> itemsCollisions = new ArrayList<>();
     private boolean isCollisionWithNextStage = false;
+    private EnvironmentActorConfig.Config config;
 
-    public EnvironmentActor(Vector<Integer> position, ActorsManager actorsManager) {
+    public EnvironmentActor(String actorId, Vector<Integer> position, ActorsManager actorsManager) {
         super(ActorTypes.DYNAMIC, convertTilePosition(position));
         this.actorsManager = actorsManager;
+        config = getEnvironmentActorConfig(actorId);
     }
-
+    
 }

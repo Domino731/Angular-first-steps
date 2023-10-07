@@ -2,6 +2,7 @@ package engine.actionCollision.actorsManager;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
+import constants.actors.EnvironmentActor.EnvironmentActor;
 import constants.actors.groundItem.GroundItem;
 import constants.actors.staticDefaultActor.StaticDefaultActor;
 import engine.actionCollision.ActionCollision;
@@ -42,6 +43,7 @@ public class ActorsManager {
 //        Tree tree2 = new Tree("palm_medium", new Vector<>(4, 10), this);
 //        addActor(tree2);
         StaticDefaultActor actor1 = new StaticDefaultActor("big_tree_1_spring", new Vector<>(4, 9));
+        EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<Integer>(4, 4), this);
         addActor(actor1);
         Resource rsc = new Resource("trunk_big", new Vector<>(2, 2), this);
         addActor(rsc);

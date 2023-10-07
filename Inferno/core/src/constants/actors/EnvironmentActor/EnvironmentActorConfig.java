@@ -1,6 +1,8 @@
 package constants.actors.EnvironmentActor;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.fasterxml.jackson.databind.JsonNode;
+import constants.Urls;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.ActionTypes;
 import engine.items.DropItemData;
@@ -11,9 +13,14 @@ import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import static utils.Json.readFile;
 
 public class EnvironmentActorConfig {
-    public class Stage {
+    private static HashMap<String, Config> data = createData();
+
+    public static class Stage {
         private final byte stage;
         private final TextureRegion txt;
         private final byte width;
@@ -55,8 +62,8 @@ public class EnvironmentActorConfig {
         }
 
         public ActionCollision getActionCollision(ResourceAction rscAction, String actorId, Vector<Integer> actorPosition) {
-            Vector<Integer> position = new Vector<>(groundCollision.x + actorPosition.x, groundCollision.y + actorPosition.y);
-            DimensionVector<Integer> dimension = new DimensionVector<Integer>((int) actionCollision.width, (int) actionCollision.height);
+            Vector<Integer> position = new Vector<>(actionCollision.x + actorPosition.x, actionCollision.y + actorPosition.y);
+            DimensionVector<Integer> dimension = new DimensionVector<>((int) actionCollision.width, (int) actionCollision.height);
             return new ActionCollision(ActionTypes.CUT_TREE, actorId, position, dimension, new Vector<>(0, 0), rscAction);
         }
 
@@ -70,7 +77,7 @@ public class EnvironmentActorConfig {
 
     }
 
-    public class Config {
+    public static class Config {
         private final String id;
         private final String name;
 
@@ -88,5 +95,37 @@ public class EnvironmentActorConfig {
         }
     }
 
+    private static HashMap<String, Config> createData() {
+        HashMap<String, Config> payload = new HashMap<>();
 
+        Config oakTree = createActorConfig(Urls.CONFIG_TREE_OAK_NEW);
+        payload.put(oakTree.getId(), oakTree);
+        Config mapleTree = createActorConfig(Urls.CONFIG_TREE_MAPLE_NEW);
+        payload.put(mapleTree.getId(), mapleTree);
+        Config pineTree = createActorConfig(Urls.CONFIG_TREE_PINE_NEW);
+        payload.put(pineTree.getId(), pineTree);
+        Config mahoganyTree = createActorConfig(Urls.CONFIG_TREE_MAHOGANY_NEW);
+        payload.put(mahoganyTree.getId(), mahoganyTree);
+        Config mushroomTree = createActorConfig(Urls.CONFIG_TREE_MUSHROOM_NEW);
+        payload.put(mahoganyTree.getId(), mushroomTree);
+        Config palmSmallTree = createActorConfig(Urls.CONFIG_TREE_PALM_SMALL_NEW);
+        payload.put(palmSmallTree.getId(), palmSmallTree);
+        Config palmMediumTree = createActorConfig(Urls.CONFIG_TREE_PALM_MEDIUM_NEW);
+        payload.put(palmMediumTree.getId(), palmMediumTree);
+
+        return payload;
+    }
+
+    private static Config createActorConfig(String configSource) {
+        JsonNode node = readFile(configSource);
+
+        String id = node.get("id").asText();
+        String name = node.get("name").asText();
+
+        return new Config(id, name);
+    }
+
+    public static Config getEnvironmentActorConfig(String actorId) {
+        return data.get(actorId);
+    }
 }
