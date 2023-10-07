@@ -3,6 +3,7 @@ package constants.actors.EnvironmentActor;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import constants.Urls;
+import engine.Textures;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.ActionTypes;
 import engine.items.DropItemData;
@@ -23,14 +24,14 @@ public class EnvironmentActorConfig {
     public static class Stage {
         private final byte stage;
         private final TextureRegion txt;
-        private final byte width;
-        private final byte height;
+        private final int width;
+        private final int height;
         private final int nextStage;
         private final CollisionData actionCollision;
         private final CollisionData groundCollision;
         private final ArrayList<DropItemData> drop;
 
-        public Stage(byte stage, TextureRegion txt, byte width, byte height, int nextStage, CollisionData actionCollision, CollisionData groundCollision, ArrayList<DropItemData> drop) {
+        public Stage(byte stage, TextureRegion txt, int width, int height, int nextStage, CollisionData actionCollision, CollisionData groundCollision, ArrayList<DropItemData> drop) {
             this.stage = stage;
             this.width = width;
             this.height = height;
@@ -49,11 +50,11 @@ public class EnvironmentActorConfig {
             return txt;
         }
 
-        public byte getWidth() {
+        public int getWidth() {
             return width;
         }
 
-        public byte getHeight() {
+        public int getHeight() {
             return height;
         }
 
@@ -80,10 +81,12 @@ public class EnvironmentActorConfig {
     public static class Config {
         private final String id;
         private final String name;
+        private final Stage[] stages;
 
-        public Config(String id, String name) {
+        public Config(String id, String name, Stage[] stages) {
             this.id = id;
             this.name = name;
+            this.stages = stages;
         }
 
         public String getId() {
@@ -121,8 +124,38 @@ public class EnvironmentActorConfig {
 
         String id = node.get("id").asText();
         String name = node.get("name").asText();
+        Stage[] stages = createActorStages(node.get("stages"));
 
-        return new Config(id, name);
+        return new Config(id, name, stages);
+    }
+
+    private static Stage[] createActorStages(JsonNode stages) {
+        byte stagesAmount = (byte) (stages.isArray() ? stages.size() : 1);
+        Stage[] payload = new Stage[stagesAmount];
+
+        if (stages.isArray()) {
+            int index = 0;
+            for (JsonNode node : stages) {
+                int width = node.get("width").asInt();
+                int height = node.get("height").asInt();
+                int x = node.get("x").asInt();
+                int y = node.get("y").asInt();
+                int nextStage = node.get("next_stage").asInt();
+                CollisionData groundCollisionData = new CollisionData(node.get("ground_collision"));
+                CollisionData actionCollisionData = new CollisionData(node.get("action_collision"));
+                TextureRegion texture = createTexture(x, y, width, height);
+                Stage stageConfig = new Stage((byte) ((byte) index + 1), texture, width, height, nextStage, actionCollisionData, groundCollisionData, new ArrayList<DropItemData>());
+                payload[index] = stageConfig;
+                index++;
+            }
+        }
+
+        return payload;
+    }
+
+
+    private static TextureRegion createTexture(int x, int y, int width, int height) {
+        return new TextureRegion(Textures.treesSprite, x, y, width, height);
     }
 
     public static Config getEnvironmentActorConfig(String actorId) {
