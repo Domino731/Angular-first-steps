@@ -72,6 +72,10 @@ public class EnvironmentActor extends DefaultActor {
         };
     }
 
+    public void addActionCollisions(ArrayList<ActionCollision> actions) {
+        actionCollisions.addAll(actions);
+    }
+
     public ArrayList<ActionCollision> getItemsCollisions() {
         return itemsCollisions;
     }
@@ -137,6 +141,13 @@ public class EnvironmentActor extends DefaultActor {
         actionCollisions.add(actionCollision);
     }
 
+    public void setActionCollisionByStage() {
+        actorsManager.removeActionCollisions(actionCollisions);
+        actionCollisions.clear();
+        setActionCollision();
+        actorsManager.addActionCollisions(actionCollisions);
+    }
+
     private void setMinuteActions() {
         GameTimeNewMinute gameTimeNewMinute = new GameTimeNewMinute() {
             @Override
@@ -176,7 +187,8 @@ public class EnvironmentActor extends DefaultActor {
                     if (currentIndex == config.getStages().length - 1) {
                         clearUpdate();
                         setFinalStageDraw();
-                        setTreeGroundCheckboxByStage();
+                        setCurrentGroundCollision();
+                        setActionCollisionByStage();
                         return;
                     }
 
@@ -184,25 +196,26 @@ public class EnvironmentActor extends DefaultActor {
                     currentStage = config.getStages()[currentIndex];
                     stageMinutes = currentStage.getNextStage();
                     setUpdate(currentIndex);
-                    setTreeGroundCheckboxByStage();
+                    setCurrentGroundCollision();
+                    setActionCollisionByStage();
                 }
             }
         };
     }
 
-    public void setTreeGroundCheckboxByStage() {
+    public void setCurrentGroundCollision() {
         actorsManager.removeGroundCheckbox(groundCheckbox);
         setGroundCheckbox(currentStage.getGroundCollision());
         actorsManager.addGroundCheckbox(groundCheckbox);
     }
 
+
     private void setFinalStageDraw() {
         draw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
-                // TODO: add trunk
-                sb.draw(Textures.checkbox, groundCheckbox.position.x, groundCheckbox.position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
-//                sb.draw(config.getTrunkTxt(), position.x, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
+//                sb.draw(Textures.checkbox, groundCheckbox.position.x, groundCheckbox.position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
+                sb.draw(config.getTrunkTxt(), position.x, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
                 sb.draw(currentStage.getTxt(), position.x - 16, position.y, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
             }
         };

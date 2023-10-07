@@ -228,6 +228,9 @@ public class ActorsManager {
         clock.draw();
     }
 
+    public void addActionCollisions(ArrayList<ActionCollision> actions) {
+        actionCollisions.addAll(actions);
+    }
 
     private void createPlayer() {
         player = new Player(this);
@@ -342,6 +345,10 @@ public class ActorsManager {
     public void removeGroundCheckbox(Checkbox checkbox) {
         groundCheckboxes.remove(checkbox);
         checkboxes.remove(checkbox);
+    }
+
+    public void removeActionCollisions(ArrayList<ActionCollision> actions) {
+        actionCollisions.removeAll(actions);
     }
 
     public void addGroundCheckbox(Checkbox checkbox) {
