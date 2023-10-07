@@ -40,8 +40,8 @@ public class ActorsManager {
         createPlayer();
 //        Tree tree1 = new Tree("oak", new Vector<>(4, 12), this);
 //        addActor(tree1);
-//        Tree tree2 = new Tree("palm_medium", new Vector<>(4, 10), this);
-//        addActor(tree2);
+        Tree tree2 = new Tree("palm_medium", new Vector<>(4, 10), this);
+        addActor(tree2);
         StaticDefaultActor actor1 = new StaticDefaultActor("big_tree_1_spring", new Vector<>(4, 9));
         EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<Integer>(4, 4), this);
         addActor(actor1);

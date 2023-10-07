@@ -96,6 +96,10 @@ public class EnvironmentActorConfig {
         public String getName() {
             return name;
         }
+
+        public Stage[] getStages() {
+            return stages;
+        }
     }
 
     private static HashMap<String, Config> createData() {

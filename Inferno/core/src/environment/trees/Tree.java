@@ -36,7 +36,7 @@ public class Tree extends DefaultActor {
     private Draw draw;
     private TreesConfig.Stage currentStage;
     private Update update;
-    private int stageMinutes = 1000;
+    private int stageMinutes = 3;
     private int nextStageMinutes = 3;
     private byte currentIndex = 0;
     private final ActorsManager actorsManager;
