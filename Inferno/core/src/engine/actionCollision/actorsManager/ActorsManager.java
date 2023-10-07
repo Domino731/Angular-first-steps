@@ -366,8 +366,24 @@ public class ActorsManager {
         currentAction = null;
     }
 
+    public void removeTreeObjectItems(EnvironmentActor rsc) {
+        checkboxes.remove(rsc.getGroundCheckbox());
+        groundCheckboxes.remove(rsc.getGroundCheckbox());
+        actionCollisions.removeAll(rsc.getActionCollisions());
+        currentAction = null;
+    }
+
     // TODO merge
     public void removeTreeObject(Tree rsc) {
+        allActors.remove(rsc);
+        checkboxes.remove(rsc.getGroundCheckbox());
+        groundCheckboxes.remove(rsc.getGroundCheckbox());
+        actionCollisions.removeAll(rsc.getActionCollisions());
+        groundItems.removeAll(rsc.getItemsCollisions());
+        currentAction = null;
+    }
+
+    public void removeTreeObject(EnvironmentActor rsc) {
         allActors.remove(rsc);
         checkboxes.remove(rsc.getGroundCheckbox());
         groundCheckboxes.remove(rsc.getGroundCheckbox());

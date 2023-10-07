@@ -8,9 +8,15 @@ import engine.actionCollision.ActionCollision;
 import engine.actionCollision.actorsManager.ActorsManager;
 import engine.actionCollision.actorsManager.ActorsUtils;
 import engine.actionCollision.actorsManager.GameTime;
+import engine.actionCollision.actorsManager.GameTimeNewMinute;
+import engine.items.DropItemData;
+import engine.items.Items;
+import engine.utils.Action;
 import engine.utils.Draw;
 import engine.utils.Update;
+import environment.resources.ResourceAction;
 import utils.Checkbox;
+import utils.EngineLog;
 import utils.vectors.Vector;
 
 import java.util.ArrayList;
@@ -40,7 +46,108 @@ public class EnvironmentActor extends DefaultActor {
         currentStage = config.getStages()[0];
         stageMinutes = currentStage.getNextStage();
         setUpdate(currentIndex);
+        setTreeGroundCheckbox();
+        setActionCollision();
+        setMinuteActions();
     }
+
+    public void setTreeGroundCheckbox() {
+        setGroundCheckbox(currentStage.getGroundCollision());
+    }
+
+    private Action createItemActionCollision(final String itemId, final GroundItem groundItem) {
+        return new Action() {
+            @Override
+            public void action() {
+                actorsManager.addItemToPlayerInventory(itemId, (byte) 1);
+                actorsManager.removeGroundItem(groundItem);
+                items.remove(groundItem);
+                if (items.size() == 0) {
+                    EngineLog.print("Resource removed");
+                    removeResource();
+                }
+            }
+        };
+    }
+
+    public ArrayList<ActionCollision> getItemsCollisions() {
+        return itemsCollisions;
+    }
+
+    private void removeResource() {
+        actorsManager.removeTreeObject(this);
+    }
+
+    private void showGroundItems() {
+        if (isDestroyed) {
+            return;
+        }
+
+        int i = 0;
+        for (DropItemData data : currentStage.getDrop()) {
+            String itemId = data.getItemId();
+            System.out.print("ITEM ID: ");
+            System.out.print(itemId);
+            i++;
+            GroundItem groundItem = new GroundItem(position.x + (i * 8), position.y, Items.getData(itemId).getTxt());
+            groundItem.setActionCollision(createItemActionCollision(itemId, groundItem));
+            items.add(groundItem);
+        }
+
+
+        for (GroundItem item : items) {
+            itemsCollisions.add(item.getActionCollision());
+        }
+
+        actorsManager.addGroundItems(itemsCollisions);
+
+        isDestroyed = true;
+        setGroundItemsDraw();
+    }
+
+    private void setGroundItemsDraw() {
+        draw = new Draw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                drawItems(sb);
+            }
+        };
+    }
+
+    private void drawItems(SpriteBatch sb) {
+        for (GroundItem item : items) {
+            item.draw(sb);
+        }
+    }
+
+    public void setActionCollision() {
+        final EnvironmentActor tree = this;
+
+        ResourceAction resourceAction = new ResourceAction() {
+            @Override
+            public void action() {
+                actorsManager.removeTreeObjectItems(tree);
+                showGroundItems();
+            }
+        };
+
+        ActionCollision actionCollision = currentStage.getActionCollision(resourceAction, id, position);
+        actionCollisions.add(actionCollision);
+    }
+
+    private void setMinuteActions() {
+        GameTimeNewMinute gameTimeNewMinute = new GameTimeNewMinute() {
+            @Override
+            public void action(int minute, int minuteAbsolute) {
+                if (!isCollisionWithNextStage) {
+                    stageMinutes--;
+                }
+            }
+        };
+
+        addMinuteAction(gameTimeNewMinute);
+    }
+
 
     private void setUpdate(int stageIndex) {
         // TODO: move to GameTime handlers

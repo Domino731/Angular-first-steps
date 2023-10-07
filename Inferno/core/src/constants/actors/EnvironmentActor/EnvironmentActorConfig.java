@@ -72,7 +72,7 @@ public class EnvironmentActorConfig {
             return nextStage;
         }
 
-        private ArrayList<DropItemData> getDrop() {
+        public ArrayList<DropItemData> getDrop() {
             return drop;
         }
 
