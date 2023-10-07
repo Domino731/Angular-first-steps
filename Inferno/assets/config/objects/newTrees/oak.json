@@ -1,10 +1,12 @@
 {
   "id": "oak",
   "name": "Oak Tree",
-  "trunkX": 49,
-  "trunkY": 123,
-  "trunkWidth": 16,
-  "trunkHeight": 21,
+  "trunk": {
+    "x": 49,
+    "y": 123,
+    "width": 16,
+    "height": 21
+  },
   "stages": [
     {
       "width": 16,

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
 import constants.actors.constants.ActorTypes;
 import constants.actors.groundItem.GroundItem;
+import engine.Textures;
 import engine.actionCollision.ActionCollision;
 import engine.actionCollision.actorsManager.ActorsManager;
 import engine.actionCollision.actorsManager.ActorsUtils;
@@ -154,7 +155,7 @@ public class EnvironmentActor extends DefaultActor {
         update.update(delta, gameTime);
     }
 
-    
+
     private void setUpdate(int stageIndex) {
         // TODO: move to GameTime handlers
         if (stageIndex >= config.getStages().length) {
@@ -200,7 +201,7 @@ public class EnvironmentActor extends DefaultActor {
             @Override
             public void draw(SpriteBatch sb) {
                 // TODO: add trunk
-//                sb.draw(Textures.checkbox, groundCheckbox.position.x, groundCheckbox.position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
+                sb.draw(Textures.checkbox, groundCheckbox.position.x, groundCheckbox.position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
 //                sb.draw(config.getTrunkTxt(), position.x, position.y, config.getTrunkTxt().getRegionWidth(), config.getTrunkTxt().getRegionHeight());
                 sb.draw(currentStage.getTxt(), position.x - 16, position.y, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
             }
@@ -220,7 +221,7 @@ public class EnvironmentActor extends DefaultActor {
             @Override
             public void draw(SpriteBatch sb) {
 //                sb.draw(Textures.checkbox, actionCollisions.get(0).position.x, actionCollisions.get(0).position.y, actionCollisions.get(0).dim.width, actionCollisions.get(0).dim.height);
-//                sb.draw(Textures.checkbox, groundCheckbox.position.x, groundCheckbox.position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
+                sb.draw(Textures.checkbox, groundCheckbox.position.x, groundCheckbox.position.y, groundCheckbox.dim.width, groundCheckbox.dim.height);
                 sb.draw(currentStage.getTxt(), position.x, position.y, currentStage.getTxt().getRegionWidth(), currentStage.getTxt().getRegionHeight());
             }
         };

@@ -1,10 +1,12 @@
 {
   "id": "palm_small",
   "name": "Palm small",
-  "trunkX": 428,
-  "trunkY": 627,
-  "trunkWidth": 16,
-  "trunkHeight": 21,
+  "trunk": {
+    "x": 428,
+    "y": 627,
+    "width": 16,
+    "height": 21
+  },
   "stages": [
     {
       "width": 16,

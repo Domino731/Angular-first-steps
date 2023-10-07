@@ -1,10 +1,12 @@
 {
   "id": "pine",
   "name": "Pine Tree",
-  "trunkX": 48,
-  "trunkY": 471,
-  "trunkWidth": 16,
-  "trunkHeight": 21,
+  "trunk": {
+    "x": 48,
+    "y": 471,
+    "width": 16,
+    "height": 21
+  },
   "stages": [
     {
       "width": 16,

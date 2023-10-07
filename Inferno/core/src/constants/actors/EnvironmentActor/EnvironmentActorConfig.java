@@ -82,11 +82,13 @@ public class EnvironmentActorConfig {
         private final String id;
         private final String name;
         private final Stage[] stages;
+        private final TextureRegion trunkTxt;
 
-        public Config(String id, String name, Stage[] stages) {
+        public Config(String id, String name, Stage[] stages, TextureRegion trunkTxt) {
             this.id = id;
             this.name = name;
             this.stages = stages;
+            this.trunkTxt = trunkTxt;
         }
 
         public String getId() {
@@ -99,6 +101,10 @@ public class EnvironmentActorConfig {
 
         public Stage[] getStages() {
             return stages;
+        }
+
+        public TextureRegion getTrunkTxt() {
+            return trunkTxt;
         }
     }
 
@@ -125,12 +131,18 @@ public class EnvironmentActorConfig {
 
     private static Config createActorConfig(String configSource) {
         JsonNode node = readFile(configSource);
+        JsonNode trunkNode = node.get("trunk");
 
         String id = node.get("id").asText();
         String name = node.get("name").asText();
         Stage[] stages = createActorStages(node.get("stages"));
+        int trunkX = trunkNode.get("x").asInt();
+        int trunkY = trunkNode.get("y").asInt();
+        int trunkWidth = trunkNode.get("width").asInt();
+        int trunkHeight = trunkNode.get("height").asInt();
+        TextureRegion trunkTxt = createTexture(trunkX, trunkY, trunkWidth, trunkHeight);
 
-        return new Config(id, name, stages);
+        return new Config(id, name, stages, trunkTxt);
     }
 
     private static Stage[] createActorStages(JsonNode stages) {

@@ -1,10 +1,12 @@
 {
   "id": "mushroom",
   "name": "Mushroom",
-  "trunkX": 318,
-  "trunkY": 624,
-  "trunkWidth": 16,
-  "trunkHeight": 21,
+  "trunk": {
+    "x": 318,
+    "y": 624,
+    "width": 16,
+    "height": 21
+  },
   "stages": [
     {
       "width": 16,
