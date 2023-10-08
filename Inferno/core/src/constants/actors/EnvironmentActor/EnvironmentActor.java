@@ -152,11 +152,37 @@ public class EnvironmentActor extends DefaultActor {
         GameTimeNewMinute gameTimeNewMinute = new GameTimeNewMinute() {
             @Override
             public void action(int minute, int minuteAbsolute) {
-                if (!isCollisionWithNextStage) {
-                    stageMinutes--;
+                if (isCollisionWithNextStage) {
+                    return;
+                }
+                stageMinutes--;
+                if (stageMinutes == 0) {
+                    if (currentIndex != config.getStages().length - 1) {
+                        EnvironmentActorConfig.Stage nextStage = config.getStages()[currentIndex + 1];
+                        Checkbox nextStageChekbox = getGroundCheckboxTest(nextStage.getGroundCollision());
+                        isCollisionWithNextStage = ActorsUtils.checkCollision(nextStageChekbox, actorsManager.getPlayerCheckboxArray().get(0));
+                        if (isCollisionWithNextStage) {
+                            return;
+                        }
+                    }
+                    if (currentIndex == config.getStages().length - 1) {
+                        clearUpdate();
+                        setFinalStageDraw();
+                        setCurrentGroundCollision();
+                        setActionCollisionByStage();
+                        return;
+                    }
+
+                    currentIndex++;
+                    currentStage = config.getStages()[currentIndex];
+                    stageMinutes = currentStage.getNextStage();
+                    setUpdate(currentIndex);
+                    setCurrentGroundCollision();
+                    setActionCollisionByStage();
                 }
             }
         };
+
 
         addMinuteAction(gameTimeNewMinute);
     }
