@@ -135,7 +135,7 @@
       "height": 96,
       "x": 16,
       "y": 364,
-      "next_stage": 0,
+      "next_stage": 3,
       "groundCheckboxId": "5",
       "actionCollisionId": "5",
       "drop": [

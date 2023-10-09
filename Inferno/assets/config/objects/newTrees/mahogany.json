@@ -131,7 +131,7 @@
       "height": 96,
       "x": 16,
       "y": 541,
-      "next_stage": 0,
+      "next_stage": 3,
       "drop": [
         {
           "id": "maple_tree_seed",
