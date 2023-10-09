@@ -156,30 +156,7 @@ public class EnvironmentActor extends DefaultActor {
                     return;
                 }
                 stageMinutes--;
-                if (stageMinutes == 0) {
-                    if (currentIndex != config.getStages().length - 1) {
-                        EnvironmentActorConfig.Stage nextStage = config.getStages()[currentIndex + 1];
-                        Checkbox nextStageChekbox = getGroundCheckboxTest(nextStage.getGroundCollision());
-                        isCollisionWithNextStage = ActorsUtils.checkCollision(nextStageChekbox, actorsManager.getPlayerCheckboxArray().get(0));
-                        if (isCollisionWithNextStage) {
-                            return;
-                        }
-                    }
-                    if (currentIndex == config.getStages().length - 1) {
-                        clearUpdate();
-                        setFinalStageDraw();
-                        setCurrentGroundCollision();
-                        setActionCollisionByStage();
-                        return;
-                    }
-
-                    currentIndex++;
-                    currentStage = config.getStages()[currentIndex];
-                    stageMinutes = currentStage.getNextStage();
-                    setUpdate(currentIndex);
-                    setCurrentGroundCollision();
-                    setActionCollisionByStage();
-                }
+                update.update(0, null);
             }
         };
 
@@ -189,7 +166,7 @@ public class EnvironmentActor extends DefaultActor {
 
     @Override
     public void update(float delta, GameTime gameTime) {
-        update.update(delta, gameTime);
+//        update.update(delta, gameTime);
     }
 
 
@@ -211,6 +188,7 @@ public class EnvironmentActor extends DefaultActor {
                         }
                     }
                     if (currentIndex == config.getStages().length - 1) {
+                        System.out.println("SYSTEM");
                         clearUpdate();
                         setFinalStageDraw();
                         setCurrentGroundCollision();
