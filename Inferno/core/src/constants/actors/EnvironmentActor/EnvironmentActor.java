@@ -189,15 +189,14 @@ public class EnvironmentActor extends DefaultActor {
                     }
 
                     currentIndex++;
-                    System.out.println("currentIndex: " + currentIndex);
                     currentStage = config.getStages()[currentIndex];
                     stageMinutes = currentStage.getNextStage();
-                    System.out.println("NEXT STAGE: " + stageMinutes);
                     setUpdate(currentIndex);
                     setCurrentGroundCollision();
                     setActionCollisionByStage();
-                    if (currentIndex == config.getStages().length - 1) {
-                        System.out.println("SYSTEM");
+
+                    // check if it's last stage
+                    if (getIsFinalStage()) {
                         setFinalStageDraw();
                         setCurrentGroundCollision();
                         setActionCollisionByStage();
@@ -206,6 +205,10 @@ public class EnvironmentActor extends DefaultActor {
                 }
             }
         };
+    }
+
+    public boolean getIsFinalStage() {
+        return currentIndex == config.getStages().length - 1;
     }
 
     public void setCurrentGroundCollision() {
