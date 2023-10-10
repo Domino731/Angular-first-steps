@@ -178,7 +178,6 @@ public class EnvironmentActor extends DefaultActor {
         update = new Update() {
             @Override
             public void update(float delta, GameTime gameTime) {
-                System.out.println("stageMinutes: " + stageMinutes);
                 if (stageMinutes == 0) {
                     if (currentIndex != config.getStages().length - 1) {
                         EnvironmentActorConfig.Stage nextStage = config.getStages()[currentIndex + 1];
@@ -188,23 +187,22 @@ public class EnvironmentActor extends DefaultActor {
                             return;
                         }
                     }
-                    System.out.println(currentIndex);
-                    if (currentIndex == config.getStages().length - 1) {
-                        System.out.println("SYSTEM");
-                        setFinalStageDraw();
-                        setCurrentGroundCollision();
-                        setActionCollisionByStage();
-                        clearUpdate();
-                        return;
-                    }
 
                     currentIndex++;
+                    System.out.println("currentIndex: " + currentIndex);
                     currentStage = config.getStages()[currentIndex];
                     stageMinutes = currentStage.getNextStage();
                     System.out.println("NEXT STAGE: " + stageMinutes);
                     setUpdate(currentIndex);
                     setCurrentGroundCollision();
                     setActionCollisionByStage();
+                    if (currentIndex == config.getStages().length - 1) {
+                        System.out.println("SYSTEM");
+                        setFinalStageDraw();
+                        setCurrentGroundCollision();
+                        setActionCollisionByStage();
+                        clearUpdate();
+                    }
                 }
             }
         };
