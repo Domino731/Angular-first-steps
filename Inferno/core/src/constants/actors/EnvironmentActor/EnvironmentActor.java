@@ -57,6 +57,10 @@ public class EnvironmentActor extends DefaultActor {
         setGroundCheckbox(currentStage.getGroundCollision());
     }
 
+    private boolean getAreItemsEmpty() {
+        return items.size() == 0;
+    }
+
     private Action createItemActionCollision(final String itemId, final GroundItem groundItem) {
         return new Action() {
             @Override
@@ -64,7 +68,7 @@ public class EnvironmentActor extends DefaultActor {
                 actorsManager.addItemToPlayerInventory(itemId, (byte) 1);
                 actorsManager.removeGroundItem(groundItem);
                 items.remove(groundItem);
-                if (items.size() == 0) {
+                if (getAreItemsEmpty()) {
                     EngineLog.print("Resource removed");
                     removeResource();
                 }
