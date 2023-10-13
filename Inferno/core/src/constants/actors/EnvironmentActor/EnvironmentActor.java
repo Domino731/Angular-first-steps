@@ -170,7 +170,7 @@ public class EnvironmentActor extends DefaultActor {
 
     @Override
     public void update(float delta, GameTime gameTime) {
-//        update.update(delta, gameTime);
+
     }
 
 
