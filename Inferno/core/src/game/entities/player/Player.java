@@ -56,6 +56,7 @@ public class Player extends MovableDefaultActor {
         if (currentItemType == null) {
             return;
         }
+        isSeed = inventory.getCurrItemType() == InventoryItemGroups.seed;
 
         if (inventory.getCurrItemType() == InventoryItemGroups.seed) {
             isSeed = true;
@@ -227,8 +228,8 @@ public class Player extends MovableDefaultActor {
     }
 
     public void changeInventorySlot(byte slot) {
+        isSeed = false;
         inventory.changeCurrentSlot(slot);
-        isSeed = inventory.getCurrItemType() == InventoryItemGroups.seed;
         currItemActionType = inventory.getCurrItemActionType();
     }
 }

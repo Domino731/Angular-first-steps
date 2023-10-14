@@ -77,8 +77,6 @@ public class PlayerAnimations {
                 finalPosition.y + shirtOffsets[player.actionIndex][player.aniIndex]
                 , PlayerConstants.shirtDim.width, PlayerConstants.shirtDim.height);
         sb.draw(armsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
-        sb.draw(pantsTextures[ANI_MINE_LEFT][0], finalPosition.x + 20, finalPosition.y + 20, 16, 16);
-        sb.draw(pantsTextures[ANI_MINE_RIGHT][0], finalPosition.x + 40, finalPosition.y + 20, 16, 16);
     }
 
     public void draw(SpriteBatch sb) {
