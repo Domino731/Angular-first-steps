@@ -44,7 +44,7 @@ public class Player extends MovableDefaultActor {
         shirts = new PlayerShirtsData();
         this.actorsManager = actorsManager;
 //        playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
-        playerTextures.pantsTextures = shirts.createPants(playerTextures.pantsTextures, style.shirtsArray[2]);
+//        playerTextures.pantsTextures = shirts.createPants(playerTextures.pantsTextures, style.shirtsArray[2]);
         setActionsCollisions();
         animations = new PlayerAnimations(this);
         animationAmount = new AnimationAmount(playerTextures.bodyTextures);

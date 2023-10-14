@@ -11,7 +11,6 @@ import environment.trees.Tree;
 import game.entities.player.Player;
 import hud.clock.Clock;
 import utils.Checkbox;
-import utils.vectors.Vector;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,8 +37,8 @@ public class ActorsManager {
     public ActorsManager() {
         // TODO: spawdzic czy jak dwa obiekty sa w tym samym miejscu to czy nie blokuje player'a
         createPlayer();
-        EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<Integer>(4, 5), this);
-        addActor(newActor);
+//        EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<Integer>(4, 5), this);
+//        addActor(newActor);
         setGameTimeMinuteAction();
         ;
     }
