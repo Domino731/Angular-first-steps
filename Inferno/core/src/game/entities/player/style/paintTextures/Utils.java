@@ -1,4 +1,4 @@
-package game.entities.player.style.data;
+package game.entities.player.style.paintTextures;
 
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
@@ -9,81 +9,10 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-import static game.entities.player.PlayerConstants.*;
 import static utils.TxtUtils.getPixmapFromTextureRegion;
 
-public class PlayerShirtsData {
-    public TextureRegion[][] createPantsWithColor(TextureRegion[][] pants, TextureRegion shirtTxtRg) {
-        HashMap<Integer, Integer> targetColors = setPantsColorsBasedOnShirt(shirtTxtRg);
-        return createPants(pants, targetColors);
-    }
-
-    public TextureRegion[][] createShirtSleevesWithColors(TextureRegion[][] arms, TextureRegion shirtTxtRg) {
-        return createPants(arms, setColorsBasedOnShirt(shirtTxtRg));
-    }
-
-    public TextureRegion[][] createPants(TextureRegion[][] pants, HashMap<Integer, Integer> targetColors) {
-        TextureRegion[][] newArms = new TextureRegion[ANI_AMOUNT][ANI_MAX_FRAMES];
-        for (int i = 0; i < pants.length; i++) {
-            TextureRegion[] armsTxtRg = pants[i];
-            // skip reversed textures
-            if (i == ANI_RUNNING_LEFT) {
-                armsTxtRg = pants[ANI_RUNNING_RIGHT];
-            }
-            if (i == ANI_IDLE_LEFT) {
-                armsTxtRg = pants[ANI_IDLE_RIGHT];
-            }
-            if (i == ANI_MINE_LEFT) {
-                armsTxtRg = pants[ANI_MINE_RIGHT];
-            }
-            if (i == ANI_HARVEST_LEFT) {
-                armsTxtRg = pants[ANI_HARVEST_RIGHT];
-            }
-            if (i == ANI_IDLE_ITEM_LEFT) {
-                armsTxtRg = pants[ANI_IDLE_ITEM_RIGHT];
-            }
-            if (i == ANI_RUNNING_ITEM_LEFT) {
-                armsTxtRg = pants[ANI_RUNNING_ITEM_RIGHT];
-            }
-
-            for (int j = 0; j < armsTxtRg.length; j++) {
-                TextureRegion armTxtRg = armsTxtRg[j];
-                if (armTxtRg != null) {
-                    newArms[i][j] = createArmTextureRegion(armTxtRg, targetColors, false);
-                }
-            }
-        }
-        for (byte aniIndex : REVERSED_TEXTURES_INDICES) {
-            TextureRegion[] textures = newArms[aniIndex];
-            for (TextureRegion txt : textures) {
-                if (txt != null) {
-                    txt.flip(true, false);
-                }
-            }
-        }
-        return newArms;
-    }
-
-    private TextureRegion createArmTextureRegion(TextureRegion armTxtRg, HashMap<Integer, Integer> colorsMap, boolean debug) {
-        Pixmap pixmap = getPixmapFromTextureRegion(armTxtRg);
-        for (int x = 0; x < pixmap.getWidth(); x++) {
-            for (int y = 0; y < pixmap.getHeight(); y++) {
-                int colorInt = pixmap.getPixel(x, y);
-                Integer color = colorsMap.get(colorInt);
-
-                if (color != null) {
-                    pixmap.drawPixel(x, y, color);
-                } else {
-                    pixmap.drawPixel(x, y, colorInt);
-                }
-            }
-        }
-
-        Texture newTxt = new Texture(pixmap);
-        return new TextureRegion(newTxt);
-    }
-
-    private HashMap<Integer, Integer> setColorsBasedOnShirt(TextureRegion shirtTxtRg) {
+public class Utils {
+    public static HashMap<Integer, Integer> getColorsMapForSleeves(TextureRegion shirtTxtRg) {
         HashMap<Integer, Integer> newColors = new HashMap<>();
         newColors.put(1795177215, 1795177215);
         newColors.put(-106001921, -106001921);
@@ -146,8 +75,7 @@ public class PlayerShirtsData {
         return newColors;
     }
 
-
-    private HashMap<Integer, Integer> setPantsColorsBasedOnShirt(TextureRegion shirtTxtRg) {
+    public static HashMap<Integer, Integer> getColorsMapForPants(TextureRegion shirtTxtRg) {
         HashMap<Integer, Integer> newColors = new HashMap<>();
         Pixmap pixmap = getPixmapFromTextureRegion(shirtTxtRg);
         int width = pixmap.getWidth();
@@ -220,4 +148,22 @@ public class PlayerShirtsData {
         return newColors;
     }
 
+    public static TextureRegion getPaintedTexture(TextureRegion armTxtRg, HashMap<Integer, Integer> colorsMap) {
+        Pixmap pixmap = getPixmapFromTextureRegion(armTxtRg);
+        for (int x = 0; x < pixmap.getWidth(); x++) {
+            for (int y = 0; y < pixmap.getHeight(); y++) {
+                int colorInt = pixmap.getPixel(x, y);
+                Integer color = colorsMap.get(colorInt);
+
+                if (color != null) {
+                    pixmap.drawPixel(x, y, color);
+                } else {
+                    pixmap.drawPixel(x, y, colorInt);
+                }
+            }
+        }
+
+        Texture newTxt = new Texture(pixmap);
+        return new TextureRegion(newTxt);
+    }
 }

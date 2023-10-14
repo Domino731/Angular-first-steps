@@ -13,7 +13,7 @@ import game.entities.player.inventory.InventoryItemGroups;
 import game.entities.player.inventory.PlayerInventory;
 import game.entities.player.playerTextures.PlayerTextures;
 import game.entities.player.style.PlayerStyle;
-import game.entities.player.style.data.PlayerShirtsData;
+import game.entities.player.style.paintTextures.PaintTextures;
 import utils.Checkbox;
 import utils.Direction;
 import utils.vectors.DimensionCordVector;
@@ -28,7 +28,7 @@ import static game.entities.player.playerTextures.PlayerTextures.idleActionByLas
 
 public class Player extends MovableDefaultActor {
     public PlayerStyle style = new PlayerStyle();
-    private PlayerShirtsData shirts;
+    private PaintTextures shirts;
     private boolean isStaticAction = false;
     // Action collision from ActorManager
     private ActorsManager actorsManager;
@@ -41,7 +41,7 @@ public class Player extends MovableDefaultActor {
 
     public Player(ActorsManager actorsManager) {
         super(6, 9, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
-        shirts = new PlayerShirtsData();
+        shirts = new PaintTextures();
         this.actorsManager = actorsManager;
         playerTextures.armsTextures = shirts.createShirtSleevesWithColors(playerTextures.armsTextures, style.shirtsArray[2]);
         playerTextures.pantsTextures = shirts.createPantsWithColor(playerTextures.pantsTextures, style.shirtsArray[2]);
