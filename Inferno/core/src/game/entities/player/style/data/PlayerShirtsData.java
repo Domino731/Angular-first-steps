@@ -124,41 +124,12 @@ public class PlayerShirtsData {
             }
         }
 
-        // reverse colored textures
-        for (int i = 0; i < newArms[ANI_RUNNING_LEFT].length; i++) {
-            TextureRegion armTxtRg = newArms[ANI_RUNNING_LEFT][i];
-            if (armTxtRg != null) {
-                armTxtRg.flip(true, false);
-            }
-        }
-        for (int i = 0; i < newArms[ANI_IDLE_LEFT].length; i++) {
-            TextureRegion armTxtRg = newArms[ANI_IDLE_LEFT][i];
-            if (armTxtRg != null) {
-                armTxtRg.flip(true, false);
-            }
-        }
-        for (int i = 0; i < newArms[ANI_MINE_LEFT].length; i++) {
-            TextureRegion armTxtRg = newArms[ANI_MINE_LEFT][i];
-            if (armTxtRg != null) {
-                armTxtRg.flip(true, false);
-            }
-        }
-        for (int i = 0; i < newArms[ANI_HARVEST_LEFT].length; i++) {
-            TextureRegion armTxtRg = newArms[ANI_HARVEST_LEFT][i];
-            if (armTxtRg != null) {
-                armTxtRg.flip(true, false);
-            }
-        }
-        for (int i = 0; i < newArms[ANI_IDLE_ITEM_LEFT].length; i++) {
-            TextureRegion armTxtRg = newArms[ANI_IDLE_ITEM_LEFT][i];
-            if (armTxtRg != null) {
-                armTxtRg.flip(true, false);
-            }
-        }
-        for (int i = 0; i < newArms[ANI_RUNNING_ITEM_LEFT].length; i++) {
-            TextureRegion armTxtRg = newArms[ANI_RUNNING_ITEM_LEFT][i];
-            if (armTxtRg != null) {
-                armTxtRg.flip(true, false);
+        for (byte aniIndex : REVERSED_TEXTURES_INDICES) {
+            TextureRegion[] textures = newArms[aniIndex];
+            for (TextureRegion txt : textures) {
+                if (txt != null) {
+                    txt.flip(true, false);
+                }
             }
         }
         return newArms;
@@ -181,10 +152,6 @@ public class PlayerShirtsData {
 
         Texture newTxt = new Texture(pixmap);
         return new TextureRegion(newTxt);
-    }
-
-    private TextureRegion createPantsTextureRegion(TextureRegion txtRg) {
-        return new TextureRegion();
     }
 
     private HashMap<Integer, Integer> setColorsBasedOnShirt(TextureRegion shirtTxtRg, boolean isPantsMode) {

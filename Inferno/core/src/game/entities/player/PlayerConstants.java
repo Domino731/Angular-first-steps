@@ -59,6 +59,8 @@ public class PlayerConstants {
     public static final byte ANI_RUNNING_ITEM_DOWN = 22;
     public static final byte ANI_RUNNING_ITEM_LEFT = 23;
 
+    public static final byte[] REVERSED_TEXTURES_INDICES = new byte[]{ANI_IDLE_LEFT, ANI_RUNNING_LEFT, ANI_MINE_LEFT, ANI_HARVEST_LEFT, ANI_IDLE_ITEM_LEFT, ANI_RUNNING_ITEM_LEFT};
+
     // ANIMATION ACTION CONSTANTS - when action need to trigger (not animation length)?
     public static final byte ANI_ACTION_MINE_ACTION = 5;
 
