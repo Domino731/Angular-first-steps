@@ -38,7 +38,7 @@ public class PlayerConstants {
     public static final int ANI_RUNNING_RIGHT = 5;
     public static final int ANI_RUNNING_DOWN = 6;
     public static final int ANI_RUNNING_LEFT = 7;
-    // HARVEST
+    // MINE
     public static final byte ANI_MINE_UP = 8;
     public static final byte ANI_MINE_RIGHT = 9;
     public static final byte ANI_MINE_LEFT = 10;
