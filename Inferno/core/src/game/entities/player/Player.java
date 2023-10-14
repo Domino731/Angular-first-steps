@@ -43,8 +43,8 @@ public class Player extends MovableDefaultActor {
         super(6, 9, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
         shirts = new PlayerShirtsData();
         this.actorsManager = actorsManager;
-//        playerTextures.armsTextures = shirts.createShirtSleeves(playerTextures.armsTextures, style.shirtsArray[2]);
-        playerTextures.pantsTextures = shirts.createPants(playerTextures.pantsTextures, style.shirtsArray[2]);
+        playerTextures.armsTextures = shirts.createShirtSleevesWithColors(playerTextures.armsTextures, style.shirtsArray[2]);
+        playerTextures.pantsTextures = shirts.createPantsWithColor(playerTextures.pantsTextures, style.shirtsArray[2]);
         setActionsCollisions();
         animations = new PlayerAnimations(this);
         animationAmount = new AnimationAmount(playerTextures.bodyTextures);
