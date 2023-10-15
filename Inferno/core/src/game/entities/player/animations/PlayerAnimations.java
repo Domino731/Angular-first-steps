@@ -32,7 +32,8 @@ public class PlayerAnimations {
     public static final short[][][] weaponAnimations = WeaponAnimationConfig.animations;
     public static final byte[][][] toolAnimations = ToolAnimationConfig.animations;
     public short[][] bodyOffsets;
-    public short[][] hatOffsets;
+    public short[][] hatYOffsets;
+    public byte[][] hatXOffsets;
     public short[][] shirtOffsets;
     public byte hairBaseOffset = 13;
 
@@ -50,8 +51,9 @@ public class PlayerAnimations {
         hairOffset = CreateHairYOffset.createOffsetForHair(player.playerTextures.armsTextures);
         shirtOffset = CreateHairYOffset.create(player.playerTextures.pantsTextures);
         bodyOffsets = player.playerTextures.hairOffsets;
-        hatOffsets = player.playerTextures.hatsOffsets;
+        hatYOffsets = player.playerTextures.hatsYOffsets;
         shirtOffsets = player.playerTextures.shirtOffsets;
+        hatXOffsets = player.playerTextures.hatsXOffsets;
 
         setAnimationDraws();
     }
@@ -71,7 +73,7 @@ public class PlayerAnimations {
     public void running(SpriteBatch sb) {
         sb.draw(bodyTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[player.getDirectionIndex()], finalPosition.x, finalPosition.y + bodyOffsets[player.actionIndex][player.aniIndex] - hairBaseOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-        sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + PlayerConstants.hairXOffset, finalPosition.y + hatOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
+        sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + hatXOffsets[player.actionIndex][player.aniIndex], finalPosition.y + hatYOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
         sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
         sb.draw(player.style.shirtsArray[player.getDirectionIndex()], finalPosition.x + 4,
                 finalPosition.y + shirtOffsets[player.actionIndex][player.aniIndex]
@@ -208,7 +210,7 @@ public class PlayerAnimations {
         }
         sb.draw(bodyTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[player.getDirectionIndex()], finalPosition.x, finalPosition.y + bodyOffsets[player.actionIndex][player.aniIndex] - hairBaseOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-        sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + PlayerConstants.hairXOffset, finalPosition.y + hatOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
+        sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + PlayerConstants.hairXOffset, finalPosition.y + hatYOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
         sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
         sb.draw(player.style.shirtsArray[player.getDirectionIndex()], finalPosition.x + 4,
                 finalPosition.y + shirtOffsets[player.actionIndex][player.aniIndex]
@@ -230,7 +232,7 @@ public class PlayerAnimations {
 
         sb.draw(bodyTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[player.getDirectionIndex()], finalPosition.x, finalPosition.y + bodyOffsets[player.actionIndex][player.aniIndex] - hairBaseOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-        sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + PlayerConstants.hairXOffset, finalPosition.y + hatOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
+        sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + PlayerConstants.hairXOffset, finalPosition.y + hatYOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
         sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
         sb.draw(player.style.shirtsArray[player.getDirectionIndex()], finalPosition.x + 4,
                 finalPosition.y + shirtOffsets[player.actionIndex][player.aniIndex]

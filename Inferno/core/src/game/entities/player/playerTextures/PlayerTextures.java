@@ -42,7 +42,8 @@ public class PlayerTextures {
 
     // offsets
     public short[][] hairOffsets;
-    public short[][] hatsOffsets;
+    public short[][] hatsYOffsets;
+    public byte[][] hatsXOffsets;
     public short[][] shirtOffsets;
 
     public static byte hatSize = 20;
@@ -58,7 +59,8 @@ public class PlayerTextures {
         armsTextures = new TextureRegion[ANI_AMOUNT][ANI_MAX_FRAMES];
         pantsTextures = new TextureRegion[ANI_AMOUNT][ANI_MAX_FRAMES];
         hairOffsets = new short[ANI_AMOUNT][ANI_MAX_FRAMES];
-        hatsOffsets = new short[ANI_AMOUNT][ANI_MAX_FRAMES];
+        hatsYOffsets = new short[ANI_AMOUNT][ANI_MAX_FRAMES];
+        hatsXOffsets = new byte[ANI_AMOUNT][ANI_MAX_FRAMES];
         shirtOffsets = new short[ANI_AMOUNT][ANI_MAX_FRAMES];
 
         readJson();
@@ -334,8 +336,9 @@ public class PlayerTextures {
                         pantsTxt,
                         pantsX, pantsY, 16, 16
                 );
-                hairOffsets[state][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
-                hatsOffsets[state][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
+                hairOffsets[state][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyYOffsets[cordY][cordX]);
+                hatsYOffsets[state][i] = (short) (hatSize - BodyOffsets.bodyYOffsets[cordY][cordX]);
+                hatsXOffsets[state][i] = BodyOffsets.bodyXOffsets[cordY][cordX];
                 shirtOffsets[state][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 8);
             }
             i++;
@@ -388,10 +391,12 @@ public class PlayerTextures {
                 );
                 pantsTextures[stateLeft][i].flip(true, false);
 
-                hairOffsets[stateLeft][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
-                hairOffsets[stateRight][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyOffsets[cordY][cordX]);
-                hatsOffsets[stateLeft][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
-                hatsOffsets[stateRight][i] = (short) (hatSize - BodyOffsets.bodyOffsets[cordY][cordX]);
+                hairOffsets[stateLeft][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyYOffsets[cordY][cordX]);
+                hairOffsets[stateRight][i] = (short) (PlayerHairsData.HAIR_SIZE.width - BodyOffsets.bodyYOffsets[cordY][cordX]);
+                hatsYOffsets[stateLeft][i] = (short) (hatSize - BodyOffsets.bodyYOffsets[cordY][cordX]);
+                hatsYOffsets[stateRight][i] = (short) (hatSize - BodyOffsets.bodyYOffsets[cordY][cordX]);
+                hatsXOffsets[stateRight][i] = BodyOffsets.bodyXOffsets[cordY][cordX];
+                hatsXOffsets[stateLeft][i] = BodyOffsets.bodyXOffsets[cordY][cordX];
                 shirtOffsets[stateLeft][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 8);
                 shirtOffsets[stateRight][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 8);
             }

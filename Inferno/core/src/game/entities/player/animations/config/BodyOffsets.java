@@ -13,9 +13,10 @@ import static game.entities.player.animations.config.AniConfigConstants.spritesh
 import static game.entities.player.animations.config.AniConfigConstants.spritesheetRowsAmount;
 
 public class BodyOffsets {
-    public static byte[][] bodyOffsets = createOffsets();
+    public static byte[][] bodyYOffsets = createYOffsets();
+    public static byte[][] bodyXOffsets = createXOffsets();
 
-    private static byte[][] createOffsets() {
+    private static byte[][] createYOffsets() {
         // array for offsets
         byte[][] data = new byte[spritesheetRowsAmount][spritesheetBodyRowAmount];
 
@@ -26,6 +27,24 @@ public class BodyOffsets {
             for (int i = 0; i < node.size(); i++) {
                 for (int j = 0; j < node.get(i).size(); j++) {
                     data[i][j] = (byte) node.get(i).get(j).get(0).asInt();
+                }
+            }
+        }
+
+        return data;
+    }
+
+    private static byte[][] createXOffsets() {
+        // array for offsets
+        byte[][] data = new byte[spritesheetRowsAmount][spritesheetBodyRowAmount];
+
+        // read json config
+        JsonNode node = readJson();
+
+        if (node.isArray()) {
+            for (int i = 0; i < node.size(); i++) {
+                for (int j = 0; j < node.get(i).size(); j++) {
+                    data[i][j] = (byte) node.get(i).get(j).get(1).asInt();
                 }
             }
         }
