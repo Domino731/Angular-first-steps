@@ -210,7 +210,7 @@ public class PlayerAnimations {
         }
         sb.draw(bodyTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
         sb.draw(player.style.hairArray[player.getDirectionIndex()], finalPosition.x, finalPosition.y + bodyOffsets[player.actionIndex][player.aniIndex] - hairBaseOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-        sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + PlayerConstants.hairXOffset, finalPosition.y + hatYOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
+        sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + hatXOffsets[player.actionIndex][player.aniIndex], finalPosition.y + hatYOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
         sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
         sb.draw(player.style.shirtsArray[player.getDirectionIndex()], finalPosition.x + 4,
                 finalPosition.y + shirtOffsets[player.actionIndex][player.aniIndex]
@@ -222,6 +222,21 @@ public class PlayerAnimations {
     }
 
     private void mineAnimation(SpriteBatch sb, byte bodyTexturesIndex, byte directionIndex) {
+        byte xHairOffset = 0;
+        byte xHatOffset = -2;
+        if (player.actionIndex == ANI_MINE_RIGHT) {
+            if (player.aniIndex == 0) {
+                xHatOffset = -3;
+                xHairOffset = -1;
+            }
+        }
+        if (player.actionIndex == ANI_MINE_LEFT) {
+            if (player.aniIndex == 0) {
+                xHatOffset = -1;
+                xHairOffset = 1;
+            }
+        }
+
         if (toolAnimations[directionIndex][player.aniIndex][zIndex] == 0) {
             sb.draw(toolTxts[directionIndex][toolAnimations[directionIndex][player.aniIndex][txtIndex]],
                     player.finalPosition.x + toolAnimations[directionIndex][player.aniIndex][xIndex],
@@ -231,8 +246,8 @@ public class PlayerAnimations {
         }
 
         sb.draw(bodyTextures[bodyTexturesIndex][player.aniIndex], player.finalPosition.x, player.finalPosition.y, 16, 32);
-        sb.draw(player.style.hairArray[player.getDirectionIndex()], finalPosition.x, finalPosition.y + bodyOffsets[player.actionIndex][player.aniIndex] - hairBaseOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
-        sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + PlayerConstants.hairXOffset, finalPosition.y + hatYOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
+        sb.draw(player.style.hairArray[player.getDirectionIndex()], finalPosition.x + xHairOffset, finalPosition.y + bodyOffsets[player.actionIndex][player.aniIndex] - hairBaseOffset, PlayerHairsData.HAIR_SIZE.width, PlayerHairsData.HAIR_SIZE.height);
+        sb.draw(player.style.hatsArray[player.getDirectionIndex()], finalPosition.x + xHatOffset, finalPosition.y + hatYOffsets[player.actionIndex][player.aniIndex], PlayerTextures.hatSize, PlayerTextures.hatSize);
         sb.draw(pantsTextures[player.actionIndex][player.aniIndex], finalPosition.x, finalPosition.y, 16, 16);
         sb.draw(player.style.shirtsArray[player.getDirectionIndex()], finalPosition.x + 4,
                 finalPosition.y + shirtOffsets[player.actionIndex][player.aniIndex]
