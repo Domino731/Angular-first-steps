@@ -25,7 +25,7 @@ public class BodyOffsets {
         if (node.isArray()) {
             for (int i = 0; i < node.size(); i++) {
                 for (int j = 0; j < node.get(i).size(); j++) {
-                    data[i][j] = (byte) node.get(i).get(j).asInt();
+                    data[i][j] = (byte) node.get(i).get(j).get(0).asInt();
                 }
             }
         }
