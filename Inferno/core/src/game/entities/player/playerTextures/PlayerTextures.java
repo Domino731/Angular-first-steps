@@ -17,7 +17,6 @@ import spritesManager.SpritesManager;
 import utils.Direction;
 import utils.EngineLog;
 import utils.Json;
-import utils.colors.ColorSorter;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 
@@ -99,8 +98,8 @@ public class PlayerTextures {
         final int xOffset = hairOffset.x * size;
         final int yOffset = hairOffset.y * size;
 
-        hats[Direction.down] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 0), size, size);
-        hats[Direction.right] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 1), size, size);
+        hats[Direction.down] = new TextureRegion(hatsTexture, xOffset, yOffset, size, size);
+        hats[Direction.right] = new TextureRegion(hatsTexture, xOffset, yOffset + size, size, size);
         hats[Direction.left] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 2), size, size);
         hats[Direction.up] = new TextureRegion(hatsTexture, xOffset, yOffset + (size * 3), size, size);
         return hats;
@@ -116,8 +115,6 @@ public class PlayerTextures {
         }
 
         Pixmap pixmap = textureData.consumePixmap();
-
-        Integer[] colors = ColorSorter.sort(PlayerConstants.skinColors);
 
         for (int x = 0; x < pixmap.getWidth(); x++) {
             for (int y = 0; y < pixmap.getHeight(); y++) {
@@ -148,9 +145,9 @@ public class PlayerTextures {
         int yOffset = hairOffset.y * HAIR_SIZE.height;
 
         hairs[Direction.up] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 2), HAIR_SIZE.width, HAIR_SIZE.height);
-        hairs[Direction.right] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 1), HAIR_SIZE.width, HAIR_SIZE.height);
-        hairs[Direction.down] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 0), HAIR_SIZE.width, HAIR_SIZE.height);
-        hairs[Direction.left] = new TextureRegion(coloredHair, xOffset, yOffset + (HAIR_SIZE.height * 1), HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[Direction.right] = new TextureRegion(coloredHair, xOffset, yOffset + HAIR_SIZE.height, HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[Direction.down] = new TextureRegion(coloredHair, xOffset, yOffset, HAIR_SIZE.width, HAIR_SIZE.height);
+        hairs[Direction.left] = new TextureRegion(coloredHair, xOffset, yOffset + HAIR_SIZE.height, HAIR_SIZE.width, HAIR_SIZE.height);
         hairs[Direction.left].flip(true, false);
         return hairs;
     }
@@ -400,7 +397,6 @@ public class PlayerTextures {
                 shirtOffsets[stateLeft][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 8);
                 shirtOffsets[stateRight][i] = (short) (32 - Offsets.shirts[cordY][cordX] - 8);
             }
-
 
             i++;
             if (i >= ANI_MAX_FRAMES) {

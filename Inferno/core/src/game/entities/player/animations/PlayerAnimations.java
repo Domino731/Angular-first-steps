@@ -21,10 +21,7 @@ import static game.entities.player.animations.config.AniConfigConstants.*;
 public class PlayerAnimations {
     private Player player;
     private AnimationDraw[] animationDraws;
-    private byte animationIndex = ANI_IDLE_DOWN;
     private Vector<Integer> finalPosition;
-    int actionIndex;
-    int aniIndex;
     TextureRegion[][] bodyTextures, armsTextures, pantsTextures;
     TextureRegion weaponTexture = loadWeaponTexture();
     TextureRegion weaponTextureReversed = loadWeaponTextureReversed();
