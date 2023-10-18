@@ -31,11 +31,11 @@ public class Player extends MovableDefaultActor {
     private PaintTextures shirts;
     private boolean isStaticAction = false;
     // Action collision from ActorManager
-    private ActorsManager actorsManager;
+    private final ActorsManager actorsManager;
     public PlayerInventory inventory = new PlayerInventory();
-    private PlayerAnimations animations;
+    private final PlayerAnimations animations;
     private boolean isHoldingItem = false;
-    private AnimationAmount animationAmount;
+    private final AnimationAmount animationAmountPerAction;
     private byte directionIndex = Direction.down;
     private ActionTypes currItemActionType = null;
 
@@ -47,7 +47,7 @@ public class Player extends MovableDefaultActor {
         playerTextures.pantsTextures = shirts.createPantsWithColor(playerTextures.pantsTextures, style.shirtsArray[2]);
         setActionsCollisions();
         animations = new PlayerAnimations(this);
-        animationAmount = new AnimationAmount(playerTextures.bodyTextures);
+        animationAmountPerAction = new AnimationAmount(playerTextures.bodyTextures);
         changeInventorySlot((byte) 1);
     }
 
@@ -130,7 +130,7 @@ public class Player extends MovableDefaultActor {
             aniIndex++;
 
             handleActions();
-            if (aniIndex >= animationAmount.getAmount(actionIndex)) {
+            if (aniIndex >= animationAmountPerAction.getAmount(actionIndex)) {
                 if (isStaticAction) {
                     isStaticAction = false;
                     actionIndex = getActionIndexByLastAction(actionIndex);
