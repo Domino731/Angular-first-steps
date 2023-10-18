@@ -162,6 +162,10 @@ public class Player extends MovableDefaultActor {
 
     public void updatePos() {
         isMoving = false;
+        if (direction.top || direction.right || direction.bot || direction.left) {
+            isMoving = true;
+        }
+
         if (direction.left && !direction.right) {
             position.x -= speed;
             directionIndex = Direction.left;
@@ -172,7 +176,6 @@ public class Player extends MovableDefaultActor {
                 cb.position.x -= speed;
             }
             groundCheckbox.position.x -= speed;
-            isMoving = true;
         } else if (direction.right && !direction.left) {
             position.x += speed;
             directionIndex = Direction.right;
@@ -183,7 +186,6 @@ public class Player extends MovableDefaultActor {
                 cb.position.x += speed;
             }
             groundCheckbox.position.x += speed;
-            isMoving = true;
         }
 
         if (!direction.top && direction.bot) {
@@ -196,7 +198,6 @@ public class Player extends MovableDefaultActor {
                 cb.position.y -= speed;
             }
             groundCheckbox.position.y -= speed;
-            isMoving = true;
         } else if (direction.top && !direction.bot) {
             position.y += speed;
             directionIndex = Direction.up;
@@ -207,7 +208,6 @@ public class Player extends MovableDefaultActor {
                 cb.position.y += speed;
             }
             groundCheckbox.position.y += speed;
-            isMoving = true;
         }
     }
 
