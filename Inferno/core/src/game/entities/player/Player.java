@@ -34,7 +34,7 @@ public class Player extends MovableDefaultActor {
     private ActorsManager actorsManager;
     public PlayerInventory inventory = new PlayerInventory();
     private PlayerAnimations animations;
-    private boolean isSeed = false;
+    private boolean isHoldingItem = false;
     private AnimationAmount animationAmount;
     private byte directionIndex = Direction.down;
     private ActionTypes currItemActionType = null;
@@ -56,10 +56,10 @@ public class Player extends MovableDefaultActor {
         if (currentItemType == null) {
             return;
         }
-        isSeed = inventory.getCurrItemType() == InventoryItemGroups.seed;
+        isHoldingItem = inventory.getCurrItemType() == InventoryItemGroups.seed;
 
         if (inventory.getCurrItemType() == InventoryItemGroups.seed) {
-            isSeed = true;
+            isHoldingItem = true;
             return;
         }
         isStaticAction = true;
@@ -80,7 +80,7 @@ public class Player extends MovableDefaultActor {
     private void setAnimation() {
         int startAni = actionIndex;
 
-        if (isSeed) {
+        if (isHoldingItem) {
             if (isMoving) {
                 if (direction.left) {
                     actionIndex = ANI_RUNNING_ITEM_LEFT;
@@ -97,7 +97,7 @@ public class Player extends MovableDefaultActor {
 
         } else if (isMoving || isStaticAction) {
             if (isStaticAction) {
-                actionIndex = Utils.getHarvestWeedAniIndex(actionIndex, inventory.getCurrItemType(), isMoving, isSeed);
+                actionIndex = Utils.getHarvestWeedAniIndex(actionIndex, inventory.getCurrItemType(), isMoving, isHoldingItem);
             } else if (direction.left) {
                 actionIndex = ANI_RUNNING_LEFT;
             } else if (direction.right) {
@@ -166,7 +166,7 @@ public class Player extends MovableDefaultActor {
             isMoving = true;
         }
 
-        if (isStaticAction && !isSeed) {
+        if (isStaticAction && !isHoldingItem) {
             return;
         }
 
@@ -232,7 +232,7 @@ public class Player extends MovableDefaultActor {
     }
 
     public void changeInventorySlot(byte slot) {
-        isSeed = false;
+        isHoldingItem = false;
         inventory.changeCurrentSlot(slot);
         currItemActionType = inventory.getCurrItemActionType();
     }
