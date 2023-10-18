@@ -166,6 +166,10 @@ public class Player extends MovableDefaultActor {
             isMoving = true;
         }
 
+        if (isStaticAction && !isSeed) {
+            return;
+        }
+
         if (direction.left && !direction.right) {
             position.x -= speed;
             directionIndex = Direction.left;
