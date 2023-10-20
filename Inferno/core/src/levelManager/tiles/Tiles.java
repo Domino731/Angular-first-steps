@@ -24,7 +24,23 @@ public class Tiles {
     public void createTilesList(JsonNode tiles) {
         for (int i = 0; i < 100; i++) {
             for (int j = 0; j < 100; j++) {
-                tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) 10, (short) 10), "TEST"));
+                boolean isExisting = false;
+                JsonNode tile = null;
+                for (JsonNode node : tiles) {
+                    int nodeX = node.get("cords").get("x").asInt();
+                    int nodeY = node.get("cords").get("y").asInt();
+                    isExisting = nodeX == i && nodeY == j;
+                    if (isExisting) {
+                        tile = node;
+                        break;
+                    }
+                }
+                if (isExisting) {
+                    tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) tile.get("cords").get("x").asInt(), (short) tile.get("cords").get("y").asInt()), tile.get("spriteName").asText()));
+                } else {
+                    tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) 10, (short) 10), "Outdoors spring"));
+                }
+
             }
         }
     }

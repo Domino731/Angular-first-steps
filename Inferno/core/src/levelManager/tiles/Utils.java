@@ -3,9 +3,10 @@ package levelManager.tiles;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.Textures;
+import utils.EngineLog;
 
 public class Utils {
-    public static TextureRegion createTileTexture(String spriteSheetName) {
+    public static TextureRegion createTileTexture(String spriteSheetName, int x, int y) {
         Texture texture = null;
         switch (spriteSheetName) {
             case "Outdoors summer":
@@ -40,8 +41,11 @@ public class Utils {
                 texture = Textures.darkroomTxt;
             case "Desert":
                 texture = Textures.desertTxt;
+            default:
+                EngineLog.error("No match for " + spriteSheetName + " in Utils.createTileTexture");
+                texture = Textures.outdoorsSpringTxt;
         }
-        return new TextureRegion();
+        return new TextureRegion(texture, x, y);
     }
 
     ;
