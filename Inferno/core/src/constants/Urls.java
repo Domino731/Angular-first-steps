@@ -57,4 +57,22 @@ public class Urls {
     public static final String TXT_INVENTORY_FRAME_LANE_LEFT = "sprites/inventory/lane-left.png";
     public static final String TXT_INVENTORY_FRAME_CORNER = "sprites/inventory/corner.png";
     public static final String TXT_TRESS = "sprites/environment/trees.png";
+
+    // tiles
+    public static final String SPRITE_BEACH_FALL = "sprites/tileSets/beach_fall.png";
+    public static final String SPRITE_BEACH_WINTER = "sprites/tileSets/beach_winter.png";
+    public static final String SPRITE_BEACH_SPRING = "sprites/tileSets/beach_spring.png";
+    public static final String SPRITE_BEACH_SUMMER = "sprites/tileSets/beach_summer.png";
+    public static final String SPRITE_OUTDOORS_FALL = "sprites/tileSets/outdoors_fall.png";
+    public static final String SPRITE_OUTDOORS_WINTER = "sprites/tileSets/outdoors_winter.png";
+    public static final String SPRITE_OUTDOORS_SPRING = "sprites/tileSets/outdoors_spring.png";
+    public static final String SPRITE_OUTDOORS_SUMMER = "sprites/tileSets/outdoors_summer.png";
+    public static final String SPRITE_ISLAND_FALL = "sprites/tileSets/island_fall.png";
+    public static final String SPRITE_ISLAND_WINTER = "sprites/tileSets/island_winter.png";
+    public static final String SPRITE_ISLAND_SPRING = "sprites/tileSets/island_spring.png";
+    public static final String SPRITE_ISLAND_SUMMER = "sprites/tileSets/island_summer.png";
+    public static final String SPRITE_BUG_LAND = "sprites/tileSets/bug_land.png";
+    public static final String SPRITE_COOP = "sprites/tileSets/coop.png";
+    public static final String SPRITE_DARKROOM = "sprites/tileSets/darkroom.png";
+    public static final String SPRITE_DESERT = "sprites/tileSets/desert.png";
 }

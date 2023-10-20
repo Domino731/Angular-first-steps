@@ -22,14 +22,13 @@ public class LevelManager {
     }
 
     private void readLevel() {
-        FileHandle fileHandle = Gdx.files.internal("maps/test_4.json");
-        if(fileHandle.exists()){
+        FileHandle fileHandle = Gdx.files.internal("maps/tiles-2.json");
+        if (fileHandle.exists()) {
             try {
                 JsonNode node = Json.parse(fileHandle.readString());
-                JsonNode tiles  = node.get("tiles");
+                JsonNode tiles = node.get("tiles");
                 this.tiles.create(tiles);
-            }
-            catch (IOException e){
+            } catch (IOException e) {
             }
         }
 

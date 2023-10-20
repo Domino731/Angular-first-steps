@@ -27,30 +27,6 @@ public class Tiles {
                 tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) 10, (short) 10), "TEST"));
             }
         }
-
-//        // Check if the parsed JsonNode is an array
-//        if (tiles.isArray()) {
-//            // Loop through the array elements
-//            for (JsonNode element : tiles) {
-//                String spriteName = element.get("spriteName").asText();
-//                Vector2s mapCords = new Vector2s(element.get("cords").get("x").shortValue(),element.get("cords").get("y").shortValue());
-//                Vector2s spriteCords = new Vector2s(element.get("spriteCords").get("x").shortValue(),element.get("spriteCords").get("y").shortValue());
-//                int tileListIndex = 0;
-//
-//                for(Tile tile : tilesList){
-//                    Vector2s tileCords = tile.getMapCords();
-//                    if(mapCords.x == tileCords.x && mapCords.y == tileCords.y) {
-//                        tileListIndex = tilesList.indexOf(tile);
-//                        break;
-//                    }
-//                }
-//
-//                tilesList.set(tileListIndex,new Tile(mapCords, spriteCords, spriteName));
-//            }
-//        } else {
-//            System.out.println("The provided JSON is not an array.");
-//        }
-
     }
 
     public void createTileClasses() {

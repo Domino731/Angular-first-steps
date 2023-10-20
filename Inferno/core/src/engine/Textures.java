@@ -22,4 +22,22 @@ public class Textures {
     public static final Texture hudFrameLaneLeft = new Texture(Urls.TXT_INVENTORY_FRAME_LANE_LEFT);
     public static final Texture hudFrameCorner = new Texture(Urls.TXT_INVENTORY_FRAME_CORNER);
     public static final Texture treesSprite = new Texture(Urls.TXT_TRESS);
+
+    // tiles
+    public static final Texture beachFallTxt = new Texture(Urls.SPRITE_BEACH_FALL);
+    public static final Texture beachWinterTxt = new Texture(Urls.SPRITE_BEACH_WINTER);
+    public static final Texture beachSpringTxt = new Texture(Urls.SPRITE_BEACH_SPRING);
+    public static final Texture beachSummerTxt = new Texture(Urls.SPRITE_BEACH_SUMMER);
+    public static final Texture outdoorsFallTxt = new Texture(Urls.SPRITE_OUTDOORS_FALL);
+    public static final Texture outdoorsWinterTxt = new Texture(Urls.SPRITE_OUTDOORS_WINTER);
+    public static final Texture outdoorsSpringTxt = new Texture(Urls.SPRITE_OUTDOORS_SPRING);
+    public static final Texture outdoorsSummerTxt = new Texture(Urls.SPRITE_OUTDOORS_SUMMER);
+    public static final Texture islandFallTxt = new Texture(Urls.SPRITE_ISLAND_FALL);
+    public static final Texture islandWinterTxt = new Texture(Urls.SPRITE_ISLAND_WINTER);
+    public static final Texture islandSpringTxt = new Texture(Urls.SPRITE_ISLAND_SPRING);
+    public static final Texture islandSummerTxt = new Texture(Urls.SPRITE_ISLAND_SUMMER);
+    public static final Texture bugLandTxt = new Texture(Urls.SPRITE_BUG_LAND);
+    public static final Texture coopTxtTxt = new Texture(Urls.SPRITE_COOP);
+    public static final Texture darkroomTxt = new Texture(Urls.SPRITE_DARKROOM);
+    public static final Texture desertTxt = new Texture(Urls.SPRITE_DESERT);
 }
