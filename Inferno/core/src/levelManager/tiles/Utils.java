@@ -8,6 +8,7 @@ import utils.EngineLog;
 public class Utils {
     public static TextureRegion createTileTexture(String spriteSheetName, int x, int y) {
         Texture texture = null;
+        System.out.println(spriteSheetName);
         switch (spriteSheetName) {
             case "Outdoors summer":
                 texture = Textures.outdoorsSummerTxt;

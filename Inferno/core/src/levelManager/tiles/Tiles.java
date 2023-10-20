@@ -2,6 +2,7 @@ package levelManager.tiles;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.fasterxml.jackson.databind.JsonNode;
+import spritesManager.Constants;
 import utils.vectors.Vector2s;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class Tiles {
                 if (isExisting) {
                     tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) tile.get("cords").get("x").asInt(), (short) tile.get("cords").get("y").asInt()), tile.get("spriteName").asText()));
                 } else {
-                    tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) 10, (short) 10), "Outdoors spring"));
+                    tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s(Constants.DEFAULT_TILE_CORDS.x, Constants.DEFAULT_TILE_CORDS.y), "Outdoors spring"));
                 }
 
             }
