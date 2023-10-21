@@ -22,7 +22,7 @@ public class LevelManager {
     }
 
     private void readLevel() {
-        FileHandle fileHandle = Gdx.files.internal("maps/tiles-2.json");
+        FileHandle fileHandle = Gdx.files.internal("maps/pixi-valley-map.json");
         if (fileHandle.exists()) {
             try {
                 JsonNode node = Json.parse(fileHandle.readString());

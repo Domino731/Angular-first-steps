@@ -3,7 +3,6 @@ package levelManager.tiles;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.Textures;
-import spritesManager.SpritesManager;
 import utils.vectors.Vector;
 import utils.vectors.Vector2s;
 
@@ -26,7 +25,7 @@ public class Tile {
 
     public void draw(Batch batch) {
 
-        batch.draw(SpritesManager.defaultTileTexture, position.x, position.y);
+        batch.draw(txt, position.x, position.y);
         batch.draw(Textures.frameTxt, position.x, position.y, 16, 16);
     }
 
