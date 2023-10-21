@@ -31,13 +31,14 @@ public class Tiles {
                     int nodeY = node.get("cords").get("y").asInt();
                     isExisting = nodeX == i && nodeY == j;
                     if (isExisting) {
+                        System.out.println("NODE CORDS: " + nodeX + " " + nodeY);
                         tile = node;
                         break;
                     }
                 }
                 if (isExisting) {
-                    System.out.println("ASDASD");
-                    tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) tile.get("cords").get("x").asInt(), (short) tile.get("cords").get("y").asInt()), tile.get("spriteName").asText()));
+                    System.out.println("CORDS: " + i + " " + j);
+                    tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) tile.get("spriteCords").get("x").asInt(), (short) tile.get("spriteCords").get("y").asInt()), tile.get("spriteName").asText()));
                 } else {
                     tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) 0, (short) 7), "Outdoors spring"));
                 }
