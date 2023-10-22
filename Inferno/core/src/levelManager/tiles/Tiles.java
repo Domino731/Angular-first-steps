@@ -17,13 +17,10 @@ public class Tiles {
     private static final Vector2s defaultTileSpriteCords = new Vector2s((short) 10, (short) 10);
     public static final byte tileSize = 16;
 
-    public void create(JsonNode tiles) {
-        createTilesList(tiles);
-    }
 
-    public void createTilesList(JsonNode tiles) {
-        for (int i = 0; i < 100; i++) {
-            for (int j = 0; j < 100; j++) {
+    public void createTilesList(JsonNode tiles, int mapWidth, int mapHeight) {
+        for (int i = 0; i < mapWidth; i++) {
+            for (int j = 0; j < mapHeight; j++) {
                 boolean isExisting = false;
                 JsonNode tile = null;
                 for (JsonNode node : tiles) {
@@ -42,7 +39,6 @@ public class Tiles {
                 } else {
                     tilesList.add(new Tile(new Vector2s((short) i, (short) j), new Vector2s((short) 0, (short) 7), "Outdoors spring"));
                 }
-
             }
         }
     }

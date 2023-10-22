@@ -5,6 +5,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.fasterxml.jackson.databind.JsonNode;
 import levelManager.tiles.Tiles;
+import utils.EngineLog;
 import utils.Json;
 
 import java.io.IOException;
@@ -27,8 +28,11 @@ public class LevelManager {
             try {
                 JsonNode node = Json.parse(fileHandle.readString());
                 JsonNode tiles = node.get("tiles");
-                this.tiles.create(tiles);
+                int mapWidth = node.get("mapSize").get("width").asInt();
+                int mapHeight = node.get("mapSize").get("height").asInt();
+                this.tiles.createTilesList(tiles, mapWidth, mapHeight);
             } catch (IOException e) {
+                EngineLog.error("LevelManager.readLevel() ERROR while generating files");
             }
         }
 
