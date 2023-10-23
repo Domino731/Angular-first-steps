@@ -1,8 +1,9 @@
 package levelManager.tiles;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import engine.Textures;
+import engine.utils.Draw;
 import utils.vectors.Vector;
 import utils.vectors.Vector2s;
 
@@ -14,6 +15,7 @@ public class Tile {
     private String spriteName;
     public Vector<Integer> position;
     private TextureRegion txt;
+    private Draw currentDraw;
 
     public Tile(Vector2s mapCords, Vector2s spriteCords, String spriteName) {
         this.mapCords = mapCords;
@@ -21,6 +23,7 @@ public class Tile {
         this.spriteName = spriteName;
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
         this.txt = createTileTexture(spriteName, spriteCords.x, spriteCords.y);
+        setCurrentDraw();
     }
 
     public Tile(Vector2s mapCords) {
@@ -29,12 +32,21 @@ public class Tile {
         this.spriteName = "Outdoors spring";
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
         this.txt = createTileTexture(this.spriteName, this.spriteCords.x, this.spriteCords.y);
+        setCurrentDraw();
     }
 
-    public void draw(Batch batch) {
+    private void setCurrentDraw() {
+        currentDraw = new Draw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                sb.draw(txt, position.x, position.y);
+                sb.draw(Textures.frameTxt, position.x, position.y, 16, 16);
+            }
+        };
+    }
 
-        batch.draw(txt, position.x, position.y);
-        batch.draw(Textures.frameTxt, position.x, position.y, 16, 16);
+    public void draw(SpriteBatch sb) {
+        currentDraw.draw(sb);
     }
 
     public Vector2s getMapCords() {
