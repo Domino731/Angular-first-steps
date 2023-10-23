@@ -19,8 +19,16 @@ public class Tile {
         this.mapCords = mapCords;
         this.spriteCords = spriteCords;
         this.spriteName = spriteName;
-        position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
-        txt = createTileTexture(spriteName, spriteCords.x, spriteCords.y);
+        this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
+        this.txt = createTileTexture(spriteName, spriteCords.x, spriteCords.y);
+    }
+
+    public Tile(Vector2s mapCords) {
+        this.mapCords = mapCords;
+        this.spriteCords = new Vector2s((short) 0, (short) 7);
+        this.spriteName = "Outdoors spring";
+        this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
+        this.txt = createTileTexture(this.spriteName, this.spriteCords.x, this.spriteCords.y);
     }
 
     public void draw(Batch batch) {
