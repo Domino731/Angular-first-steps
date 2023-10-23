@@ -28,7 +28,6 @@ public class Tiles {
                     int nodeY = node.get("cords").get("y").asInt();
                     isExisting = nodeX == i && nodeY == j;
                     if (isExisting) {
-                        System.out.println("NODE CORDS: " + nodeX + " " + nodeY);
                         tile = node;
                         break;
                     }
