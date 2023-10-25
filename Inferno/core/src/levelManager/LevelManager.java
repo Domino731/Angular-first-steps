@@ -22,6 +22,10 @@ public class LevelManager {
         return tiles;
     }
 
+    public void markTiles(int x, int y) {
+        tiles.markTile(x, y);
+    }
+
     public void render(SpriteBatch batch) {
         tiles.render(batch);
     }

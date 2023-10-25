@@ -47,22 +47,9 @@ public class ActorsManager {
     }
 
     public Integer findTile(int targetX, int targetY) {
-        Tile targetTile = null;
-        for (Tile tile : tiles) {
-            int tileX1 = tile.getMapCords().x;
-            int tileX2 = tile.getMapCords().x + 16;
-            int tileY1 = tile.getMapCords().y;
-            int tileY2 = tile.getMapCords().y + 16;
-
-            if (targetX >= tileX1 && targetX <= tileX2 && targetY >= tileY1 && targetY <= tileY2) {
-                targetTile = tile;
-                break;
-            }
-        }
-        if (targetTile != null) {
-            return tiles.indexOf(targetTile);
-        }
-
+        int x = (int) Math.floor(targetX / 16);
+        int y = (int) Math.floor(targetY / 16);
+        levelManager.markTiles(x, y);
         return 0;
     }
 

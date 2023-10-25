@@ -45,6 +45,14 @@ public class Tiles {
         }
     }
 
+    public void markTile(int x, int y) {
+        for (Tile tile : tilesList) {
+            if (tile.getCords() != null && tile.getCords().x == x && tile.getCords().y == y) {
+                tile.setIsMarked(true);
+            }
+        }
+    }
+
     public void render(SpriteBatch batch) {
         for (Tile tile : tilesList) {
             tile.draw(batch);
