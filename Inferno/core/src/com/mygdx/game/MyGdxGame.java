@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import levelManager.LevelManager;
 import screens.PlayScreen;
 import spritesManager.SpritesManager;
 
@@ -16,7 +15,6 @@ public class MyGdxGame extends Game {
     public boolean showCheckboxes;
     Texture img;
     TmxMapLoader mapLoader;
-    LevelManager levelManager;
     TextureRegion customTexture;
 
 
@@ -25,7 +23,6 @@ public class MyGdxGame extends Game {
         batch = new SpriteBatch();
         sr = new ShapeRenderer();
         mapLoader = new TmxMapLoader();
-        levelManager = new LevelManager();
         customTexture = SpritesManager.test();
         showCheckboxes = true;
         setScreen(new PlayScreen(this));

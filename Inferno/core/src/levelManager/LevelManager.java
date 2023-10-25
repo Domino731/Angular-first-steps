@@ -18,6 +18,10 @@ public class LevelManager {
         readLevel();
     }
 
+    public Tiles getTiles() {
+        return tiles;
+    }
+
     public void render(SpriteBatch batch) {
         tiles.render(batch);
     }

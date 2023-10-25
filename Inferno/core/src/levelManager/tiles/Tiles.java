@@ -16,6 +16,9 @@ public class Tiles {
 
     public static final byte tileSize = 16;
 
+    public List<Tile> getTilesList() {
+        return tilesList;
+    }
 
     public void createTilesList(JsonNode tiles, int mapWidth, int mapHeight) {
         for (int i = 0; i < mapWidth; i++) {

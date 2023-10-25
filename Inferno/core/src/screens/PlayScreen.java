@@ -9,13 +9,11 @@ import com.mygdx.game.MyGdxGame;
 import engine.actionCollision.actorsManager.ActorsManager;
 import game.entities.player.Player;
 import inputs.GameInputProcessor;
-import levelManager.LevelManager;
 import utils.vectors.Vector;
 
 
 public class PlayScreen implements Screen {
     private MyGdxGame game;
-    private LevelManager levelManager;
     private ActorsManager actorsManager;
     private Player player;
     Sprite sprite;
@@ -25,11 +23,10 @@ public class PlayScreen implements Screen {
         this.game = game;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.translate(camera.viewportWidth / 2, camera.viewportHeight / 2);
-        levelManager = new LevelManager();
         actorsManager = new ActorsManager();
         player = actorsManager.player;
         Gdx.input.setInputProcessor(new GameInputProcessor(actorsManager));
-        camera.zoom = 1.5f;
+        camera.zoom = 0.2f;
     }
 
     @Override
@@ -50,7 +47,6 @@ public class PlayScreen implements Screen {
         update(delta);
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
-        levelManager.render(game.batch);
         actorsManager.draw(game.batch);
         game.batch.end();
 

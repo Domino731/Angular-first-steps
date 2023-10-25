@@ -10,12 +10,11 @@ import environment.resources.Resource;
 import environment.trees.Tree;
 import game.entities.player.Player;
 import hud.clock.Clock;
+import levelManager.LevelManager;
+import levelManager.tiles.Tile;
 import utils.Checkbox;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Objects;
+import java.util.*;
 
 import static engine.actionCollision.actorsManager.ActorsUtils.checkCollision;
 
@@ -29,18 +28,42 @@ public class ActorsManager {
     private final ArrayList<Items.Render> itemsList = new ArrayList<>();
     private final GameTime gameTime = new GameTime();
     private final Clock clock = new Clock();
+    private LevelManager levelManager;
+    private List<Tile> tiles;
 
     public Player player;
 
     public ActionCollision currentAction = null;
 
     public ActorsManager() {
+        levelManager = new LevelManager();
+        tiles = levelManager.getTiles().getTilesList();
         // TODO: spawdzic czy jak dwa obiekty sa w tym samym miejscu to czy nie blokuje player'a
         createPlayer();
 //        EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<Integer>(4, 5), this);
 //        addActor(newActor);
         setGameTimeMinuteAction();
         ;
+    }
+
+    public Integer findTile(int targetX, int targetY) {
+        Tile targetTile = null;
+        for (Tile tile : tiles) {
+            int tileX1 = tile.getMapCords().x;
+            int tileX2 = tile.getMapCords().x + 16;
+            int tileY1 = tile.getMapCords().y;
+            int tileY2 = tile.getMapCords().y + 16;
+
+            if (targetX >= tileX1 && targetX <= tileX2 && targetY >= tileY1 && targetY <= tileY2) {
+                targetTile = tile;
+                break;
+            }
+        }
+        if (targetTile != null) {
+            return tiles.indexOf(targetTile);
+        }
+
+        return 0;
     }
 
     private void setGameTimeMinuteAction() {
@@ -84,6 +107,8 @@ public class ActorsManager {
     }
 
     public void draw(SpriteBatch sb) {
+        levelManager.render(sb);
+
         for (DefaultActor actor : allActors) {
             actor.draw(sb);
         }

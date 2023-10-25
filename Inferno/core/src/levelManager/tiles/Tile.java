@@ -11,6 +11,7 @@ import static levelManager.tiles.Utils.createTileTexture;
 
 public class Tile {
     private Vector2s mapCords;
+    private Vector2s cords;
     private Vector2s spriteCords;
     private String spriteName;
     public Vector<Integer> position;
@@ -19,6 +20,7 @@ public class Tile {
 
     public Tile(Vector2s mapCords, Vector2s spriteCords, String spriteName) {
         this.mapCords = mapCords;
+        this.cords = mapCords;
         this.spriteCords = spriteCords;
         this.spriteName = spriteName;
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
@@ -43,6 +45,10 @@ public class Tile {
                 sb.draw(Textures.frameTxt, position.x, position.y, 16, 16);
             }
         };
+    }
+
+    public Vector2s getCords() {
+        return cords;
     }
 
     public void draw(SpriteBatch sb) {
