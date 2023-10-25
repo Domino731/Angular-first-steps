@@ -50,7 +50,6 @@ public class Tiles {
 
 
     public void markTile(int x, int y) {
-        Tile targetTile = null;
         ArrayList<Vector<Integer>> tileCords = new ArrayList<>();
         int firstX = x - placeItemRange;
         int lastX = x + placeItemRange;
@@ -79,12 +78,6 @@ public class Tiles {
                     markedTiles.add(tile);
                 }
             }
-
-
-//            if (tile.getCords().x == x && tile.getCords().y == y) {
-//                markedTiles.add(tile);
-//                break;
-//            }
         }
 
         for (Tile tile : markedTiles) {

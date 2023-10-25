@@ -54,7 +54,7 @@ public class Tile {
             public void draw(SpriteBatch sb) {
                 sb.draw(txt, position.x, position.y);
                 if (isMarked) {
-                    sb.draw(Textures.frameTxt, position.x, position.y, 16, 16);
+                    sb.draw(Textures.whiteCellTxt, position.x, position.y, 16, 16);
                 }
             }
         };

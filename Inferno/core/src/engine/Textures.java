@@ -40,4 +40,5 @@ public class Textures {
     public static final Texture coopTxtTxt = new Texture(Urls.SPRITE_COOP);
     public static final Texture darkroomTxt = new Texture(Urls.SPRITE_DARKROOM);
     public static final Texture desertTxt = new Texture(Urls.SPRITE_DESERT);
+    public static final Texture whiteCellTxt = new Texture(Urls.TXT_WHITE_CELL);
 }
