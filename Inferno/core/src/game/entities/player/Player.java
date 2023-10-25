@@ -38,16 +38,19 @@ public class Player extends MovableDefaultActor {
     private final AnimationAmount animationAmountPerAction;
     private byte directionIndex = Direction.down;
     private ActionTypes currItemActionType = null;
+    private final Vector<Integer> centerPosition;
 
     public Player(ActorsManager actorsManager) {
         super(6, 9, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
-        shirts = new PaintTextures();
+        this.shirts = new PaintTextures();
         this.actorsManager = actorsManager;
-        playerTextures.armsTextures = shirts.createShirtSleevesWithColors(playerTextures.armsTextures, style.shirtsArray[2]);
-        playerTextures.pantsTextures = shirts.createPantsWithColor(playerTextures.pantsTextures, style.shirtsArray[2]);
+        this.playerTextures.armsTextures = shirts.createShirtSleevesWithColors(playerTextures.armsTextures, style.shirtsArray[2]);
+        this.playerTextures.pantsTextures = shirts.createPantsWithColor(playerTextures.pantsTextures, style.shirtsArray[2]);
+        this.animations = new PlayerAnimations(this);
+        this.animationAmountPerAction = new AnimationAmount(playerTextures.bodyTextures);
+        this.centerPosition = new Vector<>((groundCheckbox.dim.width / 2) + position.x, (groundCheckbox.dim.height / 2) + position.y);
         setActionsCollisions();
-        animations = new PlayerAnimations(this);
-        animationAmountPerAction = new AnimationAmount(playerTextures.bodyTextures);
+
         changeInventorySlot((byte) 1);
     }
 
