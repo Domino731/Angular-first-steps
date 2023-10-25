@@ -38,7 +38,8 @@ public class Player extends MovableDefaultActor {
     private final AnimationAmount animationAmountPerAction;
     private byte directionIndex = Direction.down;
     private ActionTypes currItemActionType = null;
-    private final Vector<Integer> centerPosition;
+    private Vector<Integer> centerPosition;
+    private Vector<Integer> centerPositionFinal;
 
     public Player(ActorsManager actorsManager) {
         super(6, 9, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -49,6 +50,7 @@ public class Player extends MovableDefaultActor {
         this.animations = new PlayerAnimations(this);
         this.animationAmountPerAction = new AnimationAmount(playerTextures.bodyTextures);
         this.centerPosition = new Vector<>((groundCheckbox.dim.width / 2) + position.x, (groundCheckbox.dim.height / 2) + position.y);
+        this.centerPositionFinal = new Vector<>((groundCheckbox.dim.width / 2) + position.x, (groundCheckbox.dim.height / 2) + position.y);
         setActionsCollisions();
 
         changeInventorySlot((byte) 1);
@@ -71,8 +73,13 @@ public class Player extends MovableDefaultActor {
     @Override
     public void update(float delta, GameTime gameTime) {
         if (!isCollision) {
+            // update positions
             finalPosition.x = position.x;
             finalPosition.y = position.y;
+            centerPositionFinal.x = centerPosition.x;
+            centerPositionFinal.y = centerPosition.y;
+
+            // set current tile
         }
 
         updateAnimationTick();
@@ -175,6 +182,7 @@ public class Player extends MovableDefaultActor {
 
         if (direction.left && !direction.right) {
             position.x -= speed;
+            centerPosition.x -= speed;
             directionIndex = Direction.left;
             for (Checkbox cb : checkboxArray) {
                 cb.position.x -= speed;
@@ -185,6 +193,7 @@ public class Player extends MovableDefaultActor {
             groundCheckbox.position.x -= speed;
         } else if (direction.right && !direction.left) {
             position.x += speed;
+            centerPosition.x += speed;
             directionIndex = Direction.right;
             for (Checkbox cb : checkboxArray) {
                 cb.position.x += speed;
@@ -197,6 +206,7 @@ public class Player extends MovableDefaultActor {
 
         if (!direction.top && direction.bot) {
             position.y -= speed;
+            centerPosition.y -= speed;
             directionIndex = Direction.down;
             for (Checkbox cb : checkboxArray) {
                 cb.position.y -= speed;
@@ -207,6 +217,7 @@ public class Player extends MovableDefaultActor {
             groundCheckbox.position.y -= speed;
         } else if (direction.top && !direction.bot) {
             position.y += speed;
+            centerPosition.y += speed;
             directionIndex = Direction.up;
             for (Checkbox cb : checkboxArray) {
                 cb.position.y += speed;
