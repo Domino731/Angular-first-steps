@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Tiles {
     private final List<Tile> tilesList;
+    private final ArrayList<Tile> markedTiles = new ArrayList<>();
 
     public Tiles() {
         tilesList = new ArrayList<>();
@@ -45,11 +46,27 @@ public class Tiles {
         }
     }
 
+
     public void markTile(int x, int y) {
+        Tile targetTile = null;
+
+        // un-mark tiles from previous frame
+        for (Tile tile : markedTiles) {
+            tile.setIsMarked(false);
+        }
+        markedTiles.clear();
+
+        // find current tile
         for (Tile tile : tilesList) {
-            if (tile.getCords() != null && tile.getCords().x == x && tile.getCords().y == y) {
-                tile.setIsMarked(true);
+            if (tile.getCords().x == x && tile.getCords().y == y) {
+                targetTile = tile;
+                break;
             }
+        }
+
+        markedTiles.add(targetTile);
+        for (Tile tile : markedTiles) {
+            tile.setIsMarked(true);
         }
     }
 

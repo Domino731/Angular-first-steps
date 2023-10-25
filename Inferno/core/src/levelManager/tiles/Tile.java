@@ -32,6 +32,7 @@ public class Tile {
 
     public Tile(Vector2s mapCords) {
         this.mapCords = mapCords;
+        this.cords = new Vector2i(mapCords.x, mapCords.y);
         this.spriteCords = new Vector2s((short) 0, (short) 7);
         this.spriteName = "Outdoors spring";
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
@@ -55,7 +56,6 @@ public class Tile {
                 if (isMarked) {
                     sb.draw(Textures.frameTxt, position.x, position.y, 16, 16);
                 }
-
             }
         };
     }
