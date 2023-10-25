@@ -2,6 +2,7 @@ package levelManager.tiles;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.fasterxml.jackson.databind.JsonNode;
+import utils.vectors.Vector;
 import utils.vectors.Vector2s;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 public class Tiles {
     private final List<Tile> tilesList;
     private final ArrayList<Tile> markedTiles = new ArrayList<>();
+    private int placeItemRange = 2;
 
     public Tiles() {
         tilesList = new ArrayList<>();
@@ -49,6 +51,19 @@ public class Tiles {
 
     public void markTile(int x, int y) {
         Tile targetTile = null;
+        ArrayList<Vector<Integer>> tileCords = new ArrayList<>();
+        int firstX = x - placeItemRange;
+        int lastX = x + placeItemRange;
+        int firstY = y - placeItemRange;
+        int lastY = y + placeItemRange;
+
+        for (int i = firstX; i <= lastX; i++) {
+            tileCords.add(new Vector<>(i, y));
+            for (int j = firstY; j <= lastY; j++) {
+                tileCords.add(new Vector<>(i, j));
+            }
+        }
+
 
         // un-mark tiles from previous frame
         for (Tile tile : markedTiles) {
@@ -58,13 +73,20 @@ public class Tiles {
 
         // find current tile
         for (Tile tile : tilesList) {
-            if (tile.getCords().x == x && tile.getCords().y == y) {
-                targetTile = tile;
-                break;
+            // check if tile is on tileCords
+            for (Vector<Integer> vector : tileCords) {
+                if (tile.getCords().x == vector.x && tile.getCords().y == vector.y) {
+                    markedTiles.add(tile);
+                }
             }
+
+
+//            if (tile.getCords().x == x && tile.getCords().y == y) {
+//                markedTiles.add(tile);
+//                break;
+//            }
         }
 
-        markedTiles.add(targetTile);
         for (Tile tile : markedTiles) {
             tile.setIsMarked(true);
         }
