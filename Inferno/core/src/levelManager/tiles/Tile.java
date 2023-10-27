@@ -29,7 +29,7 @@ public class Tile {
         this.spriteName = spriteName;
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
         this.txt = createTileTexture(spriteName, spriteCords.x, spriteCords.y);
-        setCurrentDraw();
+        setDrawWithoutMark();
     }
 
     public DefaultActor getActor() {
@@ -43,7 +43,7 @@ public class Tile {
         this.spriteName = "Outdoors spring";
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
         this.txt = createTileTexture(this.spriteName, this.spriteCords.x, this.spriteCords.y);
-        setCurrentDraw();
+        setDrawWithoutMark();
     }
 
     public void setActor(DefaultActor actor) {
@@ -55,21 +55,47 @@ public class Tile {
     }
 
     public void setIsMarked(boolean isMarked) {
-        if (actor != null) return;
         this.isMarked = isMarked;
+        if (!isMarked) {
+            setDrawWithoutMark();
+            return;
+        }
+        if (actor != null) {
+            setDrawWithRedMark();
+            return;
+        }
+        setDrawWithWhiteMark();
     }
 
-    private void setCurrentDraw() {
+    public void setDrawWithoutMark() {
         currentDraw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
                 sb.draw(txt, position.x, position.y);
-                if (isMarked) {
-                    sb.draw(Textures.whiteCellTxt, position.x, position.y, 16, 16);
-                }
             }
         };
     }
+
+    private void setDrawWithWhiteMark() {
+        currentDraw = new Draw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                sb.draw(txt, position.x, position.y);
+                sb.draw(Textures.whiteCellTxt, position.x, position.y, 16, 16);
+            }
+        };
+    }
+
+    private void setDrawWithRedMark() {
+        currentDraw = new Draw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                sb.draw(txt, position.x, position.y);
+                sb.draw(Textures.redCellTxt, position.x, position.y, 16, 16);
+            }
+        };
+    }
+
 
     public Vector2i getCords() {
         return cords;
