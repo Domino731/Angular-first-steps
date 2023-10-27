@@ -6,13 +6,11 @@ import constants.actors.constants.ActorTypes;
 import engine.Textures;
 import utils.vectors.Vector;
 
-import static engine.utils.PositionUtils.convertTilePosition;
-
 public class StaticDefaultActor extends DefaultActor {
     private final StaticDefaultActorConfig.Config config;
 
     public StaticDefaultActor(String id, Vector<Integer> position) {
-        super(ActorTypes.STATIC, convertTilePosition(position));
+        super(ActorTypes.STATIC, position.x, position.y);
         config = StaticDefaultActorConfig.getData(id);
         setGroundCheckbox(config.getGroundDimensionVector());
     }

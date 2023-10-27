@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public abstract class DefaultActor {
     protected Vector<Integer> position = null;
+    private Vector<Integer> mapPosition;
     protected ArrayList<Checkbox> checkboxArray = null;
     protected Checkbox groundCheckbox;
     protected boolean isCollision = false;
@@ -29,18 +30,10 @@ public abstract class DefaultActor {
 
     protected final String id = StringUtils.generateRandomId();
 
-    public DefaultActor(ActorTypes actorType, int positionX, int positionY, ArrayList<Checkbox> checkboxArray, String texturePath, DimensionVector<Integer> dim, DimensionCordVector dimCordVector) {
-        this.actorType = actorType;
-        this.position = new Vector<>(positionX, positionY);
-        this.checkboxArray = checkboxArray;
-        this.dim = dim;
-        this.texture = SpritesManager.loadSprite(texturePath);
-        this.groundCheckbox = new Checkbox(id, new Vector<>(position.x + dimCordVector.x, position.y + dimCordVector.y), new DimensionVector<>(dimCordVector.width, dimCordVector.height), new Vector<>(dimCordVector.x, dimCordVector.y));
-    }
-
     public DefaultActor(ActorTypes actorType, int positionX, int positionY, String texturePath, DimensionVector<Integer> dim, ArrayList<DimensionCordVector> arrayList, DimensionCordVector dimCordVector) {
         this.actorType = actorType;
-        this.position = new Vector<>(positionX, positionY);
+        this.position = new Vector<>(positionX * 16, positionY * 16);
+        this.mapPosition = new Vector<>(positionX, positionY);
         this.checkboxArray = createCheckboxList(arrayList);
         this.dim = dim;
         if (texturePath != null) {
@@ -54,9 +47,14 @@ public abstract class DefaultActor {
         this.dim = new DimensionVector<>(dim.width, dim.height);
     }
 
-    public DefaultActor(ActorTypes actorType, Vector<Integer> position) {
+    public Vector<Integer> getMapPosition() {
+        return mapPosition;
+    }
+
+    public DefaultActor(ActorTypes actorType, int positionX, int positionY) {
         this.actorType = actorType;
-        this.position = position;
+        this.position = new Vector<>(positionX * 16, positionY * 16);
+        this.mapPosition = new Vector<>(positionX, positionY);
     }
 
     protected void addMinuteAction(GameTimeNewMinute gameTimeNewMinute) {

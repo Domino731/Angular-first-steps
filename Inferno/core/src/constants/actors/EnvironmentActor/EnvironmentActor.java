@@ -23,7 +23,6 @@ import utils.vectors.Vector;
 import java.util.ArrayList;
 
 import static constants.actors.EnvironmentActor.EnvironmentActorConfig.getEnvironmentActorConfig;
-import static engine.utils.PositionUtils.convertTilePosition;
 
 public class EnvironmentActor extends DefaultActor {
     private boolean isDestroyed = false;
@@ -41,7 +40,7 @@ public class EnvironmentActor extends DefaultActor {
     private EnvironmentActorConfig.Stage currentStage;
 
     public EnvironmentActor(String actorId, Vector<Integer> position, ActorsManager actorsManager) {
-        super(ActorTypes.DYNAMIC, convertTilePosition(position));
+        super(ActorTypes.DYNAMIC, position.x, position.y);
         this.actorsManager = actorsManager;
         config = getEnvironmentActorConfig(actorId);
         currentStage = config.getStages()[0];

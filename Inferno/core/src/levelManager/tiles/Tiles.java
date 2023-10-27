@@ -2,6 +2,7 @@ package levelManager.tiles;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.fasterxml.jackson.databind.JsonNode;
+import constants.actors.DefaultActor;
 import utils.vectors.Vector;
 import utils.vectors.Vector2s;
 
@@ -48,6 +49,21 @@ public class Tiles {
         }
     }
 
+    public void assignActorToTile(DefaultActor actor) {
+        Vector<Integer> actorPosition = actor.getMapPosition();
+        Tile tile = null;
+        for (Tile tileData : tilesList) {
+            if (tileData.getCords().x == actorPosition.x && tileData.getCords().y == actorPosition.y) {
+                tile = tileData;
+                break;
+            }
+        }
+
+        if (tile != null) {
+            System.out.println("SET ACTOR");
+            tile.setActor(actor);
+        }
+    }
 
     public void markTile(int x, int y) {
         ArrayList<Vector<Integer>> tileCords = new ArrayList<>();

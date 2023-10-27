@@ -2,6 +2,7 @@ package levelManager.tiles;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import constants.actors.DefaultActor;
 import engine.Textures;
 import engine.utils.Draw;
 import utils.vectors.Vector;
@@ -19,6 +20,7 @@ public class Tile {
     private TextureRegion txt;
     private Draw currentDraw;
     private boolean isMarked = false;
+    private DefaultActor actor = null;
 
     public Tile(Vector2s mapCords, Vector2s spriteCords, String spriteName) {
         this.mapCords = mapCords;
@@ -28,6 +30,10 @@ public class Tile {
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
         this.txt = createTileTexture(spriteName, spriteCords.x, spriteCords.y);
         setCurrentDraw();
+    }
+
+    public DefaultActor getActor() {
+        return actor;
     }
 
     public Tile(Vector2s mapCords) {
@@ -40,11 +46,16 @@ public class Tile {
         setCurrentDraw();
     }
 
+    public void setActor(DefaultActor actor) {
+        this.actor = actor;
+    }
+
     public boolean getIsMarked() {
         return isMarked;
     }
 
     public void setIsMarked(boolean isMarked) {
+        if (actor != null) return;
         this.isMarked = isMarked;
     }
 

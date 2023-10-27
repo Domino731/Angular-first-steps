@@ -13,6 +13,7 @@ import hud.clock.Clock;
 import levelManager.LevelManager;
 import levelManager.tiles.Tile;
 import utils.Checkbox;
+import utils.vectors.Vector;
 
 import java.util.*;
 
@@ -40,8 +41,8 @@ public class ActorsManager {
         tiles = levelManager.getTiles().getTilesList();
         // TODO: spawdzic czy jak dwa obiekty sa w tym samym miejscu to czy nie blokuje player'a
         createPlayer();
-//        EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<Integer>(4, 5), this);
-//        addActor(newActor);
+        EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<>(5, 4), this);
+        addActor(newActor);
         setGameTimeMinuteAction();
         ;
     }
@@ -83,7 +84,13 @@ public class ActorsManager {
         checkboxes.add(actor.getGroundCheckbox());
         groundCheckboxes.add(actor.getGroundCheckbox());
         actionCollisions.addAll(actor.getActionCollisions());
+        assignActorToTile(actor);
     }
+
+    private void assignActorToTile(DefaultActor actor) {
+        levelManager.getTiles().assignActorToTile(actor);
+    }
+
 
     public void removeActor(DefaultActor actor) {
         allActors.remove(actor);
