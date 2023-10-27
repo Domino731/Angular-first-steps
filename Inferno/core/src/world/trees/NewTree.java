@@ -18,7 +18,7 @@ public class NewTree extends DefaultActor {
     private float boundary = 40.0f;
 
     public NewTree(Vector<Integer> position) {
-        super(ActorTypes.STATIC, position, "sprites/trees/oak_spring.png", new DimensionVector<Integer>(20, 20), new ArrayList<DimensionCordVector>(), new DimensionCordVector(10, 10, 10, 10));
+        super(ActorTypes.STATIC, position.x, position.y, "sprites/trees/oak_spring.png", new DimensionVector<Integer>(20, 20), new ArrayList<DimensionCordVector>(), new DimensionCordVector(10, 10, 10, 10));
         textures = new TreeTextures(TreeConstants.Tree.OAK);
         treeCrownPosition = new Vector<>(this.position.x - 16, this.position.y);
     }

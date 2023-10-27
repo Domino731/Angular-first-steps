@@ -29,18 +29,18 @@ public abstract class DefaultActor {
 
     protected final String id = StringUtils.generateRandomId();
 
-    public DefaultActor(ActorTypes actorType, Vector<Integer> position, ArrayList<Checkbox> checkboxArray, String texturePath, DimensionVector<Integer> dim, DimensionCordVector dimCordVector) {
+    public DefaultActor(ActorTypes actorType, int positionX, int positionY, ArrayList<Checkbox> checkboxArray, String texturePath, DimensionVector<Integer> dim, DimensionCordVector dimCordVector) {
         this.actorType = actorType;
-        this.position = position;
+        this.position = new Vector<>(positionX, positionY);
         this.checkboxArray = checkboxArray;
         this.dim = dim;
         this.texture = SpritesManager.loadSprite(texturePath);
         this.groundCheckbox = new Checkbox(id, new Vector<>(position.x + dimCordVector.x, position.y + dimCordVector.y), new DimensionVector<>(dimCordVector.width, dimCordVector.height), new Vector<>(dimCordVector.x, dimCordVector.y));
     }
 
-    public DefaultActor(ActorTypes actorType, Vector<Integer> position, String texturePath, DimensionVector<Integer> dim, ArrayList<DimensionCordVector> arrayList, DimensionCordVector dimCordVector) {
+    public DefaultActor(ActorTypes actorType, int positionX, int positionY, String texturePath, DimensionVector<Integer> dim, ArrayList<DimensionCordVector> arrayList, DimensionCordVector dimCordVector) {
         this.actorType = actorType;
-        this.position = position;
+        this.position = new Vector<>(positionX, positionY);
         this.checkboxArray = createCheckboxList(arrayList);
         this.dim = dim;
         if (texturePath != null) {

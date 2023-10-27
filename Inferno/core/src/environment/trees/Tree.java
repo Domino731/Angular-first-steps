@@ -24,8 +24,6 @@ import utils.vectors.Vector;
 
 import java.util.ArrayList;
 
-import static engine.utils.PositionUtils.convertTilePosition;
-
 public class Tree extends DefaultActor {
     private final TreesConfig.Config config;
     private final TreesConfig.Stage firstStage;
@@ -48,7 +46,7 @@ public class Tree extends DefaultActor {
     public Tree(String treeId, final Vector<Integer> position, ActorsManager actorsManager) {
         super(
                 ActorTypes.STATIC,
-                convertTilePosition(position),
+                position.x, position.y,
                 null,
                 new DimensionVector<>(20, 20),
                 new ArrayList<DimensionCordVector>(),

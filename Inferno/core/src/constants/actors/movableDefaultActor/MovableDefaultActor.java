@@ -27,7 +27,7 @@ public class MovableDefaultActor extends DefaultActor {
     public MovableDefaultActor(int positionX, int positionY, ArrayList<DimensionCordVector> checkboxArray, String texturePath, TextureData textureData, DimensionVector<Integer> dim, DimensionCordVector groundCheckbox) {
         super(
                 ActorTypes.STATIC,
-                new Vector<Integer>(positionX * 16, positionY * 16),
+                positionX, positionY,
                 texturePath,
                 new DimensionVector<Integer>(16, 32),
                 checkboxArray,

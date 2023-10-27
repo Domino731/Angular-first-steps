@@ -19,7 +19,6 @@ import utils.vectors.Vector;
 
 import java.util.ArrayList;
 
-import static engine.utils.PositionUtils.convertTilePosition;
 import static environment.resources.ResourceUtils.*;
 
 public class Resource extends DefaultActor {
@@ -33,7 +32,7 @@ public class Resource extends DefaultActor {
     public Resource(String id, final Vector<Integer> position, ActorsManager actorsManager) {
         super(
                 ActorTypes.STATIC,
-                convertTilePosition(position),
+                position.x, position.y,
                 null,
                 new DimensionVector<>(20, 20),
                 new ArrayList<DimensionCordVector>(),
