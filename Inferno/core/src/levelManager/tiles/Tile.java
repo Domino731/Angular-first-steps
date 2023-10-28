@@ -30,7 +30,10 @@ public class Tile {
         this.spriteCords = spriteCords;
         this.spriteName = spriteName;
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
-        windowPosition = new Vector<>((int) (PlayScreen.cameraXOffset * 0.2), (int) (PlayScreen.cameraYOffset * 0.2));
+        windowPosition = new Vector<>(PlayScreen.cameraXOffset + position.x, PlayScreen.cameraYOffset + position.y);
+        windowPosition.x = (int) (windowPosition.x * 0.2);
+        windowPosition.y = (int) (windowPosition.y * 0.2);
+        System.out.println(windowPosition.x + " " + windowPosition.y);
         this.txt = createTileTexture(spriteName, spriteCords.x, spriteCords.y);
         setDrawWithoutMark();
     }
@@ -45,9 +48,11 @@ public class Tile {
         this.spriteCords = new Vector2s((short) 0, (short) 7);
         this.spriteName = "Outdoors spring";
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
-        windowPosition = new Vector<>((int) (PlayScreen.cameraXOffset * 0.2), (int) (PlayScreen.cameraYOffset * 0.2));
-        windowPosition.x += position.x;
-        windowPosition.y += position.y;
+        windowPosition = new Vector<>(PlayScreen.cameraXOffset + position.x, PlayScreen.cameraYOffset + position.y);
+        windowPosition.x = (int) (windowPosition.x * 0.2);
+        windowPosition.y = (int) (windowPosition.y * 0.2);
+        System.out.println(windowPosition.x + " " + windowPosition.y);
+        System.out.println(windowPosition.x + " " + windowPosition.y);
         this.txt = createTileTexture(this.spriteName, this.spriteCords.x, this.spriteCords.y);
         setDrawWithoutMark();
     }
