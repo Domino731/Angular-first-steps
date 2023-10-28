@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.fasterxml.jackson.databind.JsonNode;
 import constants.actors.DefaultActor;
 import utils.vectors.Vector;
+import utils.vectors.Vector2i;
 import utils.vectors.Vector2s;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 public class Tiles {
     private final List<Tile> tilesList;
     private final ArrayList<Tile> markedTiles = new ArrayList<>();
+    private Tile hoveredTile = null;
     private int placeItemRange = 2;
 
     public Tiles() {
@@ -47,6 +49,27 @@ public class Tiles {
                 }
             }
         }
+    }
+
+    public void hoverTile(int positionX, int positionY) {
+        Tile tile = null;
+        for (Tile tileData : tilesList) {
+            Vector2i mapCords = tileData.getCords();
+            if (mapCords.x == positionX && mapCords.y == positionY) {
+                tile = tileData;
+                break;
+            }
+        }
+
+        if (tile != null) {
+            if (hoveredTile != null) {
+                hoveredTile.unHover();
+            }
+            hoveredTile = tile;
+            hoveredTile.hover();
+            return;
+        }
+        hoveredTile = null;
     }
 
     public void assignActorToTile(DefaultActor actor) {

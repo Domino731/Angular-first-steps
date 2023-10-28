@@ -113,6 +113,10 @@ public class ActorsManager {
         }
     }
 
+    public void hoverTile(int positionX, int positionY) {
+        levelManager.getTiles().hoverTile(positionX, positionY);
+    }
+
     public void update(float delta) {
         gameTime.update(delta);
         clock.setTime(gameTime.getDays(), gameTime.getHours(), gameTime.getMinutes());

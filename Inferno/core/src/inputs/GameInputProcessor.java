@@ -123,7 +123,7 @@ public class GameInputProcessor implements InputProcessor {
         int tileY = (int) (screenY * 0.2);
         tileX /= 16;
         tileY /= 16;
-        System.out.println("MOUSE XY: " + tileX + " | " + tileY);
+        actorsManager.hoverTile(tileX, tileY);
         return false;
     }
 

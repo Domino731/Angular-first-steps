@@ -24,6 +24,7 @@ public class Tile {
     private DefaultActor actor = null;
     private Vector<Integer> windowPosition;
 
+
     public Tile(Vector2s mapCords, Vector2s spriteCords, String spriteName) {
         this.mapCords = mapCords;
         this.cords = new Vector2i(mapCords.x, mapCords.y);
@@ -48,6 +49,20 @@ public class Tile {
         windowPosition = new Vector<>(PlayScreen.cameraXOffset + position.x, PlayScreen.cameraYOffset + position.y);
         this.txt = createTileTexture(this.spriteName, this.spriteCords.x, this.spriteCords.y);
         setDrawWithoutMark();
+    }
+
+    public void unHover() {
+        setDrawWithoutMark();
+    }
+
+    public void hover() {
+        currentDraw = new Draw() {
+            @Override
+            public void draw(SpriteBatch sb) {
+                sb.draw(txt, position.x, position.y);
+                sb.draw(Textures.whiteCellTxt, position.x, position.y, 16, 16);
+            }
+        };
     }
 
     public void setActor(DefaultActor actor) {
