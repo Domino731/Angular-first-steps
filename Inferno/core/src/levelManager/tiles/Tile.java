@@ -31,9 +31,6 @@ public class Tile {
         this.spriteName = spriteName;
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
         windowPosition = new Vector<>(PlayScreen.cameraXOffset + position.x, PlayScreen.cameraYOffset + position.y);
-        windowPosition.x = (int) (windowPosition.x * 0.2);
-        windowPosition.y = (int) (windowPosition.y * 0.2);
-        System.out.println(windowPosition.x + " " + windowPosition.y);
         this.txt = createTileTexture(spriteName, spriteCords.x, spriteCords.y);
         setDrawWithoutMark();
     }
@@ -49,10 +46,6 @@ public class Tile {
         this.spriteName = "Outdoors spring";
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
         windowPosition = new Vector<>(PlayScreen.cameraXOffset + position.x, PlayScreen.cameraYOffset + position.y);
-        windowPosition.x = (int) (windowPosition.x * 0.2);
-        windowPosition.y = (int) (windowPosition.y * 0.2);
-        System.out.println(windowPosition.x + " " + windowPosition.y);
-        System.out.println(windowPosition.x + " " + windowPosition.y);
         this.txt = createTileTexture(this.spriteName, this.spriteCords.x, this.spriteCords.y);
         setDrawWithoutMark();
     }

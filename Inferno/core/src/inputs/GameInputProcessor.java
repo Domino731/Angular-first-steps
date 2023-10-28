@@ -119,8 +119,11 @@ public class GameInputProcessor implements InputProcessor {
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
-        System.out.println(screenX * 0.2);
-        System.out.println(screenY * 0.2);
+        int tileX = (int) (screenX * 0.2);
+        int tileY = (int) (screenY * 0.2);
+        tileX /= 16;
+        tileY /= 16;
+        System.out.println("MOUSE XY: " + tileX + " | " + tileY);
         return false;
     }
 
