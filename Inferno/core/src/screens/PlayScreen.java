@@ -18,11 +18,16 @@ public class PlayScreen implements Screen {
     private Player player;
     Sprite sprite;
     OrthographicCamera camera;
+    public static int cameraXOffset = 0;
+    public static int cameraYOffset = 0;
 
     public PlayScreen(MyGdxGame game) {
         this.game = game;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.translate(camera.viewportWidth / 2, camera.viewportHeight / 2);
+        cameraXOffset = (int) (camera.viewportWidth / 2);
+        cameraYOffset = (int) (camera.viewportHeight / 2);
+        camera.translate(cameraXOffset, cameraYOffset);
+
         actorsManager = new ActorsManager();
         player = actorsManager.player;
         Gdx.input.setInputProcessor(new GameInputProcessor(actorsManager));

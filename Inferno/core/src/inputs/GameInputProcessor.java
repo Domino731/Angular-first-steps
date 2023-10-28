@@ -14,6 +14,7 @@ public class GameInputProcessor implements InputProcessor {
         player = this.actorsManager.player;
     }
 
+
     @Override
     public boolean keyDown(int keycode) {
         switch (keycode) {
@@ -118,6 +119,8 @@ public class GameInputProcessor implements InputProcessor {
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
+        System.out.println(screenX * 0.2);
+        System.out.println(screenY * 0.2);
         return false;
     }
 
