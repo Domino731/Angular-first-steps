@@ -4,6 +4,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import engine.actionCollision.actorsManager.ActorsManager;
 import game.entities.player.Player;
+import screens.PlayScreen;
 
 public class GameInputProcessor implements InputProcessor {
     private ActorsManager actorsManager;
@@ -123,7 +124,7 @@ public class GameInputProcessor implements InputProcessor {
         int tileY = (int) (screenY * 0.2);
         tileX /= 16;
         tileY /= 16;
-        actorsManager.hoverTile(tileX, tileY);
+        actorsManager.hoverTile(tileX, PlayScreen.cameraYOffset - tileY);
         return false;
     }
 
