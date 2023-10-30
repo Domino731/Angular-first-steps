@@ -58,6 +58,7 @@ public class Tile {
     }
 
     public void hover() {
+        isHovered = true;
         currentDraw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {
@@ -99,6 +100,16 @@ public class Tile {
     }
 
     private void setDrawWithWhiteMark() {
+        if (isHovered) {
+            currentDraw = new Draw() {
+                @Override
+                public void draw(SpriteBatch sb) {
+                    sb.draw(txt, position.x, position.y);
+                    sb.draw(Textures.greenCellTxt, position.x, position.y, 16, 16);
+                }
+            };
+            return;
+        }
         currentDraw = new Draw() {
             @Override
             public void draw(SpriteBatch sb) {

@@ -77,4 +77,5 @@ public class Urls {
     public static final String SPRITE_DESERT = "sprites/tileSets/desert.png";
     public static final String TXT_WHITE_CELL = "sprites/utils/white-cell.png";
     public static final String TXT_RED_CELL = "sprites/utils/red-cell.png";
+    public static final String TXT_GREEN_CELL = "sprites/utils/green-cell.png";
 }
