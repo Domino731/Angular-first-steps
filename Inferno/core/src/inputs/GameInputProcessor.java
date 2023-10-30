@@ -1,10 +1,10 @@
 package inputs;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import engine.actionCollision.actorsManager.ActorsManager;
 import game.entities.player.Player;
-import screens.PlayScreen;
 
 public class GameInputProcessor implements InputProcessor {
     private ActorsManager actorsManager;
@@ -121,10 +121,11 @@ public class GameInputProcessor implements InputProcessor {
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
         int tileX = (int) (screenX * 0.2);
-        int tileY = (int) (screenY * 0.2);
+        int tileY = (int) ((Gdx.graphics.getHeight() - screenY) * 0.2);
+        System.out.println(tileY);
         tileX /= 16;
         tileY /= 16;
-        actorsManager.hoverTile(tileX, PlayScreen.cameraYOffset - tileY);
+        actorsManager.hoverTile(tileX, tileY);
         return false;
     }
 

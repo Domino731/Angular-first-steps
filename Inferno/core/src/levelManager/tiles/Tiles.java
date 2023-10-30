@@ -65,10 +65,12 @@ public class Tiles {
             if (hoveredTile != null) {
                 hoveredTile.unHover();
             }
+            System.out.println("HOVER");
             hoveredTile = tile;
             hoveredTile.hover();
             return;
         }
+        System.out.println("UNHOVER");
         hoveredTile = null;
     }
 
@@ -83,7 +85,6 @@ public class Tiles {
         }
 
         if (tile != null) {
-            System.out.println("SET ACTOR");
             tile.setActor(actor);
         }
     }
