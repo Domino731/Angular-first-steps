@@ -120,7 +120,9 @@ public class GameInputProcessor implements InputProcessor {
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
-        int tileX = (int) (screenX * 0.2);
+        // TODO: make xOffset dynamic based on player spawn
+        int xOffset = 800;
+        int tileX = (int) ((screenX - xOffset) * 0.2);
         int tileY = (int) ((Gdx.graphics.getHeight() - screenY) * 0.2);
         System.out.println(tileY);
         tileX /= 16;

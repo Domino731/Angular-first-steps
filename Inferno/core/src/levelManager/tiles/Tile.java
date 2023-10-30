@@ -21,6 +21,7 @@ public class Tile {
     private TextureRegion txt;
     private Draw currentDraw;
     private boolean isMarked = false;
+    private boolean isHovered = false;
     private DefaultActor actor = null;
     private Vector<Integer> windowPosition;
 
@@ -52,6 +53,7 @@ public class Tile {
     }
 
     public void unHover() {
+        isHovered = false;
         setDrawWithoutMark();
     }
 
@@ -91,6 +93,7 @@ public class Tile {
             @Override
             public void draw(SpriteBatch sb) {
                 sb.draw(txt, position.x, position.y);
+                sb.draw(Textures.frameTxt, position.x, position.y, 16, 16);
             }
         };
     }
