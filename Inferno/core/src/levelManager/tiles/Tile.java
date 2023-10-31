@@ -10,6 +10,7 @@ import utils.vectors.Vector;
 import utils.vectors.Vector2i;
 import utils.vectors.Vector2s;
 
+import static levelManager.tiles.Constants.TILE_SIZE;
 import static levelManager.tiles.Utils.createTileTexture;
 
 public class Tile {
@@ -94,7 +95,7 @@ public class Tile {
             @Override
             public void draw(SpriteBatch sb) {
                 sb.draw(txt, position.x, position.y);
-                sb.draw(Textures.frameTxt, position.x, position.y, 16, 16);
+                sb.draw(Textures.frameTxt, position.x, position.y, TILE_SIZE, TILE_SIZE);
             }
         };
     }
@@ -105,7 +106,7 @@ public class Tile {
                 @Override
                 public void draw(SpriteBatch sb) {
                     sb.draw(txt, position.x, position.y);
-                    sb.draw(Textures.greenCellTxt, position.x, position.y, 16, 16);
+                    sb.draw(Textures.greenCellTxt, position.x, position.y, TILE_SIZE, TILE_SIZE);
                 }
             };
             return;
@@ -114,7 +115,7 @@ public class Tile {
             @Override
             public void draw(SpriteBatch sb) {
                 sb.draw(txt, position.x, position.y);
-                sb.draw(Textures.whiteCellTxt, position.x, position.y, 16, 16);
+                sb.draw(Textures.whiteCellTxt, position.x, position.y, TILE_SIZE, TILE_SIZE);
             }
         };
     }
@@ -124,7 +125,7 @@ public class Tile {
             @Override
             public void draw(SpriteBatch sb) {
                 sb.draw(txt, position.x, position.y);
-                sb.draw(Textures.redCellTxt, position.x, position.y, 16, 16);
+                sb.draw(Textures.redCellTxt, position.x, position.y, TILE_SIZE, TILE_SIZE);
             }
         };
     }
