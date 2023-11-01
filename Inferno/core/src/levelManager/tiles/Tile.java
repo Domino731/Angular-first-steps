@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import constants.actors.DefaultActor;
 import engine.Textures;
 import engine.utils.Draw;
-import screens.PlayScreen;
 import utils.vectors.Vector;
 import utils.vectors.Vector2i;
 import utils.vectors.Vector2s;
@@ -24,8 +23,7 @@ public class Tile {
     private boolean isMarked = false;
     private boolean isHovered = false;
     private DefaultActor actor = null;
-    private Vector<Integer> windowPosition;
-
+    private Vector<Integer> mapCordsByWindow;
 
     public Tile(Vector2s mapCords, Vector2s spriteCords, String spriteName) {
         this.mapCords = mapCords;
@@ -33,7 +31,7 @@ public class Tile {
         this.spriteCords = spriteCords;
         this.spriteName = spriteName;
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
-        windowPosition = new Vector<>(PlayScreen.cameraXOffset + position.x, PlayScreen.cameraYOffset + position.y);
+        this.mapCordsByWindow = new Vector<>(0, 0);
         this.txt = createTileTexture(spriteName, spriteCords.x, spriteCords.y);
         setDrawWithoutMark();
     }
@@ -48,7 +46,7 @@ public class Tile {
         this.spriteCords = new Vector2s((short) 0, (short) 7);
         this.spriteName = "Outdoors spring";
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
-        windowPosition = new Vector<>(PlayScreen.cameraXOffset + position.x, PlayScreen.cameraYOffset + position.y);
+        this.mapCordsByWindow = new Vector<>(0, 0);
         this.txt = createTileTexture(this.spriteName, this.spriteCords.x, this.spriteCords.y);
         setDrawWithoutMark();
     }
