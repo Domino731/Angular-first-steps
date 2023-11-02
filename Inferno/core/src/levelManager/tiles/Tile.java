@@ -28,6 +28,7 @@ public class Tile {
     public Tile(Vector2s mapCords, Vector2s spriteCords, String spriteName) {
         this.mapCords = mapCords;
         this.cords = new Vector2i(mapCords.x, mapCords.y);
+        this.mapCordsByWindow = new Vector<Integer>((int) mapCords.x, (int) mapCords.y);
         this.spriteCords = spriteCords;
         this.spriteName = spriteName;
         this.position = new Vector<>(mapCords.x * Tiles.tileSize, mapCords.y * Tiles.tileSize);
