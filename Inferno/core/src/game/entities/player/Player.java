@@ -219,6 +219,7 @@ public class Player extends MovableDefaultActor {
             position.y -= speed;
             centerPosition.y -= speed;
             directionIndex = Direction.down;
+            GameInputProcessor.increaseScreenYOffset(speed);
             for (Checkbox cb : checkboxArray) {
                 cb.position.y -= speed;
             }
@@ -232,6 +233,7 @@ public class Player extends MovableDefaultActor {
             position.y += speed;
             centerPosition.y += speed;
             directionIndex = Direction.up;
+            GameInputProcessor.decreaseScreenYOffset(speed);
             for (Checkbox cb : checkboxArray) {
                 cb.position.y += speed;
             }

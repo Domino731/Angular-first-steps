@@ -10,6 +10,8 @@ public class GameInputProcessor implements InputProcessor {
     private ActorsManager actorsManager;
     private Player player;
     private static int screenXOffset = 800;
+    private static int screenYOffset = 0;
+    private static final int screenMultiplier = 5;
 
     public GameInputProcessor(ActorsManager actorsManager) {
         this.actorsManager = actorsManager;
@@ -25,15 +27,19 @@ public class GameInputProcessor implements InputProcessor {
     }
 
     public static void increaseScreenXOffset(int increaseValue) {
-        int multiplier = 5;
-        GameInputProcessor.screenXOffset += increaseValue * multiplier;
-        System.out.println("NEW OFFSET: " + screenXOffset);
+        GameInputProcessor.screenXOffset += increaseValue * screenMultiplier;
     }
 
     public static void decreaseScreenXOffset(int increaseValue) {
-        int multiplier = 5;
-        GameInputProcessor.screenXOffset -= increaseValue * multiplier;
-        System.out.println("NEW OFFSET: " + screenXOffset);
+        GameInputProcessor.screenXOffset -= increaseValue * screenMultiplier;
+    }
+
+    public static void increaseScreenYOffset(int increaseValue) {
+        GameInputProcessor.screenYOffset += increaseValue * screenMultiplier;
+    }
+
+    public static void decreaseScreenYOffset(int increaseValue) {
+        GameInputProcessor.screenYOffset -= increaseValue * screenMultiplier;
     }
 
     @Override
@@ -111,9 +117,6 @@ public class GameInputProcessor implements InputProcessor {
         return true;
     }
 
-    // Implement other methods of the InputProcessor interface as needed
-    // such as touchDown, touchUp, etc. (you can leave them empty if not used)
-
     @Override
     public boolean keyTyped(char character) {
         return false;
@@ -145,14 +148,8 @@ public class GameInputProcessor implements InputProcessor {
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
-        // TODO: make xOffset dynamic based on player spawn
-        int tileX2 = (int) (screenX * 0.2) / 16;
-        int tileY2 = (int) (screenX * 0.2);
-        int tileX = (int) ((screenX - screenXOffset) * 0.2);
-        int tileY = (int) ((Gdx.graphics.getHeight() - screenY) * 0.2);
-        tileX /= 16;
-        tileY /= 16;
-        System.out.println(screenXOffset);
+        int tileX = (int) ((screenX - screenXOffset) * 0.2) / 16;
+        int tileY = (int) ((Gdx.graphics.getHeight() - (screenY + screenYOffset)) * 0.2) / 16;
         System.out.println("HOVER TILE: " + tileX + " " + tileY);
         actorsManager.hoverTile(tileX, tileY);
         return false;
