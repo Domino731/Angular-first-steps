@@ -9,12 +9,32 @@ import game.entities.player.Player;
 public class GameInputProcessor implements InputProcessor {
     private ActorsManager actorsManager;
     private Player player;
+    private static int screenXOffset = 800;
 
     public GameInputProcessor(ActorsManager actorsManager) {
         this.actorsManager = actorsManager;
         player = this.actorsManager.player;
     }
 
+    public static int getScreenXOffset() {
+        return screenXOffset;
+    }
+
+    public static void setScreenXOffset(int screenXOffset) {
+        GameInputProcessor.screenXOffset = screenXOffset;
+    }
+
+    public static void increaseScreenXOffset(int increaseValue) {
+        int multiplier = 5;
+        GameInputProcessor.screenXOffset += increaseValue * multiplier;
+        System.out.println("NEW OFFSET: " + screenXOffset);
+    }
+
+    public static void decreaseScreenXOffset(int increaseValue) {
+        int multiplier = 5;
+        GameInputProcessor.screenXOffset -= increaseValue * multiplier;
+        System.out.println("NEW OFFSET: " + screenXOffset);
+    }
 
     @Override
     public boolean keyDown(int keycode) {
@@ -126,12 +146,14 @@ public class GameInputProcessor implements InputProcessor {
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
         // TODO: make xOffset dynamic based on player spawn
-        int xOffset = 800;
-        int tileX = (int) ((screenX - xOffset) * 0.2);
+        int tileX2 = (int) (screenX * 0.2) / 16;
+        int tileY2 = (int) (screenX * 0.2);
+        int tileX = (int) ((screenX - screenXOffset) * 0.2);
         int tileY = (int) ((Gdx.graphics.getHeight() - screenY) * 0.2);
-        System.out.println(tileY);
         tileX /= 16;
         tileY /= 16;
+        System.out.println(screenXOffset);
+        System.out.println("HOVER TILE: " + tileX + " " + tileY);
         actorsManager.hoverTile(tileX, tileY);
         return false;
     }

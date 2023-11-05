@@ -14,6 +14,7 @@ import game.entities.player.inventory.PlayerInventory;
 import game.entities.player.playerTextures.PlayerTextures;
 import game.entities.player.style.PlayerStyle;
 import game.entities.player.style.paintTextures.PaintTextures;
+import inputs.GameInputProcessor;
 import utils.Checkbox;
 import utils.Direction;
 import utils.vectors.DimensionCordVector;
@@ -185,10 +186,12 @@ public class Player extends MovableDefaultActor {
             return;
         }
 
+        // MOVE LEFT
         if (direction.left && !direction.right) {
             position.x -= speed;
             centerPosition.x -= speed;
             directionIndex = Direction.left;
+            GameInputProcessor.increaseScreenXOffset(speed);
             for (Checkbox cb : checkboxArray) {
                 cb.position.x -= speed;
             }
@@ -196,10 +199,13 @@ public class Player extends MovableDefaultActor {
                 cb.position.x -= speed;
             }
             groundCheckbox.position.x -= speed;
-        } else if (direction.right && !direction.left) {
+        }
+        // MOVE RIGHT
+        else if (direction.right && !direction.left) {
             position.x += speed;
             centerPosition.x += speed;
             directionIndex = Direction.right;
+            GameInputProcessor.decreaseScreenXOffset(speed);
             for (Checkbox cb : checkboxArray) {
                 cb.position.x += speed;
             }
@@ -208,7 +214,7 @@ public class Player extends MovableDefaultActor {
             }
             groundCheckbox.position.x += speed;
         }
-
+        // MOVE BOTTOM
         if (!direction.top && direction.bot) {
             position.y -= speed;
             centerPosition.y -= speed;
@@ -220,7 +226,9 @@ public class Player extends MovableDefaultActor {
                 cb.position.y -= speed;
             }
             groundCheckbox.position.y -= speed;
-        } else if (direction.top && !direction.bot) {
+        }
+        // MOVE TOP
+        else if (direction.top && !direction.bot) {
             position.y += speed;
             centerPosition.y += speed;
             directionIndex = Direction.up;
