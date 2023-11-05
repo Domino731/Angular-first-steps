@@ -70,7 +70,11 @@ public class ActorsManager {
 
     public void onMouseRightClick(int x, int y) {
         if (player.getIsBuildMode()) {
-            System.out.println("PUT ITEM");
+            Tile tile = levelManager.getTiles().getHoveredTile();
+            if (tile != null) {
+                EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<>(tile.getCords().x, tile.getCords().y), this);
+                addActor(newActor);
+            }
         }
     }
 

@@ -70,8 +70,18 @@ public class Tiles {
             hoveredTile.hover();
             return;
         }
-        System.out.println("UNHOVER");
         hoveredTile = null;
+    }
+
+    public Tile getHoveredTile() {
+        Tile tile = null;
+        for (Tile tileData : tilesList) {
+            if (tileData.getIsHovered()) {
+                tile = tileData;
+                break;
+            }
+        }
+        return tile;
     }
 
     public Tile findTileByCords(int x, int y) {

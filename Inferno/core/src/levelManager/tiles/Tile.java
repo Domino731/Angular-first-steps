@@ -76,6 +76,10 @@ public class Tile {
         return isMarked;
     }
 
+    public boolean getIsHovered() {
+        return isHovered;
+    }
+
     public void setIsMarked(boolean isMarked) {
         this.isMarked = isMarked;
         if (!isMarked) {
