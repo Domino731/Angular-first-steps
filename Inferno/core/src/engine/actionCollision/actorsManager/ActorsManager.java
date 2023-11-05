@@ -39,12 +39,9 @@ public class ActorsManager {
     public ActorsManager() {
         levelManager = new LevelManager();
         tiles = levelManager.getTiles().getTilesList();
-        // TODO: spawdzic czy jak dwa obiekty sa w tym samym miejscu to czy nie blokuje player'a
         createPlayer();
         EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<>(5, 4), this);
         addActor(newActor);
-        setGameTimeMinuteAction();
-        ;
     }
 
     public Integer findTile(int targetX, int targetY) {
@@ -95,6 +92,7 @@ public class ActorsManager {
         groundCheckboxes.add(actor.getGroundCheckbox());
         actionCollisions.addAll(actor.getActionCollisions());
         assignActorToTile(actor);
+        gameTime.addNewMinuteActions(actor.getMinuteActions());
     }
 
     private void assignActorToTile(DefaultActor actor) {
