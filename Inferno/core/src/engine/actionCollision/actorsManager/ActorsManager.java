@@ -68,6 +68,12 @@ public class ActorsManager {
         actionCollisions.addAll(actions);
     }
 
+    public void onMouseRightClick(int x, int y) {
+        if (player.getIsBuildMode()) {
+            System.out.println("PUT ITEM");
+        }
+    }
+
     private void createPlayer() {
         player = new Player(this);
         allActors.add(player);

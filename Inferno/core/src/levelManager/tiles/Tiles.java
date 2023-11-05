@@ -74,6 +74,17 @@ public class Tiles {
         hoveredTile = null;
     }
 
+    public Tile findTileByCords(int x, int y) {
+        Tile tile = null;
+        for (Tile tileData : tilesList) {
+            if (tileData.getCords().x == x && tileData.getCords().y == y) {
+                tile = tileData;
+                break;
+            }
+        }
+        return tile;
+    }
+
     public void assignActorToTile(DefaultActor actor) {
         Vector<Integer> actorPosition = actor.getMapPosition();
         Tile tile = null;

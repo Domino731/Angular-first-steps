@@ -18,6 +18,7 @@ public class GameInputProcessor implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
+        System.err.println(keycode);
         switch (keycode) {
             // PLAYER MOVEMENT
             case Input.Keys.W:
@@ -99,7 +100,11 @@ public class GameInputProcessor implements InputProcessor {
     }
 
     @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+    public boolean touchDown(int x, int y, int pointer, int button) {
+        System.out.println("button: " + button);
+        if (button == Input.Buttons.LEFT) {
+            actorsManager.onMouseRightClick(x, y);
+        }
         return false;
     }
 

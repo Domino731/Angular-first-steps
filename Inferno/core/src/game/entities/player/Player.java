@@ -40,6 +40,7 @@ public class Player extends MovableDefaultActor {
     private ActionTypes currItemActionType = null;
     private Vector<Integer> centerPosition;
     private Vector<Integer> centerPositionFinal;
+    private boolean isBuildMode = true;
 
     public Player(ActorsManager actorsManager) {
         super(6, 9, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
@@ -54,6 +55,10 @@ public class Player extends MovableDefaultActor {
         setActionsCollisions();
 
         changeInventorySlot((byte) 1);
+    }
+
+    public boolean getIsBuildMode() {
+        return isBuildMode;
     }
 
     public void startStaticAction() {
