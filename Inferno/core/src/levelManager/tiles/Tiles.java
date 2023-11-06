@@ -55,7 +55,7 @@ public class Tiles {
         Tile tile = null;
         for (Tile tileData : tilesList) {
             Vector2i mapCords = tileData.getCords();
-            if (mapCords.x == positionX && mapCords.y == positionY) {
+            if (mapCords.x == positionX && mapCords.y == positionY && tileData.getIsMarked()) {
                 tile = tileData;
                 break;
             }
@@ -65,7 +65,6 @@ public class Tiles {
             if (hoveredTile != null) {
                 hoveredTile.unHover();
             }
-            System.out.println("HOVER");
             hoveredTile = tile;
             hoveredTile.hover();
             return;

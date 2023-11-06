@@ -125,9 +125,9 @@ public class GameInputProcessor implements InputProcessor {
 
     @Override
     public boolean touchDown(int x, int y, int pointer, int button) {
-        System.out.println("button: " + button);
         if (button == Input.Buttons.LEFT) {
             actorsManager.onMouseRightClick(x, y);
+            return true;
         }
         return false;
     }
@@ -151,7 +151,6 @@ public class GameInputProcessor implements InputProcessor {
     public boolean mouseMoved(int screenX, int screenY) {
         int tileX = (int) ((screenX - screenXOffset) * 0.2) / 16;
         int tileY = (int) ((Gdx.graphics.getHeight() - (screenY + screenYOffset)) * 0.2) / 16;
-        System.out.println("HOVER TILE: " + tileX + " " + tileY);
         actorsManager.hoverTile(tileX, tileY);
         return false;
     }
