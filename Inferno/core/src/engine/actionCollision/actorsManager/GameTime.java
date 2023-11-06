@@ -31,6 +31,15 @@ public class GameTime {
         }
     }
 
+    public void removeMinuteAction(GameTimeNewMinute gameTimeNewMinute) {
+        minuteActions.remove(gameTimeNewMinute);
+    }
+
+    public void removeMinuteAction(ArrayList<GameTimeNewMinute> gameTimeNewMinute) {
+        minuteActions.removeAll(gameTimeNewMinute);
+    }
+
+
     private void runMinuteActions() {
         for (GameTimeNewMinute gameTimeNewMinute : minuteActions) {
             gameTimeNewMinute.action(minutes, minutesAbsolute);

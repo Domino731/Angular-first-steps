@@ -35,6 +35,7 @@ public class EnvironmentActor extends DefaultActor {
     private Update update;
     private int stageMinutes;
     private byte currentIndex = 0;
+    GameTimeNewMinute gameTimeNewMinute;
 
     Draw draw;
     private EnvironmentActorConfig.Stage currentStage;
@@ -152,7 +153,7 @@ public class EnvironmentActor extends DefaultActor {
     }
 
     private void setMinuteActions() {
-        GameTimeNewMinute gameTimeNewMinute = new GameTimeNewMinute() {
+        gameTimeNewMinute = new GameTimeNewMinute() {
             @Override
             public void action(int minute, int minuteAbsolute) {
                 if (isCollisionWithNextStage) {
@@ -233,9 +234,12 @@ public class EnvironmentActor extends DefaultActor {
     }
 
     private void clearUpdate() {
+        // TODO later: remove action from gameTime
+//        actorsManager.removeNewMinuteAction(gameTimeNewMinute);
         update = new Update() {
             @Override
             public void update(float delta, GameTime gameTime) {
+                System.out.println("TEST_123");
             }
         };
     }

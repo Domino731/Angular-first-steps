@@ -44,6 +44,14 @@ public class ActorsManager {
         addActor(newActor);
     }
 
+    public void removeNewMinuteAction(GameTimeNewMinute gameTimeNewMinute) {
+        gameTime.removeMinuteAction(gameTimeNewMinute);
+    }
+
+    public void removeNewMinuteAction(ArrayList<GameTimeNewMinute> gameTimeNewMinute) {
+        gameTime.removeMinuteAction(gameTimeNewMinute);
+    }
+
     public Integer findTile(int targetX, int targetY) {
         int x = (int) Math.floor(targetX / 16);
         int y = (int) Math.floor(targetY / 16);
