@@ -6,12 +6,13 @@ import com.badlogic.gdx.InputProcessor;
 import engine.actionCollision.actorsManager.ActorsManager;
 import game.entities.player.Player;
 
+import static screens.PlayScreen.PIXEL_WIDTH;
+
 public class GameInputProcessor implements InputProcessor {
     private ActorsManager actorsManager;
     private Player player;
     private static int screenXOffset = 800;
     private static int screenYOffset = 0;
-    private static final int screenMultiplier = 5;
 
     public GameInputProcessor(ActorsManager actorsManager) {
         this.actorsManager = actorsManager;
@@ -27,19 +28,19 @@ public class GameInputProcessor implements InputProcessor {
     }
 
     public static void increaseScreenXOffset(int increaseValue) {
-        GameInputProcessor.screenXOffset += increaseValue * screenMultiplier;
+        GameInputProcessor.screenXOffset += increaseValue * PIXEL_WIDTH;
     }
 
     public static void decreaseScreenXOffset(int increaseValue) {
-        GameInputProcessor.screenXOffset -= increaseValue * screenMultiplier;
+        GameInputProcessor.screenXOffset -= increaseValue * PIXEL_WIDTH;
     }
 
     public static void increaseScreenYOffset(int increaseValue) {
-        GameInputProcessor.screenYOffset += increaseValue * screenMultiplier;
+        GameInputProcessor.screenYOffset += increaseValue * PIXEL_WIDTH;
     }
 
     public static void decreaseScreenYOffset(int increaseValue) {
-        GameInputProcessor.screenYOffset -= increaseValue * screenMultiplier;
+        GameInputProcessor.screenYOffset -= increaseValue * PIXEL_WIDTH;
     }
 
     @Override

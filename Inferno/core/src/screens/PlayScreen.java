@@ -20,6 +20,8 @@ public class PlayScreen implements Screen {
     OrthographicCamera camera;
     public static int cameraXOffset = 0;
     public static int cameraYOffset = 0;
+    private static final float CAMERA_ZOOM = 0.2f;
+    public static int PIXEL_WIDTH = (int) (1 / CAMERA_ZOOM);
 
     public PlayScreen(MyGdxGame game) {
         this.game = game;
@@ -31,7 +33,7 @@ public class PlayScreen implements Screen {
         actorsManager = new ActorsManager();
         player = actorsManager.player;
         Gdx.input.setInputProcessor(new GameInputProcessor(actorsManager));
-        camera.zoom = 0.2f;
+        camera.zoom = CAMERA_ZOOM;
     }
 
     @Override
