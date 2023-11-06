@@ -68,6 +68,8 @@ public class Tiles {
             hoveredTile = tile;
             hoveredTile.hover();
             return;
+        } else if (hoveredTile != null) {
+            hoveredTile.unHover();
         }
         hoveredTile = null;
     }
