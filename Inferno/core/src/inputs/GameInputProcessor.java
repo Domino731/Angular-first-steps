@@ -9,22 +9,14 @@ import game.entities.player.Player;
 import static screens.PlayScreen.PIXEL_WIDTH;
 
 public class GameInputProcessor implements InputProcessor {
-    private ActorsManager actorsManager;
-    private Player player;
+    private final ActorsManager actorsManager;
+    private final Player player;
     private static int screenXOffset = 800;
     private static int screenYOffset = 0;
 
     public GameInputProcessor(ActorsManager actorsManager) {
         this.actorsManager = actorsManager;
         player = this.actorsManager.player;
-    }
-
-    public static int getScreenXOffset() {
-        return screenXOffset;
-    }
-
-    public static void setScreenXOffset(int screenXOffset) {
-        GameInputProcessor.screenXOffset = screenXOffset;
     }
 
     public static void increaseScreenXOffset(int increaseValue) {
@@ -61,9 +53,7 @@ public class GameInputProcessor implements InputProcessor {
                 player.setRight(true);
                 break;
             case Input.Keys.E:
-//                if (actorsManager.currentAction != null) {
                 player.startStaticAction();
-//                }
                 break;
             case Input.Keys.NUM_1:
                 player.changeInventorySlot((byte) 0);
@@ -133,6 +123,14 @@ public class GameInputProcessor implements InputProcessor {
     }
 
     @Override
+    public boolean mouseMoved(int screenX, int screenY) {
+        int tileX = (int) ((screenX - screenXOffset) * 0.2) / 16;
+        int tileY = (int) ((Gdx.graphics.getHeight() - (screenY + screenYOffset)) * 0.2) / 16;
+        actorsManager.hoverTile(tileX, tileY);
+        return false;
+    }
+
+    @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
         return false;
     }
@@ -148,19 +146,8 @@ public class GameInputProcessor implements InputProcessor {
     }
 
     @Override
-    public boolean mouseMoved(int screenX, int screenY) {
-        int tileX = (int) ((screenX - screenXOffset) * 0.2) / 16;
-        int tileY = (int) ((Gdx.graphics.getHeight() - (screenY + screenYOffset)) * 0.2) / 16;
-        actorsManager.hoverTile(tileX, tileY);
-        return false;
-    }
-
-    @Override
     public boolean scrolled(float amountX, float amountY) {
         return false;
     }
 
-    public boolean scrolled(int amount) {
-        return false;
-    }
 }
