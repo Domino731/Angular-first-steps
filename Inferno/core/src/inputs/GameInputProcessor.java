@@ -19,20 +19,20 @@ public class GameInputProcessor implements InputProcessor {
         player = this.actorsManager.player;
     }
 
-    public static void increaseScreenXOffset(int increaseValue) {
-        GameInputProcessor.screenXOffset += increaseValue * PIXEL_WIDTH;
+    public static void increaseScreenXOffset(int value) {
+        GameInputProcessor.screenXOffset += value * PIXEL_WIDTH;
     }
 
-    public static void decreaseScreenXOffset(int increaseValue) {
-        GameInputProcessor.screenXOffset -= increaseValue * PIXEL_WIDTH;
+    public static void decreaseScreenXOffset(int value) {
+        GameInputProcessor.screenXOffset -= value * PIXEL_WIDTH;
     }
 
-    public static void increaseScreenYOffset(int increaseValue) {
-        GameInputProcessor.screenYOffset += increaseValue * PIXEL_WIDTH;
+    public static void increaseScreenYOffset(int value) {
+        GameInputProcessor.screenYOffset += value * PIXEL_WIDTH;
     }
 
-    public static void decreaseScreenYOffset(int increaseValue) {
-        GameInputProcessor.screenYOffset -= increaseValue * PIXEL_WIDTH;
+    public static void decreaseScreenYOffset(int value) {
+        GameInputProcessor.screenYOffset -= value * PIXEL_WIDTH;
     }
 
     @Override
