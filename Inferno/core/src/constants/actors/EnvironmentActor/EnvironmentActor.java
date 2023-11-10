@@ -238,7 +238,7 @@ public class EnvironmentActor extends DefaultActor {
         update = new Update() {
             @Override
             public void update(float delta, GameTime gameTime) {
-                System.out.println("TEST_123");
+//                System.out.println("TEST_123");
             }
         };
     }
