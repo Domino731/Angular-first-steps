@@ -26,12 +26,11 @@ import static constants.actors.EnvironmentActor.EnvironmentActorConfig.getEnviro
 
 public class EnvironmentActor extends DefaultActor {
     private boolean isDestroyed = false;
-    private Draw currentDraw;
     private final ActorsManager actorsManager;
-    private ArrayList<GroundItem> items = new ArrayList<>();
-    private ArrayList<ActionCollision> itemsCollisions = new ArrayList<>();
+    private final ArrayList<GroundItem> items = new ArrayList<>();
+    private final ArrayList<ActionCollision> itemsCollisions = new ArrayList<>();
     private boolean isCollisionWithNextStage = false;
-    private EnvironmentActorConfig.Config config;
+    private final EnvironmentActorConfig.Config config;
     private Update update;
     private int stageMinutes;
     private byte currentIndex = 0;
@@ -74,10 +73,6 @@ public class EnvironmentActor extends DefaultActor {
                 }
             }
         };
-    }
-
-    public void addActionCollisions(ArrayList<ActionCollision> actions) {
-        actionCollisions.addAll(actions);
     }
 
     public ArrayList<ActionCollision> getItemsCollisions() {
