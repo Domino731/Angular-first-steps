@@ -55,10 +55,6 @@ public class Items {
     }
 
     public static class Config {
-        private String id;
-        private String name;
-        private int usage;
-        private int damage;
         public TextureRegion inventoryTxt;
         public TextureRegion[] downTextures;
         public TextureRegion[] upTextures;
