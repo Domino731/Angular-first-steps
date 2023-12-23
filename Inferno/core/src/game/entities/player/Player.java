@@ -84,7 +84,8 @@ public class Player extends MovableDefaultActor {
             finalPosition.y = position.y;
             centerPositionFinal.x = centerPosition.x;
             centerPositionFinal.y = centerPosition.y;
-            Integer tile = actorsManager.findTile(centerPosition.x, centerPosition.y);
+            // TODO: marking tiles
+//            Integer tile = actorsManager.findTile(centerPosition.x, centerPosition.y);
             // set current tile
         }
 

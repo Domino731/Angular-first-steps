@@ -63,10 +63,6 @@ public class Items {
         public TextureRegion[][] txts = new TextureRegion[4][2];
 
         public Config(String id, String name, int usage, int damage, int txtX, int txtY, JsonNode textures) {
-            this.id = id;
-            this.name = name;
-            this.usage = usage;
-            this.damage = damage;
             inventoryTxt = new TextureRegion(toolsTxt, txtX, txtY, 20, 20);
             downTextures = new TextureRegion[2];
             upTextures = new TextureRegion[2];

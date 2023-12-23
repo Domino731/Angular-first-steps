@@ -7,7 +7,6 @@ import constants.actors.groundItem.GroundItem;
 import engine.actionCollision.ActionCollision;
 import engine.items.Items;
 import environment.resources.Resource;
-import environment.trees.Tree;
 import game.entities.player.Player;
 import hud.clock.Clock;
 import levelManager.LevelManager;
@@ -236,27 +235,10 @@ public class ActorsManager {
         currentAction = null;
     }
 
-    public void removeTreeObjectItems(Tree rsc) {
-        checkboxes.remove(rsc.getGroundCheckbox());
-        groundCheckboxes.remove(rsc.getGroundCheckbox());
-        actionCollisions.removeAll(rsc.getActionCollisions());
-        currentAction = null;
-    }
-
     public void removeTreeObjectItems(EnvironmentActor rsc) {
         checkboxes.remove(rsc.getGroundCheckbox());
         groundCheckboxes.remove(rsc.getGroundCheckbox());
         actionCollisions.removeAll(rsc.getActionCollisions());
-        currentAction = null;
-    }
-
-    // TODO merge
-    public void removeTreeObject(Tree rsc) {
-        allActors.remove(rsc);
-        checkboxes.remove(rsc.getGroundCheckbox());
-        groundCheckboxes.remove(rsc.getGroundCheckbox());
-        actionCollisions.removeAll(rsc.getActionCollisions());
-        groundItems.removeAll(rsc.getItemsCollisions());
         currentAction = null;
     }
 
