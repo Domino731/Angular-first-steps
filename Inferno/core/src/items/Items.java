@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import constants.Urls;
-import game.entities.player.playerTextures.PlayerTextures;
+import game.player.playerTextures.PlayerTextures;
 import utils.Direction;
 import utils.EngineLog;
 import utils.Json;

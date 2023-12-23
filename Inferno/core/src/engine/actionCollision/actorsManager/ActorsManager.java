@@ -4,11 +4,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
 import constants.actors.EnvironmentActor.EnvironmentActor;
 import constants.actors.groundItem.GroundItem;
+import constants.actors.staticDefaultActor.StaticDefaultActor;
 import engine.actionCollision.ActionCollision;
 import engine.items.Items;
 import environment.resources.Resource;
-import game.entities.player.Player;
-import hud.clock.Clock;
+import game.hud.clock.Clock;
+import game.player.Player;
 import levelManager.LevelManager;
 import levelManager.tiles.Tile;
 import utils.Checkbox;
@@ -40,6 +41,7 @@ public class ActorsManager {
         tiles = levelManager.getTiles().getTilesList();
         createPlayer();
         EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<>(5, 4), this);
+        addActor(new StaticDefaultActor("big_tree_1_spring", 1, 1));
         addActor(newActor);
     }
 

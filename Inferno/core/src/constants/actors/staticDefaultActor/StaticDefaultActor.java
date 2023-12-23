@@ -4,13 +4,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
 import constants.actors.constants.ActorTypes;
 import engine.Textures;
-import utils.vectors.Vector;
 
 public class StaticDefaultActor extends DefaultActor {
     private final StaticDefaultActorConfig.Config config;
 
-    public StaticDefaultActor(String id, Vector<Integer> position) {
-        super(ActorTypes.STATIC, position.x, position.y);
+    public StaticDefaultActor(String id, int positionX, int positionY) {
+        super(ActorTypes.STATIC, positionX, positionY);
         config = StaticDefaultActorConfig.getData(id);
         setGroundCheckbox(config.getGroundDimensionVector());
     }

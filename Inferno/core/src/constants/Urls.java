@@ -14,24 +14,16 @@ public class Urls {
     public static final String CONFIG_PICKAXES = "config/items/tools/pickaxes.json";
     public static final String CONFIG_FONTS_4 = "config/fonts4.json";
     public static final String CONFIG_FONTS_1 = "config/fonts1.json";
-    public static final String CONFIG_TREE_OAK = "config/objects/trees/oak.json";
-    public static final String CONFIG_TREE_MAPLE = "config/objects/trees/maple.json";
-    public static final String CONFIG_TREE_PINE = "config/objects/trees/pine.json";
-    public static final String CONFIG_TREE_MAHOGANY = "config/objects/trees/mahogany.json";
-    public static final String CONFIG_TREE_MUSHROOM = "config/objects/trees/mushroom.json";
-    public static final String CONFIG_TREE_PALM_SMALL = "config/objects/trees/palm-small.json";
-    public static final String CONFIG_TREE_PALM_MEDIUM = "config/objects/trees/palm-medium.json";
     public static final String CONFIG_STATIC_TREES = "config/staticObjects/trees.json";
 
-
-    public static final String CONFIG_TREE_OAK_NEW = "config/objects/newTrees/oak.json";
-    public static final String CONFIG_TREE_MAPLE_NEW = "config/objects/newTrees/maple.json";
-    public static final String CONFIG_TREE_PINE_NEW = "config/objects/newTrees/pine.json";
-    public static final String CONFIG_TREE_MAHOGANY_NEW = "config/objects/newTrees/mahogany.json";
-    public static final String CONFIG_TREE_MUSHROOM_NEW = "config/objects/newTrees/mushroom.json";
-    public static final String CONFIG_TREE_PALM_SMALL_NEW = "config/objects/newTrees/palm-small.json";
-    public static final String CONFIG_TREE_PALM_MEDIUM_NEW = "config/objects/newTrees/palm-medium.json";
-    public static final String CONFIG_STATIC_TREES_NEW = "config/staticObjects/newTrees.json";
+    // TREES
+    public static final String CONFIG_TREE_OAK_NEW = "objects/trees/oak.json";
+    public static final String CONFIG_TREE_MAPLE_NEW = "objects/trees/maple.json";
+    public static final String CONFIG_TREE_PINE_NEW = "objects/trees/pine.json";
+    public static final String CONFIG_TREE_MAHOGANY_NEW = "objects/trees/mahogany.json";
+    public static final String CONFIG_TREE_MUSHROOM_NEW = "objects/trees/mushroom.json";
+    public static final String CONFIG_TREE_PALM_SMALL_NEW = "objects/trees/palm-small.json";
+    public static final String CONFIG_TREE_PALM_MEDIUM_NEW = "objects/trees/palm-medium.json";
 
     // SPRITES
     public static final String SPRITE_HAIRS = "sprites/style/hairs.png";

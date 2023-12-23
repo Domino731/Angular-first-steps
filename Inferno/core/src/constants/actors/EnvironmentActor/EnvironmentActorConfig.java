@@ -131,11 +131,11 @@ public class EnvironmentActorConfig {
 
     private static Config createActorConfig(String configSource) {
         JsonNode node = readFile(configSource);
-        JsonNode trunkNode = node.get("trunk");
+        JsonNode trunkNode = node.get("specs").get("trunk");
 
         String id = node.get("id").asText();
         String name = node.get("name").asText();
-        Stage[] stages = createActorStages(node.get("stages"));
+        Stage[] stages = createActorStages(node.get("specs").get("stages"));
         int trunkX = trunkNode.get("x").asInt();
         int trunkY = trunkNode.get("y").asInt();
         int trunkWidth = trunkNode.get("width").asInt();
