@@ -16,13 +16,14 @@ import engine.utils.Action;
 import engine.utils.Draw;
 import engine.utils.Update;
 import environment.resources.ResourceAction;
+import game.actors.Tree.TreeConfig;
+import game.actors.Tree.TreeConfigManager;
+import game.actors.Tree.TreeStageConfig;
 import utils.Checkbox;
 import utils.EngineLog;
 import utils.vectors.Vector;
 
 import java.util.ArrayList;
-
-import static constants.actors.EnvironmentActor.EnvironmentActorConfig.getEnvironmentActorConfig;
 
 public class EnvironmentActor extends DefaultActor {
     private boolean isDestroyed = false;
@@ -30,19 +31,19 @@ public class EnvironmentActor extends DefaultActor {
     private final ArrayList<GroundItem> items = new ArrayList<>();
     private final ArrayList<ActionCollision> itemsCollisions = new ArrayList<>();
     private boolean isCollisionWithNextStage = false;
-    private final EnvironmentActorConfig.Config config;
+    private final TreeConfig config;
     private Update update;
     private int stageMinutes;
     private byte currentIndex = 0;
     GameTimeNewMinute gameTimeNewMinute;
 
     Draw draw;
-    private EnvironmentActorConfig.Stage currentStage;
+    private TreeStageConfig currentStage;
 
     public EnvironmentActor(String actorId, Vector<Integer> position, ActorsManager actorsManager) {
         super(ActorTypes.DYNAMIC, position.x, position.y);
         this.actorsManager = actorsManager;
-        config = getEnvironmentActorConfig(actorId);
+        config = TreeConfigManager.get(actorId);
         currentStage = config.getStages()[0];
         stageMinutes = currentStage.getNextStage();
         setUpdate(currentIndex);
@@ -179,7 +180,7 @@ public class EnvironmentActor extends DefaultActor {
             public void update(float delta, GameTime gameTime) {
                 if (stageMinutes == 0) {
                     if (currentIndex != config.getStages().length - 1) {
-                        EnvironmentActorConfig.Stage nextStage = config.getStages()[currentIndex + 1];
+                        TreeStageConfig nextStage = config.getStages()[currentIndex + 1];
                         Checkbox nextStageChekbox = getGroundCheckboxTest(nextStage.getGroundCollision());
                         isCollisionWithNextStage = ActorsUtils.checkCollision(nextStageChekbox, actorsManager.getPlayerCheckboxArray().get(0));
                         if (isCollisionWithNextStage) {
