@@ -27,7 +27,7 @@ public class TreeConfigManager {
         TreeConfig mahoganyTree = createActorConfig(Urls.CONFIG_TREE_MAHOGANY_NEW);
         payload.put(mahoganyTree.getId(), mahoganyTree);
         TreeConfig mushroomTree = createActorConfig(Urls.CONFIG_TREE_MUSHROOM_NEW);
-        payload.put(mahoganyTree.getId(), mushroomTree);
+        payload.put(mushroomTree.getId(), mushroomTree);
         TreeConfig palmSmallTree = createActorConfig(Urls.CONFIG_TREE_PALM_SMALL_NEW);
         payload.put(palmSmallTree.getId(), palmSmallTree);
         TreeConfig palmMediumTree = createActorConfig(Urls.CONFIG_TREE_PALM_MEDIUM_NEW);
@@ -43,6 +43,7 @@ public class TreeConfigManager {
         String id = node.get("id").asText();
         String name = node.get("name").asText();
         TreeStageConfig[] stages = createActorStages(node.get("specs").get("stages"));
+        System.out.println("configSource: " + configSource + " " + stages.length);
         int trunkX = trunkNode.get("x").asInt();
         int trunkY = trunkNode.get("y").asInt();
         int trunkWidth = trunkNode.get("width").asInt();

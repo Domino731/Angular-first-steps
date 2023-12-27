@@ -3,7 +3,7 @@ package inputs;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
-import engine.actionCollision.actorsManager.ActorsManager;
+import engine.fonts.actionCollision.actorsManager.ActorsManager;
 import game.player.Player;
 
 import static screens.PlayScreen.PIXEL_WIDTH;

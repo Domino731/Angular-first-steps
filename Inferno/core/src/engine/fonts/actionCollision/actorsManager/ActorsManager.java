@@ -1,13 +1,13 @@
-package engine.actionCollision.actorsManager;
+package engine.fonts.actionCollision.actorsManager;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
 import constants.actors.EnvironmentActor.EnvironmentActor;
 import constants.actors.groundItem.GroundItem;
-import constants.actors.staticDefaultActor.StaticDefaultActor;
-import engine.actionCollision.ActionCollision;
+import engine.fonts.actionCollision.ActionCollision;
 import engine.items.Items;
 import environment.resources.Resource;
+import game.actorSets.AllTrees;
 import game.hud.clock.Clock;
 import game.player.Player;
 import levelManager.LevelManager;
@@ -17,7 +17,7 @@ import utils.vectors.Vector;
 
 import java.util.*;
 
-import static engine.actionCollision.actorsManager.ActorsUtils.checkCollision;
+import static engine.fonts.actionCollision.actorsManager.ActorsUtils.checkCollision;
 
 
 public class ActorsManager {
@@ -40,9 +40,8 @@ public class ActorsManager {
         levelManager = new LevelManager();
         tiles = levelManager.getTiles().getTilesList();
         createPlayer();
-        EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<>(5, 4), this);
-        addActor(new StaticDefaultActor("big_tree_1_spring", 1, 1));
-        addActor(newActor);
+//        addActor(new StaticDefaultActor("big_tree_1_spring", 1, 1));
+        new AllTrees(this);
     }
 
     public void removeNewMinuteAction(GameTimeNewMinute gameTimeNewMinute) {
@@ -95,7 +94,7 @@ public class ActorsManager {
         return player.getCheckboxArray();
     }
 
-    private void addActor(DefaultActor actor) {
+    public void addActor(DefaultActor actor) {
         allActors.add(actor);
         checkboxes.add(actor.getGroundCheckbox());
         groundCheckboxes.add(actor.getGroundCheckbox());

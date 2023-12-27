@@ -1,4 +1,4 @@
-package engine.actionCollision;
+package engine.fonts.actionCollision;
 
 import environment.resources.ResourceAction;
 import utils.Checkbox;

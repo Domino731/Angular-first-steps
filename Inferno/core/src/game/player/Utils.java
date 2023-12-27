@@ -1,6 +1,6 @@
 package game.player;
 
-import engine.actionCollision.ActionTypes;
+import engine.fonts.actionCollision.ActionTypes;
 import game.player.inventory.InventoryItemGroups;
 import utils.Direction;
 import utils.vectors.DimensionCordVector;

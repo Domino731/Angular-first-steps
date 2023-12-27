@@ -2,10 +2,10 @@ package game.player;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.movableDefaultActor.MovableDefaultActor;
-import engine.actionCollision.ActionCollision;
-import engine.actionCollision.ActionTypes;
-import engine.actionCollision.actorsManager.ActorsManager;
-import engine.actionCollision.actorsManager.GameTime;
+import engine.fonts.actionCollision.ActionCollision;
+import engine.fonts.actionCollision.ActionTypes;
+import engine.fonts.actionCollision.actorsManager.ActorsManager;
+import engine.fonts.actionCollision.actorsManager.GameTime;
 import environment.resources.ResourceAction;
 import game.player.animations.PlayerAnimations;
 import game.player.animations.utils.AnimationAmount;
@@ -41,7 +41,7 @@ public class Player extends MovableDefaultActor {
     private boolean isBuildMode = true;
 
     public Player(ActorsManager actorsManager) {
-        super(6, 9, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
+        super(0, -3, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
         this.shirts = new PaintTextures();
         this.actorsManager = actorsManager;
         this.playerTextures.armsTextures = shirts.createShirtSleevesWithColors(playerTextures.armsTextures, style.shirtsArray[2]);

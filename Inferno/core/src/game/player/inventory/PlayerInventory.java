@@ -2,7 +2,7 @@ package game.player.inventory;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import engine.actionCollision.ActionTypes;
+import engine.fonts.actionCollision.ActionTypes;
 import engine.items.Items;
 import game.player.inventory.examples.PlantSeed;
 import game.player.inventory.examples.Weapon;

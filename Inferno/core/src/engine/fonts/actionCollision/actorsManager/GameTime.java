@@ -1,4 +1,4 @@
-package engine.actionCollision.actorsManager;
+package engine.fonts.actionCollision.actorsManager;
 
 import java.util.ArrayList;
 

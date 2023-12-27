@@ -5,11 +5,11 @@ import constants.actors.DefaultActor;
 import constants.actors.constants.ActorTypes;
 import constants.actors.groundItem.GroundItem;
 import engine.Textures;
-import engine.actionCollision.ActionCollision;
-import engine.actionCollision.actorsManager.ActorsManager;
-import engine.actionCollision.actorsManager.ActorsUtils;
-import engine.actionCollision.actorsManager.GameTime;
-import engine.actionCollision.actorsManager.GameTimeNewMinute;
+import engine.fonts.actionCollision.ActionCollision;
+import engine.fonts.actionCollision.actorsManager.ActorsManager;
+import engine.fonts.actionCollision.actorsManager.ActorsUtils;
+import engine.fonts.actionCollision.actorsManager.GameTime;
+import engine.fonts.actionCollision.actorsManager.GameTimeNewMinute;
 import engine.items.DropItemData;
 import engine.items.Items;
 import engine.utils.Action;
@@ -44,13 +44,33 @@ public class EnvironmentActor extends DefaultActor {
         super(ActorTypes.DYNAMIC, position.x, position.y);
         this.actorsManager = actorsManager;
         config = TreeConfigManager.get(actorId);
-        currentStage = config.getStages()[0];
+        currentStage = config.getStages()[currentIndex];
         stageMinutes = currentStage.getNextStage();
         setUpdate(currentIndex);
         setTreeGroundCheckbox();
         setActionCollision();
         setMinuteActions();
         setStageDraw();
+    }
+
+    public EnvironmentActor(String actorId, Vector<Integer> position, ActorsManager actorsManager, byte stageIndex) {
+        super(ActorTypes.DYNAMIC, position.x, position.y);
+        this.currentIndex = stageIndex;
+        this.actorsManager = actorsManager;
+        config = TreeConfigManager.get(actorId);
+        currentStage = config.getStages()[currentIndex];
+        stageMinutes = currentStage.getNextStage();
+        setUpdate(currentIndex);
+        setTreeGroundCheckbox();
+        setActionCollision();
+        setStageDraw();
+
+        if (getIsFinalStage()) {
+            setFinalStageDraw();
+            setCurrentGroundCollision();
+            setActionCollisionByStage();
+            clearUpdate();
+        }
     }
 
     public void setTreeGroundCheckbox() {

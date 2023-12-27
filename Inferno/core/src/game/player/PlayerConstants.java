@@ -1,6 +1,6 @@
 package game.player;
 
-import engine.actionCollision.ActionTypes;
+import engine.fonts.actionCollision.ActionTypes;
 import utils.Direction;
 import utils.TextureData;
 import utils.vectors.DimensionCordVector;

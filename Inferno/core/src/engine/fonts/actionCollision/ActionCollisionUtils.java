@@ -1,4 +1,4 @@
-package engine.actionCollision;
+package engine.fonts.actionCollision;
 
 import utils.EngineLog;
 
