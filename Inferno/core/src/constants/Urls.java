@@ -15,7 +15,7 @@ public class Urls {
     public static final String CONFIG_FONTS_4 = "config/fonts4.json";
     public static final String CONFIG_FONTS_1 = "config/fonts1.json";
     public static final String CONFIG_STATIC_TREES = "config/staticObjects/trees.json";
-
+    public static final String CONFIG_STATIC_TREES_2 = "objects/staticTrees/big_tree_1_spring.json";
     // TREES
     public static final String CONFIG_TREE_OAK_NEW = "objects/trees/oak.json";
     public static final String CONFIG_TREE_MAPLE_NEW = "objects/trees/maple.json";

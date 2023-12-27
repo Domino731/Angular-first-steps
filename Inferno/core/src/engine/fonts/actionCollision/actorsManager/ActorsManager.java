@@ -7,7 +7,7 @@ import constants.actors.groundItem.GroundItem;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.items.Items;
 import environment.resources.Resource;
-import game.actorSets.AllTrees;
+import game.actors.StaticActor.StaticActor;
 import game.hud.clock.Clock;
 import game.player.Player;
 import levelManager.LevelManager;
@@ -40,8 +40,9 @@ public class ActorsManager {
         levelManager = new LevelManager();
         tiles = levelManager.getTiles().getTilesList();
         createPlayer();
+        addActor(new StaticActor("big_tree_1_spring", 0, 0));
 //        addActor(new StaticDefaultActor("big_tree_1_spring", 1, 1));
-        new AllTrees(this);
+//        new AllTrees(this);
     }
 
     public void removeNewMinuteAction(GameTimeNewMinute gameTimeNewMinute) {
