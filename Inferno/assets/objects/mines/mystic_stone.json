@@ -1,0 +1,49 @@
+{
+  "id": "mystic_stone",
+  "name": "Mystic stone",
+  "specs": {
+    "exp": 50,
+    "texture": {
+      "x": 352,
+      "y": 16,
+      "width": 16,
+      "height": 16
+    },
+    "drop": [
+      {
+        "id": "iridium_ore",
+        "amount": [
+          1,
+          3
+        ],
+        "chance": 100
+      },
+      {
+        "id": "gold_ore",
+        "amount": [
+          1,
+          4
+        ],
+        "chance": 100
+      },
+      {
+        "id": "prismatic_shard",
+        "amount": 1,
+        "chance": 25
+      }
+    ],
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

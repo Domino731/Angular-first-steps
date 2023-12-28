@@ -1,0 +1,33 @@
+{
+  "id": "diamond_ore",
+  "name": "Diamond ore",
+  "specs": {
+    "exp": 150,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 1,
+      "y": 0
+    },
+    "drop": [
+      {
+        "id": "diamond",
+        "amount": 1,
+        "chance": 100
+      }
+    ],
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

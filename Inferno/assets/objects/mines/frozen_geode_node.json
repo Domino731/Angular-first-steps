@@ -1,0 +1,33 @@
+{
+  "id": "frozen_geode_node",
+  "name": "Frozen Geode Ore",
+  "specs": {
+    "exp": 16,
+    "texture": {
+      "x": 79,
+      "y": 49,
+      "width": 16,
+      "height": 16
+    },
+    "drop": [
+      {
+        "id": "frozen_geode",
+        "amount": 1,
+        "chance": 100
+      }
+    ],
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

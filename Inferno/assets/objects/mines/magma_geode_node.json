@@ -1,0 +1,35 @@
+{
+  "id": "magma_geode_node",
+  "name": "Magma Geode ore",
+  "specs": {
+    "exp": 32,
+    "texture": {
+      "x": 95,
+      "y": 49,
+      "width": 16,
+      "height": 16
+    },
+    "drop": [
+      {
+        "id": "magma_geode",
+        "amount": 1,
+        "chance": 100
+      }
+    ],
+    "width": 16,
+    "height": 16,
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

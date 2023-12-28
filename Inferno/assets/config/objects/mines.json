@@ -1,5 +1,26 @@
 [
   {
+    "id": "mussel_node",
+    "name": "Mussel ore",
+    "exp": 5,
+    "cords": {
+      "x": 224,
+      "y": 0
+    },
+    "width": 16,
+    "height": 16,
+    "drop": [
+      {
+        "id": "mussel",
+        "amount": 1,
+        "chance": 100
+      }
+    ],
+    "action": "mine",
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
+  },
+  {
     "width": 32,
     "height": 32,
     "id": "trunk_big",

@@ -1,0 +1,33 @@
+{
+  "id": "bone_node",
+  "name": "Bone ore",
+  "specs": {
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 319,
+      "y": 84
+    },
+    "exp": 6,
+    "drop": [
+      {
+        "id": "bone_fragment",
+        "amount": 1,
+        "chance": 100
+      }
+    ],
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "copper_node",
+  "name": "Copper Node",
+  "specs": {
+    "exp": 5,
+    "texture": {
+      "x": 160,
+      "y": 105,
+      "width": 16,
+      "height": 16
+    },
+    "drop": [
+      {
+        "id": "copper_ore",
+        "amount": 1,
+        "chance": 100
+      }
+    ],
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

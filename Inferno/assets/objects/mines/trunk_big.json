@@ -1,0 +1,39 @@
+{
+  "id": "trunk_big",
+  "name": "Tree Trunk Large",
+  "specs": {
+    "texture": {
+      "width": 32,
+      "height": 32,
+      "x": 0,
+      "y": 156
+    },
+    "drop": [
+      {
+        "id": "wood",
+        "chance": [
+          100,
+          100
+        ],
+        "amount": [
+          2,
+          3
+        ]
+      }
+    ],
+    "action": "cut_tree",
+    "exp": 10,
+    "ground_collision": {
+      "width": 32,
+      "height": 32,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

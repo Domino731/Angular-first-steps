@@ -1,0 +1,33 @@
+{
+  "id": "aquamarine_ore",
+  "name": "Aquamarine ore",
+  "texture": {
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 193,
+      "y": 0
+    },
+    "drop": [
+      {
+        "id": "aquamarine",
+        "amount": 1,
+        "chance": 100
+      }
+    ],
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    },
+    "exp": 40
+  }
+}

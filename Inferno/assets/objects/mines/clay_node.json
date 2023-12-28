@@ -1,0 +1,33 @@
+{
+  "id": "clay_node",
+  "name": "Clay ore",
+  "specs": {
+    "exp": 6,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 351,
+      "y": 86
+    },
+    "drop": [
+      {
+        "id": "clay",
+        "amount": 1,
+        "chance": 100
+      }
+    ],
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

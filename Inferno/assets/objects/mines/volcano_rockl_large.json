@@ -1,0 +1,39 @@
+{
+  "id": "volcano_rock_large",
+  "name": "Volcano rock",
+  "specs": {
+    "texture": {
+      "width": 32,
+      "height": 32,
+      "x": 68,
+      "y": 156
+    },
+    "drop": [
+      {
+        "id": "wood",
+        "chance": [
+          100,
+          100
+        ],
+        "amount": [
+          2,
+          3
+        ]
+      }
+    ],
+    "action": "mine",
+    "exp": 10,
+    "ground_collision": {
+      "width": 32,
+      "height": 32,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 36,
+      "height": 36,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

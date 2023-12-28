@@ -1,0 +1,36 @@
+{
+  "id": "gold_node",
+  "name": "Gold Node",
+  "specs": {
+    "exp": 18,
+    "texture": {
+      "x": 192,
+      "y": 106,
+      "width": 16,
+      "height": 16
+    },
+    "drop": [
+      {
+        "id": "gold_ore",
+        "amount": [
+          1,
+          2
+        ],
+        "chance": 100
+      }
+    ],
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

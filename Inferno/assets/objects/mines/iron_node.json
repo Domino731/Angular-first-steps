@@ -1,0 +1,33 @@
+{
+  "id": "iron_node",
+  "name": "Iron Node",
+  "specs": {
+    "exp": 12,
+    "texture": {
+      "x": 176,
+      "y": 105,
+      "width": 16,
+      "height": 16
+    },
+    "drop": [
+      {
+        "id": "iron_ore",
+        "amount": 1,
+        "chance": 100
+      }
+    ],
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

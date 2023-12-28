@@ -1,0 +1,63 @@
+{
+  "id": "gem_ore",
+  "name": "Gem ore",
+  "cords": {
+    "exp": 70,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 320,
+      "y": 16
+    },
+    "drop": [
+      {
+        "id": "amethyst",
+        "amount": 1,
+        "chance": 30
+      },
+      {
+        "id": "aquamarine",
+        "amount": 1,
+        "chance": 50
+      },
+      {
+        "id": "diamond",
+        "amount": 1,
+        "chance": 0.03
+      },
+      {
+        "id": "emerald",
+        "amount": 1,
+        "chance": 3
+      },
+      {
+        "id": "jade",
+        "amount": 1,
+        "chance": 5
+      },
+      {
+        "id": "ruby",
+        "amount": 1,
+        "chance": 5
+      },
+      {
+        "id": "topaz",
+        "amount": 1,
+        "chance": 5
+      }
+    ],
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}

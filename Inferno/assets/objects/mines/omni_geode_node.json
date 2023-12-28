@@ -1,0 +1,33 @@
+{
+  "id": "omni_geode_node",
+  "name": "Omni geode ore",
+  "specs": {
+    "exp": 64,
+    "texture": {
+      "x": 367,
+      "y": 84,
+      "width": 16,
+      "height": 16
+    },
+    "drop": [
+      {
+        "id": "omni_geode",
+        "amount": 1,
+        "chance": 100
+      }
+    ],
+    "action": "mine",
+    "ground_collision": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 20,
+      "height": 20,
+      "x": -2,
+      "y": -2
+    }
+  }
+}
