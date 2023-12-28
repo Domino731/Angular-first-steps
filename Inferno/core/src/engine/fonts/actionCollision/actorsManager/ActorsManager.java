@@ -6,6 +6,7 @@ import constants.actors.groundItem.GroundItem;
 import constants.resources.Resource;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.items.Items;
+import game.actors.MineActor.MineActor;
 import game.actors.MineActor.MineActorConfigsManager;
 import game.actors.StaticActor.StaticActor;
 import game.actors.Tree.TreeActor;
@@ -43,8 +44,7 @@ public class ActorsManager {
         MineActorConfigsManager.get("l");
         createPlayer();
         addActor(new StaticActor("big_tree_1_spring", 0, 0));
-//        addActor(new StaticDefaultActor("big_tree_1_spring", 1, 1));
-//        new AllTrees(this);
+        addActor(new MineActor("gem_ore", 5, 2, this));
     }
 
     public void removeNewMinuteAction(GameTimeNewMinute gameTimeNewMinute) {
@@ -239,6 +239,13 @@ public class ActorsManager {
         currentAction = null;
     }
 
+    public void removeMineActorItems(MineActor rsc) {
+        checkboxes.remove(rsc.getGroundCheckbox());
+        groundCheckboxes.remove(rsc.getGroundCheckbox());
+        actionCollisions.removeAll(rsc.getActionCollisions());
+        currentAction = null;
+    }
+
     public void removeTreeObjectItems(TreeActor rsc) {
         checkboxes.remove(rsc.getGroundCheckbox());
         groundCheckboxes.remove(rsc.getGroundCheckbox());
@@ -261,6 +268,15 @@ public class ActorsManager {
         groundCheckboxes.remove(rsc.getGroundCheckbox());
         actionCollisions.removeAll(rsc.getActionCollisions());
         groundItems.removeAll(rsc.getItemsCollisions());
+        currentAction = null;
+    }
+
+    public void removeMineActor(MineActor mineActor) {
+        allActors.remove(mineActor);
+        checkboxes.remove(mineActor.getGroundCheckbox());
+        groundCheckboxes.remove(mineActor.getGroundCheckbox());
+        actionCollisions.removeAll(mineActor.getActionCollisions());
+        groundItems.removeAll(mineActor.getItemsCollisions());
         currentAction = null;
     }
 

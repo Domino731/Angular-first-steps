@@ -1,15 +1,9 @@
 package game.actors.MineActor;
 
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
 import constants.Urls;
-import engine.Textures;
-import engine.items.DropItemData;
-import engine.items.Items;
-import utils.vectors.DimensionCordVector;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static utils.Json.readFile;
@@ -38,44 +32,6 @@ public class MineActorConfigsManager {
         String name = node.get("name").asText();
         JsonNode specs = node.get("specs");
         return new MineActorConfig(id, "MINE", name, specs);
-    }
-
-    // TODO move to utils
-    public static TextureRegion createTexture(JsonNode textureNode) {
-        int width = textureNode.get("width").asInt();
-        int height = textureNode.get("height").asInt();
-        int x = textureNode.get("x").asInt();
-        int y = textureNode.get("y").asInt();
-        return new TextureRegion(Textures.minesTxt, width, height, x, y);
-    }
-
-    public static DimensionCordVector createGroundCollision(JsonNode groundCollisionNode) {
-        int width = groundCollisionNode.get("width").asInt();
-        int height = groundCollisionNode.get("height").asInt();
-        int x = groundCollisionNode.get("x").asInt();
-        int y = groundCollisionNode.get("y").asInt();
-        return new DimensionCordVector(width, height, x, y);
-    }
-
-    public static DimensionCordVector createActionCollision(JsonNode actionCollisionNode) {
-        int width = actionCollisionNode.get("width").asInt();
-        int height = actionCollisionNode.get("height").asInt();
-        int x = actionCollisionNode.get("x").asInt();
-        int y = actionCollisionNode.get("y").asInt();
-        return new DimensionCordVector(width, height, x, y);
-    }
-
-
-    public static ArrayList<DropItemData> createDrop(JsonNode dropNode) {
-        ArrayList<DropItemData> drop = new ArrayList<>();
-        if (dropNode.isArray()) {
-            for (JsonNode node : dropNode) {
-                String itemId = node.get("id").asText();
-                TextureRegion itemTexture = Items.getData(itemId).getTxt();
-                drop.add(new DropItemData(itemId, itemTexture));
-            }
-        }
-        return drop;
     }
 
     public static MineActorConfig get(String actorId) {

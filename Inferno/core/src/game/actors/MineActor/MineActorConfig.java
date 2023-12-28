@@ -19,19 +19,19 @@ public class MineActorConfig extends ObjectConfig {
 
     public MineActorConfig(String id, String type, String name, JsonNode specs) {
         super(id, type, name, specs);
-        txt = MineActorConfigsManager.createTexture(specs.get("texture"));
         actionType = ActionCollisionUtils.getActionTypeFromJson(specs.get("action").asText());
-        groundCollision = MineActorConfigsManager.createGroundCollision(specs.get("ground_collision"));
-        actionCollision = MineActorConfigsManager.createActionCollision(specs.get("action_collision"));
-        drop = MineActorConfigsManager.createDrop(specs.get("drop"));
+        txt = MineActorUtils.createTexture(specs.get("texture"));
+        drop = MineActorUtils.createDrop(specs.get("drop"));
+        groundCollision = MineActorUtils.createGroundCollision(specs.get("ground_collision"));
+        actionCollision = MineActorUtils.createActionCollision(specs.get("action_collision"));
     }
 
     public DimensionCordVector getGroundCollision() {
-        return groundCollision;
+        return new DimensionCordVector(groundCollision.width, groundCollision.height, groundCollision.x, groundCollision.y);
     }
 
-    public DimensionCordVector getActionCollision() {
-        return actionCollision;
+    public DimensionCordVector getActionCollision(int positionX, int positionY) {
+        return new DimensionCordVector(actionCollision.width, actionCollision.height, positionX + actionCollision.x, positionY + actionCollision.y);
     }
 
     public ActionTypes getActionType() {
