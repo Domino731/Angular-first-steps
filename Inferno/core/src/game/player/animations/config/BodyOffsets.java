@@ -58,12 +58,12 @@ public class BodyOffsets {
     private static JsonNode readJson() {
         JsonNode json = null;
         try {
-            FileHandle fileHandle = Gdx.files.internal(Urls.CONFIG_BASE_HAIR_OFFSETS);
+            FileHandle fileHandle = Gdx.files.internal(Urls.PLAYER_HAIR_OFFSET);
             if (fileHandle.exists()) {
                 json = Json.parse(fileHandle.readString());
             }
         } catch (IOException e) {
-            EngineLog.resourceError(Urls.CONFIG_BASE_HAIR_OFFSETS);
+            EngineLog.resourceError(Urls.PLAYER_HAIR_OFFSET);
         }
 
         return json;

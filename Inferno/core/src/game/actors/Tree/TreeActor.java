@@ -1,4 +1,4 @@
-package constants.actors.EnvironmentActor;
+package game.actors.Tree;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
@@ -16,16 +16,13 @@ import engine.utils.Action;
 import engine.utils.Draw;
 import engine.utils.Update;
 import environment.resources.ResourceAction;
-import game.actors.Tree.TreeConfig;
-import game.actors.Tree.TreeConfigManager;
-import game.actors.Tree.TreeStageConfig;
 import utils.Checkbox;
 import utils.EngineLog;
 import utils.vectors.Vector;
 
 import java.util.ArrayList;
 
-public class EnvironmentActor extends DefaultActor {
+public class TreeActor extends DefaultActor {
     private boolean isDestroyed = false;
     private final ActorsManager actorsManager;
     private final ArrayList<GroundItem> items = new ArrayList<>();
@@ -40,7 +37,7 @@ public class EnvironmentActor extends DefaultActor {
     Draw draw;
     private TreeStageConfig currentStage;
 
-    public EnvironmentActor(String actorId, Vector<Integer> position, ActorsManager actorsManager) {
+    public TreeActor(String actorId, Vector<Integer> position, ActorsManager actorsManager) {
         super(ActorTypes.DYNAMIC, position.x, position.y);
         this.actorsManager = actorsManager;
         config = TreeConfigManager.get(actorId);
@@ -53,7 +50,7 @@ public class EnvironmentActor extends DefaultActor {
         setStageDraw();
     }
 
-    public EnvironmentActor(String actorId, Vector<Integer> position, ActorsManager actorsManager, byte stageIndex) {
+    public TreeActor(String actorId, Vector<Integer> position, ActorsManager actorsManager, byte stageIndex) {
         super(ActorTypes.DYNAMIC, position.x, position.y);
         this.currentIndex = stageIndex;
         this.actorsManager = actorsManager;
@@ -147,7 +144,7 @@ public class EnvironmentActor extends DefaultActor {
     }
 
     public void setActionCollision() {
-        final EnvironmentActor tree = this;
+        final TreeActor tree = this;
 
         ResourceAction resourceAction = new ResourceAction() {
             @Override

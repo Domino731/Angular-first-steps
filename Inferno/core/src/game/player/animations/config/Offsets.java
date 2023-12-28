@@ -40,12 +40,12 @@ public class Offsets {
     private static JsonNode readJson() {
         JsonNode json = null;
         try {
-            FileHandle fileHandle = Gdx.files.internal(Urls.CONFIG_BASE_SHIRT_OFFSETS);
+            FileHandle fileHandle = Gdx.files.internal(Urls.PLAYER_BASE_SHIRT_OFFSETS);
             if (fileHandle.exists()) {
                 json = Json.parse(fileHandle.readString());
             }
         } catch (IOException e) {
-            EngineLog.resourceError(Urls.CONFIG_BASE_SHIRT_OFFSETS);
+            EngineLog.resourceError(Urls.PLAYER_BASE_SHIRT_OFFSETS);
         }
 
         return json;

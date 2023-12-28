@@ -2,12 +2,12 @@ package engine.fonts.actionCollision.actorsManager;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
-import constants.actors.EnvironmentActor.EnvironmentActor;
 import constants.actors.groundItem.GroundItem;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.items.Items;
 import environment.resources.Resource;
 import game.actors.StaticActor.StaticActor;
+import game.actors.Tree.TreeActor;
 import game.hud.clock.Clock;
 import game.player.Player;
 import levelManager.LevelManager;
@@ -78,7 +78,7 @@ public class ActorsManager {
         if (player.getIsBuildMode()) {
             Tile tile = levelManager.getTiles().getHoveredTile();
             if (tile != null) {
-                EnvironmentActor newActor = new EnvironmentActor("maple", new Vector<>(tile.getCords().x, tile.getCords().y), this);
+                TreeActor newActor = new TreeActor("maple", new Vector<>(tile.getCords().x, tile.getCords().y), this);
                 addActor(newActor);
             }
         }
@@ -237,14 +237,14 @@ public class ActorsManager {
         currentAction = null;
     }
 
-    public void removeTreeObjectItems(EnvironmentActor rsc) {
+    public void removeTreeObjectItems(TreeActor rsc) {
         checkboxes.remove(rsc.getGroundCheckbox());
         groundCheckboxes.remove(rsc.getGroundCheckbox());
         actionCollisions.removeAll(rsc.getActionCollisions());
         currentAction = null;
     }
 
-    public void removeTreeObject(EnvironmentActor rsc) {
+    public void removeTreeObject(TreeActor rsc) {
         allActors.remove(rsc);
         checkboxes.remove(rsc.getGroundCheckbox());
         groundCheckboxes.remove(rsc.getGroundCheckbox());

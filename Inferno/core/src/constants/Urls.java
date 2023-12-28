@@ -9,7 +9,6 @@ public class Urls {
     public static final String CONFIG_WEAPONS = "config/items/tools/weapons.json";
     public static final String CONFIG_RESOURCE_ITEMS = "config/resources.json";
     public static final String CONFIG_RESOURCE_BUSHES = "config/objects/bushes.json";
-    public static final String CONFIG_BASE_HAIR_OFFSETS = "config/hairOffsets.json";
     public static final String CONFIG_BASE_SHIRT_OFFSETS = "config/baseShirtOffsets.json";
     public static final String CONFIG_PICKAXES = "config/items/tools/pickaxes.json";
     public static final String CONFIG_FONTS_4 = "config/fonts4.json";
@@ -70,4 +69,9 @@ public class Urls {
     public static final String TXT_WHITE_CELL = "sprites/utils/white-cell.png";
     public static final String TXT_RED_CELL = "sprites/utils/red-cell.png";
     public static final String TXT_GREEN_CELL = "sprites/utils/green-cell.png";
+
+    // player
+    public static final String PLAYER_CONFIG = "player/playerConfig.json";
+    public static final String PLAYER_HAIR_OFFSET = "player/hairOffsets.json";
+    public static final String PLAYER_BASE_SHIRT_OFFSETS = "player/baseShirtOffsets.json";
 }

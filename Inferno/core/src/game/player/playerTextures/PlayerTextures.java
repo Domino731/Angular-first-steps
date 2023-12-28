@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
+import constants.Urls;
 import game.player.PlayerConstants;
 import game.player.animations.config.BodyOffsets;
 import game.player.animations.config.Offsets;
@@ -201,7 +202,7 @@ public class PlayerTextures {
     }
 
     private void readJson() {
-        FileHandle fileHandle = Gdx.files.internal("config/playerConfig.json");
+        FileHandle fileHandle = Gdx.files.internal(Urls.PLAYER_CONFIG);
         if (fileHandle.exists()) {
             try {
                 JsonNode jsonNode = Json.parse(fileHandle.readString()).get("animations");
@@ -210,7 +211,7 @@ public class PlayerTextures {
                 loadAnimationTextures(jsonNode.get("body"), bodyTextures, texture, true);
                 loadAnimationTextures(jsonNode.get("arms"), armsTextures, texture, false);
             } catch (IOException e) {
-                EngineLog.resourceError("config/playerConfig.json");
+                EngineLog.resourceError(Urls.PLAYER_CONFIG);
             }
         }
     }
