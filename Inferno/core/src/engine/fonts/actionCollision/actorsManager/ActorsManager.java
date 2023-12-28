@@ -5,9 +5,8 @@ import constants.actors.DefaultActor;
 import constants.actors.groundItem.GroundItem;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.items.Items;
+import game.actorSets.AllMines;
 import game.actors.MineActor.MineActor;
-import game.actors.MineActor.MineActorConfigsManager;
-import game.actors.StaticActor.StaticActor;
 import game.actors.Tree.TreeActor;
 import game.hud.clock.Clock;
 import game.player.Player;
@@ -40,10 +39,10 @@ public class ActorsManager {
     public ActorsManager() {
         levelManager = new LevelManager();
         tiles = levelManager.getTiles().getTilesList();
-        MineActorConfigsManager.get("l");
         createPlayer();
-        addActor(new StaticActor("big_tree_1_spring", 0, 0));
-        addActor(new MineActor("gem_ore", 5, 2, this));
+        new AllMines(this);
+//        addActor(new StaticActor("big_tree_1_spring", 0, 0));
+//        addActor(new MineActor("gem_ore", 5, 2, this));
     }
 
     public void removeNewMinuteAction(GameTimeNewMinute gameTimeNewMinute) {
