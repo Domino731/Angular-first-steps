@@ -1,10 +1,10 @@
 package game.actors.Tree;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import constants.resources.ResourceAction;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.fonts.actionCollision.ActionTypes;
 import engine.items.DropItemData;
-import environment.resources.ResourceAction;
 import utils.CollisionData;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;

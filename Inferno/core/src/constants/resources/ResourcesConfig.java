@@ -1,4 +1,4 @@
-package environment.resources;
+package constants.resources;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;

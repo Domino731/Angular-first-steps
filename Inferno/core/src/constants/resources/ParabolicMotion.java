@@ -1,4 +1,4 @@
-package environment.resources;
+package constants.resources;
 
 import com.badlogic.gdx.math.Vector2;
 
@@ -8,6 +8,7 @@ public class ParabolicMotion {
     private Vector2 itemPosition;
     private Vector2 itemVelocity;
     private float gravity;
+
     public ParabolicMotion(float initialX, float initialY, float initialVelocity, float angle, float gravity) {
         // Initialize item properties
         itemPosition = new Vector2(initialX, initialY); // Starting point A

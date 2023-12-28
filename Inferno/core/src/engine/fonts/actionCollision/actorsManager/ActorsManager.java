@@ -3,9 +3,10 @@ package engine.fonts.actionCollision.actorsManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
 import constants.actors.groundItem.GroundItem;
+import constants.resources.Resource;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.items.Items;
-import environment.resources.Resource;
+import game.actors.MineActor.MineActorConfigsManager;
 import game.actors.StaticActor.StaticActor;
 import game.actors.Tree.TreeActor;
 import game.hud.clock.Clock;
@@ -39,6 +40,7 @@ public class ActorsManager {
     public ActorsManager() {
         levelManager = new LevelManager();
         tiles = levelManager.getTiles().getTilesList();
+        MineActorConfigsManager.get("l");
         createPlayer();
         addActor(new StaticActor("big_tree_1_spring", 0, 0));
 //        addActor(new StaticDefaultActor("big_tree_1_spring", 1, 1));

@@ -74,4 +74,7 @@ public class Urls {
     public static final String PLAYER_CONFIG = "player/playerConfig.json";
     public static final String PLAYER_HAIR_OFFSET = "player/hairOffsets.json";
     public static final String PLAYER_BASE_SHIRT_OFFSETS = "player/baseShirtOffsets.json";
+
+    // DIRECTORIES
+    public static final String DIR_ACTORS_MINES = "objects/mines/";
 }

@@ -1,7 +1,7 @@
 {
   "id": "aquamarine_ore",
   "name": "Aquamarine ore",
-  "texture": {
+  "specs": {
     "texture": {
       "width": 16,
       "height": 16,

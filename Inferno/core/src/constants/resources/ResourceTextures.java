@@ -1,4 +1,4 @@
-package environment.resources;
+package constants.resources;
 
 import com.badlogic.gdx.graphics.Texture;
 

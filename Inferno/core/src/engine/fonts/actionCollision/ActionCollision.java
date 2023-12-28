@@ -1,6 +1,6 @@
 package engine.fonts.actionCollision;
 
-import environment.resources.ResourceAction;
+import constants.resources.ResourceAction;
 import utils.Checkbox;
 import utils.strings.StringUtils;
 import utils.vectors.DimensionVector;

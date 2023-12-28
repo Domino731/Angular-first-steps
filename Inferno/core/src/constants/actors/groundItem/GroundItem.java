@@ -2,10 +2,10 @@ package constants.actors.groundItem;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import constants.resources.ResourceAction;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.fonts.actionCollision.ActionTypes;
 import engine.utils.Action;
-import environment.resources.ResourceAction;
 import utils.vectors.DimensionVector;
 import utils.vectors.Vector;
 

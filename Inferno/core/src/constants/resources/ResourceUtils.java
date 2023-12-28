@@ -1,4 +1,4 @@
-package environment.resources;
+package constants.resources;
 
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;

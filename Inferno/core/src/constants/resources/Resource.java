@@ -1,4 +1,4 @@
-package environment.resources;
+package constants.resources;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
@@ -19,7 +19,7 @@ import utils.vectors.Vector;
 
 import java.util.ArrayList;
 
-import static environment.resources.ResourceUtils.*;
+import static constants.resources.ResourceUtils.*;
 
 public class Resource extends DefaultActor {
     private ResourcesConfig.Config config;

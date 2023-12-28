@@ -1,7 +1,7 @@
 {
   "id": "gem_ore",
   "name": "Gem ore",
-  "cords": {
+  "specs": {
     "exp": 70,
     "texture": {
       "width": 16,

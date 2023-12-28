@@ -2,11 +2,11 @@ package game.player;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.movableDefaultActor.MovableDefaultActor;
+import constants.resources.ResourceAction;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.fonts.actionCollision.ActionTypes;
 import engine.fonts.actionCollision.actorsManager.ActorsManager;
 import engine.fonts.actionCollision.actorsManager.GameTime;
-import environment.resources.ResourceAction;
 import game.player.animations.PlayerAnimations;
 import game.player.animations.utils.AnimationAmount;
 import game.player.inventory.InventoryItemGroups;
