@@ -1,10 +1,10 @@
 package game.actors.Tree;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import constants.resources.ResourceAction;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.fonts.actionCollision.ActionTypes;
 import engine.items.DropItemData;
+import utils.Action;
 import utils.CollisionData;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
@@ -54,7 +54,7 @@ public class TreeStageConfig {
         return new DimensionCordVector(groundCollision);
     }
 
-    public ActionCollision getActionCollision(ResourceAction rscAction, String actorId, Vector<Integer> actorPosition) {
+    public ActionCollision getActionCollision(Action rscAction, String actorId, Vector<Integer> actorPosition) {
         Vector<Integer> position = new Vector<>(actionCollision.x + actorPosition.x, actionCollision.y + actorPosition.y);
         DimensionVector<Integer> dimension = new DimensionVector<>((int) actionCollision.width, (int) actionCollision.height);
         return new ActionCollision(ActionTypes.CUT_TREE, actorId, position, dimension, new Vector<>(0, 0), rscAction);

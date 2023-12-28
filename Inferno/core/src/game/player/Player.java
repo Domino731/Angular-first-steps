@@ -2,7 +2,6 @@ package game.player;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.movableDefaultActor.MovableDefaultActor;
-import constants.resources.ResourceAction;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.fonts.actionCollision.ActionTypes;
 import engine.fonts.actionCollision.actorsManager.ActorsManager;
@@ -15,6 +14,7 @@ import game.player.playerTextures.PlayerTextures;
 import game.player.style.PlayerStyle;
 import game.player.style.paintTextures.PaintTextures;
 import inputs.GameInputProcessor;
+import utils.Action;
 import utils.Checkbox;
 import utils.Direction;
 import utils.vectors.DimensionCordVector;
@@ -249,7 +249,7 @@ public class Player extends MovableDefaultActor {
                 new Vector<>(position.x, position.y),
                 new DimensionVector<>(16, 16),
                 new Vector<Integer>(0, 0),
-                new ResourceAction() {
+                new Action() {
                     @Override
                     public void action() {
 //                        System.out.println("PLAYER ACTION COLLISION");

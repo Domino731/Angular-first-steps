@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
 import constants.actors.constants.ActorTypes;
 import constants.actors.groundItem.GroundItem;
-import constants.resources.ResourceAction;
 import engine.Textures;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.fonts.actionCollision.actorsManager.ActorsManager;
@@ -13,9 +12,9 @@ import engine.fonts.actionCollision.actorsManager.GameTime;
 import engine.fonts.actionCollision.actorsManager.GameTimeNewMinute;
 import engine.items.DropItemData;
 import engine.items.Items;
-import engine.utils.Action;
 import engine.utils.Draw;
 import engine.utils.Update;
+import utils.Action;
 import utils.Checkbox;
 import utils.EngineLog;
 import utils.vectors.Vector;
@@ -78,8 +77,8 @@ public class TreeActor extends DefaultActor {
         return items.size() == 0;
     }
 
-    private Action createItemActionCollision(final String itemId, final GroundItem groundItem) {
-        return new Action() {
+    private engine.utils.Action createItemActionCollision(final String itemId, final GroundItem groundItem) {
+        return new engine.utils.Action() {
             @Override
             public void action() {
                 actorsManager.addItemToPlayerInventory(itemId, (byte) 1);
@@ -146,7 +145,7 @@ public class TreeActor extends DefaultActor {
     public void setActionCollision() {
         final TreeActor tree = this;
 
-        ResourceAction resourceAction = new ResourceAction() {
+        Action action = new Action() {
             @Override
             public void action() {
                 actorsManager.removeTreeObjectItems(tree);
@@ -154,7 +153,7 @@ public class TreeActor extends DefaultActor {
             }
         };
 
-        ActionCollision actionCollision = currentStage.getActionCollision(resourceAction, id, position);
+        ActionCollision actionCollision = currentStage.getActionCollision(action, id, position);
         actionCollisions.add(actionCollision);
     }
 

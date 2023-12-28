@@ -5,15 +5,14 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import constants.actors.DefaultActor;
 import constants.actors.constants.ActorTypes;
 import constants.actors.groundItem.GroundItem;
-import constants.resources.ResourceAction;
 import engine.Textures;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.fonts.actionCollision.actorsManager.ActorsManager;
 import engine.fonts.actionCollision.actorsManager.GameTime;
 import engine.items.DropItemData;
 import engine.items.Items;
-import engine.utils.Action;
 import engine.utils.Draw;
+import utils.Action;
 import utils.EngineLog;
 import utils.vectors.DimensionCordVector;
 import utils.vectors.DimensionVector;
@@ -90,8 +89,8 @@ public class MineActor extends DefaultActor {
     }
 
 
-    private Action createItemActionCollision(final String itemId, final GroundItem groundItem) {
-        return new Action() {
+    private engine.utils.Action createItemActionCollision(final String itemId, final GroundItem groundItem) {
+        return new engine.utils.Action() {
             @Override
             public void action() {
                 actorsManager.addItemToPlayerInventory(itemId, (byte) 1);
@@ -157,7 +156,7 @@ public class MineActor extends DefaultActor {
                         id,
                         config.getActionCollision(position.x, position.y),
                         new Vector<>(0, 0),
-                        new ResourceAction() {
+                        new Action() {
                             @Override
                             public void action() {
                                 actorsManager.removeMineActorItems(resource);

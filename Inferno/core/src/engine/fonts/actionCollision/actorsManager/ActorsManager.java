@@ -3,7 +3,6 @@ package engine.fonts.actionCollision.actorsManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;
 import constants.actors.groundItem.GroundItem;
-import constants.resources.Resource;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.items.Items;
 import game.actors.MineActor.MineActor;
@@ -231,14 +230,6 @@ public class ActorsManager {
         }
     }
 
-    // TODO merge
-    public void removeResourceObjectItems(Resource rsc) {
-        checkboxes.remove(rsc.getGroundCheckbox());
-        groundCheckboxes.remove(rsc.getGroundCheckbox());
-        actionCollisions.removeAll(rsc.getActionCollisions());
-        currentAction = null;
-    }
-
     public void removeMineActorItems(MineActor rsc) {
         checkboxes.remove(rsc.getGroundCheckbox());
         groundCheckboxes.remove(rsc.getGroundCheckbox());
@@ -254,15 +245,6 @@ public class ActorsManager {
     }
 
     public void removeTreeObject(TreeActor rsc) {
-        allActors.remove(rsc);
-        checkboxes.remove(rsc.getGroundCheckbox());
-        groundCheckboxes.remove(rsc.getGroundCheckbox());
-        actionCollisions.removeAll(rsc.getActionCollisions());
-        groundItems.removeAll(rsc.getItemsCollisions());
-        currentAction = null;
-    }
-
-    public void removeResourceObject(Resource rsc) {
         allActors.remove(rsc);
         checkboxes.remove(rsc.getGroundCheckbox());
         groundCheckboxes.remove(rsc.getGroundCheckbox());
