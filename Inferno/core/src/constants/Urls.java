@@ -77,4 +77,5 @@ public class Urls {
 
     // DIRECTORIES
     public static final String DIR_ACTORS_MINES = "objects/mines/";
+    public static final String DIR_ACTORS_BUSHES = "objects/bushes/";
 }

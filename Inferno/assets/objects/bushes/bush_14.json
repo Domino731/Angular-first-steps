@@ -12,7 +12,17 @@
     "drop": [],
     "action": "cut_tree",
     "exp": 10,
-    "groundCheckboxId": "3",
-    "actionCollisionId": "3"
+    "ground_collision": {
+      "width": 48,
+      "height": 48,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 50,
+      "height": 50,
+      "x": -2,
+      "y": -2
+    }
   }
 }

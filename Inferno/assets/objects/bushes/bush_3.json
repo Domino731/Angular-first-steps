@@ -7,22 +7,22 @@
       "width": 32,
       "height": 41,
       "x": 64,
-      "y": 7,
-      "drop": [],
-      "action": "cut_tree",
-      "exp": 10,
-      "ground_collision": {
-        "width": 32,
-        "height": 32,
-        "x": 0,
-        "y": 0
-      },
-      "action_collision": {
-        "width": 36,
-        "height": 36,
-        "x": -2,
-        "y": -2
-      }
+      "y": 7
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10,
+    "ground_collision": {
+      "width": 32,
+      "height": 32,
+      "x": 0,
+      "y": 0
+    },
+    "action_collision": {
+      "width": 36,
+      "height": 36,
+      "x": -2,
+      "y": -2
     }
   }
 }

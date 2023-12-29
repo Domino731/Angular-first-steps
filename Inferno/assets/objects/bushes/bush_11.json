@@ -3,7 +3,7 @@
   "name": "Bush 11",
   "specs": {
     "texture": {
-      "texture": "bushes",
+      "name": "bushes",
       "x": 96,
       "y": 96,
       "width": 32,

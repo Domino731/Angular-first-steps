@@ -9,23 +9,30 @@ import java.util.HashMap;
 import static utils.Json.readFile;
 
 public class MineActorConfigsManager {
-    private static HashMap<String, MineActorConfig> allMines = createData();
+    private static final HashMap<String, MineActorConfig> allMines = createData();
 
     private static HashMap<String, MineActorConfig> createData() {
         HashMap<String, MineActorConfig> payload = new HashMap<>();
         // TODO before release: make this pathname dynamic, because on different pc's it can behaviour in different ways
-        File folder = new File("C:\\Users\\Dominik\\Desktop\\projects\\pixi\\Inferno\\assets\\objects\\mines");
+        createConfigs("C:\\Users\\Dominik\\Desktop\\projects\\pixi\\Inferno\\assets\\objects\\mines", payload, Urls.DIR_ACTORS_MINES);
+        createConfigs("C:\\Users\\Dominik\\Desktop\\projects\\pixi\\Inferno\\assets\\objects\\bushes", payload, Urls.DIR_ACTORS_BUSHES);
+        return payload;
+    }
+
+    private static void createConfigs(String pathname, HashMap<String, MineActorConfig> payload, String baseUrl) {
+        File folder = new File(pathname);
         File[] listOfFiles = folder.listFiles();
 
+        assert listOfFiles != null;
         for (File file : listOfFiles) {
             if (file.isFile()) {
-                String filePath = Urls.DIR_ACTORS_MINES + file.getName();
+                String filePath = baseUrl + file.getName();
                 MineActorConfig mineActorConfig = createMineActor(readFile(filePath));
                 payload.put(mineActorConfig.getId(), mineActorConfig);
             }
         }
-        return payload;
     }
+
 
     private static MineActorConfig createMineActor(JsonNode node) {
         String id = node.get("id").asText();
