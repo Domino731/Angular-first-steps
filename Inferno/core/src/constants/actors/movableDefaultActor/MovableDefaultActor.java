@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class MovableDefaultActor extends DefaultActor {
     protected boolean isMoving = false;
     protected ActorDirection direction = new ActorDirection();
-    protected byte speed = 1;
+    protected byte speed = 5;
     private TextureRegion[][] textureRegions;
     private TextureData textureData;
     public int aniTick, aniIndex, aniSpeed = 20;

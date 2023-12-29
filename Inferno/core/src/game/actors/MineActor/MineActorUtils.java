@@ -16,8 +16,8 @@ public class MineActorUtils {
         int height = textureNode.get("height").asInt();
         int x = textureNode.get("x").asInt();
         int y = textureNode.get("y").asInt();
-//        String textureName = textureNode.get("name").asText();
-        return new TextureRegion(getTextureByName("mines"), x, y, width, height);
+        String textureName = textureNode.get("name").asText();
+        return new TextureRegion(getTextureByName(textureName), x, y, width, height);
     }
 
     public static DimensionCordVector createGroundCollision(JsonNode groundCollisionNode) {

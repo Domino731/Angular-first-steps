@@ -13,14 +13,14 @@
     "action": "cut_tree",
     "exp": 10,
     "ground_collision": {
-      "width": 16,
-      "height": 16,
+      "width": 32,
+      "height": 32,
       "x": 0,
       "y": 0
     },
     "action_collision": {
-      "width": 20,
-      "height": 20,
+      "width": 36,
+      "height": 36,
       "x": -2,
       "y": -2
     }
