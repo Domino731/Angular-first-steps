@@ -1,4 +1,4 @@
-package game.actors.Tree;
+package game.actors.TreeActor;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import constants.actors.DefaultActor;

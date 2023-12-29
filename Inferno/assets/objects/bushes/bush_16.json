@@ -1,0 +1,18 @@
+{
+  "id": "bush_16",
+  "name": "Bush 16",
+  "specs": {
+    "texture": {
+      "name": "bushes",
+      "width": 16,
+      "height": 27,
+      "x": 0,
+      "y": 229
+    },
+    "drop": [],
+    "action": "cut_tree",
+    "exp": 10,
+    "groundCheckboxId": "1",
+    "actionCollisionId": "1"
+  }
+}

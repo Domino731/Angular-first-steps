@@ -1,7 +1,7 @@
 package game.actorSets;
 
 import engine.fonts.actionCollision.actorsManager.ActorsManager;
-import game.actors.Tree.TreeActor;
+import game.actors.TreeActor.TreeActor;
 import utils.vectors.Vector;
 
 public class AllTrees {

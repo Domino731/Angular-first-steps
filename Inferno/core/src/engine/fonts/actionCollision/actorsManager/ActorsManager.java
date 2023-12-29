@@ -7,7 +7,7 @@ import engine.fonts.actionCollision.ActionCollision;
 import engine.items.Items;
 import game.actorSets.AllMines;
 import game.actors.MineActor.MineActor;
-import game.actors.Tree.TreeActor;
+import game.actors.TreeActor.TreeActor;
 import game.hud.clock.Clock;
 import game.player.Player;
 import levelManager.LevelManager;
