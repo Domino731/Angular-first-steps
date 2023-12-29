@@ -3,6 +3,7 @@
   "name": "Alien stone",
   "specs": {
     "texture": {
+      "name": "mines",
       "width": 32,
       "height": 32,
       "x": 234,

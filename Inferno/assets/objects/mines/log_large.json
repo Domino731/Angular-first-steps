@@ -3,6 +3,7 @@
   "name": "Large Log",
   "specs": {
     "texture": {
+      "name": "mines",
       "x": 32,
       "y": 156,
       "width": 32,

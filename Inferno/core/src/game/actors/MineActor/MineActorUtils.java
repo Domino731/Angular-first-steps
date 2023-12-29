@@ -2,12 +2,13 @@ package game.actors.MineActor;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fasterxml.jackson.databind.JsonNode;
-import engine.Textures;
 import engine.items.DropItemData;
 import engine.items.Items;
 import utils.vectors.DimensionCordVector;
 
 import java.util.ArrayList;
+
+import static engine.TextureUtils.getTextureByName;
 
 public class MineActorUtils {
     public static TextureRegion createTexture(JsonNode textureNode) {
@@ -15,7 +16,8 @@ public class MineActorUtils {
         int height = textureNode.get("height").asInt();
         int x = textureNode.get("x").asInt();
         int y = textureNode.get("y").asInt();
-        return new TextureRegion(Textures.minesTxt, x, y, width, height);
+        String textureName = textureNode.get("name").asText();
+        return new TextureRegion(getTextureByName(textureName), x, y, width, height);
     }
 
     public static DimensionCordVector createGroundCollision(JsonNode groundCollisionNode) {

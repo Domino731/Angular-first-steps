@@ -4,6 +4,7 @@
   "specs": {
     "exp": 16,
     "texture": {
+      "name": "mines",
       "x": 79,
       "y": 49,
       "width": 16,

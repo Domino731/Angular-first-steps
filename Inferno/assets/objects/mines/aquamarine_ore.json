@@ -3,6 +3,7 @@
   "name": "Aquamarine ore",
   "specs": {
     "texture": {
+      "name": "mines",
       "width": 16,
       "height": 16,
       "x": 193,

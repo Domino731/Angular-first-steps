@@ -3,6 +3,7 @@
   "name": "Iridium Node",
   "specs": {
     "texture": {
+      "name": "mines",
       "x": 208,
       "y": 106,
       "width": 16,
