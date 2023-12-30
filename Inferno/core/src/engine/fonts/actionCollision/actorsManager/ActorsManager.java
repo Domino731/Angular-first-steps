@@ -5,7 +5,7 @@ import constants.actors.DefaultActor;
 import constants.actors.groundItem.GroundItem;
 import engine.fonts.actionCollision.ActionCollision;
 import engine.items.Items;
-import game.actorSets.AllBushes;
+import game.actorSets.AllTrees;
 import game.actors.MineActor.MineActor;
 import game.actors.TreeActor.TreeActor;
 import game.hud.clock.Clock;
@@ -41,7 +41,8 @@ public class ActorsManager {
         tiles = levelManager.getTiles().getTilesList();
         createPlayer();
 //        new AllMines(this);
-        new AllBushes(this);
+//        new AllBushes(this);
+        new AllTrees(this);
 //        addActor(new StaticActor("big_tree_1_spring", 0, 0));
 //        addActor(new MineActor("gem_ore", 5, 2, this));
     }

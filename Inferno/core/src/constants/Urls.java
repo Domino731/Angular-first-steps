@@ -8,7 +8,6 @@ public class Urls {
     public static final String CONFIG_MINES = "config/objects/mines.json";
     public static final String CONFIG_WEAPONS = "config/items/tools/weapons.json";
     public static final String CONFIG_RESOURCE_ITEMS = "config/resources.json";
-    public static final String CONFIG_RESOURCE_BUSHES = "config/objects/bushes.json";
     public static final String CONFIG_BASE_SHIRT_OFFSETS = "config/baseShirtOffsets.json";
     public static final String CONFIG_PICKAXES = "config/items/tools/pickaxes.json";
     public static final String CONFIG_FONTS_4 = "config/fonts4.json";
@@ -48,7 +47,7 @@ public class Urls {
     public static final String TXT_INVENTORY_FRAME_LANE_LEFT = "sprites/inventory/lane-left.png";
     public static final String TXT_INVENTORY_FRAME_CORNER = "sprites/inventory/corner.png";
     public static final String TXT_TRESS = "sprites/environment/trees.png";
-
+    public static final String TXT_CROPS = "sprites/environment/crops.png";
     // tiles
     public static final String SPRITE_BEACH_FALL = "sprites/tileSets/beach_fall.png";
     public static final String SPRITE_BEACH_WINTER = "sprites/tileSets/beach_winter.png";

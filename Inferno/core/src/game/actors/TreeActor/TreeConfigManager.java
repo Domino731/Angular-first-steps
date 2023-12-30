@@ -32,6 +32,8 @@ public class TreeConfigManager {
         payload.put(palmSmallTree.getId(), palmSmallTree);
         TreeConfig palmMediumTree = createActorConfig(Urls.CONFIG_TREE_PALM_MEDIUM_NEW);
         payload.put(palmMediumTree.getId(), palmMediumTree);
+        TreeConfig blueJazz = createActorConfig("objects/crops/blue_jazz.json");
+        payload.put(blueJazz.getId(), blueJazz);
 
         return payload;
     }
@@ -69,6 +71,11 @@ public class TreeConfigManager {
                 CollisionData groundCollisionData = new CollisionData(node.get("ground_collision"));
                 CollisionData actionCollisionData = new CollisionData(node.get("action_collision"));
                 TextureRegion texture = createTexture(x, y, width, height);
+                // TODO: temporary for crops
+                if (node.get("name") != null) {
+                    texture = new TextureRegion(Textures.cropsSprite, x, y, width, height);
+                }
+
                 TreeStageConfig stageConfig = new TreeStageConfig((byte) ((byte) index + 1), texture, width, height, nextStage, actionCollisionData, groundCollisionData, new ArrayList<DropItemData>());
                 payload[index] = stageConfig;
                 index++;

@@ -22,7 +22,7 @@ public class Textures {
     public static final Texture hudFrameLaneLeft = new Texture(Urls.TXT_INVENTORY_FRAME_LANE_LEFT);
     public static final Texture hudFrameCorner = new Texture(Urls.TXT_INVENTORY_FRAME_CORNER);
     public static final Texture treesSprite = new Texture(Urls.TXT_TRESS);
-
+    public static final Texture cropsSprite = new Texture(Urls.TXT_CROPS);
     // tiles
     public static final Texture beachFallTxt = new Texture(Urls.SPRITE_BEACH_FALL);
     public static final Texture beachWinterTxt = new Texture(Urls.SPRITE_BEACH_WINTER);

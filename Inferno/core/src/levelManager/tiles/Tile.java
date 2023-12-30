@@ -98,7 +98,7 @@ public class Tile {
             @Override
             public void draw(SpriteBatch sb) {
                 sb.draw(txt, position.x, position.y);
-//                sb.draw(Textures.frameTxt, position.x, position.y, TILE_SIZE, TILE_SIZE);
+                sb.draw(Textures.frameTxt, position.x, position.y, TILE_SIZE, TILE_SIZE);
             }
         };
     }
