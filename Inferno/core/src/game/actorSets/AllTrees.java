@@ -43,5 +43,12 @@ public class AllTrees {
         actorsManager.addActor(new TreeActor("blue_jazz", new Vector<>(6, 5), actorsManager, (byte) 3));
         actorsManager.addActor(new TreeActor("blue_jazz", new Vector<>(8, 5), actorsManager, (byte) 4));
         actorsManager.addActor(new TreeActor("blue_jazz", new Vector<>(10, 5), actorsManager, (byte) 5));
+
+        actorsManager.addActor(new TreeActor("coffee_bean", new Vector<>(0, 7), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("coffee_bean", new Vector<>(2, 7), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("coffee_bean", new Vector<>(4, 7), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("coffee_bean", new Vector<>(6, 7), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("coffee_bean", new Vector<>(8, 7), actorsManager, (byte) 4));
+        actorsManager.addActor(new TreeActor("coffee_bean", new Vector<>(10, 7), actorsManager, (byte) 5));
     }
 }

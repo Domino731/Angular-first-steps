@@ -32,9 +32,11 @@ public class TreeConfigManager {
         payload.put(palmSmallTree.getId(), palmSmallTree);
         TreeConfig palmMediumTree = createActorConfig(Urls.CONFIG_TREE_PALM_MEDIUM_NEW);
         payload.put(palmMediumTree.getId(), palmMediumTree);
+        // TODO: remove crops
         TreeConfig blueJazz = createActorConfig("objects/crops/blue_jazz.json");
         payload.put(blueJazz.getId(), blueJazz);
-
+        TreeConfig blueJazz2 = createActorConfig("objects/crops/coffee_bean.json");
+        payload.put(blueJazz2.getId(), blueJazz2);
         return payload;
     }
 
