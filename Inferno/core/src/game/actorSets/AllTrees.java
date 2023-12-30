@@ -102,5 +102,20 @@ public class AllTrees {
         actorsManager.addActor(new TreeActor("strawberry", new Vector<>(10, 21), actorsManager, (byte) 5));
         actorsManager.addActor(new TreeActor("strawberry", new Vector<>(12, 21), actorsManager, (byte) 6));
         actorsManager.addActor(new TreeActor("strawberry", new Vector<>(14, 21), actorsManager, (byte) 7));
+
+        actorsManager.addActor(new TreeActor("unmilled_rice", new Vector<>(0, 23), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("unmilled_rice", new Vector<>(2, 23), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("unmilled_rice", new Vector<>(4, 23), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("unmilled_rice", new Vector<>(6, 23), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("unmilled_rice", new Vector<>(8, 23), actorsManager, (byte) 4));
+        actorsManager.addActor(new TreeActor("unmilled_rice", new Vector<>(10, 23), actorsManager, (byte) 5));
+
+        actorsManager.addActor(new TreeActor("blueberry", new Vector<>(0, 25), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("blueberry", new Vector<>(2, 25), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("blueberry", new Vector<>(4, 25), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("blueberry", new Vector<>(6, 25), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("blueberry", new Vector<>(8, 25), actorsManager, (byte) 4));
+        actorsManager.addActor(new TreeActor("blueberry", new Vector<>(10, 25), actorsManager, (byte) 5));
+        actorsManager.addActor(new TreeActor("blueberry", new Vector<>(12, 25), actorsManager, (byte) 6));
     }
 }
