@@ -41,6 +41,8 @@ public class TreeConfigManager {
         payload.put(blueJazz3.getId(), blueJazz3);
         TreeConfig blueJazz4 = createActorConfig("objects/crops/green_bean.json");
         payload.put(blueJazz4.getId(), blueJazz4);
+        TreeConfig blueJazz5 = createActorConfig("objects/crops/kale.json");
+        payload.put(blueJazz5.getId(), blueJazz5);
         return payload;
     }
 

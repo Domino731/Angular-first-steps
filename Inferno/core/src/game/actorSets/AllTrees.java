@@ -65,5 +65,11 @@ public class AllTrees {
         actorsManager.addActor(new TreeActor("green_bean", new Vector<>(8, 11), actorsManager, (byte) 4));
         actorsManager.addActor(new TreeActor("green_bean", new Vector<>(10, 11), actorsManager, (byte) 5));
         actorsManager.addActor(new TreeActor("green_bean", new Vector<>(12, 11), actorsManager, (byte) 6));
+
+        actorsManager.addActor(new TreeActor("kale", new Vector<>(0, 13), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("kale", new Vector<>(2, 13), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("kale", new Vector<>(4, 13), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("kale", new Vector<>(6, 13), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("kale", new Vector<>(8, 13), actorsManager, (byte) 4));
     }
 }
