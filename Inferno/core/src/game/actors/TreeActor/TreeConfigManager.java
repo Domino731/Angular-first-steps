@@ -33,7 +33,7 @@ public class TreeConfigManager {
         TreeConfig palmMediumTree = createActorConfig(Urls.CONFIG_TREE_PALM_MEDIUM_NEW);
         payload.put(palmMediumTree.getId(), palmMediumTree);
         // TODO: remove crops
-        // MISSING: tulip, poppy, summer spangle
+        // MISSING: tulip, poppy, summer spangle, fairy rose
         TreeConfig blueJazz = createActorConfig("objects/crops/blue_jazz.json");
         payload.put(blueJazz.getId(), blueJazz);
         TreeConfig blueJazz2 = createActorConfig("objects/crops/coffee_bean.json");
@@ -82,6 +82,20 @@ public class TreeConfigManager {
         payload.put(blueJazz24.getId(), blueJazz24);
         TreeConfig blueJazz25 = createActorConfig("objects/crops/beet.json");
         payload.put(blueJazz25.getId(), blueJazz25);
+        TreeConfig blueJazz26 = createActorConfig("objects/crops/bok_chok.json");
+        payload.put(blueJazz26.getId(), blueJazz26);
+        TreeConfig blueJazz27 = createActorConfig("objects/crops/cranberries.json");
+        payload.put(blueJazz27.getId(), blueJazz27);
+        TreeConfig blueJazz28 = createActorConfig("objects/crops/eggplant.json");
+        payload.put(blueJazz28.getId(), blueJazz28);
+        TreeConfig blueJazz29 = createActorConfig("objects/crops/grape.json");
+        payload.put(blueJazz29.getId(), blueJazz29);
+        TreeConfig blueJazz30 = createActorConfig("objects/crops/pumpkin.json");
+        payload.put(blueJazz30.getId(), blueJazz30);
+        TreeConfig blueJazz31 = createActorConfig("objects/crops/yam.json");
+        payload.put(blueJazz31.getId(), blueJazz31);
+        TreeConfig blueJazz32 = createActorConfig("objects/crops/ancient_fruit.json");
+        payload.put(blueJazz32.getId(), blueJazz32);
         return payload;
     }
 
