@@ -191,5 +191,31 @@ public class AllTrees {
         actorsManager.addActor(new TreeActor("tomato", new Vector<>(8, 43), actorsManager, (byte) 4));
         actorsManager.addActor(new TreeActor("tomato", new Vector<>(10, 43), actorsManager, (byte) 5));
         actorsManager.addActor(new TreeActor("tomato", new Vector<>(12, 43), actorsManager, (byte) 6));
+
+        actorsManager.addActor(new TreeActor("wheat", new Vector<>(0, 45), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("wheat", new Vector<>(2, 45), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("wheat", new Vector<>(4, 45), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("wheat", new Vector<>(6, 45), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("wheat", new Vector<>(8, 45), actorsManager, (byte) 4));
+
+        actorsManager.addActor(new TreeActor("amaranth", new Vector<>(0, 47), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("amaranth", new Vector<>(2, 47), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("amaranth", new Vector<>(4, 47), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("amaranth", new Vector<>(6, 47), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("amaranth", new Vector<>(8, 47), actorsManager, (byte) 4));
+
+        actorsManager.addActor(new TreeActor("artichoke", new Vector<>(0, 49), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("artichoke", new Vector<>(2, 49), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("artichoke", new Vector<>(4, 49), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("artichoke", new Vector<>(6, 49), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("artichoke", new Vector<>(8, 49), actorsManager, (byte) 4));
+        actorsManager.addActor(new TreeActor("artichoke", new Vector<>(10, 49), actorsManager, (byte) 5));
+        actorsManager.addActor(new TreeActor("artichoke", new Vector<>(12, 49), actorsManager, (byte) 6));
+
+        actorsManager.addActor(new TreeActor("beet", new Vector<>(0, 51), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("beet", new Vector<>(2, 51), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("beet", new Vector<>(4, 51), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("beet", new Vector<>(6, 51), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("beet", new Vector<>(8, 51), actorsManager, (byte) 4));
     }
 }
