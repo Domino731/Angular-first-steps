@@ -167,5 +167,14 @@ public class AllTrees {
         actorsManager.addActor(new TreeActor("red_cabbage", new Vector<>(8, 37), actorsManager, (byte) 4));
         actorsManager.addActor(new TreeActor("red_cabbage", new Vector<>(10, 37), actorsManager, (byte) 5));
         actorsManager.addActor(new TreeActor("red_cabbage", new Vector<>(12, 37), actorsManager, (byte) 6));
+
+        actorsManager.addActor(new TreeActor("starfruit", new Vector<>(0, 39), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("starfruit", new Vector<>(2, 39), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("starfruit", new Vector<>(4, 39), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("starfruit", new Vector<>(6, 39), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("starfruit", new Vector<>(8, 39), actorsManager, (byte) 4));
+        actorsManager.addActor(new TreeActor("starfruit", new Vector<>(10, 39), actorsManager, (byte) 5));
+        actorsManager.addActor(new TreeActor("starfruit", new Vector<>(12, 39), actorsManager, (byte) 6));
+        actorsManager.addActor(new TreeActor("starfruit", new Vector<>(14, 39), actorsManager, (byte) 7));
     }
 }
