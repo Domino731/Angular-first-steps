@@ -33,7 +33,7 @@ public class TreeConfigManager {
         TreeConfig palmMediumTree = createActorConfig(Urls.CONFIG_TREE_PALM_MEDIUM_NEW);
         payload.put(palmMediumTree.getId(), palmMediumTree);
         // TODO: remove crops
-        // MISSING: tulip, poppy
+        // MISSING: tulip, poppy, summer spangle
         TreeConfig blueJazz = createActorConfig("objects/crops/blue_jazz.json");
         payload.put(blueJazz.getId(), blueJazz);
         TreeConfig blueJazz2 = createActorConfig("objects/crops/coffee_bean.json");
@@ -70,6 +70,10 @@ public class TreeConfigManager {
         payload.put(blueJazz17.getId(), blueJazz17);
         TreeConfig blueJazz18 = createActorConfig("objects/crops/starfruit.json");
         payload.put(blueJazz18.getId(), blueJazz18);
+        TreeConfig blueJazz20 = createActorConfig("objects/crops/sunflower.json");
+        payload.put(blueJazz20.getId(), blueJazz20);
+        TreeConfig blueJazz21 = createActorConfig("objects/crops/tomato.json");
+        payload.put(blueJazz21.getId(), blueJazz21);
         return payload;
     }
 
