@@ -268,5 +268,46 @@ public class AllTrees {
         actorsManager.addActor(new TreeActor("ancient_fruit", new Vector<>(8, 65), actorsManager, (byte) 4));
         actorsManager.addActor(new TreeActor("ancient_fruit", new Vector<>(10, 65), actorsManager, (byte) 5));
         actorsManager.addActor(new TreeActor("ancient_fruit", new Vector<>(12, 65), actorsManager, (byte) 6));
+
+        actorsManager.addActor(new TreeActor("cactus", new Vector<>(0, 65), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("cactus", new Vector<>(2, 65), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("cactus", new Vector<>(4, 65), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("cactus", new Vector<>(6, 65), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("cactus", new Vector<>(8, 65), actorsManager, (byte) 4));
+        actorsManager.addActor(new TreeActor("cactus", new Vector<>(10, 65), actorsManager, (byte) 5));
+        actorsManager.addActor(new TreeActor("cactus", new Vector<>(12, 65), actorsManager, (byte) 6));
+
+        actorsManager.addActor(new TreeActor("fiber", new Vector<>(0, 67), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("fiber", new Vector<>(2, 67), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("fiber", new Vector<>(4, 67), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("fiber", new Vector<>(6, 67), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("fiber", new Vector<>(8, 67), actorsManager, (byte) 4));
+
+        actorsManager.addActor(new TreeActor("fiber", new Vector<>(0, 67), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("fiber", new Vector<>(2, 67), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("fiber", new Vector<>(4, 67), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("fiber", new Vector<>(6, 67), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("fiber", new Vector<>(8, 67), actorsManager, (byte) 4));
+
+        actorsManager.addActor(new TreeActor("pineapple", new Vector<>(20, 5), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("pineapple", new Vector<>(22, 5), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("pineapple", new Vector<>(24, 5), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("pineapple", new Vector<>(26, 5), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("pineapple", new Vector<>(28, 5), actorsManager, (byte) 4));
+        actorsManager.addActor(new TreeActor("pineapple", new Vector<>(30, 5), actorsManager, (byte) 5));
+        actorsManager.addActor(new TreeActor("pineapple", new Vector<>(32, 5), actorsManager, (byte) 6));
+
+        actorsManager.addActor(new TreeActor("taro_root", new Vector<>(20, 7), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("taro_root", new Vector<>(22, 7), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("taro_root", new Vector<>(24, 7), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("taro_root", new Vector<>(26, 7), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("taro_root", new Vector<>(28, 7), actorsManager, (byte) 4));
+
+        actorsManager.addActor(new TreeActor("sweet_gem_berry", new Vector<>(20, 9), actorsManager, (byte) 0));
+        actorsManager.addActor(new TreeActor("sweet_gem_berry", new Vector<>(22, 9), actorsManager, (byte) 1));
+        actorsManager.addActor(new TreeActor("sweet_gem_berry", new Vector<>(24, 9), actorsManager, (byte) 2));
+        actorsManager.addActor(new TreeActor("sweet_gem_berry", new Vector<>(26, 9), actorsManager, (byte) 3));
+        actorsManager.addActor(new TreeActor("sweet_gem_berry", new Vector<>(28, 9), actorsManager, (byte) 4));
+        actorsManager.addActor(new TreeActor("sweet_gem_berry", new Vector<>(30, 9), actorsManager, (byte) 5));
     }
 }

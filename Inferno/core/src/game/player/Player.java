@@ -41,7 +41,7 @@ public class Player extends MovableDefaultActor {
     private boolean isBuildMode = true;
 
     public Player(ActorsManager actorsManager) {
-        super(-3, 47, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
+        super(20, -2, PlayerConstants.checkboxArray, SPRITE_HATS, PlayerConstants.textureData, PlayerConstants.dim, new DimensionCordVector(20, 10, 20, 10));
         this.shirts = new PaintTextures();
         this.actorsManager = actorsManager;
         this.playerTextures.armsTextures = shirts.createShirtSleevesWithColors(playerTextures.armsTextures, style.shirtsArray[2]);
