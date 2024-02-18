@@ -1,0 +1,23 @@
+{
+  "name": "Rusty Sword",
+  "id": "rusty_sword",
+  "specs": {
+    "level": 1,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 0
+    },
+    "description": "A rusty, dull old sword.",
+    "damage": {
+      "min": 2,
+      "max": 6,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 50
+    }
+  }
+}
