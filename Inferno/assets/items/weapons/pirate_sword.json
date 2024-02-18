@@ -1,0 +1,23 @@
+{
+  "name": "Pirate's blade",
+  "id": "pirate_blade",
+  "specs": {
+    "level": 2,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 3,
+      "y": 5
+    },
+    "description": "It looks like a pirate owned this once.",
+    "damage": {
+      "min": 8,
+      "max": 14,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": 850,
+      "sell": 100
+    }
+  }
+}

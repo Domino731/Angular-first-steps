@@ -1,0 +1,22 @@
+{
+  "name": "Neptune's glaive",
+  "id": "neptune_glaive",
+  "specs": {
+    "level": 5,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 6,
+      "y": 1
+    },
+    "description": "\tAn heirloom from beyond the Gem Sea.",
+    "damage": {
+      "min": 18,
+      "max": 35,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "sell": 250
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Claymore",
+  "id": "claymore",
+  "specs": {
+    "level": 5,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 2,
+      "y": 1
+    },
+    "description": "It's really heavy.",
+    "damage": {
+      "min": 20,
+      "max": 32,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": 2000,
+      "sell": 250
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Galaxy sword",
+  "id": "galaxy_sword",
+  "specs": {
+    "level": 13,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 6,
+      "y": 7
+    },
+    "description": "It's unlike anything you've ever seen.",
+    "damage": {
+      "min": 60,
+      "max": 80,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": 50000,
+      "sell": 650
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Wooden blade",
+  "id": "wooden_blade",
+  "specs": {
+    "level": 1,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 4,
+      "y": 1
+    },
+    "description": "Not bad for a piece of carved wood.",
+    "damage": {
+      "min": 3,
+      "max": 7,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": 250,
+      "sell": 50
+    }
+  }
+}

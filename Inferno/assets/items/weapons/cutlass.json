@@ -1,0 +1,23 @@
+{
+  "name": "Cutlass",
+  "id": "cutlass",
+  "specs": {
+    "level": 3,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 4,
+      "y": 5
+    },
+    "description": "A finely crafted blade.",
+    "damage": {
+      "min": 9,
+      "max": 17,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": 1500,
+      "sell": 150
+    }
+  }
+}

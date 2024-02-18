@@ -1,0 +1,23 @@
+{
+  "name": "Insect head",
+  "id": "insect_head",
+  "specs": {
+    "level": 4,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 7,
+      "y": 1
+    },
+    "description": "Made powerful by forest magic.",
+    "damage": {
+      "min": 10,
+      "max": 20,
+      "criticalChange": ".04"
+    },
+    "price": {
+      "purchase": 10000,
+      "sell": 200
+    }
+  }
+}

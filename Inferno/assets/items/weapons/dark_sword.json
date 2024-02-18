@@ -1,0 +1,23 @@
+{
+  "name": "Dark sword",
+  "id": "dark_sword",
+  "specs": {
+    "level": 8,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 2,
+      "y": 0
+    },
+    "description": "It's glowing with vampire energy.",
+    "damage": {
+      "min": 30,
+      "max": 45,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 450
+    }
+  }
+}

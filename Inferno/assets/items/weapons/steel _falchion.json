@@ -1,0 +1,23 @@
+{
+  "name": "Steel falchion",
+  "id": "steel_falchion",
+  "specs": {
+    "level": 8,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 3,
+      "y": 7
+    },
+    "description": "Light and powerful.",
+    "damage": {
+      "min": 28,
+      "max": 46,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": 9000,
+      "sell": 400
+    }
+  }
+}

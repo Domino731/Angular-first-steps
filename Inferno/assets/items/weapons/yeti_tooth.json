@@ -1,0 +1,23 @@
+{
+  "name": "Yeti tooth",
+  "id": "yeti_tooth",
+  "specs": {
+    "level": 7,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 6
+    },
+    "description": "It's icy cold to the touch.",
+    "damage": {
+      "min": 26,
+      "max": 42,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 350
+    }
+  }
+}

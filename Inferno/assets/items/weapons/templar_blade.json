@@ -1,0 +1,23 @@
+{
+  "name": "Templar's blade",
+  "id": "templar_blade",
+  "specs": {
+    "level": 5,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 7,
+      "y": 1
+    },
+    "description": "It once belonged to an honorable knight.",
+    "damage": {
+      "min": 22,
+      "max": 29,
+      "criticalChange": ".00"
+    },
+    "price": {
+      "purchase": 4000,
+      "sell": 250
+    }
+  }
+}

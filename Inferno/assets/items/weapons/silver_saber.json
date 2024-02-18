@@ -1,0 +1,23 @@
+{
+  "name": "Silver saber",
+  "id": "silver_saber",
+  "specs": {
+    "level": 2,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 1,
+      "y": 0
+    },
+    "description": "Plated with silver to deter rust.",
+    "damage": {
+      "min": 8,
+      "max": 15,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": 750,
+      "sell": 100
+    }
+  }
+}

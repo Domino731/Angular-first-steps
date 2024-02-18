@@ -1,0 +1,22 @@
+{
+  "name": "Ossified Blade",
+  "id": "ossified_blade",
+  "specs": {
+    "level": 6,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 4,
+      "y": 6
+    },
+    "description": "A large, sharp blade formed from bone.",
+    "damage": {
+      "min": 26,
+      "max": 42,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "sell": 300
+    }
+  }
+}

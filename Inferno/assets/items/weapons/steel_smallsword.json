@@ -1,0 +1,23 @@
+{
+  "name": "Steel smallsword",
+  "id": "steel_smallsword",
+  "specs": {
+    "level": 1,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 3,
+      "y": 1
+    },
+    "description": "A standard metal blade.",
+    "damage": {
+      "min": 4,
+      "max": 8,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 50
+    }
+  }
+}

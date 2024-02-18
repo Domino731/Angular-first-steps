@@ -1,0 +1,23 @@
+{
+  "name": "Tempered broadsword",
+  "id": "tempered broadsword",
+  "specs": {
+    "level": 7,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 4,
+      "y": 5
+    },
+    "description": "It looks like it could withstand anything.",
+    "damage": {
+      "min": 29,
+      "max": 44,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 350
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Dragontooth cutlass",
+  "id": "dragontooth_cutlass",
+  "specs": {
+    "level": 13,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 1,
+      "y": 7
+    },
+    "description": "The blade was forged from a magical tooth.",
+    "damage": {
+      "min": 75,
+      "max": 90,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 650
+    }
+  }
+}

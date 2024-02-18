@@ -1,0 +1,23 @@
+{
+  "name": "Infinity sword",
+  "id": "infinity_sword",
+  "specs": {
+    "level": 17,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 6,
+      "y": 7
+    },
+    "description": "The true form of the Galaxy Sword.",
+    "damage": {
+      "min": 80,
+      "max": 100,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 850
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Iron edge",
+  "id": "iron_edge",
+  "specs": {
+    "level": 3,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 6,
+      "y": 0
+    },
+    "description": "A heavy broadsword.",
+    "damage": {
+      "min": 12,
+      "max": 25,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "sell": 150
+    }
+  }
+}

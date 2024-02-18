@@ -1,0 +1,22 @@
+{
+  "name": "Obsydian edge",
+  "id": "obsydian_edge",
+  "specs": {
+    "level": 6,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 1
+    },
+    "description": "It's incredibly sharp.",
+    "damage": {
+      "min": 30,
+      "max": 45,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "sell": 300
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Lava katana",
+  "id": "lava_katana",
+  "specs": {
+    "level": 10,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 1,
+      "y": 1
+    },
+    "description": "A powerful blade forged in a pool of churning lava.",
+    "damage": {
+      "min": 55,
+      "max": 64,
+      "criticalChange": ".015"
+    },
+    "price": {
+      "purchase": 25000,
+      "sell": 450
+    }
+  }
+}

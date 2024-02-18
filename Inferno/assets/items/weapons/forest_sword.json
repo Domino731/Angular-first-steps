@@ -1,0 +1,22 @@
+{
+  "name": "Forest sword",
+  "id": "forest_sword",
+  "specs": {
+    "level": 3,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 7,
+      "y": 1
+    },
+    "description": "Made powerful by forest magic.",
+    "damage": {
+      "min": 8,
+      "max": 18,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "sell": 150
+    }
+  }
+}
