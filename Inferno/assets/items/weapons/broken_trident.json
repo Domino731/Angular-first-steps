@@ -1,0 +1,23 @@
+{
+  "name": "Broken Trident",
+  "id": "broken_trident",
+  "specs": {
+    "level": 5,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 3,
+      "y": 6
+    },
+    "description": "It came from the sea, but it's still sharp.",
+    "damage": {
+      "min": 15,
+      "max": 26,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 250
+    }
+  }
+}

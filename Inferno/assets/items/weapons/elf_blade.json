@@ -1,0 +1,23 @@
+{
+  "name": "Elf Blade",
+  "id": "elf_blade",
+  "specs": {
+    "level": 2,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 4,
+      "y": 2
+    },
+    "description": "Only the nimble hands of an elf could craft this.",
+    "damage": {
+      "min": 3,
+      "max": 5,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 100
+    }
+  }
+}

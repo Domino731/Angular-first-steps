@@ -1,0 +1,23 @@
+{
+  "name": "Carving Knife",
+  "id": "carving_knife",
+  "specs": {
+    "level": 1,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 2
+    },
+    "description": "A small, light blade.",
+    "damage": {
+      "min": 1,
+      "max": 3,
+      "criticalChange": ".04"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 50
+    }
+  }
+}

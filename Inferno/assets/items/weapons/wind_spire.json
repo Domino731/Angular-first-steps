@@ -1,0 +1,23 @@
+{
+  "name": "Wind Spire",
+  "id": "wind_spire",
+  "specs": {
+    "level": 1,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 6,
+      "y": 2
+    },
+    "description": "A swift little blade.",
+    "damage": {
+      "min": 1,
+      "max": 5,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 50
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Shadow dagger",
+  "id": "shadow_dagger",
+  "specs": {
+    "level": 4,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 3,
+      "y": 2
+    },
+    "description": "When you hold the blade to your ear you can hear 1,000 souls shrieking.",
+    "damage": {
+      "min": 10,
+      "max": 20,
+      "criticalChange": ".04"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 200
+    }
+  }
+}

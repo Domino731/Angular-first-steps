@@ -1,0 +1,23 @@
+{
+  "name": "Galaxy Dagger",
+  "id": "galaxy_dagger",
+  "specs": {
+    "level": 8,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 7,
+      "y": 2
+    },
+    "description": "It's unlike anything you've seen.",
+    "damage": {
+      "min": 30,
+      "max": 40,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": 35000,
+      "sell": 400
+    }
+  }
+}

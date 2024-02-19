@@ -1,0 +1,23 @@
+{
+  "name": "Wicked Kris",
+  "id": "wicked_kris",
+  "specs": {
+    "level": 8,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 5,
+      "y": 5
+    },
+    "description": "The blade is made of an iridium alloy",
+    "damage": {
+      "min": 24,
+      "max": 30,
+      "criticalChange": ".06"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 400
+    }
+  }
+}

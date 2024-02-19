@@ -1,0 +1,23 @@
+{
+  "name": "Burglar's shank",
+  "id": "burglar_shank",
+  "specs": {
+    "level": 4,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 2,
+      "y": 2
+    },
+    "description": "A weapon of choice for the swift and silent.",
+    "damage": {
+      "min": 7,
+      "max": 12,
+      "criticalChange": ".04"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 200
+    }
+  }
+}
