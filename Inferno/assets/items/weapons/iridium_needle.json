@@ -1,0 +1,23 @@
+{
+  "name": "Iridium needle",
+  "id": "iridium_needle",
+  "specs": {
+    "level": 12,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 5,
+      "y": 7
+    },
+    "description": "The point is unbelievably sharp, even down to the atomic level.",
+    "damage": {
+      "min": 20,
+      "max": 35,
+      "criticalChange": ".01"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 600
+    }
+  }
+}

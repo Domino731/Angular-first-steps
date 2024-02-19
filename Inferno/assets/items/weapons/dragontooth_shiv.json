@@ -1,0 +1,23 @@
+{
+  "name": "Dragontooth Shiv",
+  "id": "dragontooth_shiv",
+  "specs": {
+    "level": 12,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 3,
+      "y": 7
+    },
+    "description": "The blade was forged from a magical tooth.",
+    "damage": {
+      "min": 40,
+      "max": 50,
+      "criticalChange": ".05"
+    },
+    "price": {
+      "purchase": 35000,
+      "sell": 600
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Dwarf dagger",
+  "id": "dwarf_dagger",
+  "specs": {
+    "level": 11,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 7
+    },
+    "description": "It's ancient, but the blade never dulls.",
+    "damage": {
+      "min": 32,
+      "max": 38,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": 35000,
+      "sell": 400
+    }
+  }
+}
