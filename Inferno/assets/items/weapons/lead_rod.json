@@ -1,0 +1,23 @@
+{
+  "name": "Lead Rod",
+  "id": "lead_rod",
+  "specs": {
+    "level": 4,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 2,
+      "y": 3
+    },
+    "description": "It's incredibly heavy.",
+    "damage": {
+      "min": 18,
+      "max": 27,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 200
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Fermur",
+  "id": "fermur",
+  "specs": {
+    "level": 2,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 7,
+      "y": 3
+    },
+    "description": "An old, heavy bone caked in centuries of grime.",
+    "damage": {
+      "min": 6,
+      "max": 11,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 100
+    }
+  }
+}

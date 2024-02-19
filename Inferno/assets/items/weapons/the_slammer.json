@@ -1,0 +1,23 @@
+{
+  "name": "The slammer",
+  "id": "the_slammer",
+  "specs": {
+    "level": 7,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 4,
+      "y": 3
+    },
+    "description": "A brute's companion.",
+    "damage": {
+      "min": 27,
+      "max": 40,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 250
+    }
+  }
+}

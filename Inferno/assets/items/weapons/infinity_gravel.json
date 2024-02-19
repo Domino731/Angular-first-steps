@@ -1,0 +1,23 @@
+{
+  "name": "Infinity gravel",
+  "id": "infinity_gravel",
+  "specs": {
+    "level": 17,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 7,
+      "y": 7
+    },
+    "description": "This club was crafted from a magical tooth.",
+    "damage": {
+      "min": 100,
+      "max": 120,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 850
+    }
+  }
+}

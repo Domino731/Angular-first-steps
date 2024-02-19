@@ -1,0 +1,23 @@
+{
+  "name": "Dwarf hammer",
+  "id": "dwarf_hammer",
+  "specs": {
+    "level": 13,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 7,
+      "y": 6
+    },
+    "description": "It emits a very faint whirring sound.",
+    "damage": {
+      "min": 75,
+      "max": 85,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 650
+    }
+  }
+}

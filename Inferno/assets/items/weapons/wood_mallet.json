@@ -1,0 +1,23 @@
+{
+  "name": "Wood Mallet",
+  "id": "wood_mallet",
+  "specs": {
+    "level": 3,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 3,
+      "y": 3
+    },
+    "description": "The solid head packs a punch. Relatively light for a club.",
+    "damage": {
+      "min": 15,
+      "max": 24,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": 2000,
+      "sell": 150
+    }
+  }
+}

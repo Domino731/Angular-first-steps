@@ -1,0 +1,23 @@
+{
+  "name": "Galaxy hammer",
+  "id": "the_slammer",
+  "specs": {
+    "level": 12,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 5,
+      "y": 3
+    },
+    "description": "It's made from an ultra-light material you've never seen before.",
+    "damage": {
+      "min": 70,
+      "max": 90,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": 75000,
+      "sell": 600
+    }
+  }
+}

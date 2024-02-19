@@ -1,0 +1,23 @@
+{
+  "name": "Dragontooth club",
+  "id": "dragontooth_club",
+  "specs": {
+    "level": 14,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 2,
+      "y": 6
+    },
+    "description": "This club was crafted from a magical tooth.",
+    "damage": {
+      "min": 80,
+      "max": 100,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 700
+    }
+  }
+}

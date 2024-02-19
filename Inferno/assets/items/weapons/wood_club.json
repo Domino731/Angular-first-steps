@@ -1,0 +1,23 @@
+{
+  "name": "Wood Club",
+  "id": "wood_club",
+  "specs": {
+    "level": 2,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 0,
+      "y": 3
+    },
+    "description": "A solid piece of wood, crudely chiseled into a club shape.",
+    "damage": {
+      "min": 9,
+      "max": 16,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 100
+    }
+  }
+}

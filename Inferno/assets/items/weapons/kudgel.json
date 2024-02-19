@@ -1,0 +1,23 @@
+{
+  "name": "Kudgel",
+  "id": "kudgel",
+  "specs": {
+    "level": 5,
+    "texture": {
+      "width": 16,
+      "height": 16,
+      "x": 6,
+      "y": 5
+    },
+    "description": "A brute's companion.",
+    "damage": {
+      "min": 27,
+      "max": 40,
+      "criticalChange": ".02"
+    },
+    "price": {
+      "purchase": null,
+      "sell": 250
+    }
+  }
+}
